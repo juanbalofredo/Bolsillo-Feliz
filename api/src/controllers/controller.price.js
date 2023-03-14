@@ -1,6 +1,16 @@
-import { allPrices, createPrices, updatePrices }  from "../helpers/helpers.price.js";
+import { allPrices, createPrices, updatePrices } from "../helpers/helpers.price.js";
 
-export const postPrice = async (req, res) => {
+export const postNonEspecialtPrice = async (req, res) => {
+    const infoBody = req.body
+    try {
+        let createPricesHere = await createPrices(infoBody);
+        res.status(200).json(createPricesHere);
+    } catch (error) {
+        res.status(400).send({ err: error.message })
+    }
+}
+
+export const postEspecialPrice = async (req, res) => {
     const infoBody = req.body
     try {
         let createPricesHere = await createPrices(infoBody);

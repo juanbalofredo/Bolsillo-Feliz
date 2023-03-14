@@ -3,6 +3,7 @@ import { Op } from "sequelize";
 import Prices from "../models/price.js";
 import SuperM from "../models/superM.js";
 import { productos } from "../prueba(4).js";
+import { createPrices } from "./helpers.price.js";
 
 export async function getAllProducts() {
     const allProducts = await Products.findAll(
@@ -270,7 +271,39 @@ export async function createProducts(productsFromBody) {
         let createProducts = await Products.bulkCreate(productos)
         return createProducts;
     }
-    let { name, brand, image, category } = productsFromBody
-    let createProduct = await Products.create({ name, brand, image, category })
-    return createProduct;
+    let { name, brand, image, category, superMId, price } = productsFromBody;
+
+    // verifico si superMId existe de no existir tira error
+    let verifySupermId = await SuperM.findOne({
+        where: { id: superMId }
+    })
+    console.log("esto es verify ",verifySupermId)
+    if (verifySupermId) {
+
+        //comprobado la existencia creo el producto
+        let createProduct = await Products.create({ name, brand, image, category })
+        // console.log("esto es createProduct =>", createProduct)
+
+        // ahora creo la relacion producto precio con la propiedad id del producto y el superMId
+        await createPrices({ price, superMId, productId: createProduct.id })
+
+        //una vez añadido el producto buscamos el producto con el id del producto y tmb incluimos el precio
+        let productAndPrice = await Products.findOne({
+            where: { id: createProduct.id },
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
+        })
+        return productAndPrice;
+    }
+    throw Error(`Error: market ${superMId} does not exist`)
 }

@@ -8,8 +8,7 @@ import users from '../routes/user.Router.js';
 import review from "../routes/review.Router.js";
 import market from '../routes/market.Router.js';
 import perfiles from '../routes/perfiles.router.js';
-import routerPrice from '../routes/router.price.js';
-
+import price from '../routes/price.router.js';
 const server = express();
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
@@ -24,13 +23,11 @@ server.use((req, res, next) => {
   next();
 });
 
-// server.use('/products', products);
 server.use('/user', users);
 server.use('/reviews', review)
-// server.use('/market', market)
 server.use('/perfiles', perfiles)
 server.use("/products", products);
-server.use("/price", routerPrice);
+server.use("/price", price);
 server.use("/market", market);
 
 // Error catching endware.
