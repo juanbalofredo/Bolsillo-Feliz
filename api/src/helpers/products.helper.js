@@ -29,6 +29,18 @@ export async function getAllProducts() {
 export function getProductsById(id) {
     const productsById = Products.findOne({
         where: { id },
+        include: [
+            {
+                model: Prices,
+                attributes: ['price'],
+                include: [
+                    {
+                        model: SuperM,
+                        attributes: ['name', "image", "id"]
+                    }
+                ]
+            }
+        ],
     });
     return productsById;
 }

@@ -51,23 +51,23 @@ export const getCategoryParams = async (
   dispatch,
   category,
   brand,
-  pname,
-  order
+  order,
+  pname
 ) => {
   try {
     const petition = await axios.get(
       `http://localhost:3001/products/category/${category}/${brand}/${order}/${pname}`
     );
     if (category !== "all") {
-      dispatch(Category(petition?.data[0].category));
+      dispatch(Category(category));
       dispatch(filterCategory(petition?.data));
     }
     if (brand !== "all") {
-      dispatch(Brand(petition?.data[0].brand));
+      dispatch(Brand(brand));
       dispatch(filterCategory(petition?.data));
     }
     if (pname !== "all") {
-      dispatch(Pname(petition?.data[0].name));
+      dispatch(Pname(pname));
       dispatch(filterPName(petition?.data));
     } else {
       dispatch(filterCategory(petition?.data));
@@ -81,10 +81,10 @@ export const rsetFilters = async (dispatch) => {
   try {
     const petition = await axios.get("http://localhost:3001/products");
     dispatch(
-      resetFilter(petition?.data.filter((a) => a.supermarket === "General"))
-    );
+      resetFilter(petition?.data))
     dispatch(Brand("all"));
     dispatch(Category("all"));
+    dispatch(Pname("all"));
   } catch (error) {
     return error.response;
   }

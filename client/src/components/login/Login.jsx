@@ -36,11 +36,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-
-  const [error, setError] = useState({
-    email: "",
-    password: "",
-  });
   function setear(e) {
     const { name, value } = e.target;
     setInput({
@@ -95,9 +90,6 @@ const Login = () => {
                     onChange={setear}
                     placeholder="emailExample@gmail.com"
                   />
-                  {error.email.length ? (
-                    <span id="error_name">{error.email}</span>
-                  ) : null}
                 </div>
                 <div className="rgister-contra">
                   <input
@@ -108,9 +100,6 @@ const Login = () => {
                     value={input.password}
                     placeholder="Contraseña"
                   />
-                  {error.password.length ? (
-                    <span id="error_name">{error.password}</span>
-                  ) : null}
                 </div>
                 <button type="submit" onClick={login}>
                   Iniciar sesion
