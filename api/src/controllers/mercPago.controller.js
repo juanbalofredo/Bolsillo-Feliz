@@ -1,47 +1,30 @@
 import mercadopago from "mercadopago";
 
-// REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel
-mercadopago.configure({
-	access_token: "TEST-6855367691697925-030817-8621a90b766c6fbe43a243575f2241f2-1326325722",
-});
+mercadopago.configure({ access_token: process.env.MP_TOKEN });
 
-
-export function payment(req, res) {
-
-	let preference = {
-		items: [
-			{
-        title: req.body.description,
-				unit_price: Number(req.body.price),
-				quantity: Number(req.body.quantity)
-			}
-		],
-		back_urls: {
-			"success": "http://localhost:8080/feedback",
-			"failure": "http://localhost:8080/feedback",
-			"pending": "http://localhost:8080/feedback"
-		},
-		auto_return: "approved",
-	};
-
-	mercadopago.preferences.create(preference)
-		.then(function (response) {
-			res.json({
-				id: response.body.id
-			});
-		}).catch(function (error) {
-			console.log(error);
-		});
+const payment = async (req, res) => {
+  const preference = {
+	items: [
+	  {
+		title: "Membresía anual",
+		unit_price: 100,
+		quantity: 1,
+	  },
+	],
+    back_urls: {
+      success: "http://localhost:3000/home",
+      failure: "http://localhost:3000/home",
+      pending: "http://localhost:3000/home",
+    },
+    auto_return: "approved",
+    binary_mode: true,
+  };
+  
+  
+  mercadopago.preferences
+    .create(preference)
+    .then((response) => res.status(200).send({ response }))
+    .catch((error) => res.status(400).send({ error: error.message }));
 };
 
-export function feedback(req, res) {
-	res.json({
-		Payment: req.query.payment_id,
-		Status: req.query.status,
-		MerchantOrder: req.query.merchant_order_id
-	});
-};
-
-
-
-// // https://api.mercadopago.com/preapproval 
+export default payment;
