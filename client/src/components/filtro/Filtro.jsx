@@ -16,11 +16,8 @@ const Filtro = () => {
   const dispatch = useDispatch();
   const duplicatesArray = [];
   const seenElements = {};
-  //hola
   const valor = "ASC";
-  const stateSupermarket = useSelector((state) => state.bolsilloFeliz.brand);
-  const stateCategory = useSelector((state) => state.bolsilloFeliz.category);
-  const statePname = useSelector((state) => state.bolsilloFeliz.pname);
+  const {brand,category,pname} = useSelector((state) => state.bolsilloFeliz);
   todasMarcas.forEach((element) => {
     if (seenElements[element]) {
       duplicatesArray.push(element);
@@ -32,18 +29,17 @@ const Filtro = () => {
 
   async function handleFilterCategory(e) {
     dispatch(resPage())
-    getCategoryParams(dispatch, e, stateSupermarket, valor,statePname);
+    getCategoryParams(dispatch, e, brand, valor,pname);
   }
 
   async function handleFilterBrand(e) {
     dispatch(resPage())
-    console.log(stateCategory,e,valor)
-    getCategoryParams(dispatch, stateCategory, e,valor,statePname);
+    getCategoryParams(dispatch, category, e,valor,pname);
   }
 
   async function handleFilterReset() {
     dispatch(resPage())
-    dispatch(rsetFilters(dispatch));
+    rsetFilters(dispatch);
   }
 
   return (
@@ -83,7 +79,7 @@ const Filtro = () => {
           <h3 name="filtPorRelleno" id="filtPorRelleno">
             Marca
           </h3>
-          <label onClick={(e) => handleFilterReset()} value="">
+          <label onClick={(e) => handleFilterReset} value="">
             Todas
           </label>
           {sinNorepetidos.map((categoria, index) => (

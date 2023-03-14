@@ -30,6 +30,7 @@ export function getUserByEmail(comparing) {
 };
 export async function getUserSoloByEmail(comparing) {
     let { email } = comparing
+
     let userByEmail;
     let emailDataBase = await Users.findOne({ where: { email } })
     if (!emailDataBase) {

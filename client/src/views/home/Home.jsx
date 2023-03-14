@@ -75,8 +75,5 @@ const Home = () => {
     </>
   );
 };
-// {state.pokemonFilter?.slice((page -1) * perPage, (page -1) * perPage + perPage).map((p)=>(
-//     <Card key={p.name} pokemon={p} />
-//     ))}
 
 export default Home;

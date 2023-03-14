@@ -35,7 +35,7 @@ export async function crearUser(input) {
         password: input.password,
         type_account: "1",
       })
-      .then((e) => {});
+      return user;
   } catch (error) {
     return error.message;
   }
