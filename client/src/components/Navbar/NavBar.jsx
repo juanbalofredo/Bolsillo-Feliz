@@ -18,7 +18,7 @@ const Navbar = () => {
 
   useEffect(
     function () {
-      if (state.darkMode == true) {
+      if (state.darkMode === true) {
         document.querySelector("body").setAttribute("class", "bodyDark");
         document.querySelector("body").setAttribute("theme", "dark");
         document
@@ -59,7 +59,7 @@ const Navbar = () => {
     }).then((result) => {
       if (result === true) {
         dispatch(loggedOut());
-        window.location.href = "/home"
+        window.location.href = "/home";
       }
     });
   };
@@ -96,9 +96,18 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <button className="navButton" onClick={logOuter}>
-              Cerrar sesion
-            </button>
+            <> 
+              {
+              //hacer con un short circuit que si el usuario logeado es vendedor aparezca el boton linkeado
+              // user.rol === "vendedor" && <El boton/>
+            }
+              <Link to="/form">
+                <button className="navButton">Agregar producto</button>
+              </Link>
+              <button className="navButton" onClick={logOuter}>
+                Cerrar sesion
+              </button>
+            </>
           )}
         </div>
 
