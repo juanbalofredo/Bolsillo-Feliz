@@ -9,6 +9,7 @@ import DashUsers from "./components/dashboard/DashUsers";
 import Form from "./views/form/Form"
 import MercadoP from "./views/cart/Cart"
 import About from "./views/about/About"
+import Market from "./views/market/Market";
 import AutorizacionMercader from "./views/autorizacionMercader/AutorizacionMercader";
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
@@ -27,6 +28,7 @@ const App =()=>{
         <Route exact path="/form" element={<Form/>} />
         <Route exact path="/dashuser" element={<DashUsers/>} />
         <Route exact path="/products/id/:id" element={<DetalleProd/>} />
+        <Route exact path="/market/id/:id" element={<Market/>} />
         <Route exact path="/mp" element={<MercadoP/>} />
         <Route exact path="/about" element={<About/>} />
         <Route exact path="/autorizacion" element={<AutorizacionMercader/>} />
