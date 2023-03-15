@@ -92,12 +92,12 @@
   object-fit: contain;
 }
 
-h3 {
+.text h3 {
   color: white;
   margin-left: 85px;
 }
 
-h2 {
+.text h2  {
   color: white;
   margin-left: 30px;
 }
