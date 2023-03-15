@@ -21,14 +21,18 @@ const Reviews = dataBase.define('reviews', {
     score: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        validate: [[1,2,3,4,5]]
+        validate: {
+            isIn: [[1,2,3,4,5]]
+        }
     }
 }, { timestamps: false })
 
 Reviews.belongsTo(Users, {
     foreignKey: 'userId', // Especifica el nombre de la columna en la tabla posts
+    as: 'user',
     timestamps: false
 });
+Users.hasMany(Reviews);
 
 SuperM.hasMany(Reviews);
 Reviews.belongsTo(SuperM);

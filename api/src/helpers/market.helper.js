@@ -17,10 +17,17 @@ export function getMarketById(id) {
           include: [
             {
               model: Reviews,
-              attributes: []
+              attributes: ['message', 'score'],
+              include: [
+                {
+                    model: Users,
+                    as: 'user',
+                    attributes: ['id','name']
+                }
+              ]
             }
           ],
-          group: ['superM.id', 'superM.name']
+          group: ['superM.id', 'superM.name','reviews.id','reviews->user.id']
     });
     return getId;
 }
