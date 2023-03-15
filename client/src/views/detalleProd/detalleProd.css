@@ -1,4 +1,22 @@
-.Detail-container {
+.container-Detail{
+  display: flex;
+  padding: 10px;
+  gap: 50px;
+}
+.comparador-card{
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
+.comparador-card img{
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
+.columns_info img{
+  width: 300px;
+}
+/* .Detail-container {
   height: 140vh;
   display: flex;
   justify-content: center;
@@ -51,4 +69,4 @@
 }
 .textContainer {
   width: 25rem;
-}
+} */
