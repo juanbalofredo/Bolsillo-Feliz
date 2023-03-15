@@ -866,20 +866,7 @@ export let productos = productosUnidos.map((ele, indice) => {
     let atributosFiltrados = { name, brand, category, image };
     return atributosFiltrados;
 })
-// console.log(productos)
 
-// console.log("esto es productos =>",productos)
-// let minimoEspeciales = 200;
-// let precioPorMercadoEspeciales = []
-// for (let j = 0; j < productosEspeciales.length; j++) {
-//     let precioRamdom = Math.floor(Math.random() * 21) + minimoEspeciales;
-//     let precio = {
-//         productoId: j + 1,
-//         mercadoId: j + 1,
-//         precio: precioRamdom
-//     }
-//     preciosPorMercado.push(precio);
-// }
 
 let preciosEspeciales = [
     {
@@ -905,12 +892,7 @@ let preciosEspeciales = [
     }
 ]
 
-// console.log(productosEspeciales)
 
-
-
-
-// console.log ("esto es el CONSOLE.LOG ====>", productosNoEspeciales)
 
 export const tiendas = [
     {
@@ -967,86 +949,19 @@ for (let i = 0; i < productosNoEspeciales.length; i++) {
 
 // console.log(preciosPorMercadoNoEspeciales)
 export let precios = [...preciosPorMercadoNoEspeciales, ...preciosEspeciales]
-// console.log(precios[precios.length-1])
-// console.log(precios[precios.length-2])
-// console.log(precios[precios.length-3])
-// console.log(precios[precios.length-4])
-// console.log(precios[precios.length-5])
+let arrayUsers = [];
+for (let i = 1; i < 21; i++) {
+    let generateUser = {
+        "name": `User ${i}`,
+        "last_name": `LastName ${i}`,
+        "avatar": `Link ${i}`,
+        "email": `correo_${i}@email.com`,
+        "type_account": "1",
+        "notifications": false,
+        "activity": false,
+        "hashgoogle": "xiEulWfqQiNEtMlclpCQPhO2cY" + i
+    }
+    arrayUsers.push(generateUser)
+}
 
-// {
-//     productoId: 1,
-//         mercadoId: 1,
-//             precio: 100
-// }
-//   1 | dia
-//   2 | coto
-//   3 | carrefour
-//   4 | disco
-//   5 | jumbo
-//   6 | vea
-//   7 | vital
-//   8 | walmart
-
-// productosNoEspeciales.forEach(e => {
-//     let coto = Math.floor(Math.random() * 21) + 1900;
-
-// })
-// console.log(soloProductos);
-
-// const productosEspeciales = Allproducts.filter(element => {
-//     if (element.brand === "Carrefour" || element.brand === "Dia" || element.brand === "Coto") {
-//         return element;
-//     }
-
-
-// });q
-
-// const productosNoEspeciales = Allproducts.filter(element => {
-//     if (element.brand !== "Carrefour" && element.brand !== "Dia" && element.brand !== "Coto") {
-//         return element;
-//     }
-// });
-
-
-//
-
-// // console.log(uniendoArrays) para ver mis commits
-
-// productosNoEspeciales.forEach(e => {
-//     let coto = Math.floor(Math.random() * 21) + 190;
-//     let dia = Math.floor(Math.random() * 21) + 190;
-//     let jumbo = Math.floor(Math.random() * 21) + 190;
-//     let carrefour = Math.floor(Math.random() * 21) + 190;
-//     let vital = Math.floor(Math.random() * 21) + 190;
-//     let wakmart = Math.floor(Math.random() * 21) + 190;
-//     let disco = Math.floor(Math.random() * 21) + 190;
-//     let preciosRamdon = [
-//!         { name: "coto", price: coto, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png" },
-//?         { name: "dia", price: dia, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png" },
-//*         { name: "jumbo", price: jumbo, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png" },
-//         { name: "carrefour", price: carrefour, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png" },
-//         { name: "vital", price: vital, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png" },
-//         { name: "walmart", price: wakmart, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp" },
-//         { name: "disco", price: disco, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png" }
-//     ]
-//     e.price = preciosRamdon
-// })
-
-// let uniendoArrays = [...productosEspeciales, ...productosNoEspeciales];
-
-// uniendoArrays.forEach(element => {
-//     if (element.brand !== "Carrefour" && element.brand !== "Dia" && element.brand !== "Coto") {
-//         console.log(element)
-//     }
-// })
-
-
-// console.log(uniendoArrays[0]);
-// console.log(uniendoArrays[1]);
-// console.log(uniendoArrays[2]);
-// console.log(uniendoArrays[3]);
-// console.log(uniendoArrays[4]);
-// console.log(uniendoArrays[5]);
-// console.log(uniendoArrays[6]);
-
-// module.exports = { productosEnOrden, tiendas, uniendoPrecios };
+export let Usuarios = [...arrayUsers]
