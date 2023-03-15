@@ -18,7 +18,6 @@ body {
   align-items: center;
   margin: 0;
   justify-content: center;
-  margin-bottom: 100px;
 }
 
 .reg-google-fac {
@@ -85,9 +84,7 @@ body {
   border-radius: 4px;
 }
 
-.reg-todo {
-  padding-bottom: 3rem;
-}
+
 
 .register-text button:hover {
   font-family: 'Phudu', cursive;

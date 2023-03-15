@@ -1,27 +1,9 @@
-.container-Detail{
-  display: flex;
-  padding: 10px;
-  gap: 50px;
-}
-.comparador-card{
-  height: 100px;
-  width: 100px;
-  background-color: red;
-}
-.comparador-card img{
-  height: 100px;
-  width: 100px;
-  background-color: red;
-}
-.columns_info img{
-  width: 300px;
-}
-/* .Detail-container {
-  height: 140vh;
+.Detail-container {
   display: flex;
   justify-content: center;
-  font-family: 'Phudu', cursive;
+  font-family: "Phudu", cursive;
   color: #040c2e;
+  height: fit-content;
 }
 .Detail-container a button {
   border-radius: 5px;
@@ -36,21 +18,40 @@
   border: none;
   transition: 0.3s;
   color: white;
-  font-family: 'Phudu', cursive;
+  font-family: "Phudu", cursive;
 }
 .Detail-container a button:hover {
   background-color: #112749;
 }
 .det-prod {
-  margin-top: 100px;
-  height: 100vh;
-  width: 40rem;
+  margin-top: 7rem;
+  height: 60vh;
+  width: 30rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
 }
+.detail-precio-s img {
+  width: 5rem;
+}
+.detail-compara-cont {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detail-precio-s {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+}
+
 .imageContainer img {
   margin-top: 50px;
   width: 20rem;
@@ -69,4 +70,17 @@
 }
 .textContainer {
   width: 25rem;
-} */
+text-align: center;
+}
+.contenedor-detail {
+  display: grid;
+  grid-template-columns: 10rem 10rem;
+  height: 10rem;
+  text-align: center;
+  gap: 2rem;
+}
+
+.contenedor-detail {
+  margin-top: 7rem;
+  margin-left: 10rem;
+}

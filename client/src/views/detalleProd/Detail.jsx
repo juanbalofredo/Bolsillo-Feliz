@@ -21,44 +21,50 @@ const DetalleProd = () => {
         return err;
       });
   }, [id]);
+
+  if (product) {
+    
+  
   return (
     <>
-    <NavBar/>
-          <div className="detail-back">
-            <NavLink to="/home"> Volver </NavLink>
+      <NavBar />
+      <div className="Detail-container">
+        <Link to="/home">
+          <button className="detail-back">Volver</button>
+        </Link>
+        <div className="det-prod">
+          <div className="imageContainer">
+            <img src={product.image} alt="product" className="" />
           </div>
-      <div className="container-Detail">
-        <div className="Detail-container">
-          {product ? (
-            <div className="details">
-              <div className="columns_info">
-                <h2 className="name_details">{product.name}</h2>
-                <img src={product.image} alt={product.name} />
-                <p className="info_details">{product?.price}</p>
-                <p className="info_details">{product?.brand}</p>
-                <p className="info_details">{product?.category}</p>
-                <p className="info_details">{product?.unity}</p>
-              </div>
-            </div>
-          ) : (
-            <DetailLoading />
-          )}
+          <div className="textContainer">
+            <h2 className="texts">{product.name}</h2>
+              <h3 className="texts">
+                Marca:  {product.brand}
+              </h3>
+          </div>
         </div>
-        <div className="comparador-container">
-          Otros Supermercados :
+        <div className="contenedor-detail">
+          {" "}
           {product?.prices.map((e, k) => {
             return (
-              <div className="comparador-card" key={k}>
-                <p className="text">{e.superM.name}</p>
-                <p className="text">{e.price}</p>
-                <img src={e.superM.image} alt={e.image} />
+              // <div className="comparador-card" key={k}>
+              //   <p className="text">{e.superM.name}</p>
+              //   <p className="text">{e.price}</p>
+              //   <img src={e.superM.image} alt={e.image} />
+              // </div>
+              <div className="detail-compara-cont" key={k}>
+                <div className="detail-precio-s">
+                  <img src={e.superM.image} alt={e.image} />
+                </div>
+                <h3 className="super-det-pre">${e.price}</h3>
               </div>
             );
           })}
         </div>
       </div>
+      <Footer />
     </>
-  );
+  )};
 };
 
 export default DetalleProd;

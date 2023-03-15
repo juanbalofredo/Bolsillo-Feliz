@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loggedOut, changeTheme } from "../../redux/slice/persistSlice";
 import swal from "sweetalert";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   const state = useSelector((state) => state.bolsilloPersist);
@@ -17,7 +18,7 @@ const Navbar = () => {
 
   useEffect(
     function () {
-      if (state.darkMode == true) {
+      if (state.darkMode === true) {
         document.querySelector("body").setAttribute("class", "bodyDark");
         document.querySelector("body").setAttribute("theme", "dark");
         document
@@ -58,10 +59,11 @@ const Navbar = () => {
     }).then((result) => {
       if (result === true) {
         dispatch(loggedOut());
-        window.location.href = "/home"
+        window.location.href = "/home";
       }
     });
   };
+
 
   return (
     <section className="" id="navbar1">
@@ -73,7 +75,7 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="searchbar-container"></div>
+      <div className="searchbar-container">{window.location.href === "http://localhost:3000/home"? <SearchBar/>:null}</div>
 
       <div className="login-Container">
         <div onClick={() => setActive(!active)}></div>
@@ -94,9 +96,18 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <button className="navButton" onClick={logOuter}>
-              Cerrar sesion
-            </button>
+            <> 
+              {
+              //hacer con un short circuit que si el usuario logeado es vendedor aparezca el boton linkeado
+              // user.rol === "vendedor" && <El boton/>
+            }
+              <Link to="/form">
+                <button className="navButton">Agregar producto</button>
+              </Link>
+              <button className="navButton" onClick={logOuter}>
+                Cerrar sesion
+              </button>
+            </>
           )}
         </div>
 

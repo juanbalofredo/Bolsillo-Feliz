@@ -157,23 +157,27 @@ html {
   height: 300px;
 }
 .slider-home {
-  background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678680730/digjw4howjydwikeqd6y.jpg);
+  background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/jnvokhcbwytwbxw4pgco.png);
   background-size: cover;
   width: 100vw;
   height: 100%;
-  animation: animate 30s infinite;
+  animation: animate 80s ease 0.1s infinite;
 }
 @keyframes animate {
-  33% {
-    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678680730/fryylglf4wbk9nq8nupb.jpg);
+  25% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/qv4vdzkdgpkfirj4p49o.png);
     background-size: cover;
   }
-  66% {
-    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678680730/okcgxudlfp0k04nk00kg.jpg);
+  50% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/m9nyct3jtxtc8jnilkq2.png);
+    background-size: cover;
+  }
+  75% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/bipstgfnbg4om9nlytb9.png);
     background-size: cover;
   }
   100% {
-    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678680730/digjw4howjydwikeqd6y.jpg);
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/jnvokhcbwytwbxw4pgco.png);
     background-size: cover;
   }
 }

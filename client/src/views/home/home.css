@@ -42,10 +42,9 @@ body {
 .Home-container {
   display: flex;
   flex-direction: column;
+  margin-left: 7rem;
 }
 .container-de-cintainer {
   display: flex;
 }
-.pag-but-que {
-  padding-bottom: 300px;
-}
+

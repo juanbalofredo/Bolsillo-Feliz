@@ -1,6 +1,5 @@
 .login-container {
   height: 100vh;
-  padding-bottom: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +19,4 @@
 }
 .rgister-contra #error_name {
   color: red;
-}
-.reg-google-fac p{
-  background-color: black;
 }
