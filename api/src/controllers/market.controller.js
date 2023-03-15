@@ -36,7 +36,7 @@ export async function getById(req, res) {
         const response = await getMarketById(id);
         if (!response) return res.status(404).send("Not found 404");
         return res.status(200).json(response);
-    } catch {
+    } catch (error) {
         return res.status(500).json({ err: error.message })
     };
 };
