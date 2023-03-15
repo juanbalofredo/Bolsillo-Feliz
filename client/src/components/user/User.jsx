@@ -36,7 +36,7 @@ export const User = () => {
       {rol === "2" ? (
         <div className="merc-container">
           <p className="name">
-            <Link to="/dashuser">Mi mercado</Link>{" "}
+            <Link to="/form">Mi mercado</Link>{" "}
           </p>
         </div>
       ) : null}

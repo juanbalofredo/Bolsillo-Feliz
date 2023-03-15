@@ -1,7 +1,9 @@
 import "./form.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { postProduct } from "../../redux/apiPetitions/productsPetitions";
+import { getProductos } from "../../redux/apiPetitions/productsPetitions";
+
 
 export const Form2 = () => {
   const dispatch = useDispatch();
@@ -14,7 +16,12 @@ export const Form2 = () => {
   const allProducts = [
     ...new Set(state.products.map((a) => a.name)),
   ].sort();
+
+  useEffect(() => {
+      getProductos(dispatch);
+  }, [dispatch]);
   
+
   const [input, setInput] = useState({
     price: "",
     category: "",
