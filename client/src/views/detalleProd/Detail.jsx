@@ -24,7 +24,6 @@ const DetalleProd = () => {
   }, [id]);
 
   if (product) {
-    console.log(product);
     const emilia = product.prices.sort((a, b) => a.price - b.price);
     return (
       <>

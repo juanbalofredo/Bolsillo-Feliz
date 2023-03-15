@@ -1,0 +1,18 @@
+.img-market-f {
+  width: 30%;
+}
+.container-market-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-market-c h1 {
+  background-color: white;
+}
+.container-prod-market {
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  height: 40rem;
+  grid-template-columns: auto auto auto auto auto;
+}
