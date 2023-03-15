@@ -19,8 +19,9 @@ const Reviews = dataBase.define('reviews', {
     },
     // agregar supermercado y puntaje
     score: {
-        type: DataTypes.ENUM('1','2','3','4','5'),
-        allowNull: false
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: [[1,2,3,4,5]]
     }
 }, { timestamps: false })
 

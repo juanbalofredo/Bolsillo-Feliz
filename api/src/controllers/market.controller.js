@@ -1,8 +1,25 @@
 import { getMarketById, deleteMarketById, createSmarket } from "../helpers/market.helper.js";
 import SuperM from "../models/superM.js";
+import { Sequelize } from "sequelize";
+import Reviews from "../models/review.js";
 //listo
 export async function getAllMarket(req, res) {
-    const allMarkets = await SuperM.findAll();
+    const allMarkets = await SuperM.findAll({
+        attributes: [
+            'name',
+            'image',
+            'superM.id',
+            'superM.name',
+            [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
+          ],
+          include: [
+            {
+              model: Reviews,
+              attributes: []
+            }
+          ],
+          group: ['superM.id', 'superM.name']
+    });
     try {
         if (allMarkets.length == 0) {
             return res.status(400).send("not exist supermarkets")
