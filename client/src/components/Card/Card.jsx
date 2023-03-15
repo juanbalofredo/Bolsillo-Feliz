@@ -21,7 +21,6 @@ export default function Card({ product }) {
             <img className="image" src={image} alt={name} key={name}></img>
             <p className="text-brand">{brand}</p>
           </div>
-          <button className="card-button">More info</button>
         </div>
       </div>
     </>
