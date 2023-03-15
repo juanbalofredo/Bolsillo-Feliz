@@ -2,11 +2,25 @@ import { Sequelize } from "sequelize";
 import SuperM from "../models/superM.js";
 import Users from "../models/users.js";
 import { tiendas } from "../prueba(4).js";
-import Review from '../models/review.js';
+import Reviews from '../models/review.js';
 
 export function getMarketById(id) {
     const getId = SuperM.findOne({
-        where: { id }
+        where: { id },
+        attributes: [
+            'name',
+            'image',
+            'superM.id',
+            'superM.name',
+            [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
+          ],
+          include: [
+            {
+              model: Reviews,
+              attributes: []
+            }
+          ],
+          group: ['superM.id', 'superM.name']
     });
     return getId;
 }
