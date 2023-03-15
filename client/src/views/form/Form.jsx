@@ -16,7 +16,7 @@ const Form = () => {
     ...new Set(state.productsBackup.map((a) => a.category)),
   ].sort();
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setInput({
       ...input,
