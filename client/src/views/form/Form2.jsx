@@ -37,8 +37,8 @@ export const Form2 = () => {
 
       setInput({
         price: "",
-        products: "",
         category: "",
+        products: "",
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
@@ -79,7 +79,7 @@ export const Form2 = () => {
                   <select
                     type="text"
                     value={input.products}
-                    name="category"
+                    name="products"
                     onChange={handleChange}
                     placeholder="Categoria"
                     className="inputs"
