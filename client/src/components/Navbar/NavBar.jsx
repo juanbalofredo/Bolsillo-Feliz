@@ -101,9 +101,6 @@ const Navbar = () => {
               //hacer con un short circuit que si el usuario logeado es vendedor aparezca el boton linkeado
               // user.rol === "vendedor" && <El boton/>
             }
-              <Link to="/form">
-                <button className="navButton">Agregar producto</button>
-              </Link>
               <button className="navButton" onClick={logOuter}>
                 Cerrar sesion
               </button>

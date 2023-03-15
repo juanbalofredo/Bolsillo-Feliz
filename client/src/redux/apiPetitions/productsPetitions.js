@@ -93,7 +93,7 @@ export const postProduct = (payload) => {
   return async () => {
     try {
       const petition = await axios.post(
-        "http://localhost:3001/products/",
+        "http://localhost:3001/market/create",
         payload
       );
       return petition;
