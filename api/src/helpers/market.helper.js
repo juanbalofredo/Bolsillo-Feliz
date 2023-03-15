@@ -1,6 +1,8 @@
+import { Sequelize } from "sequelize";
 import SuperM from "../models/superM.js";
 import Users from "../models/users.js";
 import { tiendas } from "../prueba(4).js";
+import Review from '../models/review.js';
 
 export function getMarketById(id) {
     const getId = SuperM.findOne({
@@ -42,6 +44,20 @@ export const createSmarket = async (smarketsFromBody) => {
     }
 }
 export const allSmarket = async () => {
-    let findAllSmarkets = await SuperM.findAll();
+    let findAllSmarkets = await SuperM.findAll({
+        attributes: {
+            include: [
+                [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'average_score']
+            ]
+        },
+        include: [
+            {
+                model: Reviews,
+                as: 'reviews',
+                attributes: []
+            }
+        ],
+        group: ['MercadoId']
+    });
     return findAllSmarkets;
 }
