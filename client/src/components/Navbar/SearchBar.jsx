@@ -5,7 +5,7 @@ import { getCategoryParams } from "../../redux/apiPetitions/productsPetitions";
 import "./navBar.css";
 import { resPage } from "../../redux/slice/globalSlice";
 
-export default function SearchBar(props) {
+export default function SearchBar() {
   const { brand, category } = useSelector((state) => state.bolsilloFeliz);
   const dispatch = useDispatch();
   const [pname, setPname] = useState("");

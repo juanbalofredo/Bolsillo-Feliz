@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loggedOut, changeTheme } from "../../redux/slice/persistSlice";
 import swal from "sweetalert";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   const state = useSelector((state) => state.bolsilloPersist);
@@ -63,6 +64,7 @@ const Navbar = () => {
     });
   };
 
+
   return (
     <section className="" id="navbar1">
       <div className="logo-Container">
@@ -73,7 +75,7 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="searchbar-container"></div>
+      <div className="searchbar-container">{window.location.href === "http://localhost:3000/home"? <SearchBar/>:null}</div>
 
       <div className="login-Container">
         <div onClick={() => setActive(!active)}></div>
