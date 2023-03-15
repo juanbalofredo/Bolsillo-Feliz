@@ -25,6 +25,7 @@ const Home = () => {
       getProductos(dispatch);
     }
   }, [dispatch]);
+  
 
   return (
     <>

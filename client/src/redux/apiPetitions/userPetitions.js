@@ -20,7 +20,7 @@ export function changeColor(dispatch) {
   dispatch(changeTheme);
 }
 
-export async function crearUser(input) {
+export async function crearUser(dispatch,input) {
   if (input.avatar.length < 5) {
     input.avatar =
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
@@ -35,6 +35,7 @@ export async function crearUser(input) {
         password: input.password,
         type_account: "1",
       })
+      dispatch(oneUsers(user.data))
       return user;
   } catch (error) {
     return error.message;

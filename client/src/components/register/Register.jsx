@@ -80,7 +80,7 @@ const Register = () => {
     e.preventDefault();
     const pasa = await handleClickError();
     if (pasa) {
-      crearUser(input);
+      crearUser(dispatch,input);
       sendEmail(e)
       swal({
         title: "Usuario creado",
