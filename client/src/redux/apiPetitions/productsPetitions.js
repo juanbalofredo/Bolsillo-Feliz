@@ -9,7 +9,6 @@ import {
   Brand,
   filterPName,
   Pname
-
 } from "../slice/globalSlice";
 
 export async function getProductos(dispatch) {
