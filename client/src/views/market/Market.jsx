@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import L from "leaflet";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -12,6 +13,7 @@ import Navbar from "../../components/Navbar/NavBar";
 import "leaflet/dist/leaflet.css";
 
 const Market = () => {
+
   const dispatch = useDispatch();
   const estate = useSelector((state) => state.bolsilloPersist);
   let didInit = false;
@@ -38,7 +40,9 @@ const Market = () => {
         return err;
       });
   }, [id]);
-console.log(market)
+
+  console.log(market);
+
   if (market && myProduct) {
     const aver = myProduct.slice(startIndex, endIndex);
 
@@ -55,10 +59,15 @@ console.log(market)
             zoom={13}
             scrollWheelZoom={true}
           >
+            <Marker position={estate.location} icon={L.icon({ iconUrl: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png" })} ></Marker>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+            {market.ubications.map(a=>(
+                <Marker position={a} icon={L.icon({ iconUrl: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679009741/yajixzbn1c7n5ssgkqcm.png" })} ></Marker>
+            ))}
+           
           </MapContainer>
           <div className="txt-sup-of">
             <h3>Visitar pagina oficial</h3>
