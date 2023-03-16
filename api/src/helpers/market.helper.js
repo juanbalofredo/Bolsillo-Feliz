@@ -13,14 +13,14 @@ export function getMarketById(id) {
             'superM.id',
             'superM.name',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
-          ],
-          include: [
+        ],
+        include: [
             {
-              model: Reviews,
-              attributes: []
+                model: Reviews,
+                attributes: []
             }
-          ],
-          group: ['superM.id', 'superM.name']
+        ],
+        group: ['superM.id', 'superM.name']
     });
     return getId;
 }

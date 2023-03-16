@@ -21,7 +21,9 @@ const Reviews = dataBase.define('reviews', {
     score: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        validate: [[1,2,3,4,5]]
+        validate: {
+            isIn: [[1, 2, 3, 4, 5]]
+        }
     }
 }, { timestamps: false })
 

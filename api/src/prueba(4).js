@@ -964,4 +964,878 @@ for (let i = 1; i < 21; i++) {
     arrayUsers.push(generateUser)
 }
 
+
+
+let genereradorDePrecios = [
+    {
+        marca: "La Serenísima",
+        nombre: "Leche descremada",
+        categoria: "Lácteos",
+        precio: 85.5
+    },
+    {
+        marca: "La Serenísima",
+        nombre: "Yogur firme",
+        categoria: "Lácteos",
+        precio: 39.9
+    },
+    {
+        marca: "La Serenísima",
+        nombre: "Queso crema",
+        categoria: "Lácteos",
+        precio: 169.5
+    },
+    {
+        marca: "La Serenísima",
+        nombre: "Dulce de leche",
+        categoria: "Postres",
+        precio: 97.8
+    },
+    {
+        marca: "La Serenísima",
+        nombre: "Manteca",
+        categoria: "Lácteos",
+        precio: 159.0
+    },
+    {
+        marca: "Bagley",
+        nombre: "Galletitas Chocolinas",
+        categoria: "Galletitas",
+        precio: 49.9
+    },
+    {
+        marca: "Bagley",
+        nombre: "Galletitas Express",
+        categoria: "Galletitas",
+        precio: 29.9
+    },
+    {
+        marca: "Bagley",
+        nombre: "Galletitas Criollitas",
+        categoria: "Galletitas",
+        precio: 42.5
+    },
+    {
+        marca: "Bagley",
+        nombre: "Galletitas Oreo",
+        categoria: "Galletitas",
+        precio: 79.9
+    },
+    {
+        marca: "Bagley",
+        nombre: "Galletitas Lincoln",
+        categoria: "Galletitas",
+        precio: 28.5
+    },
+    {
+        marca: "Arcor",
+        nombre: "Caramelos",
+        categoria: "Dulces",
+        precio: 25.9
+    },
+    {
+        marca: "Arcor",
+        nombre: "Alfajores de maicena",
+        categoria: "Galletitas",
+        precio: 57.0
+    },
+    {
+        marca: "Arcor",
+        nombre: "Gomitas Mogul",
+        categoria: "Dulces",
+        precio: 37.5
+    },
+    {
+        marca: "Arcor",
+        nombre: "Chicles 5",
+        categoria: "Chicles",
+        precio: 29.5
+    },
+    {
+        marca: "Arcor",
+        nombre: "Bon o bon",
+        categoria: "Chocolate",
+        precio: 65.0
+    },
+    {
+        marca: "Havanna",
+        nombre: "Alfajores",
+        categoria: "Galletitas",
+        precio: 89.0
+    },
+    {
+        marca: "Havanna",
+        nombre: "Café",
+        categoria: "Bebidas",
+        precio: 429.0
+    },
+    {
+        marca: "Havanna",
+        nombre: "Dulce de leche",
+        categoria: "Postres",
+        precio: 95.0
+    },
+    {
+        marca: "Havanna",
+        nombre: "Torta",
+        categoria: "Postres",
+        precio: 999.0
+    },
+    {
+        marca: "Havanna",
+        nombre: "Chocolate",
+        categoria: "Chocolate",
+        precio: 129.0
+    },
+    {
+        marca: "Terrabusi",
+        nombre: "Bizcochos de grasa",
+        categoria: "Galletitas",
+        precio: 35.5
+    },
+    {
+        marca: "Terrabusi",
+        nombre: "Galletas pepas",
+        categoria: "Galletitas",
+        precio: 49.0
+    },
+    {
+        marca: "Terrabusi",
+        nombre: "Galletitas Chocolinas",
+        categoria: "Galletitas",
+        precio: 49.9
+    },
+    {
+        marca: "Terrabusi",
+        nombre: "Barritas de cereal",
+        categoria: "Snacks",
+        precio: 64.9
+    },
+    {
+        marca: "Terrabusi",
+        nombre: "Palitos salados",
+        categoria: "Snacks",
+        precio: 37.9
+    },
+    {
+        marca: "Molinos Río de la Plata",
+        nombre: "Aceite de girasol",
+        categoria: "Aceites",
+        precio: 149.0
+    },
+    {
+        marca: "Molinos Río de la Plata",
+        nombre: "Harina 000",
+        categoria: "Harinas",
+        precio: 59.9
+    },
+    {
+        marca: "Molinos Río de la Plata",
+        nombre: "Arroz largo fino",
+        categoria: "Arroces",
+        precio: 56.5
+    },
+    {
+        marca: "Molinos Río de la Plata",
+        nombre: "Salsa de tomate",
+        categoria: "Salsas",
+        precio: 46.0
+    },
+    {
+        marca: "Molinos Río de la Plata",
+        nombre: "Fideos guiseros",
+        categoria: "Pastas",
+        precio: 43.5
+    },
+    {
+        marca: "Quilmes",
+        nombre: "Cerveza rubia",
+        categoria: "Bebidas alcohólicas",
+        precio: 95.0
+    },
+    {
+        marca: "Quilmes",
+        nombre: "Cerveza negra",
+        categoria: "Bebidas alcohólicas",
+        precio: 103.0
+    },
+    {
+        marca: "Quilmes",
+        nombre: "Cerveza IPA",
+        categoria: "Bebidas alcohólicas",
+        precio: 115.0
+    },
+    {
+        marca: "Quilmes",
+        nombre: "Cerveza sin alcohol",
+        categoria: "Bebidas sin alcohol",
+        precio: 86.0
+    },
+    {
+        marca: "Quilmes",
+        nombre: "Agua mineralizada",
+        categoria: "Aguas",
+        precio: 42.0
+    },
+    { marca: "Paty", nombre: "Hamburguesas clásicas", categoria: "Carnes", precio: 290.0 },
+    { marca: "Paty", nombre: "Salchichas de cerdo", categoria: "Carnes", precio: 140.0 },
+    { marca: "Paty", nombre: "Hamburguesas de pollo", categoria: "Carnes", precio: 279.0 },
+    { marca: "Paty", nombre: "Salchichas de pollo", categoria: "Carnes", precio: 165.0 },
+    { marca: "Paty", nombre: "Salchichas parrilleras", categoria: "Carnes", precio: 295.0 },
+    { marca: "Ledesma", nombre: "Azúcar común", categoria: "Dulces y Endulzantes", precio: 48.0 },
+    { marca: "Ledesma", nombre: "Azúcar impalpable", categoria: "Dulces y Endulzantes", precio: 79.0 },
+    { marca: "Ledesma", nombre: "Azúcar rubia", categoria: "Dulces y Endulzantes", precio: 60.0 },
+    { marca: "Ledesma", nombre: "Miel pura", categoria: "Dulces y Endulzantes", precio: 315.0 },
+    { marca: "Ledesma", nombre: "Edulcorante líquido", categoria: "Dulces y Endulzantes", precio: 85.0 },
+    { marca: "La Campagnola", nombre: "Tomate triturado", categoria: "Conservas y Enlatados", precio: 44.0 },
+    { marca: "La Campagnola", nombre: "Tomate perita", categoria: "Conservas y Enlatados", precio: 50.0 },
+    { marca: "La Campagnola", nombre: "Arvejas", categoria: "Conservas y Enlatados", precio: 36.0 },
+    { marca: "La Campagnola", nombre: "Choclo en grano", categoria: "Conservas y Enlatados", precio: 38.0 },
+    { marca: "La Campagnola", nombre: "Aceitunas verdes", categoria: "Conservas y Enlatados", precio: 120.0 },
+    {
+        marca: "Ilolay",
+        nombre: "Leche entera",
+        categoria: "Lácteos",
+        precio: 90.0
+    },
+    {
+        marca: "Ilolay",
+        nombre: "Yogur firme sabor frutilla",
+        categoria: "Lácteos",
+        precio: 65.0
+    },
+    {
+        marca: "Ilolay",
+        nombre: "Queso crema",
+        categoria: "Lácteos",
+        precio: 120.0
+    },
+    {
+        marca: "Ilolay",
+        nombre: "Manteca",
+        categoria: "Lácteos",
+        precio: 160.0
+    },
+    {
+        marca: "Ilolay",
+        nombre: "Postre de vainilla",
+        categoria: "Lácteos",
+        precio: 80.0
+    },
+    {
+        marca: "Natura",
+        nombre: "Crema hidratante corporal",
+        categoria: "Cuidado personal",
+        precio: 450.0
+    },
+    {
+        marca: "Natura",
+        nombre: "Desodorante en barra",
+        categoria: "Cuidado personal",
+        precio: 150.0
+    },
+    {
+        marca: "Natura",
+        nombre: "Shampoo para cabellos grasos",
+        categoria: "Cuidado personal",
+        precio: 250.0
+    },
+    {
+        marca: "Natura",
+        nombre: "Jabón líquido para manos",
+        categoria: "Cuidado personal",
+        precio: 100.0
+    },
+    {
+        marca: "Natura",
+        nombre: "Máscara facial hidratante",
+        categoria: "Cuidado personal",
+        precio: 300.0
+    },
+    {
+        marca: "Vicentin",
+        nombre: "Aceite de girasol",
+        categoria: "Aceites y condimentos",
+        precio: 200.0
+    },
+    {
+        marca: "Vicentin",
+        nombre: "Fideos tipo tallarines",
+        categoria: "Pastas y harinas",
+        precio: 80.0
+    },
+    {
+        marca: "Vicentin",
+        nombre: "Arroz blanco",
+        categoria: "Arroces y legumbres",
+        precio: 100.0
+    },
+    {
+        marca: "Vicentin",
+        nombre: "Leche de soja",
+        categoria: "Lácteos y bebidas vegetales",
+        precio: 150.0
+    },
+    {
+        marca: "Vicentin",
+        nombre: "Atún en aceite",
+        categoria: "Conservas y enlatados",
+        precio: 120.0
+    },
+    {
+        marca: "Taragüi",
+        nombre: "Yerba Mate Tradicional",
+        categoria: "Infusiones",
+        precio: 320.0
+    },
+    {
+        marca: "Taragüi",
+        nombre: "Yerba Mate con Palo",
+        categoria: "Infusiones",
+        precio: 250.0
+    },
+    {
+        marca: "Taragüi",
+        nombre: "Yerba Mate Despalada",
+        categoria: "Infusiones",
+        precio: 300.0
+    },
+    {
+        marca: "Taragüi",
+        nombre: "Yerba Mate Orgánica",
+        categoria: "Infusiones",
+        precio: 400.0
+    },
+    {
+        marca: "Taragüi",
+        nombre: "Yerba Mate con Hierbas",
+        categoria: "Infusiones",
+        precio: 280.0
+    },
+    {
+        marca: "Coca-Cola",
+        nombre: "Coca-Cola Regular",
+        categoria: "Bebidas",
+        precio: 80.0
+    },
+    {
+        marca: "Coca-Cola",
+        nombre: "Coca-Cola Zero",
+        categoria: "Bebidas",
+        precio: 80.0
+    },
+    {
+        marca: "Coca-Cola",
+        nombre: "Fanta Naranja",
+        categoria: "Bebidas",
+        precio: 70.0
+    },
+    {
+        marca: "Coca-Cola",
+        nombre: "Sprite",
+        categoria: "Bebidas",
+        precio: 70.0
+    },
+    {
+        marca: "Coca-Cola",
+        nombre: "Schweppes Tónica",
+        categoria: "Bebidas",
+        precio: 90.0
+    },
+    {
+        marca: "Ades",
+        nombre: "Leche de Almendras",
+        categoria: "Bebidas",
+        precio: 120.0
+    },
+    {
+        marca: "Ades",
+        nombre: "Leche de Soja",
+        categoria: "Bebidas",
+        precio: 100.0
+    },
+    {
+        marca: "Ades",
+        nombre: "Leche de Coco",
+        categoria: "Bebidas",
+        precio: 140.0
+    },
+    {
+        marca: "Ades",
+        nombre: "Leche de Avellanas",
+        categoria: "Bebidas",
+        precio: 150.0
+    },
+    {
+        marca: "Ades",
+        nombre: "Leche de Almendras Chocolateada",
+        categoria: "Bebidas",
+        precio: 130.0
+    },
+    {
+        marca: "Beldent",
+        nombre: "Beldent Menta",
+        categoria: "Chicles",
+        precio: 40.0
+    },
+    {
+        marca: "Beldent",
+        nombre: "Beldent Menta Intensa",
+        categoria: "Chicles",
+        precio: 40.0
+    },
+    {
+        marca: "Beldent",
+        nombre: "Beldent Menta Suave",
+        categoria: "Chicles",
+        precio: 40.0
+    },
+    {
+        marca: "Beldent",
+        nombre: "Beldent Limón",
+        categoria: "Chicles",
+        precio: 40.0
+    },
+    {
+        marca: "Beldent",
+        nombre: "Beldent Fresh",
+        categoria: "Chicles",
+        precio: 40.0
+    },
+    {
+        marca: "Clight",
+        nombre: "Gaseosa sabor pomelo",
+        categoria: "Bebidas",
+        precio: 50.0
+    },
+    {
+        marca: "Clight",
+        nombre: "Gaseosa sabor lima-limón",
+        categoria: "Bebidas",
+        precio: 50.0
+    },
+    {
+        marca: "Clight",
+        nombre: "Gaseosa sabor naranja",
+        categoria: "Bebidas",
+        precio: 50.0
+    },
+    {
+        marca: "Clight",
+        nombre: "Gaseosa sabor cola",
+        categoria: "Bebidas",
+        precio: 50.0
+    },
+    {
+        marca: "Clight",
+        nombre: "Gaseosa sabor frutilla",
+        categoria: "Bebidas",
+        precio: 50.0
+    }, {
+        marca: "Nobleza Gaucha",
+        nombre: "Yerba Mate",
+        categoria: "Infusiones",
+        precio: 120.0
+    },
+    {
+        marca: "Nobleza Gaucha",
+        nombre: "Mate cocido",
+        categoria: "Infusiones",
+        precio: 90.0
+    },
+    {
+        marca: "Nobleza Gaucha",
+        nombre: "Te negro",
+        categoria: "Infusiones",
+        precio: 70.0
+    },
+    {
+        marca: "Nobleza Gaucha",
+        nombre: "Te verde",
+        categoria: "Infusiones",
+        precio: 75.0
+    },
+    {
+        marca: "Nobleza Gaucha",
+        nombre: "Te de manzanilla",
+        categoria: "Infusiones",
+        precio: 60.0
+    }, {
+        marca: "Aguas Danone",
+        nombre: "Agua mineral sin gas",
+        categoria: "Aguas",
+        precio: 40.0
+    },
+    {
+        marca: "Aguas Danone",
+        nombre: "Agua mineral con gas",
+        categoria: "Aguas",
+        precio: 45.0
+    },
+    {
+        marca: "Aguas Danone",
+        nombre: "Agua saborizada de limón",
+        categoria: "Aguas",
+        precio: 60.0
+    },
+    {
+        marca: "Aguas Danone",
+        nombre: "Agua saborizada de naranja",
+        categoria: "Aguas",
+        precio: 60.0
+    },
+    {
+        marca: "Aguas Danone",
+        nombre: "Agua saborizada de pomelo",
+        categoria: "Aguas",
+        precio: 60.0
+    }, {
+        marca: "Sancor",
+        nombre: "Leche descremada",
+        categoria: "Lácteos",
+        precio: 80.0
+    },
+    {
+        marca: "Sancor",
+        nombre: "Leche entera",
+        categoria: "Lácteos",
+        precio: 90.0
+    },
+    {
+        marca: "Sancor",
+        nombre: "Yogur natural",
+        categoria: "Lácteos",
+        precio: 100.0
+    },
+    {
+        marca: "Sancor",
+        nombre: "Queso crema",
+        categoria: "Lácteos",
+        precio: 150.0
+    },
+    {
+        marca: "Sancor",
+        nombre: "Manteca",
+        categoria: "Lácteos",
+        precio: 200.0
+    },
+    {
+        marca: "Mendicrim",
+        nombre: "Queso Untable Light",
+        categoria: "Lácteos",
+        precio: 95.0
+    },
+    {
+        marca: "Mendicrim",
+        nombre: "Queso Untable Saborizado",
+        categoria: "Lácteos",
+        precio: 105.0
+    },
+    {
+        marca: "Mendicrim",
+        nombre: "Queso Crema Light",
+        categoria: "Lácteos",
+        precio: 90.0
+    },
+    {
+        marca: "Mendicrim",
+        nombre: "Queso Cremoso Saborizado",
+        categoria: "Lácteos",
+        precio: 120.0
+    },
+    {
+        marca: "Mendicrim",
+        nombre: "Queso Rallado Light",
+        categoria: "Lácteos",
+        precio: 100.0
+    },
+    {
+        marca: "Granix",
+        nombre: "Galletitas de Arroz Integral",
+        categoria: "Snacks",
+        precio: 65.0
+    },
+    {
+        marca: "Granix",
+        nombre: "Cereal de Avena y Pasas",
+        categoria: "Cereales",
+        precio: 80.0
+    },
+    {
+        marca: "Granix",
+        nombre: "Barrita de Cereal Frutilla y Yogurt",
+        categoria: "Snacks",
+        precio: 45.0
+    },
+    {
+        marca: "Granix",
+        nombre: "Cereal de Maíz Azucarado",
+        categoria: "Cereales",
+        precio: 70.0
+    },
+    {
+        marca: "Granix",
+        nombre: "Barrita de Cereal con Chocolate",
+        categoria: "Snacks",
+        precio: 50.0
+    },
+    {
+        marca: "Bonafide",
+        nombre: "Café molido",
+        categoria: "Café",
+        precio: 180.0
+    },
+    {
+        marca: "Bonafide",
+        nombre: "Te verde sabor jengibre y limón",
+        categoria: "Té",
+        precio: 120.0
+    },
+    {
+        marca: "Bonafide",
+        nombre: "Chocolate amargo",
+        categoria: "Chocolate",
+        precio: 150.0
+    },
+    {
+        marca: "Bonafide",
+        nombre: "Caramelos de Menta",
+        categoria: "Dulces",
+        precio: 40.0
+    },
+    {
+        marca: "Bonafide",
+        nombre: "Turrón de Maní",
+        categoria: "Dulces",
+        precio: 100.0
+    },
+    {
+        marca: "Cachamai",
+        nombre: "Té de hierbas serranas",
+        categoria: "Infusiones",
+        precio: 120.0,
+    },
+    {
+        marca: "Cachamai",
+        nombre: "Té verde con jengibre y limón",
+        categoria: "Infusiones",
+        precio: 150.0,
+    },
+    {
+        marca: "Cachamai",
+        nombre: "Té negro con limón",
+        categoria: "Infusiones",
+        precio: 100.0,
+    },
+    {
+        marca: "Cachamai",
+        nombre: "Té de boldo",
+        categoria: "Infusiones",
+        precio: 90.0,
+    },
+    {
+        marca: "Cachamai",
+        nombre: "Mate cocido con yerbabuena",
+        categoria: "Infusiones",
+        precio: 80.0,
+    },
+    {
+        marca: "Cindor",
+        nombre: "Chocolate en polvo clásico",
+        categoria: "Dulces",
+        precio: 250.0,
+    },
+    {
+        marca: "Cindor",
+        nombre: "Chocolate en barra con almendras",
+        categoria: "Dulces",
+        precio: 150.0,
+    },
+    {
+        marca: "Cindor",
+        nombre: "Crema de leche sabor vainilla",
+        categoria: "Lácteos",
+        precio: 80.0,
+    },
+    {
+        marca: "Cindor",
+        nombre: "Flan de chocolate",
+        categoria: "Postres",
+        precio: 200.0,
+    },
+    {
+        marca: "Cindor",
+        nombre: "Leche chocolatada",
+        categoria: "Bebidas",
+        precio: 120.0,
+    },
+    {
+        marca: "Fantoche",
+        nombre: "Galletitas de avena y pasas",
+        categoria: "Snacks",
+        precio: 90.0,
+    },
+    {
+        marca: "Fantoche",
+        nombre: "Galletitas de chocolate con chispas",
+        categoria: "Snacks",
+        precio: 100.0,
+    },
+    {
+        marca: "Fantoche",
+        nombre: "Bizcochos dulces",
+        categoria: "Snacks",
+        precio: 80.0,
+    },
+    {
+        marca: "Fantoche",
+        nombre: "Barrita de cereal",
+        categoria: "Snacks",
+        precio: 70.0,
+    },
+    {
+        marca: "Fantoche",
+        nombre: "Tostadas integrales",
+        categoria: "Snacks",
+        precio: 60.0,
+    },
+    {
+        marca: "Gallo Snacks",
+        nombre: "Papas fritas sabor jamón",
+        categoria: "Snacks",
+        precio: 70.0,
+    },
+    {
+        marca: "Gallo Snacks",
+        nombre: "Maní tostado con sal",
+        categoria: "Snacks",
+        precio: 90.0,
+    },
+    {
+        marca: "Gallo Snacks",
+        nombre: "Palitos salados sabor queso",
+        categoria: "Snacks",
+        precio: 65.0,
+    },
+    {
+        marca: "Gallo Snacks",
+        nombre: "Tostaditas de arroz sabor queso",
+        categoria: "Snacks",
+        precio: 75.0,
+    },
+    {
+        marca: "Gallo Snacks",
+        nombre: "Maíz tostado con sabor ajo",
+        categoria: "Snacks",
+        precio: 80.0,
+    },
+    {
+        marca: "Hileret",
+        nombre: "Azúcar rubia",
+        categoria: "Endulzantes",
+        precio: 100.0,
+    },
+    {
+        marca: "Hileret",
+        nombre: "Stevia líquida",
+        categoria: "Endulzantes",
+        precio: 150.0,
+    },
+    {
+        marca: "Hileret",
+        nombre: "Mermelada de frutilla",
+        categoria: "Mermeladas",
+        precio: 120.0,
+    },
+    {
+        marca: "Hileret",
+        nombre: "Miel de caña",
+        categoria: "Endulzantes",
+        precio: 90.0,
+    },
+    {
+        marca: "Hileret",
+        nombre: "Gelatina sin azúcar",
+        categoria: "Postres",
+        precio: 60.0,
+    },
+    {
+        marca: "Manaos",
+        nombre: "Gaseosa sabor naranja",
+        categoria: "Bebidas",
+        precio: 50.0,
+    },
+    {
+        marca: "Manaos",
+        nombre: "Gaseosa sabor lima-limón",
+        categoria: "Bebidas",
+        precio: 50.0,
+    },
+    {
+        marca: "Manaos",
+        nombre: "Gaseosa sabor cola",
+        categoria: "Bebidas",
+        precio: 50.0,
+    },
+    {
+        marca: "Manaos",
+        nombre: "Gaseosa sabor pomelo",
+        categoria: "Bebidas",
+        precio: 50.0,
+    },
+    {
+        marca: "Manaos",
+        nombre: "Gaseosa sabor uva",
+        categoria: "Bebidas",
+        precio: 50.0,
+    },
+
+];
+
+let productos2 = [];
+genereradorDePrecios.forEach(ele => {
+    let atributosQueNecesito = {
+        brand: "La Serenísima",
+        nombre: "Leche descremada",
+        categoria: "Lácteos",
+        precio: 85.5
+    }
+    productos2.push(ele)
+})
+
+const marcasArgentinas = [
+    "La Serenísima",
+    "Bagley",
+    "Arcor",
+    "Havanna",
+    "Terrabusi",
+    "Molinos Río de la Plata",
+    "Quilmes",
+    "Paty",
+    "Ledesma",
+    "La Campagnola",
+    "Ilolay",
+    "Natura",
+    "Vicentin",
+    "Taragüi",
+    "Coca-Cola",
+    "Ades",
+    "Beldent",
+    "Clight",
+    "Nobleza Gaucha",
+    "Aguas Danone",
+    "Sancor",
+    "Mendicrim",
+    "Granix",
+    "Bonafide",
+    "Cachamai",
+    "Cindor",
+    "Fantoche",
+    "Gallo Snacks",
+    "Hileret",
+    "Manaos"
+];
+console.log(marcasArgentinas);
+
+
 export let Usuarios = [...arrayUsers]
