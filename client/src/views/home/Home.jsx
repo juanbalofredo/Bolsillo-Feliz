@@ -8,9 +8,11 @@ import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import { sigPage, antPage, resPage } from "../../redux/slice/globalSlice";
 import Filtro from "../../components/filtro/Filtro";
 import Orden from "../../components/order/Orden";
+import { obtenerLocation } from "../../redux/slice/persistSlice";
 
 const Home = () => {
   const state = useSelector((state) => state.bolsilloFeliz);
+  const estate = useSelector((state) => state.bolsilloPersist);
   const page = state.page;
   const myProduct = state.productsBackup;
   const startIndex = page === 1 ? 0 : page * 10 - 10;
@@ -25,11 +27,11 @@ const Home = () => {
       getProductos(dispatch);
     }
   }, [dispatch]);
+  
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
+      dispatch(obtenerLocation([position.coords.latitude,position.coords.longitude]))
     });
   });
 

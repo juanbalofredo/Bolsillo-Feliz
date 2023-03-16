@@ -10,6 +10,7 @@ const initialState = {
   avatar: "",
   darkMode: false,
   superMId: "",
+  location:[]
 };
 
 export const bolsilloPersist = createSlice({
@@ -45,9 +46,12 @@ export const bolsilloPersist = createSlice({
     changeTheme(state) {
       state.darkMode = !state.darkMode;
     },
+    obtenerLocation(state,action){
+    state.location = action.payload
+    }
   },
 });
 
-export const { oneUsers, changeTheme, loggedOut, createUser } =
+export const { oneUsers, changeTheme,obtenerLocation, loggedOut, createUser } =
   bolsilloPersist.actions;
 export default bolsilloPersist.reducer;
