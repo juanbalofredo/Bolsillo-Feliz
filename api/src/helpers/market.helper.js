@@ -13,8 +13,8 @@ export function getMarketById(id) {
             'superM.id',
             'superM.name',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
-          ],
-          include: [
+        ],
+        include: [
             {
               model: Reviews,
               attributes: ['message', 'score'],
