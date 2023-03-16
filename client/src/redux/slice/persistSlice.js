@@ -24,7 +24,7 @@ export const bolsilloPersist = createSlice({
       state.last_name = action.payload.last_name;
       state.avatar = action.payload.avatar;
       state.id = action.payload.id;
-      state.email = action.payload.user_email;
+      state.email = action.payload.email;
     },
     createUser(state, action) {
       state.name = action.payload.name;
