@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
 
+
 const Users = dataBase.define('users', {
     id: {
         type: DataTypes.INTEGER,
@@ -52,5 +53,7 @@ const Users = dataBase.define('users', {
 
 
 }, { timestamps: false })
+
+
 
 export default Users;

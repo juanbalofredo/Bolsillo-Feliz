@@ -25,7 +25,7 @@ const Register = () => {
         "service_9kns3ne",
         "template_nhht7db",
         form.current,
-        "RX3shnXxezAs0S8DE",{
+        "te3Yvey_o03JLT1zu",{
           to_name:input.user_name
         }
       )
