@@ -894,8 +894,7 @@ let preciosEspeciales = [
     }
 ]
 
-
-
+// console.log ("esto es el CONSOLE.LOG ====>", productosNoEspeciales)
 
 export const tiendas = [
     {
