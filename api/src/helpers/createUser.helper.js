@@ -1,8 +1,15 @@
-import Users from "../models/users.js"
+import Users from "../models/users.js";
+import { Usuarios } from "../prueba(4).js";
 
-export default async function createUser({ hashgoogle, name, last_name, avatar, email, password, type_account, notifications, activity }) {
+export default async function createUser(userFromBody) {
     // console.log("esto es hasgoogle",hashgoogle)
     let creatingUser;
+    let verifyUsers = await Users.findAll()
+    if (verifyUsers.length === 0) {
+        creatingUser = await Users.bulkCreate(Usuarios);
+        return creatingUser;
+    }
+    let { hashgoogle, name, last_name, avatar, email, password, type_account, notifications, activity } = userFromBody;
     if (!last_name) {
         const fullName = name.split(" ");
         creatingUser = await Users.create({

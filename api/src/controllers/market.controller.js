@@ -11,14 +11,14 @@ export async function getAllMarket(req, res) {
             'superM.id',
             'superM.name',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
-          ],
-          include: [
+        ],
+        include: [
             {
-              model: Reviews,
-              attributes: []
+                model: Reviews,
+                attributes: []
             }
-          ],
-          group: ['superM.id', 'superM.name']
+        ],
+        group: ['superM.id', 'superM.name']
     });
     try {
         if (allMarkets.length == 0) {
@@ -55,11 +55,12 @@ export async function deleteMarket(req, res) {
 };
 
 export async function postMarket(req, res) {
-    const dataMarketFromBody = req.body; console.log(dataMarketFromBody)
+    const dataMarketFromBody = req.body; 
+    console.log(dataMarketFromBody)
     try {
         let createNewMarket = await createSmarket(dataMarketFromBody);
         res.status(200).json(createNewMarket)
     } catch (error) {
-        res.status(400).send({err: error.message})
+        res.status(400).send({ err: error.message })
     }
 }
