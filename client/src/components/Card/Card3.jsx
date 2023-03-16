@@ -11,7 +11,6 @@ export default function Card({ product, market }) {
   const click = async () => {
     navigate(`/products/id/${product.id}`);
   };
-  console.log(product)
 
   if (product) {
     const precioM = product.prices.find((a) => a.superM.name === market);
