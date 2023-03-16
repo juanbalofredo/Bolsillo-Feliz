@@ -1,10 +1,7 @@
 import "./form.css";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  postProduct,
-  postProductNoSpecials,
-} from "../../redux/apiPetitions/productsPetitions";
+import { postProductNoSpecials } from "../../redux/apiPetitions/productsPetitions";
 import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 
 export const Form2 = () => {
@@ -37,15 +34,12 @@ export const Form2 = () => {
 
   const priceChange = (e) => {
     const value = e.target.value;
-    console.log(value);
     setInput({
       ...input,
       price: value,
     });
   };
   const idPRoductChange = (e) => {
-    const value = e.target.value;
-    console.log(value);
     let id = e.target.options[e.target.selectedIndex].id;
     setInput({
       ...input,
@@ -55,7 +49,6 @@ export const Form2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
     if (input.price >= 1 && input.price <= 1000000) {
       dispatch(postProductNoSpecials(input));
       alert("Producto agregado exitosamente");
