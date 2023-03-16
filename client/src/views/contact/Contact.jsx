@@ -1,26 +1,61 @@
 import "./Contact.css";
 import linkedin from "../../assets/linkedin.gif";
+import email from "../../assets/email.png";
+import github from "../../assets/github.png";
 
 const nosotros = [
   {
     name: "Nicolas Galarce",
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/nicolasgalarce",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/bn0s6mjsznayb61mpby1.jpg ",
+    email: "bautista.godoy@outlook.com",
+    github: "https://github.com/baugod"
   },
   {
     name: "Juan Lofredo",
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-piantini",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/y9zklwm80w1wvd7ukkaf.jpg ",
+    email: "bautista.godoy@outlook.com",
+    github: "https://github.com/baugod"
   },
   {
     name: "Nicolas Piantini",
     carrera: "Full Stack Developer",
-    linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-piantini"
+    linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-piantini",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/ikq7bvdtfgjutzrkngtq.jpg ",
+    email: "bautista.godoy@outlook.com",
+    github: "https://github.com/baugod"
   },
-  { name: "Bautista Godoy", carrera: "Full Stack Developer" },
-  { name: "Daniel Martel Chavez", carrera: "Full Stack Developer" },
-  { name: "Francisco Di Nucci", carrera: "Full Stack Developer" },
-  { name: "Alex Añiasco", carrera: "Full Stack Developer" },
+  { name: "Bautista Godoy",
+    carrera: "Full Stack Developer",
+    linkedin: "https://www.linkedin.com/in/bautista-godoy",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/elnqm56o7f8qgjmsaser.jpg",
+    email: "bautista.godoy@outlook.com",
+    github: "https://github.com/baugod"
+  },
+  { name: "Daniel Martel Chavez", 
+    carrera: "Full Stack Developer",
+    linkedin: "https://www.linkedin.com/in/nicolasgalarce",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/bn0s6mjsznayb61mpby1.jpg",
+    email: "bautista.godoy@outlook.com",
+    github: "https://github.com/baugod"
+  },
+  { name: "Francisco Di Nucci",
+    carrera: "Full Stack Developer",
+    linkedin: "https://www.linkedin.com/in/francisco-di-nucci-931454247 ",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/bn0s6mjsznayb61mpby1.jpg",
+    email: "bautista.godoy@outlook.com",
+    github: "https://github.com/baugod"
+  },
+  { name: "Alex Añiasco", 
+    carrera: "Full Stack Developer",
+    linkedin: "https://www.linkedin.com/in/nicolasgalarce",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/dhmittvit3gi4fas3fmn.jpg ",
+    email: "bautista.godoy@outlook.com",
+    github: "https://github.com/baugod"
+  },
 ];
 const TeamMemberCard = () => {
   return (
@@ -31,21 +66,13 @@ const TeamMemberCard = () => {
             <div className="card-container">
               <div className="card-top-part" key={k}>
                 <div className="user-photo-contact">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/79.jpg"
-                    className="photo"
-                    alt="UserPhoto"
-                  />
+                  <img src={e.imagen} className="photo" alt="Image" />
                 </div>
                 <div className="user-name-contac" key={k}>
                   <p className="text">{e.name}</p>
-                  <div className="user-position"></div>
-                  <div className="left-part">
                     <div className="user-position">
                       <p className="position">{e.carrera}</p>
                     </div>
-                    <div className="right-part"></div>
-                  </div>
                   <div className="card-bottom-part">
                     <div className="bottom-part">
                       <a href={e.linkedin} className="link">

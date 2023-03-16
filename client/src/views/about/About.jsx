@@ -10,7 +10,7 @@ export default function About() {
       <div className="text_about">
         <p>
           Somos siete estudiantes de{" "}
-          <a href='https://www.soyhenry.com'>SoyHenry</a>, que se
+          <a href='https://www.soyhenry.com'>Soy Henry</a>, que se
           encuentran cursando actualmente la etapa final del Bootcamp en donde
           tenemos que desarrollar una aplicación en grupo, cumpliendo diferentes
           objetivos propuestos por el Bootcamp. Esta aplicación web tiene como

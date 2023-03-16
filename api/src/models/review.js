@@ -29,8 +29,10 @@ const Reviews = dataBase.define('reviews', {
 
 Reviews.belongsTo(Users, {
     foreignKey: 'userId', // Especifica el nombre de la columna en la tabla posts
+    as: 'user',
     timestamps: false
 });
+Users.hasMany(Reviews);
 
 SuperM.hasMany(Reviews);
 Reviews.belongsTo(SuperM);

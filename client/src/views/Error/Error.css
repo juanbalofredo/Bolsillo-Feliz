@@ -1,0 +1,9 @@
+.error-container{
+    justify-content: center;
+    padding: 10em;
+    display: flex;
+}
+.img-error img{
+    width: 350px;
+    height: 350px;
+}

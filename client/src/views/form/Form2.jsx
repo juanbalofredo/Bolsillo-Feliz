@@ -1,51 +1,62 @@
 import "./form.css";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { postProduct } from "../../redux/apiPetitions/productsPetitions";
+import { postProductNoSpecials } from "../../redux/apiPetitions/productsPetitions";
 import { getProductos } from "../../redux/apiPetitions/productsPetitions";
-
 
 export const Form2 = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloFeliz);
-  //console.log(state.products)
+  const statePersist = useSelector((state) => state.bolsilloPersist);
+
   const allCategories = [
     ...new Set(state.productsBackup.map((a) => a.category)),
   ].sort();
 
   const allProducts = [
-    ...new Set(state.products.map((a) => a.name)),
+    ...new Set(
+      state.products.map((a) => {
+        let arrayProduct = [a.name, a.id];
+        return arrayProduct;
+      })
+    ),
   ].sort();
 
   useEffect(() => {
-      getProductos(dispatch);
+    getProductos(dispatch);
   }, [dispatch]);
-  
 
   const [input, setInput] = useState({
-    price: "",
-    category: "",
-    products: "",
+    price: 0,
+    productId: "",
+    superMId: statePersist.superMId,
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const priceChange = (e) => {
+    const value = e.target.value;
     setInput({
       ...input,
-      [name]: value,
+      price: value,
+    });
+  };
+  const idPRoductChange = (e) => {
+    let id = e.target.options[e.target.selectedIndex].id;
+    setInput({
+      ...input,
+      productId: id,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.price >= 1 && input.price <= 1000000) {
-      dispatch(postProduct(input));
+      dispatch(postProductNoSpecials(input));
       alert("Producto agregado exitosamente");
 
       setInput({
         price: "",
         category: "",
-        products: "",
+        superMId: statePersist.superMId,
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
@@ -70,7 +81,7 @@ export const Form2 = () => {
                     type="number"
                     value={input.price}
                     name="price"
-                    onChange={handleChange}
+                    onChange={priceChange}
                     placeholder="Precio"
                     className="inputs"
                   />
@@ -86,15 +97,15 @@ export const Form2 = () => {
                   <select
                     type="text"
                     value={input.products}
-                    name="products"
-                    onChange={handleChange}
+                    name="productId"
+                    onChange={idPRoductChange}
                     placeholder="Categoria"
                     className="inputs"
                   >
                     <option value="empty">...</option>
                     {allProducts.map((e) => (
-                      <option key={e} value={e}>
-                        {e}
+                      <option key={e[0]} value={e[0]} id={e[1]}>
+                        {e[0]}
                       </option>
                     ))}
                   </select>
@@ -106,7 +117,6 @@ export const Form2 = () => {
                     type="text"
                     value={input.category}
                     name="category"
-                    onChange={handleChange}
                     placeholder="Categoria"
                     className="inputs"
                   >

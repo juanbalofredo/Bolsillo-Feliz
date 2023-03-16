@@ -25,7 +25,7 @@ const Register = () => {
         "service_9kns3ne",
         "template_nhht7db",
         form.current,
-        "RX3shnXxezAs0S8DE",{
+        "te3Yvey_o03JLT1zu",{
           to_name:input.user_name
         }
       )
@@ -110,10 +110,10 @@ const Register = () => {
     } else {
       valid++;
     }
-    if (input.password.length < 8) {
+    if (input.password.length < 4) {
       setError({
         ...error,
-        password: "La contraseña deberia tener al menos 8 caracteres",
+        password: "La contraseña deberia tener al menos 4 caracteres",
       });
     } else {
       valid++;
