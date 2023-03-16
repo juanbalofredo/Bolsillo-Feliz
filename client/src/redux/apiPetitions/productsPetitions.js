@@ -91,12 +91,28 @@ export const rsetFilters = async (dispatch) => {
 
 export const postProduct = (payload) => {
   return async () => {
+    console.log(payload)
     try {
-      const petition = await axios.post(
-        "http://localhost:3001/market/create",
+      const response = await axios.post(
+        "http://localhost:3001/products",
         payload
       );
-      return petition;
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postProductNoSpecials = (payload) => {
+  return async () => {
+    console.log(payload)
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/price/nonespecial",
+        payload
+      );
+      return response;
     } catch (error) {
       console.log(error);
     }
