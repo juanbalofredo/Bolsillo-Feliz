@@ -9,7 +9,7 @@ import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import "./market.css";
 import Footer from "../footer/Footer";
 import Navbar from "../../components/Navbar/NavBar";
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 const Market = () => {
   const dispatch = useDispatch();
@@ -60,6 +60,11 @@ const Market = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
           </MapContainer>
+          <div className="txt-sup-of">
+            <h3>Visitar pagina oficial</h3>
+            <h2>click aqui</h2>
+          </div>
+          <h1 className="asdkjkh">Productos de {market.name}</h1>
           <div className="container-prod-market">
             {aver.map((p) => (
               <Card3 key={p.id} product={p} market={market.name} />
