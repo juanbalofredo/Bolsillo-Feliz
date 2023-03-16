@@ -13,7 +13,7 @@ import "leaflet/dist/leaflet.css";
 
 const Market = () => {
   const dispatch = useDispatch();
-
+  const estate = useSelector((state) => state.bolsilloPersist);
   let didInit = false;
   useEffect(() => {
     if (!didInit) {
@@ -38,7 +38,7 @@ const Market = () => {
         return err;
       });
   }, [id]);
-
+console.log(market)
   if (market && myProduct) {
     const aver = myProduct.slice(startIndex, endIndex);
 
@@ -51,7 +51,7 @@ const Market = () => {
             <img src={market.image} alt="" className="img-market-f" />
           </div>
           <MapContainer
-            center={[-34.605867681811525, -58.395228855647986]}
+            center={estate.location}
             zoom={13}
             scrollWheelZoom={true}
           >

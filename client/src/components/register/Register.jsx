@@ -110,10 +110,10 @@ const Register = () => {
     } else {
       valid++;
     }
-    if (input.password.length < 8) {
+    if (input.password.length < 4) {
       setError({
         ...error,
-        password: "La contraseña deberia tener al menos 8 caracteres",
+        password: "La contraseña deberia tener al menos 4 caracteres",
       });
     } else {
       valid++;
