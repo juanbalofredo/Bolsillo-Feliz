@@ -8,15 +8,17 @@ import { postProduct } from "../../redux/apiPetitions/productsPetitions";
 import "./autorizacionMercader.css";
 import axios from "axios";
 import Navbar from "../../components/Navbar/NavBar";
+import emailjs from "@emailjs/browser";
+
 
 const AutorizacionMercader = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloPersist);
-
+  const email = state.email
   const navigate = useNavigate();
 
   const [input, setInput] = useState({
-    nombre: "",
+    name: "",
     especialidad: "",
     about: "",
     ubicacion: "",
@@ -24,25 +26,33 @@ const AutorizacionMercader = () => {
   });
 
   const [error, setError] = useState({
-    nombre: "",
+    name: "",
     especialidad: "",
     about: "",
     ubicacion: "",
     comoNosConocio: "",
   });
 
+ 
+
   function handleSubmit(e) {
     e.preventDefault();
     if (
-      input.nombre.length >= 2 &&
+      input.name.length >= 2 &&
       input.especialidad.length >= 2 &&
       input.about.length >= 10 &&
       input.ubicacion.length >= 2
     ) {
-      dispatch(input);
+      emailjs.send("service_hah0x8k","template_buti7zt",{user_email:"alexaniasco@outlook.com", to_name: input.name, user_name:state.name , mercado: input.name},"te3Yvey_o03JLT1zu",{
+        from_name: "Bolsillo Feliz",
+       
+       
+        user_email:"alexaniasco@outlook.com",
+      
+        });
       alert("Success");
       setInput({
-        nombre: "",
+        name: "",
         especialidad: "",
         about: "",
         ubicacion: "",
@@ -81,14 +91,14 @@ const AutorizacionMercader = () => {
                   <input
                     autoComplete="off"
                     placeholder="Nombre de tu mercado"
-                    name="nombre"
+                    name="name"
                     type="text"
                     maxLength="15"
-                    value={input.nombre}
+                    value={input.name}
                     onChange={handleChange}
                   />
-                  {error.nombre.length ? (
-                    <span id="error_name">{error.nombre}</span>
+                  {error.name.length ? (
+                    <span id="error_name">{error.name}</span>
                   ) : null}
                 </div>
                 <div className="register-contra2">
@@ -150,14 +160,15 @@ const AutorizacionMercader = () => {
                 <a className="boton-form-mer"
                   href={`https://wa.me/541132695097?text=Hola quiero ser mercader en tu pagina de Bolsillo Feliz, 
             email: ${state.email}  
-            nombre mercado: ${input.nombre},
+            nombre mercado: ${input.name},
             especialidad:${input.especialidad},
             ubicacion:${input.ubicacion},
             como supo:${input.comoNosConocio}`}
                   target="_blank"
                   rel="noreferrer"
-                >boton
+                >Solicitar por WhatsApp
                 </a>
+                <button>Solicitar por mail</button>
               </div>
             </form>
           </div>

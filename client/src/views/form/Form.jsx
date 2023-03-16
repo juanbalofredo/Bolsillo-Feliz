@@ -12,6 +12,7 @@ import { Form2 } from "./Form2";
 const Form = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloFeliz);
+  const statePersist = useSelector((state) => state.bolsilloPersist);
   const allCategories = [
     ...new Set(state.productsBackup.map((a) => a.category)),
   ].sort();
@@ -22,7 +23,7 @@ const Form = () => {
       ...input,
       [name]: value,
     });
-  }
+  };
 
   const uploadImage = (e) => {
     e.preventDefault();
@@ -45,12 +46,15 @@ const Form = () => {
     price: "",
     category: "",
     image: "",
+    superMId: statePersist.superMId,
   });
+  console.log(input);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.name.length >= 1 && input.price >= 1 && input.price <= 1000000) {
       dispatch(postProduct(input));
+      console.log(postProduct);
       alert("Producto agregado exitosamente");
 
       setInput({
@@ -58,6 +62,7 @@ const Form = () => {
         price: "",
         image: "",
         category: "",
+        superMId: statePersist.superMId,
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
