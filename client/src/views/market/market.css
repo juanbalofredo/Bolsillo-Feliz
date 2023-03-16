@@ -30,3 +30,24 @@
   width: 100%;
   height: 23rem;
 }
+.txt-sup-of {
+  display: flex;
+  color: #000000;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 3px solid #9e9e9e;
+}
+.txt-sup-of h2 {
+  margin-left: 2rem;
+}
+.asdkjkh {
+  color: #000000;
+}
+.bodyDark .asdkjkh {
+  color: #ffffff;
+}
+.bodyDark .txt-sup-of {
+  color: #ffffff;
+  border-bottom: 3px solid #9e9e9e;
+}
