@@ -9,6 +9,7 @@ const initialState = {
   email: "",
   avatar: "",
   darkMode: false,
+  superMId: "",
 };
 
 export const bolsilloPersist = createSlice({
@@ -25,6 +26,7 @@ export const bolsilloPersist = createSlice({
       state.avatar = action.payload.avatar;
       state.id = action.payload.id;
       state.email = action.payload.email;
+      state.superMId = action.payload.superMId
     },
     createUser(state, action) {
       state.name = action.payload.name;
@@ -38,6 +40,7 @@ export const bolsilloPersist = createSlice({
       state.avatar = "";
       state.id = "";
       state.email = "";
+      state.superMId = "";
     },
     changeTheme(state) {
       state.darkMode = !state.darkMode;
