@@ -966,102 +966,118 @@ for (let i = 1; i < 21; i++) {
 
 
 
-let genereradorDePrecios = [
+let arrayDeProductos = [
     {
         marca: "La Serenísima",
         nombre: "Leche descremada",
         categoria: "Lácteos",
-        precio: 85.5
+        precio: 85.5,
+        image: "https://wongfood.vtexassets.com/arquivos/ids/573753-800-auto?v=637968318696700000&width=800&height=auto&aspect=true"
     },
     {
         marca: "La Serenísima",
         nombre: "Yogur firme",
         categoria: "Lácteos",
-        precio: 39.9
+        precio: 39.9,
+        image: "https://ardiaprod.vtexassets.com/arquivos/ids/225441/Yogur-Firme-Entero-La-Serenisima-Vainilla-190-Gr-_1.jpg?v=637898902660400000"
     },
     {
         marca: "La Serenísima",
         nombre: "Queso crema",
         categoria: "Lácteos",
-        precio: 169.5
+        precio: 169.5,
+        image: "https://alberdisa.vteximg.com.br/arquivos/ids/169532-1000-1000/Queso-Crema-La-Serenisima-Clasico-290gr.png?v=637841013630570000"
     },
     {
         marca: "La Serenísima",
         nombre: "Dulce de leche",
         categoria: "Postres",
-        precio: 97.8
+        precio: 97.8,
+        image: "https://eliaspharmacy.com.au/wp-content/uploads/2022/03/DDLclasico-600x780.webp"
     },
     {
         marca: "La Serenísima",
         nombre: "Manteca",
         categoria: "Lácteos",
-        precio: 159.0
+        precio: 159.0,
+        image: "https://media.f2h.shop/media/catalog/product/cache/ab45d104292f1bb63d093e6be8310c97/m/a/manteca_ls_calidad_extra.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Chocolinas",
         categoria: "Galletitas",
-        precio: 49.9
+        precio: 49.9,
+        image: "https://www.deliargentina.com/image/cache/catalog/product/alimentacion/galletitas-chocolinas-bagley-argentinas/galletitas-chocolinas-bagley-argentinas-600x600.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Express",
         categoria: "Galletitas",
-        precio: 29.9
+        precio: 29.9,
+        image: "https://www.deliargentina.com/image/cache/catalog/product/alimentacion/galletitas-express-terrabusi-argentina-arcor-bagley/express-galletitas-argentinas-productos-argentinos-en-españa-terrabusi-bagley-arcor-335x335.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Criollitas",
         categoria: "Galletitas",
-        precio: 42.5
+        precio: 42.5,
+        image: "https://casarica.cdn1.dattamax.com/userfiles/images/productos/600/7790040377707.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Oreo",
         categoria: "Galletitas",
-        precio: 79.9
+        precio: 79.9,
+        image: ""
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Lincoln",
         categoria: "Galletitas",
-        precio: 28.5
+        precio: 28.5,
+        image: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/279/512/products/lincoln-x1531-e78f0bdb0b6a630b9a16369342050336-480-0.webp"
     },
     {
         marca: "Arcor",
         nombre: "Caramelos",
         categoria: "Dulces",
-        precio: 25.9
+        precio: 25.9,
+        image: "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/10236093-aEklGmHY.jpg"
     },
     {
         marca: "Arcor",
         nombre: "Alfajores de maicena",
         categoria: "Galletitas",
-        precio: 57.0
+        precio: 57.0,
+        image: ""
     },
     {
         marca: "Arcor",
         nombre: "Gomitas Mogul",
         categoria: "Dulces",
-        precio: 37.5
+        precio: 37.5,
+        image: "https://plazavea.vteximg.com.br/arquivos/ids/10511558-1000-1000/20197811.jpg?v=637867069217200000"
     },
     {
         marca: "Arcor",
         nombre: "Chicles 5",
         categoria: "Chicles",
-        precio: 29.5
+        precio: 29.5,
+        image: "https://www.sweetpress.com/image/Arcor-Poosh.jpg"
     },
     {
         marca: "Arcor",
         nombre: "Bon o bon",
         categoria: "Chocolate",
-        precio: 65.0
+        precio: 65.0,
+        image: "https://plazavea.vteximg.com.br/arquivos/ids/561004-512-512/20130771.jpg"
     },
     {
         marca: "Havanna",
         nombre: "Alfajores",
         categoria: "Galletitas",
-        precio: 89.0
+        precio: 89.0,
+        image: ""
     },
     {
         marca: "Havanna",
@@ -1793,15 +1809,22 @@ let genereradorDePrecios = [
 ];
 
 let productos2 = [];
-genereradorDePrecios.forEach(ele => {
+arrayDeProductos.forEach(ele => {
     let atributosQueNecesito = {
-        brand: "La Serenísima",
-        nombre: "Leche descremada",
-        categoria: "Lácteos",
-        precio: 85.5
+        brand: ele.marca,
+        name: ele.nombre,
+        category: ele.categoria,
+        precio: ele.precio,
+        image: "Link aqui"
     }
+    let buscarImagen = ele.marca+" "+ele.nombre
+    console.log(buscarImagen)
     productos2.push(ele)
 })
+
+let arrayImagenes = [
+
+]
 
 const marcasArgentinas = [
     "La Serenísima",
@@ -1835,7 +1858,7 @@ const marcasArgentinas = [
     "Hileret",
     "Manaos"
 ];
-console.log(marcasArgentinas);
+// console.log(marcasArgentinas);
 
 
 export let Usuarios = [...arrayUsers]
