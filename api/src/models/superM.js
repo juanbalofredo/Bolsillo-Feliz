@@ -17,6 +17,10 @@ const SuperM = dataBase.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    ubications: {
+      type: DataTypes.JSON,
+      allowNull: false
+    }
   },
 
   { timestamps: false }
