@@ -22,7 +22,7 @@ const Reviews = dataBase.define('reviews', {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
-            isIn: [[1,2,3,4,5]]
+            isIn: [[1, 2, 3, 4, 5]]
         }
     }
 }, { timestamps: false })

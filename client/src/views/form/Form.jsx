@@ -47,14 +47,13 @@ const Form = () => {
     category: "",
     image: "",
     superMId: statePersist.superMId,
+    brand: ""
   });
-  console.log(input);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.name.length >= 1 && input.price >= 1 && input.price <= 1000000) {
       dispatch(postProduct(input));
-      console.log(postProduct);
       alert("Producto agregado exitosamente");
 
       setInput({
@@ -63,6 +62,7 @@ const Form = () => {
         image: "",
         category: "",
         superMId: statePersist.superMId,
+        brand: ""
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");

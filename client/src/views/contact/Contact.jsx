@@ -1,5 +1,7 @@
 import "./Contact.css";
 import linkedin from "../../assets/linkedin.gif";
+import email from "../../assets/email.png";
+import github from "../../assets/github.png";
 
 const nosotros = [
   {
@@ -68,13 +70,9 @@ const TeamMemberCard = () => {
                 </div>
                 <div className="user-name-contac" key={k}>
                   <p className="text">{e.name}</p>
-                  <div className="user-position"></div>
-                  <div className="left-part">
                     <div className="user-position">
                       <p className="position">{e.carrera}</p>
                     </div>
-                    <div className="right-part"></div>
-                  </div>
                   <div className="card-bottom-part">
                     <div className="bottom-part">
                       <a href={e.linkedin} className="link">
