@@ -18,18 +18,18 @@ export function getMarketById(id) {
         ],
         include: [
             {
-              model: Reviews,
-              attributes: ['message', 'score'],
-              include: [
-                {
-                    model: Users,
-                    as: 'user',
-                    attributes: ['id','name']
-                }
-              ]
+                model: Reviews,
+                attributes: ['message', 'score'],
+                include: [
+                    {
+                        model: Users,
+                        as: 'user',
+                        attributes: ['id', 'name']
+                    }
+                ]
             }
-          ],
-          group: ['superM.id', 'superM.name','reviews.id','reviews->user.id']
+        ],
+        group: ['superM.id', 'superM.name', 'reviews.id', 'reviews->user.id']
     });
     return getId;
 }

@@ -984,222 +984,287 @@ for (let i = 1; i < 21; i++) {
 
 
 
-let genereradorDePrecios = [
+let arrayDeProductos = [
     {
         marca: "La Serenísima",
         nombre: "Leche descremada",
         categoria: "Lácteos",
-        precio: 85.5
+        precio: 85.5,
+        image: "https://wongfood.vtexassets.com/arquivos/ids/573753-800-auto?v=637968318696700000&width=800&height=auto&aspect=true"
     },
     {
         marca: "La Serenísima",
         nombre: "Yogur firme",
         categoria: "Lácteos",
-        precio: 39.9
+        precio: 39.9,
+        image: "https://ardiaprod.vtexassets.com/arquivos/ids/225441/Yogur-Firme-Entero-La-Serenisima-Vainilla-190-Gr-_1.jpg?v=637898902660400000"
     },
     {
         marca: "La Serenísima",
         nombre: "Queso crema",
         categoria: "Lácteos",
-        precio: 169.5
+        precio: 169.5,
+        image: "https://alberdisa.vteximg.com.br/arquivos/ids/169532-1000-1000/Queso-Crema-La-Serenisima-Clasico-290gr.png?v=637841013630570000"
     },
     {
         marca: "La Serenísima",
         nombre: "Dulce de leche",
         categoria: "Postres",
-        precio: 97.8
+        precio: 97.8,
+        image: "https://eliaspharmacy.com.au/wp-content/uploads/2022/03/DDLclasico-600x780.webp"
     },
     {
         marca: "La Serenísima",
         nombre: "Manteca",
         categoria: "Lácteos",
-        precio: 159.0
+        precio: 159.0,
+        image: "https://media.f2h.shop/media/catalog/product/cache/ab45d104292f1bb63d093e6be8310c97/m/a/manteca_ls_calidad_extra.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Chocolinas",
         categoria: "Galletitas",
-        precio: 49.9
+        precio: 49.9,
+        image: "https://www.deliargentina.com/image/cache/catalog/product/alimentacion/galletitas-chocolinas-bagley-argentinas/galletitas-chocolinas-bagley-argentinas-600x600.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Express",
         categoria: "Galletitas",
-        precio: 29.9
+        precio: 29.9,
+        image: "https://www.deliargentina.com/image/cache/catalog/product/alimentacion/galletitas-express-terrabusi-argentina-arcor-bagley/express-galletitas-argentinas-productos-argentinos-en-españa-terrabusi-bagley-arcor-335x335.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Criollitas",
         categoria: "Galletitas",
-        precio: 42.5
+        precio: 42.5,
+        image: "https://casarica.cdn1.dattamax.com/userfiles/images/productos/600/7790040377707.jpg"
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Oreo",
         categoria: "Galletitas",
-        precio: 79.9
+        precio: 79.9,
+        image: ""
     },
     {
         marca: "Bagley",
         nombre: "Galletitas Lincoln",
         categoria: "Galletitas",
-        precio: 28.5
+        precio: 28.5,
+        image: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/279/512/products/lincoln-x1531-e78f0bdb0b6a630b9a16369342050336-480-0.webp"
     },
     {
         marca: "Arcor",
         nombre: "Caramelos",
         categoria: "Dulces",
-        precio: 25.9
+        precio: 25.9,
+        image: "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/10236093-aEklGmHY.jpg"
     },
     {
         marca: "Arcor",
         nombre: "Alfajores de maicena",
         categoria: "Galletitas",
-        precio: 57.0
+        precio: 57.0,
+        image: ""
     },
     {
         marca: "Arcor",
         nombre: "Gomitas Mogul",
         categoria: "Dulces",
-        precio: 37.5
+        precio: 37.5,
+        image: "https://plazavea.vteximg.com.br/arquivos/ids/10511558-1000-1000/20197811.jpg?v=637867069217200000"
     },
     {
         marca: "Arcor",
         nombre: "Chicles 5",
         categoria: "Chicles",
-        precio: 29.5
+        precio: 29.5,
+        image: "https://www.sweetpress.com/image/Arcor-Poosh.jpg"
     },
     {
         marca: "Arcor",
         nombre: "Bon o bon",
         categoria: "Chocolate",
-        precio: 65.0
+        precio: 65.0,
+        image: "https://plazavea.vteximg.com.br/arquivos/ids/561004-512-512/20130771.jpg"
     },
     {
         marca: "Havanna",
         nombre: "Alfajores",
         categoria: "Galletitas",
-        precio: 89.0
+        precio: 89.0,
+        image: "https://swissbrothers.com/2313-large_default/alfajores-habanna-rellenos-dulce-de-leche-y-cubiertos-c-merengue-282g.jpg"
     },
     {
         marca: "Havanna",
         nombre: "Café",
         categoria: "Bebidas",
-        precio: 429.0
+        precio: 429.0,
+        image: "https://static.havanna.com.br/products/101487_0_526dbb1a-bd8e-464e-84d0-fea4fdacb484_Big.webp"
     },
     {
         marca: "Havanna",
         nombre: "Dulce de leche",
         categoria: "Postres",
-        precio: 95.0
+        precio: 95.0,
+        image: "https://www.havanna.com.ar/data/upload/producto_galeria/92097389107ae864e11df340c045e336.png"
     },
     {
         marca: "Havanna",
         nombre: "Torta",
         categoria: "Postres",
-        precio: 999.0
+        precio: 999.0,
+        image: ""
     },
     {
         marca: "Havanna",
         nombre: "Chocolate",
         categoria: "Chocolate",
-        precio: 129.0
+        precio: 129.0,
+        image: "https://cdn.webshopapp.com/shops/94236/files/362068221/image.jpg"
     },
     {
         marca: "Terrabusi",
         nombre: "Bizcochos de grasa",
         categoria: "Galletitas",
-        precio: 35.5
+        precio: 35.5,
+        image: "https://http2.mlstatic.com/D_NQ_NP_914218-MLA53802406529_022023-O.jpg"
     },
     {
         marca: "Terrabusi",
         nombre: "Galletas pepas",
         categoria: "Galletitas",
-        precio: 49.0
+        precio: 49.0,
+        image: "http://d3ugyf2ht6aenh.cloudfront.net/stores/001/156/488/products/terrabusi-surtidas1-722f443b9909a6e1ae15948423408416-640-0.jpg"
     },
     {
         marca: "Terrabusi",
         nombre: "Galletitas Chocolinas",
         categoria: "Galletitas",
-        precio: 49.9
+        precio: 49.9,
+        image: ""
     },
     {
         marca: "Terrabusi",
         nombre: "Barritas de cereal",
         categoria: "Snacks",
-        precio: 64.9
+        precio: 64.9,
+        image: ""
     },
     {
         marca: "Terrabusi",
         nombre: "Palitos salados",
         categoria: "Snacks",
-        precio: 37.9
+        precio: 37.9,
+        image: ""
     },
     {
         marca: "Molinos Río de la Plata",
         nombre: "Aceite de girasol",
         categoria: "Aceites",
-        precio: 149.0
+        precio: 149.0,
+        image: ""
     },
     {
         marca: "Molinos Río de la Plata",
         nombre: "Harina 000",
         categoria: "Harinas",
-        precio: 59.9
+        precio: 59.9,
+        image: ""
     },
     {
         marca: "Molinos Río de la Plata",
         nombre: "Arroz largo fino",
         categoria: "Arroces",
-        precio: 56.5
+        precio: 56.5,
+        image: ""
     },
     {
         marca: "Molinos Río de la Plata",
         nombre: "Salsa de tomate",
         categoria: "Salsas",
-        precio: 46.0
+        precio: 46.0,
+        image: ""
     },
     {
         marca: "Molinos Río de la Plata",
         nombre: "Fideos guiseros",
         categoria: "Pastas",
-        precio: 43.5
+        precio: 43.5,
+        image: ""
     },
     {
         marca: "Quilmes",
         nombre: "Cerveza rubia",
         categoria: "Bebidas alcohólicas",
-        precio: 95.0
+        precio: 95.0,
+        image: "https://kilbel.s3.amazonaws.com/webapp/images/productos/b/0000022000/22324.jpg"
     },
     {
         marca: "Quilmes",
         nombre: "Cerveza negra",
         categoria: "Bebidas alcohólicas",
-        precio: 103.0
+        precio: 103.0,
+        image: "https://jumboargentina.vtexassets.com/arquivos/ids/588358/Cerveza-Negra-Quilmes-Stout-1-L-Botella-Retornable-1-18565.jpg?v=637280467058070000"
     },
     {
         marca: "Quilmes",
         nombre: "Cerveza IPA",
         categoria: "Bebidas alcohólicas",
-        precio: 115.0
+        precio: 115.0,
+        image: ""
     },
     {
         marca: "Quilmes",
         nombre: "Cerveza sin alcohol",
         categoria: "Bebidas sin alcohol",
-        precio: 86.0
+        precio: 86.0,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/191328/7792798009114_01.jpg?v=637511788396400000"
     },
     {
         marca: "Quilmes",
         nombre: "Agua mineralizada",
         categoria: "Aguas",
-        precio: 42.0
+        precio: 42.0,
+        image: ""
     },
-    { marca: "Paty", nombre: "Hamburguesas clásicas", categoria: "Carnes", precio: 290.0 },
-    { marca: "Paty", nombre: "Salchichas de cerdo", categoria: "Carnes", precio: 140.0 },
-    { marca: "Paty", nombre: "Hamburguesas de pollo", categoria: "Carnes", precio: 279.0 },
-    { marca: "Paty", nombre: "Salchichas de pollo", categoria: "Carnes", precio: 165.0 },
-    { marca: "Paty", nombre: "Salchichas parrilleras", categoria: "Carnes", precio: 295.0 },
+    {
+        marca: "Paty",
+        nombre: "Hamburguesas clásicas",
+        categoria: "Carnes",
+        precio: 290.0,
+        image: "https://carrefourar.vtexassets.com/arquivos/ids/196179/7790670050667_11.jpg?v=637522913490630000"
+    },
+    {
+        marca: "Paty",
+        nombre: "Salchichas de cerdo",
+        categoria: "Carnes",
+        precio: 140.0,
+        image: ""
+    },
+    {
+        marca: "Paty",
+        nombre: "Hamburguesas de pollo",
+        categoria: "Carnes",
+        precio: 279.0,
+        image: ""
+    },
+    {
+        marca: "Paty",
+        nombre: "Salchichas de pollo",
+        categoria: "Carnes",
+        precio: 165.0,
+        image: ""
+    },
+    {
+        marca: "Paty",
+        nombre: "Salchichas parrilleras",
+        categoria: "Carnes",
+        precio: 295.0,
+        image: ""
+    },
     { marca: "Ledesma", nombre: "Azúcar común", categoria: "Dulces y Endulzantes", precio: 48.0 },
     { marca: "Ledesma", nombre: "Azúcar impalpable", categoria: "Dulces y Endulzantes", precio: 79.0 },
     { marca: "Ledesma", nombre: "Azúcar rubia", categoria: "Dulces y Endulzantes", precio: 60.0 },
@@ -1811,15 +1876,22 @@ let genereradorDePrecios = [
 ];
 
 let productos2 = [];
-genereradorDePrecios.forEach(ele => {
+arrayDeProductos.forEach(ele => {
     let atributosQueNecesito = {
-        brand: "La Serenísima",
-        nombre: "Leche descremada",
-        categoria: "Lácteos",
-        precio: 85.5
+        brand: ele.marca,
+        name: ele.nombre,
+        category: ele.categoria,
+        precio: ele.precio,
+        image: "Link aqui"
     }
+    let buscarImagen = ele.marca + " " + ele.nombre
+    console.log(buscarImagen)
     productos2.push(ele)
 })
+
+let arrayImagenes = [
+
+]
 
 const marcasArgentinas = [
     "La Serenísima",
@@ -1853,7 +1925,7 @@ const marcasArgentinas = [
     "Hileret",
     "Manaos"
 ];
-console.log(marcasArgentinas);
+// console.log(marcasArgentinas);
 
 
 export let Usuarios = [...arrayUsers]
