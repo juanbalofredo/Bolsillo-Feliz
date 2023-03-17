@@ -118,6 +118,11 @@
     transition: .2s linear;
   }
   
+  .icon{
+    width: 20px;
+    height: 20px;
+  }
+  
   .icon-contact {
     width: fit-content;
     height: fit-content;
