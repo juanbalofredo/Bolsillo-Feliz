@@ -1,47 +1,75 @@
-import { useState } from "react";
-import "./comment.css";
-import { FormComment } from "./FormComment";
-import { PostedComment } from "./PostedComment";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import './comment.css';
 
-export const Comment = () => {
-  const user =  useSelector((state) => state.email);
-  //simulacion de los comentarios traidos de la base de datos
-  //llenar este hook con una consulta a la base
-  const [postedComments, setPostedComments] = useState([
-    {
-      text: "",
-    },
-  ]);
+function CommentForm({ onSubmit }) {
+  const [author, setAuthor] = useState('');
+  const [content, setContent] = useState('');
 
-  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit({ author, content });
+    setAuthor('');
+    setContent('');
+  };
 
   return (
-    <div className="d-flex flex-row justify-content-center">
-      <div className="row">
-        <div className="col-sm-5 col-md-6 col-12 pb-4">
-          <h1 className="texts">Comments</h1>
-          {postedComments.length > 0 ? (
-            postedComments.map((e) => (
-              <div key={e.id} className="d-flex flex-column align-items-center">
-                <PostedComment key={e.id} name={e.name} comment={e.comment} />
-              </div>
-            ))
-          ) : (
-            <h2 className="texts">No hay comentarios</h2>
-          )}
-        </div>
-      </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Your name"
+        value={author}
+        onChange={(event) => setAuthor(event.target.value)}
+        className="comment-form-field"
+      />
+      <textarea
+        placeholder="Leave a comment..."
+        value={content}
+        onChange={(event) => setContent(event.target.value)}
+        className="comment-form-field"
+      />
+      <button type="submit" className="comment-form-button">
+        Submit
+      </button>
+    </form>
+  );
+}
 
+function CommentList() {
+  const [comments, setComments] = useState([]);
 
-      <div className="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 mb-4 user">
-        {user ? <FormComment />
-        :
-        <h2>Debes iniciar sesión para poder comentar</h2>}
-      </div>
+  const handleSubmit = (newComment) => {
+    setComments([...comments, newComment]);
+  };
+
+  return (
+    <div className="comment-list-container">
+      <h2>Comments</h2>
+      <CommentForm onSubmit={handleSubmit} />
+      {comments.length === 0 ? (
+        <p>No comments yet.</p>
+      ) : (
+        comments.map((comment, index) => (
+          <Comment key={index} author={comment.author} content={comment.content} />
+        ))
+      )}
     </div>
   );
-};
+}
 
+function Comment({ author, content }) {
+  return (
+    <div className="comment-container">
+      <h3 className="comment-author">{author}</h3>
+      <p className="comment-content">{content}</p>
+    </div>
+  );
+}
 
-export default Comment;
+export default function App() {
+  return (
+    <div className="app-container">
+      <h1>Comentarios</h1>
+      <CommentList />
+    </div>
+  );
+}
