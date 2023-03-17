@@ -47,12 +47,12 @@ export const createSmarket = async (smarketsFromBody) => {
     }
     let findUser;
     if (smarketsFromBody) {
-        let { name, image, id } = smarketsFromBody;
+        let { name, image, id, ubications } = smarketsFromBody;
         //primero busca si el usuario existe para luego recien poder crear la tienda
         findUser = await Users.findOne({ where: { id } });
         if (findUser && !findUser.superMId) {
             // Crear una nueva tienda
-            const createSmarket = await SuperM.create({ name, image });
+            const createSmarket = await SuperM.create({ name, image, ubications });
 
             // Asignar el ID de la tienda al usuario
             await findUser.update({ superMId: createSmarket.id });
