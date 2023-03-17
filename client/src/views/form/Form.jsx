@@ -1,8 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { postProduct } from "../../redux/apiPetitions/productsPetitions";
+import {
+  getBrandId,
+  postProduct,
+} from "../../redux/apiPetitions/productsPetitions";
 import "./form.css";
 import axios from "axios";
 import Navbar from "../../components/Navbar/NavBar";
@@ -47,13 +50,22 @@ const Form = () => {
     category: "",
     image: "",
     superMId: statePersist.superMId,
-    brand: statePersist.user
+    brand: statePersist.user,
   });
+
+  useEffect(() => {
+    let brandName = getBrandId(statePersist.superMId).then((info) =>
+      setInput({ ...input, brand: info.data.name })
+    );
+  },[]);
+
+  console.log(input);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.name.length >= 1 && input.price >= 1 && input.price <= 1000000) {
       dispatch(postProduct(input));
+
       alert("Producto agregado exitosamente");
 
       setInput({
@@ -62,7 +74,7 @@ const Form = () => {
         image: "",
         category: "",
         superMId: statePersist.superMId,
-        brand: statePersist.user
+        brand: statePersist.user,
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
