@@ -61,31 +61,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 7rem;
   justify-content: center;
   width: 100%;
-  background-color: #727272;
-  border-radius: 1rem;
+  color: black;
+  border-radius: 4px;
 }
 .input-com-su button {
   width: 6rem;
   height: 2rem;
   margin-top: 2rem;
-  background-color: #226296;
+  background-color: #a8a8a8;
   border: none;
-  color: white;
+  color: #000000;
   border-radius: 7px;
   margin-bottom: 1rem;
 }
 .input-com-su button:hover {
   cursor: pointer;
-  background-color: #173f61;
+  background-color: #8a8a8a;
 }
 .input-com-su textarea {
   width: 90%;
   height: 5rem;
-  border-radius: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.input-com-su input[type="radio"] {
+  display: none;
+}
+.input-com-su .plla label:hover,
+.input-com-su .plla label:hover ~ label {
+  color: orange;
+  cursor: pointer;
+}
+.input-com-su input[type="radio"]:checked ~ label {
+  color: orange;
 }
 .comentario-superm {
   color: black;
@@ -102,7 +113,7 @@
   width: 100%;
 }
 .cont-com-sup-a h4 {
-  color: white;
+  color: black;
 }
 .cont-com-sup-a .label-1-su {
   background-color: white;
@@ -114,8 +125,19 @@
   color: #d1a513;
 }
 .plla {
-  color: #d1a513;
+  color: #666666;
+  font-size: 35px;
 }
 .plla input {
   margin-right: 3rem;
+}
+.bodyDark .comentario-superm h4 {
+  color: white;
+}
+.bodyDark .input-com-su {
+  color: #ffffff;
+}
+.plla {
+  direction: rtl;
+  unicode-bidi: bidi-override;
 }

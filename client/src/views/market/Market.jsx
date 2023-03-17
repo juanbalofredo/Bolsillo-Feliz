@@ -9,7 +9,10 @@ import "./market.css";
 import Footer from "../footer/Footer";
 import Navbar from "../../components/Navbar/NavBar";
 import "leaflet/dist/leaflet.css";
-import { postComments,getComments } from "../../redux/apiPetitions/userPetitions";
+import {
+  postComments,
+  getComments,
+} from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
 
 const Market = () => {
@@ -28,12 +31,9 @@ const Market = () => {
       });
   }, [id]);
 
-
-  useEffect(()=>{
-    getComments(dispatch)
-  },[dispatch])
-
-
+  useEffect(() => {
+    getComments(dispatch);
+  }, [dispatch]);
 
   const [comentario, setComentario] = useState({
     message: "",
@@ -46,37 +46,42 @@ const Market = () => {
       ...comentario,
       [name]: value,
     });
+    console.log(value);
   }
 
-
-  async function  comentar (e){
+  async function comentar(e) {
     e.preventDefault();
-    if (comentario.message.length > 10 && comentario.message.length < 200 ) {
-    postComments(dispatch,{message:comentario.message, userId: estate.id, superMId: market.id, score:comentario.score,userName:estate.name})
+    if (comentario.message.length > 10 && comentario.message.length < 200) {
+      postComments(dispatch, {
+        message: comentario.message,
+        userId: estate.id,
+        superMId: market.id,
+        score: comentario.score,
+        userName: estate.name + " " + estate.last_name,
+      });
       setComentario({
-      message: "",
-      score: 1,
-    });
-    swal({
-      title: "Comentario agregado",
-      text: "Tu comentario se agrego correctamente",
-      icon: "success",
-      button: "ok",
-    })
-  } else {
-    swal({
-      title: "COmentario",
-      text: "El comentario deberia tener entre 10 y 200 caracteres",
-      icon: "error",
-      button: "Reintentar",
-    });
-  }
-
+        message: "",
+        score: 1,
+      });
+      swal({
+        title: "Comentario agregado",
+        text: "Tu comentario se agrego correctamente",
+        icon: "success",
+        button: "ok",
+      });
+    } else {
+      swal({
+        title: "COmentario",
+        text: "El comentario deberia tener entre 10 y 200 caracteres",
+        icon: "error",
+        button: "Reintentar",
+      });
+    }
   }
   if (market) {
-
- const commentar =  state.comentaries?.filter(a=>a.superM.id === market.id)
-
+    const commentar = state.comentaries?.filter(
+      (a) => a.superM.id === market.id
+    );
 
     return (
       <>
@@ -97,7 +102,9 @@ const Market = () => {
                 iconUrl:
                   "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png",
               })}
-            ></Marker>
+            >
+              <Popup>Vos</Popup>
+            </Marker>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -109,13 +116,30 @@ const Market = () => {
                   iconUrl:
                     "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679009741/yajixzbn1c7n5ssgkqcm.png",
                 })}
-              ></Marker>
+              >             <Popup>{market.name}</Popup></Marker>
             ))}
           </MapContainer>
           <div className="txt-sup-of">
             <h3>Visitar pagina oficial click aqui</h3>
           </div>
           <div className="cont-coment-super">
+            <div className="cont-com-sup-a">
+              {commentar ? (
+                commentar.map((a) => (
+                  <div className="comentario-superm">
+                    <h4>{a.userName}</h4>
+                    <div>
+                      <label className="label-2-su">
+                        {"★".repeat(a.score)}
+                      </label>
+                      <label className="label-1-su">{a.message}</label>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>No hay comentarios todavia</p>
+              )}
+            </div>
             {estate.user ? (
               <div className="input-com-su">
                 <form className="input-com-su">
@@ -127,31 +151,53 @@ const Market = () => {
                   />
                   <label htmlFor="">Estrellas(1-5):</label>
                   <div className="plla">
-                  <input
-                    type="range"
-                    min="1"
-                    max="5"
-                    name="score"
-                    value={comentario.score}
-                    onChange={setear}
-                  />{comentario.score}</div>
+                    <input
+                      id="radio1"
+                      type="radio"
+                      name="score"
+                      value="5"
+                      onChange={setear}
+                    />
+                    <label for="radio1">★</label>
+                    <input
+                      id="radio2"
+                      type="radio"
+                      name="score"
+                      value="4"
+                      onChange={setear}
+                    />
+                    <label for="radio2">★</label>
+                    <input
+                      id="radio3"
+                      type="radio"
+                      name="score"
+                      value="3"
+                      onChange={setear}
+                    />
+                    <label for="radio3">★</label>
+                    <input
+                      id="radio4"
+                      type="radio"
+                      name="score"
+                      value="2"
+                      onChange={setear}
+                    />
+                    <label for="radio4">★</label>
+                    <input
+                      id="radio5"
+                      type="radio"
+                      name="score"
+                      value="1"
+                      onChange={setear}
+                    />
+                    <label for="radio5">★</label>
+                  </div>
                   <button onClick={comentar}>Comentar</button>
                 </form>
               </div>
-            ) : <div>Cree o ingrese a su cuenta para comentar</div> }
-            <div className="cont-com-sup-a">
-              {commentar? (
-                commentar.map((a) => <div className="comentario-superm">
-                  <h4>{a.userName}</h4>
-                  <div>
-                     <label className="label-1-su">{a.message}</label>
-                     <label className="label-2-su">{a.score}</label>
-                     </div>
-                </div>)
-              ) : (
-                <p>No hay comentarios todavia</p>
-              )}
-            </div>
+            ) : (
+              <div>Cree o ingrese a su cuenta para comentar</div>
+            )}
           </div>
         </div>
         {/* <Footer /> */}
