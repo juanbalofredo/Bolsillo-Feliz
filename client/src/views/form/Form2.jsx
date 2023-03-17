@@ -34,7 +34,7 @@ export const Form2 = () => {
   }, [dispatch]);
 
   const [input, setInput] = useState({
-    price: 0,
+    price: "",
     productId: "",
     superMId: statePersist.superMId,
   });
