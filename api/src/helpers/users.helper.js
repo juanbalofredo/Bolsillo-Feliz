@@ -1,9 +1,11 @@
+import Reviews from "../models/review.js";
 import Users from "../models/users.js";
 import createUser from "./createUser.helper.js";
 
 export function getUserById(id) {
     const userById = Users.findOne({
-        where: { id }
+        where: { id },
+        include: [Reviews]
     });
     return userById;
 }
