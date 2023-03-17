@@ -43,7 +43,7 @@ const AutorizacionMercader = () => {
       input.about.length >= 10 &&
       input.ubicacion.length >= 2
     ) {
-      emailjs.send("service_hah0x8k","template_buti7zt",{user_email:"alexaniasco@outlook.com", to_name: input.name, user_name:state.name , mercado: input.name},"te3Yvey_o03JLT1zu",{
+      emailjs.send("service_hah0x8k","template_buti7zt",{user_email:state.email, to_name: input.name, user_name:state.name , mercado: input.name},"te3Yvey_o03JLT1zu",{
         from_name: "Bolsillo Feliz",
        
        
