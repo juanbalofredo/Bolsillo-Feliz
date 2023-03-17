@@ -2,6 +2,7 @@
     background-color: blue;
     margin-top: 5rem;
     display: flex;
+    height: 100vh;
     gap: 17rem;
     justify-content: center;
 }
@@ -15,7 +16,7 @@
     margin-bottom: 10px;
 width: 100px;
 }
-.renderUser form{
+.renderUser {
     width: 100%;
     display: flex;
     gap: 1em;
@@ -38,7 +39,7 @@ width: 100px;
     width: 20vh;
     height: 100%;
 }
-.commentsUser button{
+.commentsUser label{
     justify-content: center;
     padding-top: 10%;
     display: flex;
