@@ -900,42 +900,50 @@ export const tiendas = [
     {
         name: "Dia",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png",
-        ubications: ubiDia
+        ubications: ubiDia,
+        link: "https://diaonline.supermercadosdia.com.ar/"
     },
     {
         name: "Coto",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png",
-        ubications: ubiCoto
+        ubications: ubiCoto,
+        link: "https://www.cotodigital3.com.ar/"
     },
     {
         name: "Carrefour",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png",
-        ubications: ubiCarrefour
+        ubications: ubiCarrefour,
+        link: "https://www.carrefour.com.ar/"
     },
     {
         name: "Disco",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png",
-        ubications: ubiDisco
+        ubications: ubiDisco,
+        link: "https://www.disco.com.ar/"
     },
     {
         name: "Jumbo",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png",
-        ubications: ubiJumbo
+        ubications: ubiJumbo,
+        link: "https://www.jumbo.com.ar/"
     },
     {
         name: "Vea",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/elsssfc03lvqxk6a3p4i.png",
-        ubications: ubiVea
+        ubications: ubiVea,
+        link: "https://www.vea.com.ar/"
     },
     {
         name: "Vital",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png",
-        ubications: ubiVital
+        ubications: ubiVital,
+        link: "https://www.vital.com.ar/"
     },
     {
         name: "Walmart",
         image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp",
-        ubications: ubiWalmart
+        ubications: ubiWalmart,
+        link: "https://www.masonline.com.ar/"
     }
 ]
 
