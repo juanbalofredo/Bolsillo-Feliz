@@ -5,32 +5,19 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import Card3 from "../../components/Card/Card3";
-import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import "./market.css";
 import Footer from "../footer/Footer";
 import Navbar from "../../components/Navbar/NavBar";
 import "leaflet/dist/leaflet.css";
+import { postComments,getComments } from "../../redux/apiPetitions/userPetitions";
+import swal from "sweetalert";
 
 const Market = () => {
-
   const dispatch = useDispatch();
   const estate = useSelector((state) => state.bolsilloPersist);
-  let didInit = false;
-  useEffect(() => {
-    if (!didInit) {
-      didInit = true;
-      getProductos(dispatch);
-    }
-  }, [dispatch]);
-
   const state = useSelector((state) => state.bolsilloFeliz);
   const { id } = useParams();
   const [market, setMarket] = useState(null);
-  const myProduct = state.productsBackup;
-  const [page, setPage] = useState(1);
-  const startIndex = page === 1 ? 0 : page * 10 - 10;
-  const endIndex = page === 1 ? 10 : startIndex + 10;
 
   useEffect(() => {
     axios
@@ -41,10 +28,55 @@ const Market = () => {
       });
   }, [id]);
 
-  console.log(market);
 
-  if (market && myProduct) {
-    const aver = myProduct.slice(startIndex, endIndex);
+  useEffect(()=>{
+    getComments(dispatch)
+  },[dispatch])
+
+
+
+  const [comentario, setComentario] = useState({
+    message: "",
+    score: 1,
+  });
+
+  function setear(e) {
+    const { name, value } = e.target;
+    setComentario({
+      ...comentario,
+      [name]: value,
+    });
+  }
+
+
+  async function  comentar (e){
+    e.preventDefault();
+    if (comentario.message.length > 10 && comentario.message.length < 200 ) {
+    postComments(dispatch,{message:comentario.message, userId: estate.id, superMId: market.id, score:comentario.score,userName:estate.name})
+      setComentario({
+      message: "",
+      score: 1,
+    });
+    swal({
+      title: "Comentario agregado",
+      text: "Tu comentario se agrego correctamente",
+      icon: "success",
+      button: "ok",
+    })
+  } else {
+    swal({
+      title: "COmentario",
+      text: "El comentario deberia tener entre 10 y 200 caracteres",
+      icon: "error",
+      button: "Reintentar",
+    });
+  }
+
+  }
+  if (market) {
+
+ const commentar =  state.comentaries?.filter(a=>a.superM.id === market.id)
+
 
     return (
       <>
@@ -59,48 +91,70 @@ const Market = () => {
             zoom={13}
             scrollWheelZoom={true}
           >
-            <Marker position={estate.location} icon={L.icon({ iconUrl: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png" })} ></Marker>
+            <Marker
+              position={estate.location}
+              icon={L.icon({
+                iconUrl:
+                  "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png",
+              })}
+            ></Marker>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {market.ubications.map(a=>(
-                <Marker position={a} icon={L.icon({ iconUrl: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679009741/yajixzbn1c7n5ssgkqcm.png" })} ></Marker>
+            {market.ubications.map((a) => (
+              <Marker
+                position={a}
+                icon={L.icon({
+                  iconUrl:
+                    "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679009741/yajixzbn1c7n5ssgkqcm.png",
+                })}
+              ></Marker>
             ))}
-           
           </MapContainer>
           <div className="txt-sup-of">
-            <h3>Visitar pagina oficial</h3>
-            <h2>click aqui</h2>
+            <h3>Visitar pagina oficial click aqui</h3>
           </div>
-          <h1 className="asdkjkh">Productos de {market.name}</h1>
-          <div className="container-prod-market">
-            {aver.map((p) => (
-              <Card3 key={p.id} product={p} market={market.name} />
-            ))}
-          </div>
-          <div className="pag-but-que">
-            {page === 1 ? (
-              <button className="but-pag-a" disabled>
-                Anterior
-              </button>
-            ) : (
-              <button className="but-pag-a" onClick={(e) => setPage(page - 1)}>
-                Anterior
-              </button>
-            )}
-            {page === Math.ceil(myProduct.length / 10) ? (
-              <button className="but-pag-s" disabled>
-                Siguiente
-              </button>
-            ) : (
-              <button className="but-pag-s" onClick={(e) => setPage(page + 1)}>
-                Siguiente
-              </button>
-            )}
+          <div className="cont-coment-super">
+            {estate.user ? (
+              <div className="input-com-su">
+                <form className="input-com-su">
+                  <label>Agregar tu comentario sobre {market.name}:</label>
+                  <textarea
+                    onChange={setear}
+                    value={comentario.message}
+                    name="message"
+                  />
+                  <label htmlFor="">Estrellas(1-5):</label>
+                  <div className="plla">
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    name="score"
+                    value={comentario.score}
+                    onChange={setear}
+                  />{comentario.score}</div>
+                  <button onClick={comentar}>Comentar</button>
+                </form>
+              </div>
+            ) : <div>Cree o ingrese a su cuenta para comentar</div> }
+            <div className="cont-com-sup-a">
+              {commentar? (
+                commentar.map((a) => <div className="comentario-superm">
+                  <h4>{a.userName}</h4>
+                  <div>
+                     <label className="label-1-su">{a.message}</label>
+                     <label className="label-2-su">{a.score}</label>
+                     </div>
+                </div>)
+              ) : (
+                <p>No hay comentarios todavia</p>
+              )}
+            </div>
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }
