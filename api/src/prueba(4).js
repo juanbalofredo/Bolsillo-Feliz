@@ -969,17 +969,32 @@ for (let i = 0; i < productosNoEspeciales.length; i++) {
 export let precios = [...preciosPorMercadoNoEspeciales, ...preciosEspeciales]
 let arrayUsers = [];
 for (let i = 1; i < 21; i++) {
-    let generateUser = {
-        "name": `User ${i}`,
-        "last_name": `LastName ${i}`,
-        "avatar": `Link ${i}`,
-        "email": `correo_${i}@email.com`,
-        "type_account": "1",
-        "notifications": false,
-        "activity": false,
-        "hashgoogle": "xiEulWfqQiNEtMlclpCQPhO2cY" + i
+    if (i === 1) {
+        let generateUser = {
+            "name": `Admin`,
+            "last_name": `General`,
+            "avatar": `Admin`,
+            "email": `admin@email.com`,
+            "type_account": "3",
+            "notifications": true,
+            "activity": true,
+            "password": "12345"
+        }
+        arrayUsers.push(generateUser)
+    } else {
+        let generateUser = {
+            "name": `User ${i}`,
+            "last_name": `LastName ${i}`,
+            "avatar": `Link ${i}`,
+            "email": `correo_${i}@email.com`,
+            "type_account": "1",
+            "notifications": false,
+            "activity": false,
+            "hashgoogle": "xiEulWfqQiNEtMlclpCQPhO2cY" + i,
+            "password": "12345"
+        }
+        arrayUsers.push(generateUser)
     }
-    arrayUsers.push(generateUser)
 }
 
 
