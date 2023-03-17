@@ -35,7 +35,7 @@ export async function crearUser(dispatch,input) {
         password: input.password,
         type_account: "1",
       })
-      dispatch(oneUsers(user.data))
+      dispatch( (user.data))
       return user;
   } catch (error) {
     return error.message;
