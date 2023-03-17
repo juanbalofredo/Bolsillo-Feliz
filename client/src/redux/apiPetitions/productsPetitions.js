@@ -90,8 +90,8 @@ export const rsetFilters = async (dispatch) => {
 };
 
 export const postProduct = (payload) => {
-  console.log("http://localhost:3001/products",payload)
   return async () => {
+    console.log(payload)
     try {
       const response = await axios.post(
         "http://localhost:3001/products",
@@ -105,7 +105,6 @@ export const postProduct = (payload) => {
 };
 
 export const postProductNoSpecials = (payload) => {
-  console.log("http://localhost:3001/products",payload)
   return async () => {
     console.log(payload)
     try {

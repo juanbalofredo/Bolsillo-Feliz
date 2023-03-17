@@ -11,6 +11,7 @@ export const User = () => {
   const name = user ? state.name : null;
   return (
     <div className="user-container">
+      <Link to="/perfil">
       <div>
         {user ? (
           <img
@@ -30,6 +31,7 @@ export const User = () => {
           />
         )}
       </div>
+      </Link>
       <div className="name-container">
         {user ? <h4 className="name">{name}</h4> : <h4 className="name"></h4>}
       </div>

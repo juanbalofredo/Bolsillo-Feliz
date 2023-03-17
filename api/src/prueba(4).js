@@ -1,3 +1,5 @@
+import { ubiCoto, ubiCarrefour, ubiDia, ubiDisco, ubiJumbo, ubiVea, ubiVital, ubiWalmart } from "./ubicaciones.js";
+
 let Allproducts = [
 
     {
@@ -892,40 +894,48 @@ let preciosEspeciales = [
     }
 ]
 
-
+// console.log ("esto es el CONSOLE.LOG ====>", productosNoEspeciales)
 
 export const tiendas = [
     {
         name: "Dia",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png",
+        ubications: ubiDia
     },
     {
         name: "Coto",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png",
+        ubications: ubiCoto
     },
     {
         name: "Carrefour",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png",
+        ubications: ubiCarrefour
     },
     {
         name: "Disco",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png",
+        ubications: ubiDisco
     },
     {
         name: "Jumbo",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png",
+        ubications: ubiJumbo
     },
     {
         name: "Vea",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/elsssfc03lvqxk6a3p4i.png"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/elsssfc03lvqxk6a3p4i.png",
+        ubications: ubiVea
     },
     {
         name: "Vital",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png",
+        ubications: ubiVital
     },
     {
         name: "Walmart",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp"
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp",
+        ubications: ubiWalmart
     }
 ]
 

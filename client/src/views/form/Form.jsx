@@ -47,7 +47,7 @@ const Form = () => {
     category: "",
     image: "",
     superMId: statePersist.superMId,
-    brand: ""
+    brand: statePersist.user
   });
 
   const handleSubmit = (e) => {
@@ -62,7 +62,7 @@ const Form = () => {
         image: "",
         category: "",
         superMId: statePersist.superMId,
-        brand: ""
+        brand: statePersist.user
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");

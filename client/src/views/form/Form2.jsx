@@ -8,7 +8,6 @@ export const Form2 = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloFeliz);
   const statePersist = useSelector((state) => state.bolsilloPersist);
-
   const allCategories = [
     ...new Set(state.productsBackup.map((a) => a.category)),
   ].sort();
@@ -16,11 +15,19 @@ export const Form2 = () => {
   const allProducts = [
     ...new Set(
       state.products.map((a) => {
-        let arrayProduct = [a.name, a.id];
-        return arrayProduct;
+        const filteredPrices = a.prices.filter(
+          (p) => p.superM != null && p.superM.id === statePersist.superMId
+        );
+        if (filteredPrices.length > 0) {
+          return null;
+        } else {
+          let arrayProduct = [a.name, a.id];
+          return arrayProduct;
+        }
       })
     ),
-  ].sort();
+  ].filter((p) => p !== null)
+    .sort();
 
   useEffect(() => {
     getProductos(dispatch);
@@ -58,6 +65,9 @@ export const Form2 = () => {
         category: "",
         superMId: statePersist.superMId,
       });
+
+      window.location.reload(true)
+
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
     }
@@ -76,23 +86,6 @@ export const Form2 = () => {
             <div className="form">
               <div className="izq">
                 <div>
-                  <div>Precio:</div>
-                  <input
-                    type="number"
-                    value={input.price}
-                    name="price"
-                    onChange={priceChange}
-                    placeholder="Precio"
-                    className="inputs"
-                  />
-                  {(input.price > 100000 || input.price < 1) && (
-                    <div className="error">
-                      El precio no puede ser mayor a un millon o menor a 1
-                    </div>
-                  )}
-                </div>
-
-                <div>
                   <div>Producto:</div>
                   <select
                     type="text"
@@ -110,23 +103,21 @@ export const Form2 = () => {
                     ))}
                   </select>
                 </div>
-
                 <div>
-                  <div>Categoria:</div>
-                  <select
-                    type="text"
-                    value={input.category}
-                    name="category"
-                    placeholder="Categoria"
+                  <div>Precio:</div>
+                  <input
+                    type="number"
+                    value={input.price}
+                    name="price"
+                    onChange={priceChange}
+                    placeholder="Precio"
                     className="inputs"
-                  >
-                    <option value="empty">...</option>
-                    {allCategories.map((e) => (
-                      <option key={e} value={e}>
-                        {e}
-                      </option>
-                    ))}
-                  </select>
+                  />
+                  {(input.price > 100000 || input.price < 1) && (
+                    <div className="error">
+                      El precio no puede ser mayor a un millon o menor a 1
+                    </div>
+                  )}
                 </div>
                 <button id="bt" className="button" onClick={handleSubmit}>
                   Añadir

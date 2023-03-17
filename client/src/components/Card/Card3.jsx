@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./card.css";
 
 export default function Card({ product, market }) {
-  const { name, brand, image, id } = product;
+  const { name, brand, image } = product;
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -27,6 +27,7 @@ export default function Card({ product, market }) {
               <h2 className="price-brand-mark">${precioM.price}</h2>
             </div>
           </div>
+
         </div>
       </>
     );

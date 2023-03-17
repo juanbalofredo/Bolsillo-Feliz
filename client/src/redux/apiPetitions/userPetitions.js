@@ -1,7 +1,7 @@
 import axios from "axios";
 import { oneUsers, changeTheme } from "../slice/persistSlice";
 
-import { allUsers, oneComment } from "../slice/globalSlice";
+import { allUsers, oneComment,agCom } from "../slice/globalSlice";
 
 import {
   firebase,
@@ -135,24 +135,23 @@ export async function StartGoogleAuth(dispatch) {
   }
 }
 
-export async function getComments(dispatch, id) {
+export async function getComments(dispatch) {
   try {
-    let response = axios.get(
-      `http://localhost:3001/reviews/id/${id}`,
-      dispatch
+    let response = await axios.get(
+      `http://localhost:3001/reviews/`,
     );
-    dispatch(oneComment(response?.data));
+    dispatch(agCom(response.data));
   } catch (error) {
     return error.message;
   }
 }
 
-export async function postComments(dispatch, id) {
+export async function postComments (dispatch,body) {
   try {
     let json = await axios.post(
-      `http://localhost:3001/reviews/id/${id}`,
-      dispatch
+      `http://localhost:3001/reviews/createpost`,body
     );
+    getComments(dispatch)
     return json;
   } catch (error) {
     console.log(error);

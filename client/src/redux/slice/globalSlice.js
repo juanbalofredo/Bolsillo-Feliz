@@ -11,6 +11,7 @@ const initialState = {
   allUsers: [],
   mercado: [],
   superMId: "",
+  comentaries:[]
 };
 
 export const bolsilloSlice = createSlice({
@@ -25,6 +26,9 @@ export const bolsilloSlice = createSlice({
     },
     sigPage(state){
       state.page = state.page +1;
+    },
+    agCom(state,action){
+       state.comentaries =  action.payload
     },
     antPage(state){
       state.page = state.page -1;
@@ -86,6 +90,7 @@ export const {
   antPage,
   resPage,
   getName,
+  agCom,
   filterCategory,
   filterBrand,
   resetFilter,
