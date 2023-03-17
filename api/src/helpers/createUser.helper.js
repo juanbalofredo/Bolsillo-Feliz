@@ -25,6 +25,7 @@ export default async function createUser(userFromBody) {
         })
     } else {
         creatingUser = await Users.create(userFromBody)
+        return creatingUser;
     }
     return creatingUser ;
 }
