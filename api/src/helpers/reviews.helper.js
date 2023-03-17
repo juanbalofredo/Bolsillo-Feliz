@@ -13,22 +13,20 @@ export function getReviewsById(id) {
 
 export function getTotalReviews() {
   const totalReviews = Reviews.findAll({
-    attributes: ["id", "message", "score", "userId", "activity", "userName"],
+    attributes: ["id", "message", "score", "userId", "activity"],
     include: { model: SuperM, attributes: ["name", "id"] },
   });
   return totalReviews;
 }
 
-export async function createReviews({ message, userName, userId, superMId, score }) {
+export async function createReviews({ message, userId, superMId, score }) {
   console.log(message, "esto es message");
-  console.log(userName, "esto es userName");
   console.log(userId, "esto es userId");
   console.log(superMId, "esto es SuperMid");
   console.log(score, "esto es score");
 
   let creatingReview = await Reviews.create({
     userId,
-    userName,
     score,
     superMId,
     message,

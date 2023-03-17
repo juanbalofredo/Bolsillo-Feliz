@@ -2,3 +2,7 @@
 
 .env
 .env.test
+
+jspm_packages/
+
+package-lock.json

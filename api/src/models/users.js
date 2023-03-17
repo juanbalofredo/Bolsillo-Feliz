@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
+import bcrypt from "bcrypt";
 
 
 const Users = dataBase.define('users', {
@@ -23,7 +24,11 @@ const Users = dataBase.define('users', {
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
+        set(value) {
+            const hash = bcrypt.hashSync(value, 10);
+            this.setDataValue("password", hash);
+        }
     },
     hashgoogle: {
         type: DataTypes.STRING,
