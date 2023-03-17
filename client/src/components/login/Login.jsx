@@ -31,11 +31,11 @@ const Login = () => {
       }
     }
   };
-
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
+  console.log(input.password);
   function setear(e) {
     const { name, value } = e.target;
     setInput({
@@ -93,6 +93,7 @@ const Login = () => {
                 </div>
                 <div className="rgister-contra">
                   <input
+                    required
                     name="password"
                     type="password"
                     maxLength="30"
