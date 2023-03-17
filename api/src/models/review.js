@@ -17,6 +17,10 @@ const Reviews = dataBase.define('reviews', {
         type: DataTypes.BOOLEAN,
         defaultValue: true
     },
+    userName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     // agregar supermercado y puntaje
     score: {
         type: DataTypes.INTEGER,
