@@ -46,7 +46,6 @@ const Market = () => {
       ...comentario,
       [name]: value,
     });
-    console.log(value);
   }
 
   async function comentar(e) {
@@ -57,7 +56,6 @@ const Market = () => {
         userId: estate.id,
         superMId: market.id,
         score: comentario.score,
-        userName: estate.name + " " + estate.last_name,
       });
       setComentario({
         message: "",
@@ -71,7 +69,7 @@ const Market = () => {
       });
     } else {
       swal({
-        title: "COmentario",
+        title: "Comentario",
         text: "El comentario deberia tener entre 10 y 200 caracteres",
         icon: "error",
         button: "Reintentar",

@@ -26,7 +26,8 @@ export const Form2 = () => {
         }
       })
     ),
-  ].filter((p) => p !== null)
+  ]
+    .filter((p) => p !== null)
     .sort();
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export const Form2 = () => {
   }, [dispatch]);
 
   const [input, setInput] = useState({
-    price: "",
+    price: 1,
     productId: "",
     superMId: statePersist.superMId,
   });
@@ -61,73 +62,69 @@ export const Form2 = () => {
       alert("Producto agregado exitosamente");
 
       setInput({
-        price: "",
+        price: 1,
         category: "",
         superMId: statePersist.superMId,
       });
 
-      window.location.reload(true)
-
+      window.location.reload(true);
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
     }
   };
 
   return (
-    <div>
-      <div className="contGral">
-        <div className="">
-          <div className="contTitle">
-            <div className="text">
-              <h2>Añade un producto de un mercado</h2>
-            </div>
+    <div className="cont-form-2">
+      <h2>Añade el precio de los productos en tu mercado</h2>
+      <div className="txt-form-ayu">
+        <form onSubmit={handleSubmit}>
+          <div>
+            Producto:
+            <select
+              type="text"
+              value={input.products}
+              name="productId"
+              onChange={idPRoductChange}
+              placeholder="Categoria"
+              className="inputs"
+            >
+              <option value="empty">...</option>
+              {allProducts.map((e) => (
+                <option key={e[0]} value={e[0]} id={e[1]}>
+                  {e[0]}
+                </option>
+              ))}
+            </select>
           </div>
-          <form onSubmit={handleSubmit}>
-            <div className="form">
-              <div className="izq">
-                <div>
-                  <div>Producto:</div>
-                  <select
-                    type="text"
-                    value={input.products}
-                    name="productId"
-                    onChange={idPRoductChange}
-                    placeholder="Categoria"
-                    className="inputs"
-                  >
-                    <option value="empty">...</option>
-                    {allProducts.map((e) => (
-                      <option key={e[0]} value={e[0]} id={e[1]}>
-                        {e[0]}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <div>Precio:</div>
-                  <input
-                    type="number"
-                    value={input.price}
-                    name="price"
-                    onChange={priceChange}
-                    placeholder="Precio"
-                    className="inputs"
-                  />
-                  {(input.price > 100000 || input.price < 1) && (
-                    <div className="error">
-                      El precio no puede ser mayor a un millon o menor a 1
-                    </div>
-                  )}
-                </div>
-                <button id="bt" className="button" onClick={handleSubmit}>
-                  Añadir
-                </button>
+          <div>
+            Precio:
+            <input
+              type="number"
+              value={input.price}
+              name="price"
+              onChange={priceChange}
+              placeholder="Precio"
+              className="inputs"
+            />
+            {(input.price > 100000 || input.price < 1) && (
+              <div className="error">
+                El precio no puede ser mayor a un millon o menor a 1
               </div>
-            </div>
-          </form>
+            )}
+          </div>
+
+          <button id="bt" className="button" onClick={handleSubmit}>
+            Añadir
+          </button>
+        </form>
+        <div className="text-info-form">
+          <p>
+            Para formar parte de los mercados de nuestra aplicación web, deberás
+            primero rellenar cierta información, como a que precio vende tú
+            mercado los productos ya establecidos en la aplicación
+          </p>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

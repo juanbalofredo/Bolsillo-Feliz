@@ -1,107 +1,188 @@
-.contGral {
+.arriba-form {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 30px;
-  padding-bottom: 275px;
-}
-
-.contTitle {
-  background-color: black;
   width: 100%;
-  height: 60px;
-  display: flex;
-  border-radius: 50px 50px 0px 0px;
-  align-items: center;
-  gap: 1rem;
 }
-
-.form {
-  padding-top: 20px;
-  display: flex;
-  font-family: "Rubik", sans-serif;
-  font-weight: 200;
-  font-size: 17px;
-  background-color: #ffffff;
-  padding-bottom: 1.5rem;
-  border-radius: 0  0 10px 10px;
-}
-
-.title {
-  font-family: "Rubik", sans-serif;
-  color: #fff;
+.arriba-form button {
+  background-color: #386dbd;
+  padding-left: 6%;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  height: 4rem;
   font-weight: 700;
-  font-size: 30px;
-  margin-left: 40px;
+  color: white;
 }
-
-.izq {
+.arriba-form button:hover {
+  cursor: pointer;
+}
+.arriba-form button:focus,
+.arriba-form button:active {
+  background-color: #214881;
+}
+.volver-form {
+  border-radius: 5px;
+  margin-left: 30px;
+  margin-top: 30px;
+  height: 2.5vw;
+  width: 5vw;
+  margin-right: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #23477c;
+  border: none;
+  transition: 0.3s;
+  color: white;
+  font-family: "Phudu", cursive;
+}
+.volver-form:hover {
+  background-color: #163057;
+}
+.cont-form-2 {
+  color: white;
   display: flex;
   flex-direction: column;
-  padding-inline: 40px;
-  gap: 1.3rem;
+  align-items: center;
 }
-
-.inputs {
-  margin-top: 5px;
-  padding-left: 15px;
-  height: 30px;
-  width: 200px;
-  border-radius: 20px;
-  border: none;
-  background-color: #f8f7f7;
-}
-
-.error {
-  font-family: "Rubik", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+.cont-form-2 form {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
-  color: red;
-  border: 1px solid red;
+  flex-direction: column;
+  width: 20rem;
+  background-color: white;
+  color: black;
+  height: 20rem;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
-  padding: 0 0.3rem;
 }
-
-.button {
-  font-size: 15px;
-  height: 35px;
-  width: 110px;
-  border-radius: 8px;
-  background-color: black;
-  color: #fff;
-  font-family: "Rubik", sans-serif;
-  cursor: pointer;
+.cont-form-2 form .error {
+  font-size: 13px;
+  width: 15rem;
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+.cont-form-2 form div {
+  height: 5rem;
+}
+.cont-form-2 form button {
+  width: 7rem;
+  margin-top: 1rem;
   border: none;
-  margin-top: 5px;
+  background-color: #006400;
+  height: 2rem;
+  border-radius: 10px;
+  color: white;
+  font-family: "Phudu", cursive;
+  font-size: 15px;
 }
-
-.reg-image {
+.cont-form-2 form button:hover {
+  cursor: pointer;
+  background-color: #003f00;
+}
+.cont-form-2 form input {
+  width: 10rem;
+  margin-left: 1rem;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.cont-form-2 form select {
+  width: 8.8rem;
+  margin-left: 1rem;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.cont-form-2 form select:hover {
+  cursor: pointer;
+}
+.container-form-gr {
+  display: flex;
+  flex-direction: column;
+}
+.cont-form-2 h2 {
+  color: white;
+  margin-bottom: 6rem;
+}
+.text-info-form {
+  width: 10rem;
+  margin-left: 3rem;
+}
+.txt-form-ayu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contGral {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.contGral form {
+  background-color: white;
+  width: 40rem;
+  height: 34rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+.contGral form div {
+  margin-top: 2rem;
+}
+.contGral form button {
+  width: 7rem;
+  margin-top: 1rem;
+  border: none;
+  background-color: #006400;
+  height: 2rem;
+  border-radius: 10px;
+  color: white;
+  font-family: "Phudu", cursive;
+  font-size: 15px;
+}
+.contGral form button:hover {
+  cursor: pointer;
+  background-color: #003f00;
+}
+.x23-a {
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.x23-a .input-img-tas {
+  width: 15rem;
+}
+.x23-a img {
+  margin-left: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 10rem;
+}
+.x23-a input {
+  width: 10rem;
+  margin-left: 1rem;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.x23-a select {
+  width: 8.8rem;
+  margin-left: 1rem;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.x23-a select:hover {
+  cursor: pointer;
+}
+.reg-image-formz {
+  display: flex;
+  flex-direction: column;
+}
+.flex-asd-f {
   display: flex;
 }
-
-.reg-image img {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  left: 35;
-  top: 1px;
-  border-radius: 50%;
-  background-color: #000000;
-  object-fit: contain;
-}
-
-.text h3 {
+.flex-asd-f p {
   color: white;
-  margin-left: 85px;
-}
-
-.text h2  {
-  color: white;
-  margin-left: 30px;
-}
-
-.formsContainer {
-  display: flex;
+  width: 20rem;
+  margin-left: 3rem;
 }
