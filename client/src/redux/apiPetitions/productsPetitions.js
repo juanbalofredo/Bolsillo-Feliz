@@ -33,6 +33,18 @@ export async function getProductId(dispatch, id) {
   }
 }
 
+export async function getBrandId(id) {
+  try {
+    let json = await axios.get(
+      `http://localhost:3001/market/id/${id}`,
+      );
+      console.log(json)
+    return json;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const getNameQuery = async (dispatch, name, order) => {
   try {
     const petition = await axios.get(
