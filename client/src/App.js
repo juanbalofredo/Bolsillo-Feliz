@@ -13,6 +13,7 @@ import AutorizacionMercader from "./views/autorizacionMercader/AutorizacionMerca
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { useSelector } from "react-redux";
 import Error from "./views/Error/Error"
+import Perfil from "./components/PerfilUser/PerfilUser";
 
 const App =()=>{
   const {user, type_account} = useSelector((state) => state.bolsilloPersist);
@@ -42,6 +43,10 @@ const App =()=>{
         <Route exact path="/autorizacion" element={ 
             <ProtectedRoute user={!!user}>
                 <AutorizacionMercader/>
+            </ProtectedRoute>}/>
+        <Route exact path="/perfil" element={ 
+            <ProtectedRoute user={!!user}>
+                <Perfil/>
             </ProtectedRoute>}/>
       </Routes>
     </div>
