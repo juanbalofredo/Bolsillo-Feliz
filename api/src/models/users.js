@@ -52,7 +52,7 @@ const Users = dataBase.define('users', {
     }
 
 
-}, { timestamps: false })
+}, { timestamps: true })
 
 
 
