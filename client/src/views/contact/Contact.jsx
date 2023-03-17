@@ -93,7 +93,7 @@ const TeamMemberCard = () => {
                       </a>
                     </div>
                     <div className="bottom-part">
-                      <a href="mailto:bautista.godoy@outlook.com" className="link">
+                      <a href={"mailto:" + e.email} className="link">
                         <span className="icon">
                         <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

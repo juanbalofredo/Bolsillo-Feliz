@@ -24,17 +24,7 @@ export default async function createUser(userFromBody) {
             hashgoogle
         })
     } else {
-        creatingUser = await Users.create({
-            name,
-            last_name,
-            avatar,
-            email,
-            password,
-            type_account,
-            notifications,
-            activity,
-            hashgoogle
-        })
+        creatingUser = await Users.create(userFromBody)
     }
-    return creatingUser;
+    return creatingUser ;
 }

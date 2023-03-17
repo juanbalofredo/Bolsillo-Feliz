@@ -1,7 +1,7 @@
 import axios from "axios";
 import { oneUsers, changeTheme } from "../slice/persistSlice";
 
-import { allUsers, oneComment,agCom } from "../slice/globalSlice";
+import { allUsers,agCom } from "../slice/globalSlice";
 
 import {
   firebase,
@@ -21,6 +21,7 @@ export function changeColor(dispatch) {
 }
 
 export async function crearUser(dispatch,input) {
+  console.log(input);
   if (input.avatar.length < 5) {
     input.avatar =
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
