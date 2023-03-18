@@ -14,7 +14,14 @@ export function getReviewsById(id) {
 export function getTotalReviews() {
   const totalReviews = Reviews.findAll({
     attributes: ["id", "message", "score", "userId", "activity"],
-    include: { model: SuperM, attributes: ["name", "id"] },
+    include: [
+      { model: SuperM, attributes: ["name", "id"] },
+      {
+        model: Users,
+        as: "user",
+        attributes: ["avatar", "name", "last_name"],
+      },
+    ],
   });
   return totalReviews;
 }
@@ -31,30 +38,29 @@ export async function createReviews({ message, userId, superMId, score }) {
     superMId,
     message,
   });
-  let idReview = creatingReview.id
+  let idReview = creatingReview.id;
   let findReview = await Reviews.findOne({
     where: { id: idReview },
-    include:
-    {
+    include: {
       model: Users,
       as: "user",
-      attributes: ['avatar', "name", "last_name"]
-    }
-
-  })
-  console.log("esto es findReview ==>", findReview.dataValues)
+      attributes: ["avatar", "name", "last_name"],
+    },
+  });
+  console.log("esto es findReview ==>", findReview.dataValues);
   return findReview;
 }
 
 export function deleteReviewById(id) {
+  console.log(id)
   const reviewDelete = Reviews.destroy({
     where: { id },
     include: [
       {
         model: Users,
-        attributes: ['avatar', 'name', 'last_name'],
-      }
-    ]
+        attributes: ["avatar", "name", "last_name"],
+      },
+    ],
   });
   return reviewDelete;
 }
