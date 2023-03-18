@@ -40,6 +40,7 @@ export async function postReview(req, res) {
 
 export async function deleteReview(req, res) {
     const { id } = req.body;
+    console.log(id)
     try {
         const deletedReview = await deleteReviewById(id)
         if (deletedReview === 0) {
