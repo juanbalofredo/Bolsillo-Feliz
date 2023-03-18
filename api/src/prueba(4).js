@@ -860,14 +860,16 @@ let productosEspeciales = soloProductos.filter(ele => {
     }
 })
 
-let productosUnidos = [...productosNoEspeciales, ...productosEspeciales]
+export let productos = [...productosNoEspeciales, ...productosEspeciales]
+console.log(productos)
+// export let productos = productosUnidos.map((ele, indice) => {
+//     let { name, brand, category, image } = ele;
+//     name = name + `${indice + 1}`
+//     let atributosFiltrados = { name, brand, category, image };
+//     return atributosFiltrados;
+// })
 
-export let productos = productosUnidos.map((ele, indice) => {
-    let { name, brand, category, image } = ele;
-    name = name + `${indice + 1}`
-    let atributosFiltrados = { name, brand, category, image };
-    return atributosFiltrados;
-})
+
 
 
 let preciosEspeciales = [
@@ -1853,7 +1855,7 @@ const marcasArgentinas = [
     "Hileret",
     "Manaos"
 ];
-console.log(marcasArgentinas);
+// console.log(marcasArgentinas);
 
 
 export let Usuarios = [...arrayUsers]
