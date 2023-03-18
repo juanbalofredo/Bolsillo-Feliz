@@ -22,6 +22,7 @@ export async function getByEmail(req, res) {
     const comparing = req.body;
     // console.log(comparing);
     try {
+        console.log("entro al TRY")
         const response = await getUserByEmail(comparing);
         if (!response) return res.status(400).send("this email is not registered");
         return res.status(200).json(response);

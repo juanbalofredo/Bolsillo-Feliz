@@ -22,10 +22,14 @@ const Products = dataBase.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    unit: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     fullName: {
       type: DataTypes.VIRTUAL,
       get(){
-        return `${this.name} ${this.brand}`;
+        return `${this.name} ${this.unit}`;
       }
     }
   },

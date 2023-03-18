@@ -13,32 +13,54 @@ export function getReviewsById(id) {
 
 export function getTotalReviews() {
   const totalReviews = Reviews.findAll({
-    attributes: ["id", "message", "score", "userId", "activity","userName"],
-    include: { model: SuperM, attributes: ["name", "id"] },
+    attributes: ["id", "message", "score", "userId", "activity"],
+    include: [
+      { model: SuperM, attributes: ["name", "id"] },
+      {
+        model: Users,
+        as: "user",
+        attributes: ["avatar", "name", "last_name"],
+      },
+    ],
   });
   return totalReviews;
 }
 
-export async function createReviews({
-  message,
-  userName,
-  userId,
-  superMId,
-  score,
-}) {
-  console.log(message, userName, userId, superMId, score);
-  await Reviews.create({
+export async function createReviews({ message, userId, superMId, score }) {
+  console.log(message, "esto es message");
+  console.log(userId, "esto es userId");
+  console.log(superMId, "esto es SuperMid");
+  console.log(score, "esto es score");
+
+  let creatingReview = await Reviews.create({
     userId,
-    userName,
     score,
     superMId,
     message,
   });
+  let idReview = creatingReview.id;
+  let findReview = await Reviews.findOne({
+    where: { id: idReview },
+    include: {
+      model: Users,
+      as: "user",
+      attributes: ["avatar", "name", "last_name"],
+    },
+  });
+  console.log("esto es findReview ==>", findReview.dataValues);
+  return findReview;
 }
 
 export function deleteReviewById(id) {
+  console.log(id)
   const reviewDelete = Reviews.destroy({
     where: { id },
+    include: [
+      {
+        model: Users,
+        attributes: ["avatar", "name", "last_name"],
+      },
+    ],
   });
   return reviewDelete;
 }

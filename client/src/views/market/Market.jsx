@@ -12,6 +12,7 @@ import "leaflet/dist/leaflet.css";
 import {
   postComments,
   getComments,
+  deleteComment
 } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
 
@@ -37,7 +38,7 @@ const Market = () => {
 
   const [comentario, setComentario] = useState({
     message: "",
-    score: 1,
+    score: 0,
   });
 
   function setear(e) {
@@ -46,33 +47,55 @@ const Market = () => {
       ...comentario,
       [name]: value,
     });
-    console.log(value);
+  }
+  async function eli(id) {
+    swal({
+      title: "Seguro!?",
+      text: "Desea eliminar comentario?",
+      icon: "warning",
+      button: "eliminar",
+    }).then((result) => {
+      if (result === true) {
+        deleteComment(dispatch,{id:id})
+      }
+    });
+
+
+    
   }
 
   async function comentar(e) {
     e.preventDefault();
-    if (comentario.message.length > 10 && comentario.message.length < 200) {
-      postComments(dispatch, {
-        message: comentario.message,
-        userId: estate.id,
-        superMId: market.id,
-        score: comentario.score,
-        userName: estate.name + " " + estate.last_name,
-      });
-      setComentario({
-        message: "",
-        score: 1,
-      });
-      swal({
-        title: "Comentario agregado",
-        text: "Tu comentario se agrego correctamente",
-        icon: "success",
-        button: "ok",
-      });
+    if (comentario.score !== 0) {
+      if (comentario.message.length > 10 && comentario.message.length < 200) {
+        postComments(dispatch, {
+          message: comentario.message,
+          userId: estate.id,
+          superMId: market.id,
+          score: comentario.score,
+        });
+        setComentario({
+          message: "",
+          score: 0,
+        });
+        swal({
+          title: "Comentario agregado",
+          text: "Tu comentario se agrego correctamente",
+          icon: "success",
+          button: "ok",
+        });
+      } else {
+        swal({
+          title: "Comentario",
+          text: "El comentario deberia tener entre 10 y 200 caracteres",
+          icon: "error",
+          button: "Reintentar",
+        });
+      }
     } else {
       swal({
-        title: "COmentario",
-        text: "El comentario deberia tener entre 10 y 200 caracteres",
+        title: "Estrellas",
+        text: "El puntaje de estrellas deberia ser entre 1 - 5",
         icon: "error",
         button: "Reintentar",
       });
@@ -116,91 +139,109 @@ const Market = () => {
                   iconUrl:
                     "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679009741/yajixzbn1c7n5ssgkqcm.png",
                 })}
-              >             <Popup>{market.name}</Popup></Marker>
+              >
+                {" "}
+                <Popup>{market.name}</Popup>
+              </Marker>
             ))}
           </MapContainer>
           <div className="txt-sup-of">
             <h3>Visitar pagina oficial click aqui</h3>
           </div>
           <div className="cont-coment-super">
+            <div>
+            <h3 className="label-3-su">Promedio de estrellas : <p>{"★".repeat(market.puntaje_promedio)}</p>{"★".repeat(5-market.puntaje_promedio)}</h3>
+            </div>
+            {estate.user ? (
+              <div className="input-com-su">
+                <form className="input-com-su">
+                  <div className="foto-av-txc-s">
+                    <img src={estate.avatar} alt="" />
+                    <input
+                      placeholder={`Añade tu comentario sobre  ${market.name}...`}
+                      onChange={setear}
+                      value={comentario.message}
+                      name="message"
+                    />{" "}
+                    <div className="plla">
+                      <input
+                        id="radio1"
+                        type="radio"
+                        name="score"
+                        value="5"
+                        onChange={setear}
+                      />
+                      <label for="radio1">★</label>
+                      <input
+                        id="radio2"
+                        type="radio"
+                        name="score"
+                        value="4"
+                        onChange={setear}
+                      />
+                      <label for="radio2">★</label>
+                      <input
+                        id="radio3"
+                        type="radio"
+                        name="score"
+                        value="3"
+                        onChange={setear}
+                      />
+                      <label for="radio3">★</label>
+                      <input
+                        id="radio4"
+                        type="radio"
+                        name="score"
+                        value="2"
+                        onChange={setear}
+                      />
+                      <label for="radio4">★</label>
+                      <input
+                        id="radio5"
+                        type="radio"
+                        name="score"
+                        value="1"
+                        onChange={setear}
+                      />
+                      <label for="radio5">★</label>
+                      {comentario.message.length > 0 ? (
+                        <button onClick={comentar}>Comentar</button>
+                      ) : null}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            ) : (
+              <div>Cree o ingrese a su cuenta para comentar</div>
+            )}
             <div className="cont-com-sup-a">
               {commentar ? (
                 commentar.map((a) => (
                   <div className="comentario-superm">
-                    <h4>{a.userName}</h4>
-                    <div>
-                      <label className="label-2-su">
-                        {"★".repeat(a.score)}
-                      </label>
-                      <label className="label-1-su">{a.message}</label>
-                    </div>
+                    <img src={a.user.avatar} alt="img" />
+                    <div className="esestetx">
+                      <div className="txtaaassa">
+                        <h4>
+                          {a.user.name} {a.user.last_name}
+                        </h4>
+                        <div className="label-2-su">
+                          <p>{"★".repeat(a.score)}</p>{"★".repeat(5-a.score)}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="label-1-su">{a.message}</label>
+                      </div>
+                    </div>{ estate.type_account === "3" ?
+                    <button className="delete-comment-su" onClick={e=>eli(a.id)}>Eliminar comentario</button>:null}
                   </div>
                 ))
               ) : (
                 <p>No hay comentarios todavia</p>
               )}
             </div>
-            {estate.user ? (
-              <div className="input-com-su">
-                <form className="input-com-su">
-                  <label>Agregar tu comentario sobre {market.name}:</label>
-                  <textarea
-                    onChange={setear}
-                    value={comentario.message}
-                    name="message"
-                  />
-                  <label htmlFor="">Estrellas(1-5):</label>
-                  <div className="plla">
-                    <input
-                      id="radio1"
-                      type="radio"
-                      name="score"
-                      value="5"
-                      onChange={setear}
-                    />
-                    <label for="radio1">★</label>
-                    <input
-                      id="radio2"
-                      type="radio"
-                      name="score"
-                      value="4"
-                      onChange={setear}
-                    />
-                    <label for="radio2">★</label>
-                    <input
-                      id="radio3"
-                      type="radio"
-                      name="score"
-                      value="3"
-                      onChange={setear}
-                    />
-                    <label for="radio3">★</label>
-                    <input
-                      id="radio4"
-                      type="radio"
-                      name="score"
-                      value="2"
-                      onChange={setear}
-                    />
-                    <label for="radio4">★</label>
-                    <input
-                      id="radio5"
-                      type="radio"
-                      name="score"
-                      value="1"
-                      onChange={setear}
-                    />
-                    <label for="radio5">★</label>
-                  </div>
-                  <button onClick={comentar}>Comentar</button>
-                </form>
-              </div>
-            ) : (
-              <div>Cree o ingrese a su cuenta para comentar</div>
-            )}
           </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </>
     );
   }

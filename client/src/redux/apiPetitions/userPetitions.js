@@ -1,7 +1,7 @@
 import axios from "axios";
 import { oneUsers, changeTheme } from "../slice/persistSlice";
 
-import { allUsers,agCom } from "../slice/globalSlice";
+import { allUsers, agCom } from "../slice/globalSlice";
 
 import {
   firebase,
@@ -20,24 +20,23 @@ export function changeColor(dispatch) {
   dispatch(changeTheme);
 }
 
-export async function crearUser(dispatch,input) {
+export async function crearUser(dispatch, input) {
   console.log(input);
   if (input.avatar.length < 5) {
     input.avatar =
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
   }
   try {
-    const user = await axios
-      .post("http://localhost:3001/user/postUsers", {
-        name: input.user_name,
-        avatar: input.avatar,
-        email: input.user_email,
-        last_name: input.last_name,
-        password: input.password,
-        type_account: "1",
-      })
-      dispatch(oneUsers(user.data))
-      return user;
+    const user = await axios.post("http://localhost:3001/user/postUsers", {
+      name: input.user_name,
+      avatar: input.avatar,
+      email: input.user_email,
+      last_name: input.last_name,
+      password: input.password,
+      type_account: "1",
+    });
+    dispatch(oneUsers(user.data));
+    return user;
   } catch (error) {
     return error.message;
   }
@@ -138,22 +137,33 @@ export async function StartGoogleAuth(dispatch) {
 
 export async function getComments(dispatch) {
   try {
-    let response = await axios.get(
-      `http://localhost:3001/reviews/`,
-    );
+    let response = await axios.get(`http://localhost:3001/reviews/`);
     dispatch(agCom(response.data));
   } catch (error) {
     return error.message;
   }
 }
+export async function deleteComment(dispatch, id) {
+  try {
+    const user = await axios({
+      method: "delete",
+      url: "http://localhost:3001/reviews/deleteReview",
+      data: id,
+    });
+    return getComments(dispatch)
+  } catch (error) {
+    return error.message;
+  }
+}
 
-export async function postComments (dispatch,body) {
+export async function postComments(dispatch, body) {
   try {
     let json = await axios.post(
-      `http://localhost:3001/reviews/createpost`,body
+      `http://localhost:3001/reviews/createpost`,
+      body
     );
-    getComments(dispatch)
-    return json;
+    const hola = await getComments(dispatch);
+    return hola;
   } catch (error) {
     console.log(error);
   }
@@ -168,9 +178,7 @@ export async function payMercado(email) {
 
 export async function autorizarMercado(payload) {
   try {
-    let json = await axios.post(
-      `http://localhost:3001/`, payload
-    );
+    let json = await axios.post(`http://localhost:3001/`, payload);
     return json;
   } catch (error) {
     console.log(error);

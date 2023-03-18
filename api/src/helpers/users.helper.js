@@ -1,21 +1,30 @@
+import Reviews from "../models/review.js";
 import Users from "../models/users.js";
 import createUser from "./createUser.helper.js";
+import bcrypt from "bcrypt";
 
 export function getUserById(id) {
     const userById = Users.findOne({
-        where: { id }
+        where: { id },
+        include: [Reviews]
     });
     return userById;
 }
 
-export function getUserByEmail(comparing) {
+export async function getUserByEmail(comparing) {
     const { email, password } = comparing;
-    let userByEmail = Users.findOne({
+    let userByEmail = await Users.findOne({
         where: {
-            email,
-            password
+            email
         }
-    }); return userByEmail;
+    }); 
+    console.log("esto es userByEmail =>",userByEmail)
+    let passwordMatch = await bcrypt.compare(password, userByEmail.password)
+    if( passwordMatch ) {
+        return userByEmail;
+    } else {
+        throw Error ("Incorrect password")
+    }
 
 };
 export async function getUserSoloByEmail(comparing) {

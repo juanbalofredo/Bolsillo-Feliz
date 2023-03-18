@@ -6,6 +6,7 @@ export default async function createUser(userFromBody) {
     let creatingUser;
     let verifyUsers = await Users.findAll()
     if (verifyUsers.length === 0) {
+        console.log("entro a Bulk Create")
         creatingUser = await Users.bulkCreate(Usuarios);
         return creatingUser;
     }
