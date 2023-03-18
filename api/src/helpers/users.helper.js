@@ -92,5 +92,3 @@ export function updateUserByTypeAccount({ activity, email, name, last_name, pass
         return updatedUser;
     }
 }
-
-
