@@ -43,7 +43,7 @@ export function getProductsById(id) {
             }
         ],
     });
-    return allProducts;
+    return productsById;
 }
 
 export async function getProductByName({ name, order }) {
