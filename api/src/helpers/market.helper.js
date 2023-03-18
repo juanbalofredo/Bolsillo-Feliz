@@ -11,7 +11,6 @@ export function getMarketById(id) {
             'name',
             'image',
             'ubications',
-            'link',
             'id',
             'superM.name',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
