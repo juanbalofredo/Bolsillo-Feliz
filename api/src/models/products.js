@@ -8,7 +8,7 @@ const Products = dataBase.define(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: false
     },
     brand: {
       type: DataTypes.STRING,
@@ -22,6 +22,16 @@ const Products = dataBase.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    unit: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    fullName: {
+      type: DataTypes.VIRTUAL,
+      get(){
+        return `${this.name} ${this.unit}`;
+      }
+    }
   },
   { timestamps: false }
 );
