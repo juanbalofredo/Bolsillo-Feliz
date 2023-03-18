@@ -2,7 +2,6 @@ import Users from "../models/users.js";
 import { Usuarios } from "../prueba(4).js";
 
 export default async function createUser(userFromBody) {
-    // console.log("esto es hasgoogle",hashgoogle)
     let creatingUser;
     let verifyUsers = await Users.findAll()
     if (verifyUsers.length === 0) {

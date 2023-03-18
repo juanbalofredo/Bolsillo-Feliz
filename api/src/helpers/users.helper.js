@@ -31,20 +31,19 @@ export async function getUserSoloByEmail(comparing) {
     let { email } = comparing
     let userByEmail;
     let emailDataBase = await Users.findOne({ where: { email } })
-    if (!emailDataBase) {
+    if (emailDataBase=== null) {
         userByEmail = await createUser(comparing)
-
+        return userByEmail;
     } else {
         const { email, hashgoogle } = comparing;
-        // console.log("esto es hashgoogle ==>",hashgoogle)
         userByEmail = Users.findOne({
             where: {
                 email,
                 hashgoogle
             }
         });
+        return userByEmail;
     }
-    return userByEmail;
 };
 
 // if (email && !password) {
@@ -61,8 +60,7 @@ export function deleteUserById(id) {
     return userDelete;
 };
 
-export function updateUserByTypeAccount({ activity, email, name, last_name, password, avatar, type_account, notifications, id, type_account_logged }) {
-    console.log(type_account_logged, id, type_account)
+export async function updateUserByTypeAccount({ activity, email, name, last_name, password, avatar, type_account, notifications, id, type_account_logged }) {
     if (type_account_logged === "3") {
         let datas = { activity, email, name, last_name, password, avatar, type_account, notifications }
         const dataForChange = {}
@@ -72,7 +70,7 @@ export function updateUserByTypeAccount({ activity, email, name, last_name, pass
                 dataForChange[key] = datas[key]
             }
         }
-        let updatedAdmin = Users.update(
+        let updatedAdmin = await Users.update(
             dataForChange,
             { where: { id } }
         )
@@ -85,10 +83,11 @@ export function updateUserByTypeAccount({ activity, email, name, last_name, pass
                 dataForChange[key] = datas[key]
             }
         }
-        let updatedUser = Users.update(
+        let updatedUser = await Users.update(
             dataForChange,
             { where: { id } }
         )
+        console.log(updatedUser);
         return updatedUser;
     }
 }

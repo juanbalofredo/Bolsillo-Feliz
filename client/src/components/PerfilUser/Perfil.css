@@ -1,15 +1,19 @@
 .container-Perfiluser{
-    background-color: blue;
+    width: 50%;
     margin-top: 5rem;
+    margin-left: 25%;
+    padding:1em;
     display: flex;
     height: 100vh;
-    gap: 17rem;
+    gap: 7rem;
     justify-content: center;
+    background-color: red;
 }
 .container_datos{
-    height: 500px;
-    width: 500px;
-    justify-content: center;
+    height: 100%;
+    width: 50%;
+    background-color: green;
+
 }
 .container_datos img{
     margin-left: 40%;
@@ -23,15 +27,19 @@ width: 100px;
     flex-direction: column;
 }
 .renderUser input{
-    height: 60px;
+    height: 40px;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .renderUser label{
     text-align: center;
 }
+.renderUser button{
+    width: 100%;
+}
+
 .optionsUser{
-    background-color: blueviolet;
+    margin-top: 10%;
     justify-content: center;
 }
 .commentsUser{
@@ -46,4 +54,13 @@ width: 100px;
     width: 100%;
     height: 20%;
     gap: 2em;
+}
+.labelC{
+    margin-top: 10%;
+    margin-left: 25%;
+    height: 4em;
+    font-size: 1.5em;
+}
+.labelC label{
+    margin-top: 10%;
 }

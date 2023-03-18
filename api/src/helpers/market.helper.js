@@ -40,7 +40,6 @@ export function deleteMarketById(id) {
 };
 
 export const createSmarket = async (smarketsFromBody) => {
-    console.log("entro a createSmarket")
     const marketTable = await SuperM.findAll();
     // console.log(marketTable)
     if (marketTable.length === 0) {
