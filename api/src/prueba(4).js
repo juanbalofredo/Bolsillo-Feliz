@@ -1855,7 +1855,7 @@ const marcasArgentinas = [
     "Hileret",
     "Manaos"
 ];
-// console.log(marcasArgentinas);
+console.log(marcasArgentinas);
 
 
 export let Usuarios = [...arrayUsers]
