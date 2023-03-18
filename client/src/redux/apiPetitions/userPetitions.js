@@ -122,6 +122,7 @@ export async function StartGoogleAuth(dispatch) {
             avatar: user.photoURL,
             email: user.email,
             hashgoogle: user.uid,
+            password:"@2023$papi8",
             type_account: "1",
           })
           .then((res) => res)

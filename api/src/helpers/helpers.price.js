@@ -26,7 +26,6 @@ export const allPrices = async () => {
 }
 
 export function updatePrices({ price, productId, superMId }) {
-    console.log(price, productId, superMId)
     if (productId && superMId && price) {
         let updatedAdmin = Prices.update(
             { price },
