@@ -935,8 +935,8 @@ import {
   
   // esto me entrega todos los elementos pero solo con las propiedades q necesito
   let soloProductos = Allproducts.map((ele) => {
-    const { name, brand, category, image } = ele;
-    let atributosFiltrados = { name, brand, category, image };
+    const { name, brand, category, image, unit } = ele;
+    let atributosFiltrados = { name, brand, category, image, unit };
     return atributosFiltrados;
   });
   
@@ -964,14 +964,15 @@ import {
     }
   });
   
-  let productosUnidos = [...productosNoEspeciales, ...productosEspeciales];
+  export let productos = [...productosNoEspeciales, ...productosEspeciales];
   
-  export let productos = productosUnidos.map((ele, indice) => {
-    let { name, brand, category, image } = ele;
-    name = name + `${indice + 1}`;
-    let atributosFiltrados = { name, brand, category, image };
-    return atributosFiltrados;
-  });
+  // export let productos = productosUnidos.map((ele, indice) => {
+  //   let { name, brand, category, image, unit } = ele;
+  //   name = name + `${indice + 1}`;
+  //   let atributosFiltrados = { name, brand, category, image, unit };
+  //   return atributosFiltrados;
+  // });
+  console.log(productos)
   
   let preciosEspeciales = [
     {

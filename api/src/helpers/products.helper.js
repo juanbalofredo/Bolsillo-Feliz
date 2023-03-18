@@ -8,7 +8,7 @@ import { createPrices } from "./helpers.price.js";
 export async function getAllProducts() {
     const allProducts = await Products.findAll(
         {
-            attributes: ['name', "image", 'brand', "id", "category"],
+            attributes: ['name', "image", 'brand', "id", "category","fullName","unit"],
             include: [
                 {
                     model: Prices,
