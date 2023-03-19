@@ -213,3 +213,9 @@
   cursor: pointer;
   background-color: #960000;
 }
+.bodyDark .foto-av-txc-s input {
+  color: white;
+}
+.bodyDark .label-1-su {
+  color: white;
+}
