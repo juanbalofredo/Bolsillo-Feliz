@@ -7,6 +7,7 @@ import DetalleProd from "./views/detalleProd/Detail";
 import DashUsers from "./components/dashboard/DashUsers";
 import Form from "./views/form/Form"
 import MercadoP from "./views/cart/Cart"
+import SuperMerc from "./views/SuperMerc/SuperMerc"
 import About from "./views/about/About"
 import Market from "./views/market/Market";
 import AutorizacionMercader from "./views/autorizacionMercader/AutorizacionMercader";
@@ -24,6 +25,7 @@ const App =()=>{
         <Route path="/Home" element={<Home />} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/register" element={<Register/>} />
+        <Route exact path="/listasupers" element={<SuperMerc/>} />
         <Route exact path="/products/id/:id" element={<DetalleProd/>} />
         <Route exact path="/market/id/:id" element={<Market/>} />
         <Route exact path="/about" element={<About/>} />

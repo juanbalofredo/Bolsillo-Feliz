@@ -8,6 +8,7 @@ export async function getAllMarket(req, res) {
         attributes: [
             'name',
             'image',
+            "id",
             'link',
             'superM.id',
             'superM.name',

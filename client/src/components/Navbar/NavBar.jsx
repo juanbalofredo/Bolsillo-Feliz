@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Cart from "../../views/cart/Cart";
 import "./navBar.css";
 import User from "../user/User";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loggedOut, changeTheme } from "../../redux/slice/persistSlice";
-import swal from "sweetalert";
+import { changeTheme } from "../../redux/slice/persistSlice";
 import SearchBar from "./SearchBar";
 
 const Navbar = () => {
@@ -50,21 +48,6 @@ const Navbar = () => {
   //   }
   // };
 
-  const logOuter = async (e) => {
-    swal({
-      title: "Seguro!",
-      text: "Desea cerrar sesion?",
-      icon: "warning",
-      button: "Cerrar sesion",
-    }).then((result) => {
-      if (result === true) {
-        dispatch(loggedOut());
-        window.location.href = "/home";
-      }
-    });
-  };
-
-
   return (
     <section className="" id="navbar1">
       <div className="logo-Container">
@@ -75,17 +58,22 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="searchbar-container">{window.location.href === "http://localhost:3000/home"? <SearchBar/>:null}</div>
+      <div className="searchbar-container">
+        {window.location.href === "http://localhost:3000/home" ? (
+          <SearchBar />
+        ) : null}
+      </div>
 
       <div className="login-Container">
         <div onClick={() => setActive(!active)}></div>
         <User />
         <div
           className={`container-cart-products ${active ? "" : "hidden-cart"}`}
-        >
-          <Cart />
-        </div>
-        <div>
+        ></div>
+        <div className="display-nav-a">
+          <Link to="/listasupers">
+            <button className="navButtonP">SuperMercados</button>
+          </Link>
           {!user ? (
             <div className="nav-kis">
               <Link to="/register">
@@ -96,14 +84,11 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <> 
+            <>
               {
-              //hacer con un short circuit que si el usuario logeado es vendedor aparezca el boton linkeado
-              // user.rol === "vendedor" && <El boton/>
-            }
-              <button className="navButton" onClick={logOuter}>
-                Cerrar sesion
-              </button>
+                //hacer con un short circuit que si el usuario logeado es vendedor aparezca el boton linkeado
+                // user.rol === "vendedor" && <El boton/>
+              }
             </>
           )}
         </div>
