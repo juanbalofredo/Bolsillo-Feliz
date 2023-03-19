@@ -19,7 +19,7 @@ export const User = () => {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   window.onclick = function (event) {
-    if (!event.target.matches(".profileImg")) {
+    if (!event.target.matches(".name-nav0us")) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
@@ -57,18 +57,7 @@ export const User = () => {
               alt=""
               height="40px"
               width="40px"
-              onClick={(e) => myFunction()}
             />
-            <div id="myDropdown" className="dropdown-content">
-              <Link to="/perfil">Perfil</Link>
-              <p className="Buttondi" onClick={logOuter}>
-                Cerrar sesion
-              </p>
-              {rol === "2" ? <Link to="/form">Mi mercado</Link> : null}
-              {rol === "3" ? (
-                <Link to="/dashuser">Lista de usuarios</Link>
-              ) : null}
-            </div>
           </>
         ) : (
           <img
@@ -81,7 +70,32 @@ export const User = () => {
         )}
       </div>
       <div className="name-container">
-        {user ? <h4 className="name">{name}</h4> : <h4 className="name"></h4>}
+        {user ? (
+          <>
+            <div className="name-cont0e0d0">
+              <h4 className="name-nav0us" onClick={(e) => myFunction()}>
+                {name}
+              </h4>
+              <img
+                src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679253517/t9ld95noqy1pqpi7onmp.png"
+                alt="arrow"
+                className="felcha-drop-wh"
+              />
+            </div>
+            <div id="myDropdown" className="dropdown-content">
+              <Link to="/perfil">Perfil</Link>
+              <p className="Buttondi" onClick={logOuter}>
+                Cerrar sesion
+              </p>
+              {rol === "2" ? <Link to="/form">Mi mercado</Link> : null}
+              {rol === "3" ? (
+                <Link to="/dashuser">Lista de usuarios</Link>
+              ) : null}
+            </div>
+          </>
+        ) : (
+          <h4 className="name"></h4>
+        )}
       </div>
     </div>
   );

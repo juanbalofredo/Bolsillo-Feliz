@@ -52,18 +52,13 @@
   .merc-container:hover{
     background-color: #1a355c;
   }
-  .profileImg{
+  .name-nav0us{
     border: none;
     cursor: pointer;
-    background-color: white;
-    color: blanchedalmond;
     font-size: 20px;
+    color: white;
   }
   
-  /*Botón hover y focus*/
-  .profileImg:hover, drop-buttton:hover{
-    background-color:white;
-  }
   .dropdown-content{
     display: none;
     position: absolute;
