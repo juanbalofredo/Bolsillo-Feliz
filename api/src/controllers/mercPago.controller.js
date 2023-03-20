@@ -7,7 +7,7 @@ const payment = async (req, res) => {
 	items: [
 	  {
 		title: "Membresía anual",
-		unit_price: 100,
+		unit_price: 2350,
 		quantity: 1,
 	  },
 	],

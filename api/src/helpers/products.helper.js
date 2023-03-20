@@ -170,7 +170,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log('esto es productByCategory', productByCategory)
+
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
@@ -196,7 +196,6 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log('esto es productByCategory', productByCategory)
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
@@ -222,7 +221,6 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log('esto es productByCategory', productByCategory)
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     } else {
@@ -250,7 +248,6 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log(productByCategory)
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
@@ -277,7 +274,6 @@ export async function createProducts(productsFromBody) {
     let verifySupermId = await SuperM.findOne({
         where: { id: superMId }
     })
-    console.log("esto es verify ",verifySupermId)
     if (verifySupermId) {
 
         //comprobado la existencia creo el producto

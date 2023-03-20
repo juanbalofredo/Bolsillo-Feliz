@@ -1,5 +1,4 @@
 .container-Perfiluser{
-    background-color: blue;
     margin-top: 5rem;
     display: flex;
     height: 100vh;
@@ -31,7 +30,6 @@ width: 100px;
     text-align: center;
 }
 .optionsUser{
-    background-color: blueviolet;
     justify-content: center;
 }
 .commentsUser{
