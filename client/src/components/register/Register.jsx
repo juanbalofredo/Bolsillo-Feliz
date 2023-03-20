@@ -5,7 +5,7 @@ import axios from "axios";
 import {
   crearUser,
   logearse,
-  getUserByEmail,
+  getUserSoloByEmail
 } from "../../redux/apiPetitions/userPetitions";
 import Footer from "../../views/footer/Footer";
 import GoogleSign from "../../views/Firebase/GoogleSign";
@@ -94,19 +94,21 @@ const Register = () => {
   };
 
   async function handleClickError() {
-    const imail = await getUserByEmail(input.email);
+    const imail = await getUserSoloByEmail(input.user_email);
+    console.log(imail)
+    console.log(input.user_email)
     let valid = 0;
     let validado = true;
     if (imail !== "Request failed with status code 400") {
       validado = false;
       setError({
         ...error,
-        email: "Esta direccion email ya se encuentra en uso",
+        user_email: "Esta direccion email ya se encuentra en uso",
       });
       return valid;
     }
     if (input.user_email.length <= 6) {
-      setError({ ...error, email: "Ingrese un email valido" });
+      setError({ ...error, user_email: "Ingrese un email valido" });
     } else {
       valid++;
     }
@@ -124,7 +126,7 @@ const Register = () => {
       valid++;
     }
     if (input.user_name.length <= 2) {
-      setError({ ...error, name: "Ingrese un nombre valido" });
+      setError({ ...error, user_name: "Ingrese un nombre valido" });
     } else {
       valid++;
     }
@@ -191,7 +193,7 @@ const Register = () => {
                       name="user_name"
                       type="text"
                       maxLength="15"
-                      value={input.name}
+                      value={input.user_name}
                       onChange={setear}
                     />
                     {error.user_name.length ? (
@@ -217,14 +219,14 @@ const Register = () => {
                   <input
                     autoComplete="off"
                     name="user_email"
-                    type="email"
+                    type="user_email"
                     maxLength="30"
-                    value={input.email}
+                    value={input.user_email}
                     onChange={setear}
                     placeholder="emailexample@gmail.com"
                   />
                   {error.user_email.length ? (
-                    <span id="error_name">{error.email}</span>
+                    <span id="error_name">{error.user_email}</span>
                   ) : null}
                 </div>
                 <div className="rgister-contra">
