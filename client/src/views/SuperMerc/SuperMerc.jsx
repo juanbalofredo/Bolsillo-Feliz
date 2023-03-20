@@ -17,7 +17,6 @@ const SuperMerc = ()=>{
         return err;
       });
   }, []);
-  console.log(markets)
 
 const state = useSelector((state) => state.bolsilloFeliz);
 if (markets) {
