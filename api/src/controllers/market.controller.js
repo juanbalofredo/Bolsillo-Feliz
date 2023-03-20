@@ -8,6 +8,8 @@ export async function getAllMarket(req, res) {
         attributes: [
             'name',
             'image',
+            "id",
+            'link',
             'superM.id',
             'superM.name',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']

@@ -31,7 +31,6 @@ export async function postReview(req, res) {
     try {
         const bodyReview = req.body;
         let infoCreateReview = await createReviews(bodyReview);
-        console.log(bodyReview)
         return res.status(200).json(infoCreateReview);
     } catch (error) {
         return res.status(400).json({ err: error.message })
@@ -40,6 +39,7 @@ export async function postReview(req, res) {
 
 export async function deleteReview(req, res) {
     const { id } = req.body;
+    console.log(id)
     try {
         const deletedReview = await deleteReviewById(id)
         if (deletedReview === 0) {

@@ -1,5 +1,5 @@
 import Users from "../models/users.js";
-import { getUserById, getUserByEmail,  updateUserByTypeAccount,getUserSoloByEmail } from "../helpers/users.helper.js";
+import { getUserById, getUserByEmail,  updateUserByTypeAccount,getUserSoloByEmail,getUserSoloByEmailGoogle } from "../helpers/users.helper.js";
 
 export async function getAllUsers(req, res) {
     const allUsers = await Users.findAll()
@@ -20,7 +20,6 @@ export async function getById(req, res) {
 
 export async function getByEmail(req, res) {
     const comparing = req.body;
-    // console.log(comparing);
     try {
         console.log("entro al TRY")
         const response = await getUserByEmail(comparing);
@@ -30,14 +29,29 @@ export async function getByEmail(req, res) {
         return res.status(400).json({ err: error.message })
     };
 };
-export async function googleAcces(req, res) {
+
+export async function SoloEmailDev(req, res) {
     const comparing = req.body;
     try {
         const response = await getUserSoloByEmail(comparing);
+        if (!response) return res.status(400).send("Error: password wrong");
+        return res.status(200).json(response);
+    } catch(error) {
+        console.log("erorr",error);
+        return res.status(400).json({ err: error.message })
+    };
+};
+
+export async function googleAcces(req, res) {
+    const comparing = req.body;
+    console.log("esto es google",comparing);
+    try {
+        const response = await getUserSoloByEmailGoogle(comparing);
         console.log("esto es comparing ==>",response);
         if (!response) return res.status(400).send("Error: password wrong");
         return res.status(200).json(response);
     } catch(error) {
+        console.log("erorr",error);
         return res.status(400).json({ err: error.message })
     };
 };

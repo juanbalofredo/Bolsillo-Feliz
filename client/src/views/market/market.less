@@ -76,23 +76,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 7rem;
   justify-content: center;
   width: 100%;
   color: black;
   border-radius: 4px;
+  margin-bottom: 3rem;
   button {
     width: 6rem;
     height: 2rem;
-    margin-top: 2rem;
-    background-color: #a8a8a8;
+    margin-right: 1.5rem;
+    background-color: #2889d8;
     border: none;
     color: rgb(0, 0, 0);
     border-radius: 7px;
     margin-bottom: 1rem;
+    font-weight: 700;
+    font-family: "Phudu", cursive;
     &:hover {
       cursor: pointer;
-      background-color: #8a8a8a;
+      background-color: #184e7a;
     }
   }
   textarea {
@@ -117,13 +119,9 @@
 }
 .comentario-superm {
   color: black;
-  div {
-    display: flex;
-    flex-direction: column;
-  }
+
 }
 .cont-com-sup-a {
-  margin-top: 3rem;
   display: grid;
   grid-template-columns: auto;
   gap: 2rem;
@@ -133,13 +131,17 @@
   }
 
   .label-1-su {
-    background-color: white;
     height: 4rem;
     border-radius: 3px;
     width: 100%;
   }
   .label-2-su {
-    color: rgb(209, 165, 19);
+    color: gray;
+    display: flex;
+    align-items: center;
+    p{
+      color: rgb(209, 165, 19);
+    }
   }
 }
 .plla {
@@ -164,4 +166,85 @@
 .plla {
   direction: rtl;
   unicode-bidi: bidi-override;
+}
+.foto-av-txc-s{
+  display: flex;
+  img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #000000;
+    object-fit: contain;
+    margin-right: 2rem;
+  }
+  width: 100%;
+  input{
+    width: 70%;
+    height: 2rem;
+    font-family: "Phudu", cursive;
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid gray;
+    margin-right: 3rem;
+     &:focus-visible{
+      outline: none;
+      border-bottom: 3px solid gray;
+     }
+  }
+}
+.comentario-superm{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: #000000;
+    object-fit: contain;
+    margin-right: 1rem;
+  }
+}
+.txtaaassa{
+  display: flex;
+ align-items: center;
+ h4{
+  margin: 0;
+  margin-right: 2rem;
+ }
+}
+.esestetx{
+  display: flex;
+  flex-direction: column;
+}
+.label-3-su {
+  color: gray;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  p{
+    color: rgb(209, 165, 19);
+    margin-left: 1rem;
+  }
+}
+.delete-comment-su{
+  background-color: #aa0000;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10rem;
+  color: white;
+  &:hover{
+    cursor: pointer;
+    background-color: #960000;
+  }
+}
+.bodyDark{
+  .foto-av-txc-s{
+    input{
+      color: white;
+    }
+  }
+  .label-1-su{
+    color: white;
+  }
 }

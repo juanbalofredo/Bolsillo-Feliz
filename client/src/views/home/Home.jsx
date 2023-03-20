@@ -27,6 +27,7 @@ const Home = () => {
       getProductos(dispatch);
     }
   }, [dispatch]);
+
   
 
   useEffect(() => {

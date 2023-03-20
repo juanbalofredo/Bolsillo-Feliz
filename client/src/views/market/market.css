@@ -61,25 +61,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 7rem;
   justify-content: center;
   width: 100%;
   color: black;
   border-radius: 4px;
+  margin-bottom: 3rem;
 }
 .input-com-su button {
   width: 6rem;
   height: 2rem;
-  margin-top: 2rem;
-  background-color: #a8a8a8;
+  margin-right: 1.5rem;
+  background-color: #2889d8;
   border: none;
   color: #000000;
   border-radius: 7px;
   margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: "Phudu", cursive;
 }
 .input-com-su button:hover {
   cursor: pointer;
-  background-color: #8a8a8a;
+  background-color: #184e7a;
 }
 .input-com-su textarea {
   width: 90%;
@@ -101,12 +103,7 @@
 .comentario-superm {
   color: black;
 }
-.comentario-superm div {
-  display: flex;
-  flex-direction: column;
-}
 .cont-com-sup-a {
-  margin-top: 3rem;
   display: grid;
   grid-template-columns: auto;
   gap: 2rem;
@@ -116,12 +113,16 @@
   color: black;
 }
 .cont-com-sup-a .label-1-su {
-  background-color: white;
   height: 4rem;
   border-radius: 3px;
   width: 100%;
 }
 .cont-com-sup-a .label-2-su {
+  color: gray;
+  display: flex;
+  align-items: center;
+}
+.cont-com-sup-a .label-2-su p {
   color: #d1a513;
 }
 .plla {
@@ -140,4 +141,81 @@
 .plla {
   direction: rtl;
   unicode-bidi: bidi-override;
+}
+.foto-av-txc-s {
+  display: flex;
+  width: 100%;
+}
+.foto-av-txc-s img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: #000000;
+  object-fit: contain;
+  margin-right: 2rem;
+}
+.foto-av-txc-s input {
+  width: 70%;
+  height: 2rem;
+  font-family: "Phudu", cursive;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-right: 3rem;
+}
+.foto-av-txc-s input:focus-visible {
+  outline: none;
+  border-bottom: 3px solid gray;
+}
+.comentario-superm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.comentario-superm img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: #000000;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+.txtaaassa {
+  display: flex;
+  align-items: center;
+}
+.txtaaassa h4 {
+  margin: 0;
+  margin-right: 2rem;
+}
+.esestetx {
+  display: flex;
+  flex-direction: column;
+}
+.label-3-su {
+  color: gray;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+.label-3-su p {
+  color: #d1a513;
+  margin-left: 1rem;
+}
+.delete-comment-su {
+  background-color: #aa0000;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10rem;
+  color: white;
+}
+.delete-comment-su:hover {
+  cursor: pointer;
+  background-color: #960000;
+}
+.bodyDark .foto-av-txc-s input {
+  color: white;
+}
+.bodyDark .label-1-su {
+  color: white;
 }

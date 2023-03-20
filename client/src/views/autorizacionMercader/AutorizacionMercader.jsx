@@ -20,17 +20,14 @@ const AutorizacionMercader = () => {
   const [input, setInput] = useState({
     name: "",
     especialidad: "",
-    about: "",
-    ubicacion: "",
-    comoNosConocio: "",
+    ubicacion: ""
   });
 
   const [error, setError] = useState({
     name: "",
     especialidad: "",
-    about: "",
-    ubicacion: "",
-    comoNosConocio: "",
+    ubicacion: ""
+
   });
 
  
@@ -40,7 +37,6 @@ const AutorizacionMercader = () => {
     if (
       input.name.length >= 2 &&
       input.especialidad.length >= 2 &&
-      input.about.length >= 10 &&
       input.ubicacion.length >= 2
     ) {
       emailjs.send("service_hah0x8k","template_buti7zt",{user_email:"alexaniasco@outlook.com", to_name: input.name, user_name:state.name , mercado: input.name},"te3Yvey_o03JLT1zu",{
@@ -54,9 +50,7 @@ const AutorizacionMercader = () => {
       setInput({
         name: "",
         especialidad: "",
-        about: "",
         ubicacion: "",
-        comoNosConocio: "",
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
@@ -104,7 +98,7 @@ const AutorizacionMercader = () => {
                 <div className="register-contra2">
                   <input
                     autoComplete="off"
-                    placeholder="Tu especialidad"
+                    placeholder="Link de tu pagina"
                     name="especialidad"
                     type="text"
                     maxLength="20"
@@ -113,20 +107,6 @@ const AutorizacionMercader = () => {
                   />
                   {error.especialidad.length ? (
                     <span id="error_name">{error.especialidad}</span>
-                  ) : null}
-                </div>
-                <div className="register-contra2">
-                  <input
-                    autoComplete="off"
-                    name="about"
-                    type="text"
-                    maxLength="100"
-                    value={input.about}
-                    onChange={handleChange}
-                    placeholder="Cuentanos algo de tu Mercado"
-                  />
-                  {error.about.length ? (
-                    <span id="error_name">{error.about}</span>
                   ) : null}
                 </div>
                 <div className="register-contra2">
@@ -143,31 +123,6 @@ const AutorizacionMercader = () => {
                     <span id="error_name">{error.ubicacion}</span>
                   ) : null}
                 </div>
-                <div className="register-contra2">
-                  <input
-                    autoComplete="off"
-                    name="comoNosConocio"
-                    type="text"
-                    maxLength="50"
-                    value={input.comoNosConocio}
-                    onChange={handleChange}
-                    placeholder="Contanos como supiste de la página"
-                  />
-                  {error.comoNosConocio.length ? (
-                    <span id="error_name">{error.comoNosConocio}</span>
-                  ) : null}
-                </div>
-                <a className="boton-form-mer"
-                  href={`https://wa.me/541132695097?text=Hola quiero ser mercader en tu pagina de Bolsillo Feliz, 
-            email: ${state.email}  
-            nombre mercado: ${input.name},
-            especialidad:${input.especialidad},
-            ubicacion:${input.ubicacion},
-            como supo:${input.comoNosConocio}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >Solicitar por WhatsApp
-                </a>
                 <button>Solicitar por mail</button>
               </div>
             </form>

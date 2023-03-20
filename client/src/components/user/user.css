@@ -52,3 +52,46 @@
   .merc-container:hover{
     background-color: #1a355c;
   }
+  .name-nav0us{
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    width: 4rem;
+    text-align: center;
+    height: 2rem;
+  }
+  .name-cont0e0d0:hover{
+background-color: rgb(68, 68, 68);
+  }
+  
+  .dropdown-content{
+    display: none;
+    position: absolute;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a, .dropdown-content p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 2.5rem;
+    font-size: 17px;
+    color: black;
+    width: 130px;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  
+  .dropdown-content a:hover, .dropdown-content p:hover{
+    background-color: rgb(185, 185, 185);
+    cursor: pointer;
+  }
+  .show {
+    display: block;
+  }
