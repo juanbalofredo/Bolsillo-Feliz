@@ -164,10 +164,8 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-<<<<<<< HEAD
-=======
 
->>>>>>> 0d7e5db4087551d6b3a42c2e1759453b0935889e
+
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
@@ -257,8 +255,10 @@ export function getProductsByBrand(brand, order) {
 };
 
 export async function createProducts(productsFromBody) {
+    console.log("entro a createProducts")
     let verifyProducts = await Products.findAll()
     if (verifyProducts.length === 0) {
+        console.log("entro a products = 0")
         let createProducts = await Products.bulkCreate(productos)
         return createProducts;
     }

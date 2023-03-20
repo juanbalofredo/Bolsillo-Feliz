@@ -9,7 +9,6 @@ const CardM = (props) => {
   };
 
 
-  console.log(props)
   return (
     <>
       <div
@@ -21,7 +20,7 @@ const CardM = (props) => {
           <img src={props.props.image} alt={props.props.image} />
           <h2>{props.props.name}</h2>
           <div className="queso-asdad-aa">
-            <h3 className="label-3-su"><p>{"★".repeat(props.props.puntaje_promedio)}</p>{"★".repeat(5-props.props.puntaje_promedio)}</h3>
+            <h3 className="label-5-su"><p>{"★".repeat(props.props.puntaje_promedio)}</p>{"★".repeat(5-props.props.puntaje_promedio)}</h3>
             </div>
         </div>
       </div>

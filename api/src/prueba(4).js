@@ -972,7 +972,7 @@ import {
   //   let atributosFiltrados = { name, brand, category, image, unit };
   //   return atributosFiltrados;
   // });
-  console.log(productos)
+  // console.log(productos)
   
   let preciosEspeciales = [
     {
@@ -1875,7 +1875,7 @@ import {
     "Gallo Snacks",
     "Manaos",
   ];
-  console.log(marcasArgentinas);
+  // console.log(marcasArgentinas);
   
   export let Usuarios = [...arrayUsers];
   

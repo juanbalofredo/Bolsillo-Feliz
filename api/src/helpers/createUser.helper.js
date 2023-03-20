@@ -4,11 +4,11 @@ import { Usuarios } from "../prueba(4).js";
 export default async function createUser(userFromBody) {
     let creatingUser;
     let verifyUsers = await Users.findAll()
-    // if (verifyUsers.length === 0) {
-    //     console.log("entro a Bulk Create")
-    //     creatingUser = await Users.bulkCreate(Usuarios);
-    //     return creatingUser;
-    // }
+    if (verifyUsers.length === 0) {
+        console.log("entro a Bulk Create")
+        creatingUser = await Users.bulkCreate(Usuarios);
+        return creatingUser;
+    }
     let { hashgoogle, name, last_name, avatar, email, password, type_account, notifications, activity } = userFromBody;
     if (!last_name) {
         const fullName = name.split(" ");
