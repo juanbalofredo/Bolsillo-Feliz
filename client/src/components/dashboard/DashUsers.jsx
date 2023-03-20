@@ -9,7 +9,7 @@ import {
   updateUserActivity,
 } from "../../redux/apiPetitions/userPetitions";
 import { sigPage, antPage } from "../../redux/slice/globalSlice";
-import MyChart from "../Graphics/graphicsLine.js";
+// import MyChart from "../Graphics/graphicsLine.js";
 //import DonutChart from "../Graphics/graphicsDonut.js";
 
 const DashUsers = () => {
@@ -193,10 +193,10 @@ const DashUsers = () => {
           </div>
         </div>
         <div className="container_datos">
-        <div>
+        {/* <div>
           <h2>Usuarios</h2>
           <MyChart />
-        </div>
+        </div> */}
         {/* <div>
           <DonutChart />
         </div> */}
