@@ -1,0 +1,66 @@
+.container-Perfiluser{
+    width: 50%;
+    margin-top: 5rem;
+    margin-left: 25%;
+    padding:1em;
+    display: flex;
+    height: 100vh;
+    gap: 7rem;
+    justify-content: center;
+    background-color: red;
+}
+.container_datos{
+    height: 100%;
+    width: 50%;
+    background-color: green;
+
+}
+.container_datos img{
+    margin-left: 40%;
+    margin-bottom: 10px;
+width: 100px;
+}
+.renderUser {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}
+.renderUser input{
+    height: 40px;
+    text-align: center;
+    font-size: 1.5em;
+}
+.renderUser label{
+    text-align: center;
+}
+.renderUser button{
+    width: 100%;
+}
+
+.optionsUser{
+    margin-top: 10%;
+    justify-content: center;
+}
+.commentsUser{
+    margin-top: 50%;
+    width: 20vh;
+    height: 100%;
+}
+.commentsUser label{
+    justify-content: center;
+    padding-top: 10%;
+    display: flex;
+    width: 100%;
+    height: 20%;
+    gap: 2em;
+}
+.labelC{
+    margin-top: 10%;
+    margin-left: 25%;
+    height: 4em;
+    font-size: 1.5em;
+}
+.labelC label{
+    margin-top: 10%;
+}

@@ -7,12 +7,14 @@ import DetalleProd from "./views/detalleProd/Detail";
 import DashUsers from "./components/dashboard/DashUsers";
 import Form from "./views/form/Form"
 import MercadoP from "./views/cart/Cart"
+import SuperMerc from "./views/SuperMerc/SuperMerc"
 import About from "./views/about/About"
 import Market from "./views/market/Market";
 import AutorizacionMercader from "./views/autorizacionMercader/AutorizacionMercader";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { useSelector } from "react-redux";
 import Error from "./views/Error/Error"
+import Perfil from "./components/PerfilUser/PerfilUser";
 
 const App =()=>{
   const {user, type_account} = useSelector((state) => state.bolsilloPersist);
@@ -23,6 +25,7 @@ const App =()=>{
         <Route path="/Home" element={<Home />} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/register" element={<Register/>} />
+        <Route exact path="/listasupers" element={<SuperMerc/>} />
         <Route exact path="/products/id/:id" element={<DetalleProd/>} />
         <Route exact path="/market/id/:id" element={<Market/>} />
         <Route exact path="/about" element={<About/>} />
@@ -42,6 +45,10 @@ const App =()=>{
         <Route exact path="/autorizacion" element={ 
             <ProtectedRoute user={!!user}>
                 <AutorizacionMercader/>
+            </ProtectedRoute>}/>
+        <Route exact path="/perfil" element={ 
+            <ProtectedRoute user={!!user}>
+                <Perfil/>
             </ProtectedRoute>}/>
       </Routes>
     </div>

@@ -8,6 +8,8 @@ export async function getAllMarket(req, res) {
         attributes: [
             'name',
             'image',
+            "id",
+            'link',
             'superM.id',
             'superM.name',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
@@ -56,7 +58,6 @@ export async function deleteMarket(req, res) {
 
 export async function postMarket(req, res) {
     const dataMarketFromBody = req.body; 
-    console.log(dataMarketFromBody)
     try {
         let createNewMarket = await createSmarket(dataMarketFromBody);
         res.status(200).json(createNewMarket)

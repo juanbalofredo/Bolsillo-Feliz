@@ -8,7 +8,6 @@ export const Form2 = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloFeliz);
   const statePersist = useSelector((state) => state.bolsilloPersist);
-
   const allCategories = [
     ...new Set(state.productsBackup.map((a) => a.category)),
   ].sort();
@@ -16,18 +15,27 @@ export const Form2 = () => {
   const allProducts = [
     ...new Set(
       state.products.map((a) => {
-        let arrayProduct = [a.name, a.id];
-        return arrayProduct;
+        const filteredPrices = a.prices.filter(
+          (p) => p.superM != null && p.superM.id === statePersist.superMId
+        );
+        if (filteredPrices.length > 0) {
+          return null;
+        } else {
+          let arrayProduct = [a.name, a.id];
+          return arrayProduct;
+        }
       })
     ),
-  ].sort();
+  ]
+    .filter((p) => p !== null)
+    .sort();
 
   useEffect(() => {
     getProductos(dispatch);
   }, [dispatch]);
 
   const [input, setInput] = useState({
-    price: 0,
+    price: 1,
     productId: "",
     superMId: statePersist.superMId,
   });
@@ -54,89 +62,69 @@ export const Form2 = () => {
       alert("Producto agregado exitosamente");
 
       setInput({
-        price: "",
+        price: 1,
         category: "",
         superMId: statePersist.superMId,
       });
+
+      window.location.reload(true);
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
     }
   };
 
   return (
-    <div>
-      <div className="contGral">
-        <div className="">
-          <div className="contTitle">
-            <div className="text">
-              <h2>Añade un producto de un mercado</h2>
-            </div>
+    <div className="cont-form-2">
+      <h2>Añade el precio de los productos en tu mercado</h2>
+      <div className="txt-form-ayu">
+        <form onSubmit={handleSubmit}>
+          <div>
+            Producto:
+            <select
+              type="text"
+              value={input.products}
+              name="productId"
+              onChange={idPRoductChange}
+              placeholder="Categoria"
+              className="inputs"
+            >
+              <option value="empty">...</option>
+              {allProducts.map((e) => (
+                <option key={e[0]} value={e[0]} id={e[1]}>
+                  {e[0]}
+                </option>
+              ))}
+            </select>
           </div>
-          <form onSubmit={handleSubmit}>
-            <div className="form">
-              <div className="izq">
-                <div>
-                  <div>Precio:</div>
-                  <input
-                    type="number"
-                    value={input.price}
-                    name="price"
-                    onChange={priceChange}
-                    placeholder="Precio"
-                    className="inputs"
-                  />
-                  {(input.price > 100000 || input.price < 1) && (
-                    <div className="error">
-                      El precio no puede ser mayor a un millon o menor a 1
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <div>Producto:</div>
-                  <select
-                    type="text"
-                    value={input.products}
-                    name="productId"
-                    onChange={idPRoductChange}
-                    placeholder="Categoria"
-                    className="inputs"
-                  >
-                    <option value="empty">...</option>
-                    {allProducts.map((e) => (
-                      <option key={e[0]} value={e[0]} id={e[1]}>
-                        {e[0]}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <div>Categoria:</div>
-                  <select
-                    type="text"
-                    value={input.category}
-                    name="category"
-                    placeholder="Categoria"
-                    className="inputs"
-                  >
-                    <option value="empty">...</option>
-                    {allCategories.map((e) => (
-                      <option key={e} value={e}>
-                        {e}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <button id="bt" className="button" onClick={handleSubmit}>
-                  Añadir
-                </button>
+          <div>
+            Precio:
+            <input
+              type="number"
+              value={input.price}
+              name="price"
+              onChange={priceChange}
+              placeholder="Precio"
+              className="inputs"
+            />
+            {(input.price > 100000 || input.price < 1) && (
+              <div className="error">
+                El precio no puede ser mayor a un millon o menor a 1
               </div>
-            </div>
-          </form>
+            )}
+          </div>
+
+          <button id="bt" className="button" onClick={handleSubmit}>
+            Añadir
+          </button>
+        </form>
+        <div className="text-info-form">
+          <p>
+            Para formar parte de los mercados de nuestra aplicación web, deberás
+            primero rellenar cierta información, como a que precio vende tú
+            mercado los productos ya establecidos en la aplicación
+          </p>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

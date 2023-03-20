@@ -11,24 +11,25 @@ export function getMarketById(id) {
             'name',
             'image',
             'ubications',
-            'superM.id',
+            'link',
+            'id',
             'superM.name',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
         ],
         include: [
             {
-              model: Reviews,
-              attributes: ['message', 'score'],
-              include: [
-                {
-                    model: Users,
-                    as: 'user',
-                    attributes: ['id','name']
-                }
-              ]
+                model: Reviews,
+                attributes: ['message', 'score'],
+                include: [
+                    {
+                        model: Users,
+                        as: 'user',
+                        attributes: ['id', 'name']
+                    }
+                ]
             }
-          ],
-          group: ['superM.id', 'superM.name','reviews.id','reviews->user.id']
+        ],
+        group: ['superM.id', 'superM.name', 'reviews.id', 'reviews->user.id']
     });
     return getId;
 }
@@ -39,7 +40,6 @@ export function deleteMarketById(id) {
 };
 
 export const createSmarket = async (smarketsFromBody) => {
-    console.log("entro a createSmarket")
     const marketTable = await SuperM.findAll();
     // console.log(marketTable)
     if (marketTable.length === 0) {
@@ -47,12 +47,12 @@ export const createSmarket = async (smarketsFromBody) => {
     }
     let findUser;
     if (smarketsFromBody) {
-        let { name, image, id } = smarketsFromBody;
+        let { name, image, id, ubications } = smarketsFromBody;
         //primero busca si el usuario existe para luego recien poder crear la tienda
         findUser = await Users.findOne({ where: { id } });
         if (findUser && !findUser.superMId) {
             // Crear una nueva tienda
-            const createSmarket = await SuperM.create({ name, image });
+            const createSmarket = await SuperM.create({ name, image, ubications });
 
             // Asignar el ID de la tienda al usuario
             await findUser.update({ superMId: createSmarket.id });

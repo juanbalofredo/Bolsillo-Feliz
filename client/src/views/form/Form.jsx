@@ -1,8 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { postProduct } from "../../redux/apiPetitions/productsPetitions";
+import {
+  getBrandId,
+  postProduct,
+} from "../../redux/apiPetitions/productsPetitions";
 import "./form.css";
 import axios from "axios";
 import Navbar from "../../components/Navbar/NavBar";
@@ -43,17 +46,24 @@ const Form = () => {
 
   const [input, setInput] = useState({
     name: "",
-    price: "",
+    price: 1,
     category: "",
     image: "",
     superMId: statePersist.superMId,
-    brand: ""
+    brand: statePersist.user,
   });
+
+  useEffect(() => {
+    let brandName = getBrandId(statePersist.superMId).then((info) =>
+      setInput({ ...input, brand: info.data.name })
+    );
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.name.length >= 1 && input.price >= 1 && input.price <= 1000000) {
       dispatch(postProduct(input));
+
       alert("Producto agregado exitosamente");
 
       setInput({
@@ -62,114 +72,124 @@ const Form = () => {
         image: "",
         category: "",
         superMId: statePersist.superMId,
-        brand: ""
+        brand: statePersist.user,
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
     }
   };
+  const [papel, setPapel] = useState(true);
 
   return (
-    <div>
-      <div>
-        <Navbar />
-      </div>
-      <div>
+    <>
+      <Navbar />
+      <div className="container-form-gr">
+        <div className="arriba-form">
+          <button onClick={(e) => setPapel(true)}>
+            Agregar precio a productos existentes
+          </button>
+          <button onClick={(e) => setPapel(false)}>
+            Añade un producto exclusivo
+          </button>
+        </div>
         <Link to="/home">
-          <button>Return to home</button>
+          <button className="volver-form">Volver</button>
         </Link>
-      </div>
-
-      <div className="contGral">
-        <Form2 />
-        <div>
-          <div className="contTitle">
-            <div className="text">
-              <h3>Añade un producto exclusivo</h3>
-            </div>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div className="form">
-              <div className="izq">
-                <div>
-                  <div>Nombre:</div>
-                  <input
-                    type="text"
-                    value={input.name}
-                    name="name"
-                    onChange={handleChange}
-                    placeholder="Nombre"
-                    className="inputs"
-                  />
-                </div>
-
-                <div>
-                  <div>Precio:</div>
-                  <input
-                    type="number"
-                    value={input.price}
-                    name="price"
-                    onChange={handleChange}
-                    placeholder="Precio"
-                    className="inputs"
-                  />
-                  {(input.price > 100000 || input.price < 1) && (
-                    <div className="error">
-                      El precio no puede ser mayor a un millon o menor a 1
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <div>Categoria:</div>
-                  <select
-                    type="text"
-                    value={input.category}
-                    name="category"
-                    onChange={handleChange}
-                    placeholder="Categoria"
-                    className="inputs"
-                  >
-                    <option value="empty">...</option>
-                    {allCategories.map((e) => (
-                      <option key={e} value={e}>
-                        {e}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <label htmlFor="img">
-                  Selecciona una imagen de tu producto:
-                </label>
-                <div className="reg-image">
-                  {input.image.length < 3 ? (
-                    <img
-                      src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png"
-                      alt="logo"
+        {papel ? (
+          <Form2 />
+        ) : (
+          <div className="contGral">
+            <div className="flex-asd-f">
+              <form onSubmit={handleSubmit}>
+                <div className="x23-a">
+                  <div className="reg-image-formz">
+                    <label htmlFor="img">
+                      Selecciona una imagen de tu producto:
+                    </label>
+                    {input.image.length < 3 ? (
+                      <img
+                        src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679087243/uyrsuh0ojvnzedaxuvlj.webp"
+                        alt="logo"
+                      />
+                    ) : (
+                      <img src={input.image} alt="logo" />
+                    )}
+                    <input
+                      type="file"
+                      name="image"
+                      onChange={uploadImage}
+                      className="input-img-tas"
+                    />{" "}
+                  </div>
+                  <div>
+                    Nombre:
+                    <input
+                      type="text"
+                      value={input.name}
+                      name="name"
+                      onChange={handleChange}
+                      placeholder="Nombre"
+                      className="inputs"
                     />
-                  ) : (
-                    <img src={input.image} alt="logo" />
-                  )}
-                </div>
+                  </div>
 
-                <input type="file" name="image" onChange={uploadImage} />
-                {/* <div>
-                  <img src={input.image} alt="" width={"100px"} />
-                  Preview
-                </div> */}
+                  <div>
+                    Precio:
+                    <input
+                      type="number"
+                      value={input.price}
+                      name="price"
+                      onChange={handleChange}
+                      placeholder="Precio"
+                      className="inputs"
+                    />
+                    <br />
+                    {input.price > 100000 || input.price < 1 ? (
+                      <label className="error">
+                        El precio no puede ser mayor a un millon o menor a 1
+                      </label>
+                    ) : null}
+                  </div>
+
+                  <div>
+                    Categoria:
+                    <select
+                      type="text"
+                      value={input.category}
+                      name="category"
+                      onChange={handleChange}
+                      placeholder="Categoria"
+                      className="inputs"
+                    >
+                      <option value="empty">...</option>
+                      {allCategories.map((e) => (
+                        <option key={e} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* <div>
+                       <img src={input.image} alt="" width={"100px"} />
+                       Preview
+                     </div> */}
+                </div>
                 <button id="bt" className="button" onClick={handleSubmit}>
                   Añadir
                 </button>
-              </div>
+              </form>
+              <p>
+                En esta sección podés agregar algún producto que no exista en al
+                Aplicación, pero que vos quieras vender(la marca del producto va
+                a ser automáticamente el nombre de tu mercado)
+              </p>
             </div>
-          </form>
-        </div>
+          </div>
+        )}
       </div>
-      <div>
-        <Footer />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

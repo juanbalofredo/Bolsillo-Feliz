@@ -20,8 +20,8 @@ export async function getById(req, res) {
 
 export async function getByEmail(req, res) {
     const comparing = req.body;
-    // console.log(comparing);
     try {
+        console.log("entro al TRY")
         const response = await getUserByEmail(comparing);
         if (!response) return res.status(400).send("this email is not registered");
         return res.status(200).json(response);
@@ -31,12 +31,14 @@ export async function getByEmail(req, res) {
 };
 export async function googleAcces(req, res) {
     const comparing = req.body;
+    console.log("esto es google",comparing);
     try {
         const response = await getUserSoloByEmail(comparing);
         console.log("esto es comparing ==>",response);
         if (!response) return res.status(400).send("Error: password wrong");
         return res.status(200).json(response);
     } catch(error) {
+        console.log("erorr",error);
         return res.status(400).json({ err: error.message })
     };
 };

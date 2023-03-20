@@ -2,10 +2,10 @@ import Users from "../models/users.js";
 import { Usuarios } from "../prueba(4).js";
 
 export default async function createUser(userFromBody) {
-    // console.log("esto es hasgoogle",hashgoogle)
     let creatingUser;
     let verifyUsers = await Users.findAll()
     if (verifyUsers.length === 0) {
+        console.log("entro a Bulk Create")
         creatingUser = await Users.bulkCreate(Usuarios);
         return creatingUser;
     }
@@ -24,17 +24,8 @@ export default async function createUser(userFromBody) {
             hashgoogle
         })
     } else {
-        creatingUser = await Users.create({
-            name,
-            last_name,
-            avatar,
-            email,
-            password,
-            type_account,
-            notifications,
-            activity,
-            hashgoogle
-        })
+        creatingUser = await Users.create(userFromBody)
+        return creatingUser;
     }
-    return creatingUser;
+    return creatingUser ;
 }

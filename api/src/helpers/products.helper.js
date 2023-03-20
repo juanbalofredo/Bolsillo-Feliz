@@ -8,7 +8,7 @@ import { createPrices } from "./helpers.price.js";
 export async function getAllProducts() {
     const allProducts = await Products.findAll(
         {
-            attributes: ['name', "image", 'brand', "id", "category"],
+            attributes: ['name', "image", 'brand', "id", "category","fullName","unit"],
             include: [
                 {
                     model: Prices,
@@ -47,7 +47,6 @@ export function getProductsById(id) {
 }
 
 export async function getProductByName({ name, order }) {
-    console.log("esto es Name y Order ==>", name, order)
     const productsByName = await Products.findAll({
         where: {
             name: {
@@ -57,7 +56,6 @@ export async function getProductByName({ name, order }) {
         order: [["name", order]]
     });
 
-    console.log("esto es ProducByName ==>", productsByName)
     const productsByNameParser = productsByName?.map(e => {
         let parsePrice = JSON.parse(e.price);
         e.price = parsePrice;
@@ -68,7 +66,6 @@ export async function getProductByName({ name, order }) {
 
 export async function getProductsByCategory({ category, order, brand, name }) {
     if (category === "all" && brand == "all" && name === "all") {
-        console.log("entro ambos en ALL")
         let productByCategory = await Products.findAll({
             include: [
                 {
@@ -88,7 +85,6 @@ export async function getProductsByCategory({ category, order, brand, name }) {
         throw Error("Category not found");
     }
     if (category === "all" && brand === "all" && name !== "all") {
-        console.log('"entro a "category === "all" && brand === "all" && name')
         let productByCategory = await Products.findAll({
             where: {
                 name: {
@@ -114,7 +110,6 @@ export async function getProductsByCategory({ category, order, brand, name }) {
         throw Error("Category not found");
     }
     if (category === "all" && brand !== "all" && name !== "all") {
-        console.log('"entro a "category === "all" && brand === "all" && name')
         let productByCategory = await Products.findAll({
             where: {
                 brand: {
@@ -143,7 +138,6 @@ export async function getProductsByCategory({ category, order, brand, name }) {
         throw Error("Category not found");
     }
     if (category !== "all" && brand !== "all" && name !== "all") {
-        console.log('entro en  brand === "all"')
         let productByCategory = await Products.findAll({
             where: {
                 category: {
@@ -170,12 +164,10 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log('esto es productByCategory', productByCategory)
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
     if (category !== "all" && brand === "all" && name === "all") {
-        console.log('entro en  brand === "all"')
         let productByCategory = await Products.findAll({
             where: {
                 category: {
@@ -196,12 +188,10 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log('esto es productByCategory', productByCategory)
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
     if (category !== "all" && brand === "all" && name !== "all") {
-        console.log('entro en  brand === "all"')
         let productByCategory = await Products.findAll({
             where: {
                 category: {
@@ -222,11 +212,9 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log('esto es productByCategory', productByCategory)
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     } else {
-        console.log('entro en  ELSE')
         let productByCategory = await Products.findAll({
             where: {
                 // category: {
@@ -250,7 +238,6 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
-        console.log(productByCategory)
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
@@ -277,7 +264,6 @@ export async function createProducts(productsFromBody) {
     let verifySupermId = await SuperM.findOne({
         where: { id: superMId }
     })
-    console.log("esto es verify ",verifySupermId)
     if (verifySupermId) {
 
         //comprobado la existencia creo el producto

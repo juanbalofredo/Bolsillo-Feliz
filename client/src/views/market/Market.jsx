@@ -5,32 +5,23 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import Card3 from "../../components/Card/Card3";
-import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import "./market.css";
 import Footer from "../footer/Footer";
 import Navbar from "../../components/Navbar/NavBar";
 import "leaflet/dist/leaflet.css";
+import {
+  postComments,
+  getComments,
+  deleteComment
+} from "../../redux/apiPetitions/userPetitions";
+import swal from "sweetalert";
 
 const Market = () => {
-
   const dispatch = useDispatch();
   const estate = useSelector((state) => state.bolsilloPersist);
-  let didInit = false;
-  useEffect(() => {
-    if (!didInit) {
-      didInit = true;
-      getProductos(dispatch);
-    }
-  }, [dispatch]);
-
   const state = useSelector((state) => state.bolsilloFeliz);
   const { id } = useParams();
   const [market, setMarket] = useState(null);
-  const myProduct = state.productsBackup;
-  const [page, setPage] = useState(1);
-  const startIndex = page === 1 ? 0 : page * 10 - 10;
-  const endIndex = page === 1 ? 10 : startIndex + 10;
 
   useEffect(() => {
     axios
@@ -41,10 +32,79 @@ const Market = () => {
       });
   }, [id]);
 
-  console.log(market);
+  useEffect(() => {
+    getComments(dispatch);
+  }, [dispatch]);
 
-  if (market && myProduct) {
-    const aver = myProduct.slice(startIndex, endIndex);
+  const [comentario, setComentario] = useState({
+    message: "",
+    score: 0,
+  });
+
+  function setear(e) {
+    const { name, value } = e.target;
+    setComentario({
+      ...comentario,
+      [name]: value,
+    });
+  }
+  async function eli(id) {
+    swal({
+      title: "Seguro!?",
+      text: "Desea eliminar comentario?",
+      icon: "warning",
+      button: "eliminar",
+    }).then((result) => {
+      if (result === true) {
+        deleteComment(dispatch,{id:id})
+      }
+    });
+
+
+    
+  }
+
+  async function comentar(e) {
+    e.preventDefault();
+    if (comentario.score !== 0) {
+      if (comentario.message.length > 10 && comentario.message.length < 200) {
+        postComments(dispatch, {
+          message: comentario.message,
+          userId: estate.id,
+          superMId: market.id,
+          score: comentario.score,
+        });
+        setComentario({
+          message: "",
+          score: 0,
+        });
+        swal({
+          title: "Comentario agregado",
+          text: "Tu comentario se agrego correctamente",
+          icon: "success",
+          button: "ok",
+        });
+      } else {
+        swal({
+          title: "Comentario",
+          text: "El comentario deberia tener entre 10 y 200 caracteres",
+          icon: "error",
+          button: "Reintentar",
+        });
+      }
+    } else {
+      swal({
+        title: "Estrellas",
+        text: "El puntaje de estrellas deberia ser entre 1 - 5",
+        icon: "error",
+        button: "Reintentar",
+      });
+    }
+  }
+  if (market) {
+    const commentar = state.comentaries?.filter(
+      (a) => a.superM.id === market.id
+    );
 
     return (
       <>
@@ -59,45 +119,126 @@ const Market = () => {
             zoom={13}
             scrollWheelZoom={true}
           >
-            <Marker position={estate.location} icon={L.icon({ iconUrl: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png" })} ></Marker>
+            <Marker
+              position={estate.location}
+              icon={L.icon({
+                iconUrl:
+                  "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png",
+              })}
+            >
+              <Popup>Vos</Popup>
+            </Marker>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {market.ubications.map(a=>(
-                <Marker position={a} icon={L.icon({ iconUrl: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679009741/yajixzbn1c7n5ssgkqcm.png" })} ></Marker>
+            {market.ubications.map((a) => (
+              <Marker
+                position={a}
+                icon={L.icon({
+                  iconUrl:
+                    "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679009741/yajixzbn1c7n5ssgkqcm.png",
+                })}
+              >
+                {" "}
+                <Popup>{market.name}</Popup>
+              </Marker>
             ))}
-           
           </MapContainer>
           <div className="txt-sup-of">
-            <h3>Visitar pagina oficial</h3>
-            <h2>click aqui</h2>
+            <h3>Visitar pagina oficial click aqui</h3>
           </div>
-          <h1 className="asdkjkh">Productos de {market.name}</h1>
-          <div className="container-prod-market">
-            {aver.map((p) => (
-              <Card3 key={p.id} product={p} market={market.name} />
-            ))}
-          </div>
-          <div className="pag-but-que">
-            {page === 1 ? (
-              <button className="but-pag-a" disabled>
-                Anterior
-              </button>
+          <div className="cont-coment-super">
+            <div>
+            <h3 className="label-3-su">Promedio de estrellas : <p>{"★".repeat(market.puntaje_promedio)}</p>{"★".repeat(5-market.puntaje_promedio)}</h3>
+            </div>
+            {estate.user ? (
+              <div className="input-com-su">
+                <form className="input-com-su">
+                  <div className="foto-av-txc-s">
+                    <img src={estate.avatar} alt="" />
+                    <input
+                      placeholder={`Añade tu comentario sobre  ${market.name}...`}
+                      onChange={setear}
+                      value={comentario.message}
+                      name="message"
+                    />{" "}
+                    <div className="plla">
+                      <input
+                        id="radio1"
+                        type="radio"
+                        name="score"
+                        value="5"
+                        onChange={setear}
+                      />
+                      <label for="radio1">★</label>
+                      <input
+                        id="radio2"
+                        type="radio"
+                        name="score"
+                        value="4"
+                        onChange={setear}
+                      />
+                      <label for="radio2">★</label>
+                      <input
+                        id="radio3"
+                        type="radio"
+                        name="score"
+                        value="3"
+                        onChange={setear}
+                      />
+                      <label for="radio3">★</label>
+                      <input
+                        id="radio4"
+                        type="radio"
+                        name="score"
+                        value="2"
+                        onChange={setear}
+                      />
+                      <label for="radio4">★</label>
+                      <input
+                        id="radio5"
+                        type="radio"
+                        name="score"
+                        value="1"
+                        onChange={setear}
+                      />
+                      <label for="radio5">★</label>
+                      {comentario.message.length > 0 ? (
+                        <button onClick={comentar}>Comentar</button>
+                      ) : null}
+                    </div>
+                  </div>
+                </form>
+              </div>
             ) : (
-              <button className="but-pag-a" onClick={(e) => setPage(page - 1)}>
-                Anterior
-              </button>
+              <div>Cree o ingrese a su cuenta para comentar</div>
             )}
-            {page === Math.ceil(myProduct.length / 10) ? (
-              <button className="but-pag-s" disabled>
-                Siguiente
-              </button>
-            ) : (
-              <button className="but-pag-s" onClick={(e) => setPage(page + 1)}>
-                Siguiente
-              </button>
-            )}
+            <div className="cont-com-sup-a">
+              {commentar ? (
+                commentar.map((a) => (
+                  <div className="comentario-superm">
+                    <img src={a.user.avatar} alt="img" />
+                    <div className="esestetx">
+                      <div className="txtaaassa">
+                        <h4>
+                          {a.user.name} {a.user.last_name}
+                        </h4>
+                        <div className="label-2-su">
+                          <p>{"★".repeat(a.score)}</p>{"★".repeat(5-a.score)}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="label-1-su">{a.message}</label>
+                      </div>
+                    </div>{ estate.type_account === "3" ?
+                    <button className="delete-comment-su" onClick={e=>eli(a.id)}>Eliminar comentario</button>:null}
+                  </div>
+                ))
+              ) : (
+                <p>No hay comentarios todavia</p>
+              )}
+            </div>
           </div>
         </div>
         <Footer />

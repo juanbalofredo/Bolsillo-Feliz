@@ -1,0 +1,74 @@
+.detail-precio-s-a img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+}
+.detail-compara-cont-a {
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  text-align: center;
+  font-weight: 700;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.detail-compara-cont-a h2 {
+  margin: 0;
+}
+.detail-compara-cont-a:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.cont-sup-lis-a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.queso-asdad-aa {
+  display: flex;
+  margin-left: 0.7rem;
+}
+.patexto-sup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.patexto-sup h1 {
+  color: white;
+}
+.display-nav-a {
+  display: flex;
+}
+.display-nav-a .navButton {
+  margin-left: 1rem;
+}
+.navButtonP {
+  height: 2.5vw;
+  width: 5;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #23477c;
+  border: none;
+  transition: 0.3s;
+  color: white;
+  font-family: "Phudu", cursive;
+  margin: 0;
+  margin-right: 2rem;
+}
+.felcha-drop-wh {
+  width: 20px;
+}
+.name-cont0e0d0 img {
+  object-fit: contain;
+  margin-left: 8px;
+  margin-top: 8px;
+}
+.name-cont0e0d0 {
+  display: flex;
+}

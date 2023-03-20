@@ -15,11 +15,15 @@ const SuperM = dataBase.define(
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     ubications: {
       type: DataTypes.JSON,
       allowNull: false
+    },
+    link : {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   },
 
