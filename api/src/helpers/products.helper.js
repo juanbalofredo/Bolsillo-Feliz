@@ -255,8 +255,10 @@ export function getProductsByBrand(brand, order) {
 };
 
 export async function createProducts(productsFromBody) {
+    console.log("entro a createProducts")
     let verifyProducts = await Products.findAll()
     if (verifyProducts.length === 0) {
+        console.log("entro a products = 0")
         let createProducts = await Products.bulkCreate(productos)
         return createProducts;
     }

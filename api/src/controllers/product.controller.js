@@ -12,6 +12,7 @@ export async function getProducts(req, res) {
 
         // esto es para seguir creando la misma base de datos
         if (allProducts.length == 0) {
+            console.log("entro a allProducts = 0 =>")
             await createUser()
             console.log("entro a Linea 14")
             await createSmarket()
