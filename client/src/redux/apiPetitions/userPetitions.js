@@ -101,7 +101,7 @@ export async function getUserSoloByEmail(email) {
   try {
     const user = await axios({
       method: "post",
-      url: "http://localhost:3001/user/soloemail",
+      url: "http://localhost:3001/user/soloemailpo",
       data: { email: email },
     });
     return user;

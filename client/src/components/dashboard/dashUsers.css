@@ -187,3 +187,55 @@ input:checked + .slide:before {
 .footer-tenes-c h4 {
   margin: 0;
 }
+
+
+
+
+.container-Perfiluser{
+  margin-top: 5rem;
+  display: flex;
+  height: 100vh;
+  gap: 17rem;
+  justify-content: center;
+}
+.container_datos{
+  height: 500px;
+  width: 500px;
+  justify-content: center;
+}
+.container_datos img{
+  margin-left: 40%;
+  margin-bottom: 10px;
+width: 100px;
+}
+.renderUser {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+.renderUser input{
+  height: 60px;
+  text-align: center;
+  font-size: 2em;
+}
+.renderUser label{
+  text-align: center;
+}
+.optionsUser{
+  justify-content: center;
+}
+.commentsUser{
+  background-color: grey;
+  margin-top: 50%;
+  width: 20vh;
+  height: 100%;
+}
+.commentsUser label{
+  justify-content: center;
+  padding-top: 10%;
+  display: flex;
+  width: 100%;
+  height: 20%;
+  gap: 2em;
+}

@@ -972,7 +972,7 @@ import {
   //   let atributosFiltrados = { name, brand, category, image, unit };
   //   return atributosFiltrados;
   // });
-  console.log(productos)
+  // console.log(productos)
   
   let preciosEspeciales = [
     {
@@ -1079,19 +1079,19 @@ import {
   // console.log(preciosPorMercadoNoEspeciales)
   export let precios = [...preciosPorMercadoNoEspeciales, ...preciosEspeciales];
   let arrayUsers = [];
-  for (let i = 1; i < 21; i++) {
-    let generateUser = {
-      name: `User ${i}`,
-      last_name: `LastName ${i}`,
-      avatar: `Link ${i}`,
-      email: `correo_${i}@email.com`,
-      type_account: "1",
+  // for (let i = 1; i < 21; i++) {
+export let Usuarios = {
+      name: `Amind`,
+      last_name: `Master`,
+      avatar: `Link avatar`,
+      email: `admin@gmail.com`,
+      type_account: "3",
       notifications: false,
-      activity: false,
-      hashgoogle: "xiEulWfqQiNEtMlclpCQPhO2cY" + i,
+      activity: false
+      // hashgoogle: "xiEulWfqQiNEtMlclpCQPhO2cY" + i,
     };
-    arrayUsers.push(generateUser);
-  }
+    // arrayUsers.push(generateUser);
+  // }
   
   let genereradorDePrecios = [
     {
@@ -1875,7 +1875,7 @@ import {
     "Gallo Snacks",
     "Manaos",
   ];
-  console.log(marcasArgentinas);
+  // console.log(marcasArgentinas);
   
-  export let Usuarios = [...arrayUsers];
+  // export let Usuarios = [...arrayUsers];
   

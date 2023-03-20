@@ -1,16 +1,19 @@
 import mercadopago from "mercadopago";
+import Membership from "../models/membership.js";
+import price from "../routes/price.router.js";
 
 mercadopago.configure({ access_token: process.env.MP_TOKEN });
 
-const payment = async (req, res) => {
+export const payment = async (req, res) => {
+  let actualPrice = await Membership.findOne({ where: { id: 1 } })
   const preference = {
-	items: [
-	  {
-		title: "Membresía anual",
-		unit_price: 100,
-		quantity: 1,
-	  },
-	],
+    items: [
+      {
+        title: "Membresía anual",
+        unit_price: actualPrice.price,
+        quantity: 1,
+      },
+    ],
     back_urls: {
       success: "http://localhost:3000/home",
       failure: "http://localhost:3000/home",
@@ -19,12 +22,28 @@ const payment = async (req, res) => {
     auto_return: "approved",
     binary_mode: true,
   };
-  
-  
+
+
   mercadopago.preferences
     .create(preference)
     .then((response) => res.status(200).send({ response }))
     .catch((error) => res.status(400).send({ error: error.message }));
 };
 
-export default payment;
+
+export const updatePaymentPrice = async (req, res) => {
+  let { newPrice } = req.body;
+  try {
+    let updatePrice = await Membership.update({ price: newPrice }, { where: { id: 1 } });
+    if (updatePrice.length === 0) {
+      res.status(400).send({ err: "Price couldn`t been updated" })
+    }
+    if (Number(newPrice)) {
+      res.status(200).json({ price: newPrice })
+    } else {
+      throw Error("Value should be a number")
+    }
+  } catch (error) {
+    res.status(400).send({ err: error.message })
+  }
+}

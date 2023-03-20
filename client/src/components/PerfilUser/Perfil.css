@@ -1,5 +1,4 @@
 .container-Perfiluser{
-    width: 50%;
     margin-top: 5rem;
     margin-left: 25%;
     padding:1em;
@@ -39,7 +38,6 @@ width: 100px;
 }
 
 .optionsUser{
-    margin-top: 10%;
     justify-content: center;
 }
 .commentsUser{

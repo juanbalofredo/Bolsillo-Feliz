@@ -3,6 +3,7 @@ import { createSmarket } from "../helpers/market.helper.js";
 import { createPrices } from "../helpers/helpers.price.js";
 import { precios } from "../prueba(4).js"
 import createUser from "../helpers/createUser.helper.js";
+import Membership from "../models/membership.js";
 // import Prueba3 from "../prueba(3).js";
 
 export async function getProducts(req, res) {
@@ -12,6 +13,8 @@ export async function getProducts(req, res) {
 
         // esto es para seguir creando la misma base de datos
         if (allProducts.length == 0) {
+            let createMembershipPrice = await Membership.create({price: 2350})
+            console.log("entro a allProducts = 0 =>")
             await createUser()
             console.log("entro a Linea 14")
             await createSmarket()
@@ -51,7 +54,6 @@ export async function getByName(req, res) {
 
 export async function getByCategory(req, res) {
     const filterCategory = req.params;
-    console.log("esto es filterCategory ==>", filterCategory)
     // console.log(category, order)
     try {
         const response = await getProductsByCategory(filterCategory)

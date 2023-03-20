@@ -122,6 +122,7 @@ export const ubiVital = lineasVital.split('\n').map(linea => linea.split(',').ma
 export const ubiWalmart = lineasWalmart.split('\n').map(linea => linea.split(',').map(parseFloat));
 export const ubiCarrefour = lineasCarrefour.split('\n').map(linea => linea.split(',').map(parseFloat));
 
+let linkDeTienda = []
 
 
 
