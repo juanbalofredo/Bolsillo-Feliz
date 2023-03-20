@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { getPrice, postPrice, putPrice } from "../controllers/controller.price.js";
+import { getPrice, putPrice } from "../controllers/controller.price.js";
 
 const routerPrice = Router();
 
 
 
 // routerPrice.get("/", getPrices);
-routerPrice.post("/", postPrice);
+// routerPrice.post("/", postPrice);
 routerPrice.get("/", getPrice);
 routerPrice.put("/", putPrice);
 
