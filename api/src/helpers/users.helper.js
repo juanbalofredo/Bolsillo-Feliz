@@ -103,7 +103,8 @@ export async function updateUserByTypeAccount({
         dataForChange[key] = datas[key];
       }
     }
-    let updatedUser = await Users.update(dataForChange, { where: { id } });
+    let updatingdUser = await Users.update(dataForChange, { where: { id } });
+    let updatedUser = await Users.findOne({ where: { id } });
     console.log(updatedUser);
     return updatedUser;
   }
