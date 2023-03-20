@@ -4,7 +4,7 @@ import { postEspecialPrice, postNonEspecialtPrice } from "../controllers/control
 const price = Router();
 
 price.post("/nonespecial", postNonEspecialtPrice)
-price.post("/especial", postEspecialPrice)
+// price.post("/especial", postEspecialPrice)
 
 
 export default price;
