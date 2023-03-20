@@ -149,9 +149,6 @@ const Market = () => {
             <h3>Visitar pagina oficial click aqui</h3>
           </div>
           <div className="cont-coment-super">
-            <div>
-            <h3 className="label-3-su">Promedio de estrellas : <p>{"★".repeat(market.puntaje_promedio)}</p>{"★".repeat(5-market.puntaje_promedio)}</h3>
-            </div>
             {estate.user ? (
               <div className="input-com-su">
                 <form className="input-com-su">
