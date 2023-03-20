@@ -36,10 +36,10 @@ export const updatePaymentPrice = async (req, res) => {
   try {
     let updatePrice = await Membership.update({ price: newPrice }, { where: { id: 1 } });
     if (updatePrice.length === 0) {
-      res.status(400).send({err: "Price couldn`t been updated"})
+      res.status(400).send({ err: "Price couldn`t been updated" })
     }
     if (Number(newPrice)) {
-      res.status(200).send(`Price updated to $${newPrice}`)
+      res.status(200).json({ price: newPrice })
     } else {
       throw Error("Value should be a number")
     }
