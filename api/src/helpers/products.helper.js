@@ -164,6 +164,10 @@ export async function getProductsByCategory({ category, order, brand, name }) {
             ],
             order: [["name", order]]
         })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0d7e5db4087551d6b3a42c2e1759453b0935889e
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }

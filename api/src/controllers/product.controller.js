@@ -51,7 +51,6 @@ export async function getByName(req, res) {
 
 export async function getByCategory(req, res) {
     const filterCategory = req.params;
-    console.log("esto es filterCategory ==>", filterCategory)
     // console.log(category, order)
     try {
         const response = await getProductsByCategory(filterCategory)

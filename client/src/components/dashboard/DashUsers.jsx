@@ -1,12 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./dashUsers.css";
 import Navbar from "../Navbar/NavBar";
+import Footer from "../../views/footer/Footer";
 import { useEffect, useState } from "react";
 import {
   getUsers,
   updateUser,
   updateUserActivity,
 } from "../../redux/apiPetitions/userPetitions";
+import { sigPage, antPage } from "../../redux/slice/globalSlice";
+import MyChart from "../Graphics/graphicsLine.js";
+//import DonutChart from "../Graphics/graphicsDonut.js";
 
 const DashUsers = () => {
   const dispatch = useDispatch();
@@ -15,13 +19,18 @@ const DashUsers = () => {
     getUsers(dispatch);
   }, [dispatch]);
 
-
+  const [Edit, setEdit] = useState("datos")
   const [input,setInput] = useState("");
 
   const state = useSelector((state) => state.bolsilloFeliz);
   const estate = useSelector((state) => state.bolsilloPersist);
   const allUsers = state.allUsers;
   const filtrus = allUsers.filter((a) => a.email.includes(input));
+
+  const page = state.page;
+  const startIndex = page === 1 ? 0 : page * 10 - 10;
+  const endIndex = page === 1 ? 10 : startIndex + 10;
+  const aver = allUsers.slice(startIndex, endIndex);
 
 
   async function cambiarTipo(id, type_account) {
@@ -33,10 +42,27 @@ const DashUsers = () => {
     getUsers(dispatch);
   }
 
-  return (
-    <>
-      <Navbar />
-      <div className="cont-de-cont">
+
+  async function handleData(e) {
+    setEdit(e.target.value);
+  }
+    if(Edit === "datos"){
+
+      return (
+        <>
+          <Navbar />
+          <div className="container-Perfiluser">
+            <div className="optionsUser">
+              <div className="commentsUser">
+                <label onClick={(e) => handleData(e)} value="datos" >
+                  Usuarios
+                </label>
+                <label onClick={(e) => handleData(e)} value="comentarios" >
+                  Estadisticas
+                </label>
+              </div>
+            </div>
+            <div className="cont-de-cont">
         <input className="tras" type="text" placeholder="Buscar por mail" name="bsuqeuda" onChange={e=>setInput(e.target.value)}  />
         <div className="container-ed-users">
           {allUsers.length ? (
@@ -116,13 +142,70 @@ const DashUsers = () => {
                 </table>
               );
             })
+            
           ) : (
             <div className="container_vacio_2"></div>
           )}
         </div>
+        <div className="pag-but-que">
+            {page === 1 ? (
+              <button className="but-pag-a" disabled>
+                Anterior
+              </button>
+            ) : (
+              <button
+                className="but-pag-a"
+                onClick={(e) => dispatch(antPage())}
+              >
+                Anterior
+              </button>
+            )}
+            {page === Math.ceil(allUsers.length / 10) ? (
+              <button className="but-pag-s" disabled>
+                Siguiente
+              </button>
+            ) : (
+              <button
+                className="but-pag-s"
+                onClick={(e) => dispatch(sigPage())}
+              >
+                Siguiente
+              </button>
+            )}
+          </div>
       </div>
-    </>
-  );
-};
+          </div>
+        </>
+      );
+    }
+    return (
+      <>
+      <Navbar />
+      <div className="container-Perfiluser">
+        <div className="optionsUser">
+          <div className="commentsUser">
+            <label onClick={(e) => handleData(e)} value="datos">
+              Usuarios
+            </label>
+            <label onClick={(e) => handleData(e)} value="comentarios">
+              Estadisticas
+            </label>
+          </div>
+        </div>
+        <div className="container_datos">
+        <div>
+          <h2>Usuarios</h2>
+          <MyChart />
+        </div>
+        {/* <div>
+          <DonutChart />
+        </div> */}
+
+        </div>
+      </div>
+      <Footer/>
+      </>
+    );
+  }
 
 export default DashUsers;
