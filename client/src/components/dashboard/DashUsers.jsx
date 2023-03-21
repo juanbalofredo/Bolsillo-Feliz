@@ -8,8 +8,8 @@ import {
   updateUser,
   updateUserActivity,
 } from "../../redux/apiPetitions/userPetitions";
-// import MyChart from "../Graphics/graphicsLine.js";
-//import DonutChart from "../Graphics/graphicsDonut.js";
+import MyChart from "../Graphics/graphicsLine.js";
+import DonutChart from "../Graphics/graphicsDonut.js";
 
 const DashUsers = () => {
   const dispatch = useDispatch();
@@ -149,13 +149,11 @@ const DashUsers = () => {
         ) : (
           <>
             <div className="container_datos">
-              {/* <div>
+               <div>
                 <h2>Usuarios</h2>
                 <MyChart />
-              </div> */}
-              {/* <div>
-          <DonutChart />
-        </div> */}
+                <DonutChart />
+              </div>
             </div>
           </>
         )}
