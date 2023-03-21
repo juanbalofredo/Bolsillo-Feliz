@@ -3,6 +3,7 @@ import SuperM from "../models/superM.js";
 import Users from "../models/users.js";
 import { tiendas } from "../prueba(4).js";
 import Reviews from '../models/review.js';
+import axios from 'axios';
 
 export function getMarketById(id) {
     const getId = SuperM.findOne({
@@ -46,7 +47,21 @@ export const createSmarket = async (smarketsFromBody) => {
     }
     let findUser;
     if (smarketsFromBody) {
-        let { name, image, id, ubications } = smarketsFromBody;
+        let { name, image, id, address } = smarketsFromBody;
+        const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json`;
+        let ubications = [];
+        await axios.get(url).then(response => {
+            const latitud = response.data[0].lat;
+            const longitud = response.data[0].lon;
+            let latLng = [parseFloat(latitud), parseFloat(longitud)];
+            ubications.push(latLng);
+            console.log(ubications);
+            return ubications;
+        })
+        .catch(error => {
+             console.error(error);
+         });
+
         //primero busca si el usuario existe para luego recien poder crear la tienda
         findUser = await Users.findOne({ where: { id } });
         if (findUser && !findUser.superMId) {
