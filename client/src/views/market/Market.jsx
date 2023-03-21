@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
-import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -25,7 +25,7 @@ const Market = () => {
 
   useEffect(() => {
     axios
-      .get(`pf-grupo2-production.up.railway.app/market/id/${id}`)
+      .get(`http://localhost:3001/market/id/${id}`)
       .then((e) => setMarket(e.data))
       .catch((err) => {
         return err;

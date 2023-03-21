@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
-import { usersLine } from "./functionsGraphics";
+
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import axios from "axios";
 
 const MyChart = () => {
@@ -32,7 +31,7 @@ const MyChart = () => {
 
 
 
-    let fechaDeUsers = usersLine();
+
     let myChart = null;
 
     const createChart = () => {

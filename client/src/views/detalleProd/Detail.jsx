@@ -1,6 +1,6 @@
 import "./detalleProd.css";
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
 import axios from "axios";
@@ -11,12 +11,11 @@ import CardM from "../../components/Card/CardM";
 // import { useSelector } from "react-redux";
 
 const DetalleProd = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   useEffect(() => {
     axios
-      .get(`pf-grupo2-production.up.railway.app/products/id/${id}`)
+      .get(`http://localhost:3001/products/id/${id}`)
       .then((e) => setProduct(e.data))
       .catch((err) => {
         return err;
