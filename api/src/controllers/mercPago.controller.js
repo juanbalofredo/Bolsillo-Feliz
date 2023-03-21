@@ -1,21 +1,28 @@
 import mercadopago from "mercadopago";
 import Membership from "../models/membership.js";
 import price from "../routes/price.router.js";
+import Users from "../models/users.js";
 
 mercadopago.configure({ access_token: process.env.MP_TOKEN });
 
 export const payment = async (req, res) => {
   let actualPrice = await Membership.findOne({ where: { id: 1 } })
+  let id = req.body.id;
+  console.log(id)
   const preference = {
     items: [
       {
         title: "Membresía anual",
-        unit_price: actualPrice.price,
+        unit_price: 2345,
         quantity: 1,
       },
     ],
     back_urls: {
-      success: "http://localhost:3000/home",
+      success: (function (){
+        let updateUser = Users.update({ type_account: "2" }, { where: { id } });
+        let url = "http://localhost:3000/perfil"
+        return url
+      })(),
       failure: "http://localhost:3000/home",
       pending: "http://localhost:3000/home",
     },
