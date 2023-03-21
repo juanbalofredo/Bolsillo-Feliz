@@ -39,13 +39,15 @@ const AutorizacionMercader = () => {
       input.especialidad.length >= 2 &&
       input.ubicacion.length >= 2
     ) {
-      emailjs.send("service_hah0x8k","template_buti7zt",{user_email:"alexaniasco@outlook.com", to_name: input.name, user_name:state.name , mercado: input.name},"te3Yvey_o03JLT1zu",{
+      emailjs.send("service_hah0x8k","template_buti7zt",{user_email:state.email, to_name: input.name, user_name:state.name , mercado: input.name},"te3Yvey_o03JLT1zu",{
         from_name: "Bolsillo Feliz",
        
-       
-        user_email:"alexaniasco@outlook.com",
       
         });
+        emailjs.send("service_cfwpdj7","template_smc5b1i",{mercado:input.name,mercader:state.name ,email:state.email},"bfkCyEaZzPcQ0u1_N",{
+          from_name: "Bolsillo Feliz",
+   
+          });
       alert("Success");
       setInput({
         name: "",

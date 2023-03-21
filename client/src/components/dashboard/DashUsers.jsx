@@ -27,10 +27,13 @@ const DashUsers = () => {
   const filtrus = allUsers.filter((a) => a.email.includes(input));
 
   async function cambiarTipo(id, type_account) {
-    updateUser(estate.type_account, id, type_account);
+    const usuario = filtrus.filter(e=> e.id == id)
+     console.log(usuario[0])
+    updateUser(estate.type_account, id, type_account , usuario);
   }
 
   async function kambiar(id, e) {
+     
     updateUserActivity(estate.type_account, id, e);
     getUsers(dispatch);
   }

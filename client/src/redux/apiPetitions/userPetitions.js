@@ -7,6 +7,7 @@ import {
   firebase,
   googleAuthProvider,
 } from "../../views/Firebase/ConfigFirebase";
+import emailjs from "@emailjs/browser";
 
 export async function logearse(input, dispatch) {
   try {
@@ -50,7 +51,7 @@ export async function getUsers(dispatch) {
   }
 }
 
-export async function updateUser(type_account_logged, id, type_account) {
+export async function updateUser(type_account_logged, id, type_account , usuario) {
   try {
     const user = await axios({
       method: "put",
@@ -61,6 +62,10 @@ export async function updateUser(type_account_logged, id, type_account) {
         type_account: type_account,
       },
     });
+    if(type_account == "2"){
+      console.log(usuario)
+      emailjs.send("service_cfwpdj7","template_qaebelh",{mail : usuario[0].email , name: usuario[0].name},"bfkCyEaZzPcQ0u1_N");
+    }
     return user;
   } catch (error) {
     return error.message;
@@ -69,6 +74,7 @@ export async function updateUser(type_account_logged, id, type_account) {
 
 export async function updateUserActivity(type_account_logged, id, activity) {
   try {
+   
     const user = await axios({
       method: "put",
       url: "http://localhost:3001/user/update",
