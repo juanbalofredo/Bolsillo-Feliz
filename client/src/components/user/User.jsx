@@ -85,7 +85,7 @@ export const User = () => {
             <div id="myDropdown" className="dropdown-content">
               <Link to="/perfil">Perfil</Link>
               <p className="Buttondi" onClick={logOuter}>
-                Cerrar sesion
+                Cerrar sesion 
               </p>
               {rol === "2" ? <Link to="/form">Mi mercado</Link> : null}
               {rol === "3" ? (
