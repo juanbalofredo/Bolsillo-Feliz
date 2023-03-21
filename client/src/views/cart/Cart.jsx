@@ -1,6 +1,8 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
 import Footer from "../footer/Footer";
 import "./cart.css";
+
 
 export default function MercadoP() {
 
