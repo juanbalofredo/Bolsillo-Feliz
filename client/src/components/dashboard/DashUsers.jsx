@@ -8,8 +8,8 @@ import {
   updateUser,
   updateUserActivity,
 } from "../../redux/apiPetitions/userPetitions";
-// import MyChart from "../Graphics/graphicsLine.js";
-//import DonutChart from "../Graphics/graphicsDonut.js";
+import MyChart from "../Graphics/graphicsLine.jsx";
+import DonutChart from "../Graphics/graphicsDonut.jsx";
 
 const DashUsers = () => {
   const dispatch = useDispatch();
@@ -40,18 +40,20 @@ const DashUsers = () => {
   }
 
 
+  
+
   return (
     <>
       <Navbar />
       <div className="container-Perfiluser">
         <div className="optionsUser">
-          <div className="commentsUser">
-            <label onClick={(e) => setEdit(true)} >
+          <div className="useroptionclick">
+            <button onClick={(e) => setEdit(true)} >
               Usuarios
-            </label>
-            <label onClick={(e) => setEdit(false)}>
+            </button>
+            <button onClick={(e) => setEdit(false)}>
               Estadisticas
-            </label>
+            </button>
           </div>
         </div>
         {Edit === true ? (
@@ -66,6 +68,7 @@ const DashUsers = () => {
             <div className="container-ed-users">
               {allUsers.length ? (
                 filtrus.map((element) => {
+                  if (element.email !== 'admin@gmail.com') {
                   return (
                     <table key={element.id}>
                       <td className="ed-img">
@@ -96,6 +99,7 @@ const DashUsers = () => {
                               ? "Admin"
                               : "Merc.Premium"}
                           </option>
+                          
                           {element.type_account === "1" ? (
                             ""
                           ) : (
@@ -111,17 +115,12 @@ const DashUsers = () => {
                           ) : (
                             <option value="3">Admin</option>
                           )}
-                          {element.type_account === "4" ? (
-                            ""
-                          ) : (
-                            <option value="4">Merc.Premium</option>
-                          )}
                         </select>
                       </td>
-
+                       
                       <td className="ag-but">
                         <label className="switchBtn">
-                          {element.activity ? (
+                          { element.activity ? (
                             <input
                               onChange={(e) =>
                                 kambiar(element.id, !element.activity)
@@ -141,7 +140,7 @@ const DashUsers = () => {
                         </label>
                       </td>
                     </table>
-                  );
+                  );}
                 })
               ) : (
                 <div className="container_vacio_2"></div>
@@ -151,13 +150,13 @@ const DashUsers = () => {
         ) : (
           <>
             <div className="container_datos">
-              {/* <div>
+               <div className="div-cont-graf">
                 <h2>Usuarios</h2>
+                <div className="div-docnt-cont-g">
                 <MyChart />
-              </div> */}
-              {/* <div>
-          <DonutChart />
-        </div> */}
+                <DonutChart />
+                </div>
+              </div>
             </div>
           </>
         )}

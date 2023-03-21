@@ -1081,11 +1081,12 @@ import {
   let arrayUsers = [];
   // for (let i = 1; i < 21; i++) {
 export let Usuarios = {
-      name: `Amind`,
+      name: `Admin`,
       last_name: `Master`,
-      avatar: `Link avatar`,
+      avatar: `https://res.cloudinary.com/dzuasgy3l/image/upload/v1679368685/b8qhuczmn9dtlbidmgl9.webp`,
       email: `admin@gmail.com`,
       type_account: "3",
+      password:'admin123',
       notifications: false,
       activity: false
       // hashgoogle: "xiEulWfqQiNEtMlclpCQPhO2cY" + i,

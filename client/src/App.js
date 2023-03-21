@@ -15,6 +15,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { useSelector } from "react-redux";
 import Error from "./views/Error/Error"
 import Perfil from "./components/PerfilUser/PerfilUser";
+import Contraseña from "./components/login/CambiarContra";
 
 const App =()=>{
   const {user, type_account} = useSelector((state) => state.bolsilloPersist);
@@ -29,6 +30,7 @@ const App =()=>{
         <Route exact path="/products/id/:id" element={<DetalleProd/>} />
         <Route exact path="/market/id/:id" element={<Market/>} />
         <Route exact path="/about" element={<About/>} />
+        <Route exact path="/password" element={<Contraseña/>} />
         <Route path="*" element={<Error />} />
         <Route exact path="/form" element={ 
             <ProtectedRoute user={!!user}>

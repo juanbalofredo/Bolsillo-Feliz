@@ -1,7 +1,7 @@
 
 //agregando comentarios
 import Reviews from "../models/review.js";
-import { createReviews, getReviewsById, deleteReviewById, showReview, getTotalReviews } from "../helpers/reviews.helper.js";
+import { createReviews, getReviewsById, deleteReviewById, showReview, getTotalReviews, getReviewsByUserId } from "../helpers/reviews.helper.js";
 import SuperM from "../models/superM.js";
 
 export async function getAllReviews(req, res) {
@@ -19,10 +19,10 @@ export async function getAllReviews(req, res) {
 export async function getRevById(req, res) {
     try {
         const { id } = req.params;
-        const response = await getReviewsById(id);
+        const response = await getReviewsByUserId(id);
         if (!response) return res.status(404).send("Not found 404");
         return res.status(200).json(response);
-    } catch {
+    } catch(error) {
         return res.status(500).json({ err: error.message })
     };
 };
