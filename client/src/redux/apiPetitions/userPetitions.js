@@ -150,6 +150,7 @@ export async function getComments(dispatch) {
     return error.message;
   }
 }
+
 export async function deleteComment(dispatch, id) {
   try {
     const user = await axios({

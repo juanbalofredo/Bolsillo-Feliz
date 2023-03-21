@@ -20,16 +20,24 @@
 .useroptionclick button:active {
   background-color: #214881;
 }
+.txtaaassa .label-2-su p {
+    color: #d1a513;
+  }
+  .txtaaassa .label-2-su {
+    color: gray;
+    display: flex;
+    align-items: center;
+}
 
 .container-Perfiluser {
   display: flex;
+  align-items: center;
   flex-direction: column;
   margin-bottom: 100px;
 }
 .container_datos {
-  margin-left: 15%;
   height: 100vh;
-  width: 40%;
+  width: 20%;
 }
 .container_datos img {
   margin-left: 46%;
@@ -61,7 +69,7 @@
   font-size: 1.1em;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(78, 78, 78);
+  border-bottom: 1px solid rgb(122, 122, 122);
   margin-bottom: 2rem;
   margin-top: 1rem;
 }
@@ -107,7 +115,7 @@
   width: 100%;
 }
 .container_datos {
-  width: 70%;
+  width: 40%;
 }
 .optionsUser {
   justify-content: center;
