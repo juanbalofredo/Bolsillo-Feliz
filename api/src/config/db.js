@@ -3,9 +3,9 @@ import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 dotenv.config();
 
-const {DB_DEPLOY} = process.env
+// const {DB_DEPLOY} = process.env
 
-const dataBase = new Sequelize(DB_DEPLOY, {
+const dataBase = new Sequelize(process.env.DB_DEPLOY,{
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
