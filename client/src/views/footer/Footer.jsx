@@ -57,18 +57,7 @@ export const Footer = () => {
 ) : null}
         <div className="copyright">
           <div className="copy">
-            <p>@{new Date().getFullYear()} CodeInn. All right reserved</p>
-          </div>
-          <div className="segmentos">
-            <p>terms & conditions</p>
-            <p>Privacy</p>
-            <p>Security</p>
-            <p>Cookie Declaration</p>
-          </div>
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <p>@{new Date().getFullYear()} BolsilloFeliz. All right reserved</p>
           </div>
         </div>
       </div>

@@ -30,7 +30,6 @@ export default function PerfilDatos() {
       .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
       .then((response) => {
         uploadedImage = response.data.secure_url;
-        console.log(uploadedImage);
         SetFoto(uploadedImage);
       })
       .then((e) =>
