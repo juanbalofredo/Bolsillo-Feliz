@@ -43,21 +43,20 @@ export default function PerfilDatos() {
       .catch((e) => swal("Algo salio mal!", "Intentar otra vez", "error"));
     };
   async function HandleData() {
-    const password = await swal("Escribe tu contraseña actual", {
-      content: "input",
-      attributes: {
-        placeholder: "Type your password",
-        type: "password",
+    const password = await swal("Escribe tu contraseña actual",{
+      content: {
+        element: "input",
+        attributes: {
+          type: "password",
+        },
       },
     });
     const res = await getUserByEmail(email, password);
-    console.log(res.status);
     if (res.status === 200) {
-      const newpassword = await swal({
+      const newpassword = await swal("Escribe tu contraseña actual",{
         content: {
           element: "input",
           attributes: {
-            placeholder: "Type your password",
             type: "password",
           },
         },

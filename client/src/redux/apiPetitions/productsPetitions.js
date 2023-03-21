@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios.js";
 import {
   allProducts,
   getName,
@@ -23,7 +23,7 @@ export async function getProductos(dispatch) {
 export async function getProductId(dispatch, id) {
   try {
     let json = await axios.get(
-      `http://localhost:3001/products/id/${id}`,
+      `/products/id/${id}`,
       dispatch
     );
     dispatch(oneComment(json?.data));
@@ -36,7 +36,7 @@ export async function getProductId(dispatch, id) {
 export async function getBrandId(id) {
   try {
     let json = await axios.get(
-      `http://localhost:3001/market/id/${id}`,
+      `/market/id/${id}`,
       );
       console.log(json)
     return json;
@@ -48,7 +48,7 @@ export async function getBrandId(id) {
 export const getNameQuery = async (dispatch, name, order) => {
   try {
     const petition = await axios.get(
-      `http://localhost:3001/products/name?name=${name}&order=${order}`
+      `/products/name?name=${name}&order=${order}`
     );
     dispatch(
       getName(petition?.data)
@@ -67,7 +67,7 @@ export const getCategoryParams = async (
 ) => {
   try {
     const petition = await axios.get(
-      `http://localhost:3001/products/category/${category}/${brand}/${order}/${pname}`
+      `/products/category/${category}/${brand}/${order}/${pname}`
     );
     if (category !== "all") {
       dispatch(Category(category));
@@ -90,7 +90,7 @@ export const getCategoryParams = async (
 
 export const rsetFilters = async (dispatch) => {
   try {
-    const petition = await axios.get("http://localhost:3001/products");
+    const petition = await axios.get("/products");
     dispatch(
       resetFilter(petition?.data))
     dispatch(Brand("all"));
@@ -106,7 +106,7 @@ export const postProduct = (payload) => {
     console.log(payload)
     try {
       const response = await axios.post(
-        "http://localhost:3001/products",
+        "/products",
         payload
       );
       return response;
@@ -121,7 +121,7 @@ export const postProductNoSpecials = (payload) => {
     console.log(payload)
     try {
       const response = await axios.post(
-        "http://localhost:3001/price/nonespecial",
+        "/price/nonespecial",
         payload
       );
       return response;
