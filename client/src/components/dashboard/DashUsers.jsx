@@ -46,13 +46,13 @@ const DashUsers = () => {
       <Navbar />
       <div className="container-Perfiluser">
         <div className="optionsUser">
-          <div className="commentsUser">
-            <label onClick={(e) => setEdit(true)} >
+          <div className="useroptionclick">
+            <button onClick={(e) => setEdit(true)} >
               Usuarios
-            </label>
-            <label onClick={(e) => setEdit(false)}>
+            </button>
+            <button onClick={(e) => setEdit(false)}>
               Estadisticas
-            </label>
+            </button>
           </div>
         </div>
         {Edit === true ? (

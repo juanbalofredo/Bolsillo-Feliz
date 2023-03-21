@@ -1,61 +1,115 @@
-.container-Perfiluser{
-    margin-top: 5rem;
-    margin-left: 25%;
-    padding:1em;
-    display: flex;
-    height: 100vh;
-    gap: 7rem;
-    justify-content: center;
+.useroptionclick {
+  display: flex;
+  width: 100%;
+  margin-bottom: 100px;
 }
-.container_datos{
-    height: 100%;
-    width: 50%;
+.useroptionclick button {
+  background-color: #386dbd;
+  padding-left: 6%;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  height: 4rem;
+  font-weight: 700;
+  color: white;
 }
-.container_datos img{
-    margin-left: 40%;
-    margin-bottom: 10px;
-width: 100px;
+.useroptionclick button:hover {
+  cursor: pointer;
 }
-.renderUser {
-    width: 100%;
-    display: flex;
-    gap: 1em;
-    flex-direction: column;
-}
-.renderUser input{
-    height: 40px;
-    text-align: center;
-    font-size: 1.5em;
-}
-.renderUser label{
-    text-align: center;
-}
-.renderUser button{
-    width: 100%;
+.useroptionclick button:focus,
+.useroptionclick button:active {
+  background-color: #214881;
 }
 
-.optionsUser{
-    justify-content: center;
+.container-Perfiluser {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
 }
-.commentsUser{
-    margin-top: 50%;
-    width: 20vh;
-    height: 100%;
+.container_datos {
+  margin-left: 15%;
+  height: 100vh;
+  width: 40%;
 }
-.commentsUser label{
-    justify-content: center;
-    padding-top: 10%;
-    display: flex;
-    width: 100%;
-    height: 20%;
-    gap: 2em;
+.container_datos img {
+  margin-left: 46%;
+  margin-bottom: 10px;
+  width: 100px;
 }
-.labelC{
-    margin-top: 10%;
-    margin-left: 25%;
-    height: 4em;
-    font-size: 1.5em;
+.renderUser {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
 }
-.labelC label{
-    margin-top: 10%;
+.reg-avata2 {
+  display: flex;
+}
+
+.reg-avata2 input {
+  visibility: inherit;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  right: 100px;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+}
+.renderUser div {
+  display: flex;
+  font-size: 1.1em;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(78, 78, 78);
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.reg-avata2 input::file-selector-button {
+  display: none;
+}
+
+.reg-avata2 input:hover {
+  cursor: pointer;
+}
+.labelC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(30, 54, 7);
+  color: white;
+  height: 40px;
+  width: 200px;
+}
+.labelC:hover {
+  cursor: pointer;
+  background-color: rgb(14, 26, 3);
+}
+.buttonContraseña {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.renderUser input {
+  height: 30px;
+  text-align: start;
+  font-size: 1.1em;
+  background-color: transparent;
+  border: none;
+  width: 250px;
+}
+.renderUser label {
+  text-align: center;
+}
+.renderUser button {
+  width: 100%;
+}
+.container_datos {
+  width: 70%;
+}
+.optionsUser {
+  justify-content: center;
+  display: flex;
 }
