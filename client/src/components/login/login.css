@@ -1,0 +1,22 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.register-correo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-correo #error_name {
+  color: red;
+}
+.rgister-contra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rgister-contra #error_name {
+  color: red;
+}

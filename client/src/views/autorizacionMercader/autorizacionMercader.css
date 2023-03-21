@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  position: relative;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.autorizar-container {
+  /* background: #141631;
+    background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+    background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+    background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%); */
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+}
+
+.reg-google-fac {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.reg-google-fac button {
+  margin-top: 20px;
+}
+
+.register-logo img {
+  width: 10rem;
+  margin-right: 60px;
+}
+.boton-form-mer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  width: 5rem;
+  height: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.boton-form-mer:hover{
+  cursor: pointer;
+  background-color: rgb(94, 94, 94);
+}
+.autorizar-form {
+  height: 30rem;
+  width: 30rem;
+  border-radius: 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10rem;
+}
+
+.autorizar-form input {
+  font-family: "Phudu", cursive;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #868686;
+  margin-top: 20px;
+  width: 17.5rem;
+}
+
+.autorizar-form input:focus-visible {
+  outline: none;
+}
+
+.autorizar-form h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.autorizar-text {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.autorizar-text button {
+  margin-top: 40px;
+  width: 10rem;
+  height: 2.5rem;
+  border: none;
+  background-color: #6e6e6e;
+  color: white;
+  font-family: "Phudu", cursive;
+  font-size: 17px;
+  border-radius: 4px;
+}
+
+todo {
+  padding-bottom: 3rem;
+}
+
+.autorizar-text button:hover {
+  font-family: "Phudu", cursive;
+  cursor: pointer;
+  background-color: #494949;
+}
+
+.autorizar-name {
+  display: flex;
+}
+
+.autorizar-name input {
+  text-align: center;
+  width: 8rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: "Phudu", cursive;
+}
+
+.autorizar-name div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-error-form {
+  display: flex;
+  flex-direction: column;
+}
+.name-error-form #error_name {
+  color: red;
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1000000px) {
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1400px) {
+}

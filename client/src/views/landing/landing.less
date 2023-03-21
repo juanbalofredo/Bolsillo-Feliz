@@ -1,0 +1,228 @@
+@desktop: ~"only screen and (min-width: 1401px) and (max-width: 1000000px)";
+@tablet: ~"only screen and (min-width: 1000px) and (max-width: 1400px)";
+@bigMobile: ~"only screen and (min-width: 701px) and (max-width: 999px)";
+@mobile: ~"only screen and (min-width: 0px) and (max-width: 700px)";
+@font2: "Phudu", cursive;
+@font: "Open Sans", sans-serif;
+@azul-osc: #0f4571;
+@celeste-nor: #386dbd;
+@oscuro: #272525;
+@celeste: #009ddd;
+@celeste-claro: #05d3f8;
+
+body {
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+.landing-container {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+}
+
+.landing-0 {
+  h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+  p {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  button {
+    margin-top: 4rem;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 3rem;
+    border: none;
+    border-radius: 100px;
+    background-color: rgb(182, 79, 142);
+    font-size: large;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(136, 59, 107);
+    }
+  }
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(254, 213, 218);
+  scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 50rem;
+  }
+}
+.foto-landing-3 {
+  h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+  p {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  button {
+    margin-top: 4rem;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 3rem;
+    border: none;
+    border-radius: 100px;
+    background-color: rgb(115, 53, 134);
+    font-size: large;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(95, 37, 85);
+    }
+  }
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(162, 157, 237, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 30rem;
+  }
+}
+#landing-1 {
+  h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+  p {
+    font-size: 20px;
+    margin: 0;
+  }
+  button {
+    margin-top: 4rem;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 3rem;
+    border: none;
+    border-radius: 100px;
+    background-color: rgb(66, 130, 167);
+    font-size: large;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(51, 102, 131);
+    }
+  }
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678570964/zvx0piodwwd2brueompl.avif);
+}
+#landing-2 {
+  scroll-snap-align: center;
+  img {
+    width: 18%;
+  }
+  height: 100vh;
+  width: 100vw;
+  h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+  p {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  button {
+    margin-top: 4rem;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 3rem;
+    border: none;
+    border-radius: 100px;
+    background-color: rgb(124, 60, 126);
+    font-size: large;
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(88, 38, 80);
+    }
+  }
+}
+.foto-landing-1 {
+  text-align: center;
+  background-color: rgba(223, 236, 254, 255);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+  img {
+    margin-left: 3rem;
+    width: 35%;
+  }
+}
+.img-home-cart {
+  width: 100vw;
+  height: 300px;
+}
+.slider-home {
+  background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/jnvokhcbwytwbxw4pgco.png);
+  background-size: cover;
+  width: 100vw;
+  height: 100%;
+  animation: animate 80s ease 0.1s infinite;
+
+}
+
+@keyframes animate {
+  25% {
+    
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/qv4vdzkdgpkfirj4p49o.png);
+    background-size: cover;
+  }
+  50% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/m9nyct3jtxtc8jnilkq2.png);
+    background-size: cover;
+  }
+  75% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/bipstgfnbg4om9nlytb9.png);
+    background-size: cover;
+  }
+  100% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678851530/jnvokhcbwytwbxw4pgco.png);
+    background-size: cover;
+  }
+}
+.foto-landing-2 {
+  text-align: center;
+  background-color: rgba(243, 229, 254, 255);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+  img {
+    margin-right: 12%;
+    width: 22%;
+  }
+}
+
+@media @desktop {
+}
+
+@media @tablet {
+}
+
+@media @bigMobile {
+}
+
+@media @mobile {
+}

@@ -1,0 +1,96 @@
+.Detail-container {
+  display: flex;
+  justify-content: center;
+  font-family: "Phudu", cursive;
+  color: #040c2e;
+  height: fit-content;
+}
+.Detail-container a button {
+  border-radius: 5px;
+  margin-left: 30px;
+  margin-top: 30px;
+  height: 2.5vw;
+  width: 5vw;
+  margin-right: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #23477c;
+  border: none;
+  transition: 0.3s;
+  color: white;
+  font-family: "Phudu", cursive;
+}
+.Detail-container a button:hover {
+  background-color: #112749;
+}
+.det-prod {
+  margin-top: 13rem;
+  height: 50vh;
+  width: 20rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detail-precio-s img {
+  width: 5rem;
+}
+.detail-compara-cont {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detail-compara-cont:hover{
+  cursor:pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.detail-precio-s {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+}
+
+.imageContainer img {
+  margin-top: 50px;
+  width: 20rem;
+  border-radius: 10px;
+}
+.detail-error {
+  background: #141631;
+  width: 100vw;
+  height: 100vh;
+}
+.imageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #858585;
+}
+.textContainer {
+  width: 25rem;
+text-align: center;
+}
+.contenedor-detail {
+  display: grid;
+  grid-template-columns: 10rem 10rem;
+  height: 10rem;
+  text-align: center;
+  gap: 2rem;
+}
+.detail-compara-cont:first-child{
+  background-color: #92e6a7;
+}
+.detail-compara-cont:first-child:hover{
+  background-color: #66da83;
+}
+
+
+.contenedor-detail {
+  margin-top: 7rem;
+  margin-left: 10rem;
+}

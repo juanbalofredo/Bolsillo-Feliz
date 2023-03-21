@@ -1,0 +1,67 @@
+@desktop: ~"only screen and (min-width: 1401px) and (max-width: 1000000px)";
+@tablet: ~"only screen and (min-width: 1000px) and (max-width: 1400px)";
+@bigMobile: ~"only screen and (min-width: 701px) and (max-width: 999px)";
+@mobile: ~"only screen and (min-width: 0px) and (max-width: 700px)";
+@font2: "Phudu", cursive;
+@font: "Open Sans", sans-serif;
+@azul-osc: #0f4571;
+@celeste-nor: #386dbd;
+@oscuro: #272525;
+@celeste: #009ddd;
+@celeste-claro: #05d3f8;
+
+.filtaa-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10rem;
+  width: 20rem;
+
+  margin-top: 7rem;
+}
+
+.filt-tipo {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  width: 8rem;
+
+  label {
+    &:hover {
+      font-weight: 600;
+      cursor: pointer;
+      width: 8rem;
+    }
+  }
+}
+
+.filt-relleno {
+  display: flex;
+  flex-direction: column;
+  width: 8rem;
+  font-weight: 400;
+  label {
+    &:hover {
+      font-weight: 600;
+      cursor: pointer;
+      width: 8rem;
+    }
+  }
+}
+
+#borrar-filtros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(158, 31, 31);
+  color: rgb(255, 255, 255);
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(104, 17, 17);
+  }
+  width: 10rem;
+  height: 2rem;
+  text-align: center;
+}

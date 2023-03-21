@@ -18,8 +18,39 @@ You may also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+@desktop: ~"only screen and (min-width: 1401px) and (max-width: 1000000px)";
+@tablet: ~"only screen and (min-width: 1000px) and (max-width: 1400px)";
+@bigMobile: ~"only screen and (min-width: 701px) and (max-width: 999px)";
+@mobile: ~"only screen and (min-width: 0px) and (max-width: 700px)";
 
-### `npm run build`
+@font:'Open Sans', sans-serif;
+@pNormal:  #c94d18;
+@pClaro:  #c94d18;
+@pOscuro:  #c94d18;
+@jNormal:  #c94d18;
+@Jclaro:  #c94d18;
+@jOscuro:  #c94d18;
+@backG:  #c94d18;
+@backG2:  #c94d18;
+@backG3:  #c94d18;
+@backG4:  #c94d18;
+
+
+
+@media @desktop{
+
+}
+
+
+@media @tablet{
+    
+}
+@media @bigMobile{
+    
+}
+@media @mobile{
+    
+}
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.

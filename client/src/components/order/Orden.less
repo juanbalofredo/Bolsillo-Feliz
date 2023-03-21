@@ -1,0 +1,54 @@
+@desktop: ~"only screen and (min-width: 1401px) and (max-width: 1000000px)";
+@tablet: ~"only screen and (min-width: 1000px) and (max-width: 1400px)";
+@bigMobile: ~"only screen and (min-width: 701px) and (max-width: 999px)";
+@mobile: ~"only screen and (min-width: 0px) and (max-width: 700px)";
+@font2: "Phudu", cursive;
+@font: "Open Sans", sans-serif;
+@azul-osc: #0f4571;
+@celeste-nor: #386dbd;
+@oscuro: #272525;
+@celeste: #009ddd;
+@celeste-claro: #05d3f8;
+
+.orde-pag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 5rem;
+  margin-top: 3rem;
+}
+.orden-tecto-1 {
+  text-align: center;
+  color: black;
+  font-size: 30px; 
+  h3{
+    
+    margin: 0;
+    margin-left: 20rem;
+  }
+}
+
+#ordenPrecio {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.ord-txt-a {
+  display: flex;
+}
+#ordenPrecio:focus {
+  outline: none;
+}
+.bodyDark #ordenPrecio {
+  color: white;
+}
+.bodyDark #ordenPrecio option {
+  color: black;
+}
+.bodyDark .orden-tecto-1 {
+  color: white;
+}

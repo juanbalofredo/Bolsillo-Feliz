@@ -1,0 +1,85 @@
+.footer {
+  background:black;
+  width: 100%;
+  height: 7rem;
+  position: absolute;
+  bottom: -7rem;
+}
+
+.site_footer {
+  display: flex;
+  height: 100%;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.site_footer  p{
+  color: white;
+  margin: 10px 5px 10px 80px;
+  
+}
+.site_footer .copyright{
+  justify-content: center;
+
+}
+.footer-tenes-c{
+  color: white;
+}
+
+.copyright p{
+  margin-right: 10px;
+  color: white;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding-left: 12px;
+  
+}
+
+.redes_sociales a{
+  font-size: 3rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.segmentos {
+  display: flex;
+  font-size: 10px;
+}
+.copy{
+  justify-content: center;
+}
+.redes_sociales img{
+  transition: all 500ms;
+  width: 30px;
+}
+.redes_sociales img:hover{
+  transform: scale(1.1);
+}
+
+@media (max-width:600px) {
+  .site_footer .copyright{
+     font-size: 0.7em;
+     justify-self: end;
+  }
+}
+@media (max-width:510px) {
+  .footer{
+      bottom: -82px;
+      height: auto;
+  }
+  .site_footer{
+   display: flex;
+   flex-direction: column;
+  }
+}
+@media (max-width:900px) {
+  .footer{
+      bottom: -82px;
+      height: auto;
+  }
+  .site_footer{
+   display: flex;
+   flex-direction: column;
+  }
+}
