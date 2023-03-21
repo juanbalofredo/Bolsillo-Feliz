@@ -22,20 +22,22 @@ export function changeColor(dispatch) {
 }
 
 export async function crearUser(dispatch, input) {
-  console.log(input);
   if (input.avatar.length < 5) {
     input.avatar =
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
   }
   try {
-    const user = await axios.post("/user/postUsers", {
-      name: input.user_name,
-      avatar: input.avatar,
-      email: input.user_email,
-      last_name: input.last_name,
-      password: input.password,
-      type_account: "1",
-    });
+    const user = await axios.post(
+      "pf-grupo2-production.up.railway.app/user/postUsers",
+      {
+        name: input.user_name,
+        avatar: input.avatar,
+        email: input.user_email,
+        last_name: input.last_name,
+        password: input.password,
+        type_account: "1",
+      }
+    );
     dispatch(oneUsers(user.data));
     return user;
   } catch (error) {
@@ -44,27 +46,36 @@ export async function crearUser(dispatch, input) {
 }
 export async function getUsers(dispatch) {
   try {
-    const pedir = await axios.get("/user");
+    const pedir = await axios.get("pf-grupo2-production.up.railway.app/user");
     dispatch(allUsers(pedir?.data));
   } catch (error) {
     return error.message;
   }
 }
 
-export async function updateUser(type_account_logged, id, type_account , usuario) {
+export async function updateUser(
+  type_account_logged,
+  id,
+  type_account,
+  usuario
+) {
   try {
     const user = await axios({
       method: "put",
-      url: "/user/update",
+      url: "pf-grupo2-production.up.railway.app/user/update",
       data: {
         type_account_logged: type_account_logged,
         id: id,
         type_account: type_account,
       },
     });
-    if(type_account == "2"){
-      console.log(usuario)
-      emailjs.send("service_cfwpdj7","template_qaebelh",{mail : usuario[0].email , name: usuario[0].name},"bfkCyEaZzPcQ0u1_N");
+    if (type_account == "2") {
+      emailjs.send(
+        "service_cfwpdj7",
+        "template_qaebelh",
+        { mail: usuario[0].email, name: usuario[0].name },
+        "bfkCyEaZzPcQ0u1_N"
+      );
     }
     return user;
   } catch (error) {
@@ -74,10 +85,9 @@ export async function updateUser(type_account_logged, id, type_account , usuario
 
 export async function updateUserActivity(type_account_logged, id, activity) {
   try {
-   
     const user = await axios({
       method: "put",
-      url: "/user/update",
+      url: "pf-grupo2-production.up.railway.app/user/update",
       data: {
         type_account_logged: type_account_logged,
         id: id,
@@ -94,7 +104,7 @@ export async function getUserByEmail(email, password) {
   try {
     const user = await axios({
       method: "post",
-      url: "/user/email",
+      url: "pf-grupo2-production.up.railway.app/user/email",
       data: { email: email, password: password },
     });
     return user;
@@ -107,7 +117,7 @@ export async function getUserSoloByEmail(email) {
   try {
     const user = await axios({
       method: "post",
-      url: "/user/soloemailpo",
+      url: "pf-grupo2-production.up.railway.app/user/soloemailpo",
       data: { email: email },
     });
     return user;
@@ -123,12 +133,12 @@ export async function StartGoogleAuth(dispatch) {
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
         axios
-          .post("/user/soloemail", {
+          .post("pf-grupo2-production.up.railway.app/user/soloemail", {
             name: user.displayName,
             avatar: user.photoURL,
             email: user.email,
             hashgoogle: user.uid,
-            password:"@2023$papi8",
+            password: "@2023$papi8",
             type_account: "1",
           })
           .then((res) => res)
@@ -144,7 +154,9 @@ export async function StartGoogleAuth(dispatch) {
 
 export async function getComments(dispatch) {
   try {
-    let response = await axios.get(`/reviews/`);
+    let response = await axios.get(
+      `pf-grupo2-production.up.railway.app/reviews/`
+    );
     dispatch(agCom(response.data));
   } catch (error) {
     return error.message;
@@ -155,10 +167,10 @@ export async function deleteComment(dispatch, id) {
   try {
     const user = await axios({
       method: "delete",
-      url: "/reviews/deleteReview",
+      url: "pf-grupo2-production.up.railway.app/reviews/deleteReview",
       data: id,
     });
-    return getComments(dispatch)
+    return getComments(dispatch);
   } catch (error) {
     return error.message;
   }
@@ -167,7 +179,7 @@ export async function deleteComment(dispatch, id) {
 export async function postComments(dispatch, body) {
   try {
     let json = await axios.post(
-      `/reviews/createpost`,
+      `pf-grupo2-production.up.railway.app/reviews/createpost`,
       body
     );
     const hola = await getComments(dispatch);
@@ -179,14 +191,17 @@ export async function postComments(dispatch, body) {
 export async function payMercado(email) {
   console.log(email);
   const peticion = await axios.post(
-    "/market/subscription"
+    "pf-grupo2-production.up.railway.app/market/subscription"
   );
   console.log(peticion);
 }
 
 export async function autorizarMercado(payload) {
   try {
-    let json = await axios.post(`http://localhost:3001/`, payload);
+    let json = await axios.post(
+      `pf-grupo2-production.up.railway.app/`,
+      payload
+    );
     return json;
   } catch (error) {
     console.log(error);
