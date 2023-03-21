@@ -11,6 +11,16 @@ export function getReviewsById(id) {
   return reviewById;
 }
 
+export function getReviewsByUserId(id) {
+  const reviewsById = Reviews.findAll({
+    where: {userId: id},
+    attributes: ["id", "message", "score", "userId", "activity"],
+    include: [{ model: SuperM, attributes: ["name", "id"] }, {model: Users, as: "user", attributes: ["name", "avatar"]}]
+    
+  })
+  return reviewsById;
+}
+
 export function getTotalReviews() {
   const totalReviews = Reviews.findAll({
     attributes: ["id", "message", "score", "userId", "activity"],
