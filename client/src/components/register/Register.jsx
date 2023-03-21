@@ -260,9 +260,6 @@ const Register = () => {
                 <button onClick={register}>Registrarse</button>
               </div>
             </form>
-            <div className="reg-google-fac">
-              <GoogleSign />
-            </div>
           </div>
         </div>
       </div>

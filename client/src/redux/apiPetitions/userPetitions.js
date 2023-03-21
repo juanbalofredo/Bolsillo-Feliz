@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios.js";
 import { oneUsers, changeTheme } from "../slice/persistSlice";
 
 import { allUsers, agCom } from "../slice/globalSlice";
@@ -28,7 +28,7 @@ export async function crearUser(dispatch, input) {
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
   }
   try {
-    const user = await axios.post("http://localhost:3001/user/postUsers", {
+    const user = await axios.post("/user/postUsers", {
       name: input.user_name,
       avatar: input.avatar,
       email: input.user_email,
@@ -44,7 +44,7 @@ export async function crearUser(dispatch, input) {
 }
 export async function getUsers(dispatch) {
   try {
-    const pedir = await axios.get("http://localhost:3001/user");
+    const pedir = await axios.get("/user");
     dispatch(allUsers(pedir?.data));
   } catch (error) {
     return error.message;
@@ -55,7 +55,7 @@ export async function updateUser(type_account_logged, id, type_account , usuario
   try {
     const user = await axios({
       method: "put",
-      url: "http://localhost:3001/user/update",
+      url: "/user/update",
       data: {
         type_account_logged: type_account_logged,
         id: id,
@@ -77,7 +77,7 @@ export async function updateUserActivity(type_account_logged, id, activity) {
    
     const user = await axios({
       method: "put",
-      url: "http://localhost:3001/user/update",
+      url: "/user/update",
       data: {
         type_account_logged: type_account_logged,
         id: id,
@@ -94,7 +94,7 @@ export async function getUserByEmail(email, password) {
   try {
     const user = await axios({
       method: "post",
-      url: "http://localhost:3001/user/email",
+      url: "/user/email",
       data: { email: email, password: password },
     });
     return user;
@@ -107,7 +107,7 @@ export async function getUserSoloByEmail(email) {
   try {
     const user = await axios({
       method: "post",
-      url: "http://localhost:3001/user/soloemailpo",
+      url: "/user/soloemailpo",
       data: { email: email },
     });
     return user;
@@ -123,7 +123,7 @@ export async function StartGoogleAuth(dispatch) {
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
         axios
-          .post("http://localhost:3001/user/soloemail", {
+          .post("/user/soloemail", {
             name: user.displayName,
             avatar: user.photoURL,
             email: user.email,
@@ -144,7 +144,7 @@ export async function StartGoogleAuth(dispatch) {
 
 export async function getComments(dispatch) {
   try {
-    let response = await axios.get(`http://localhost:3001/reviews/`);
+    let response = await axios.get(`/reviews/`);
     dispatch(agCom(response.data));
   } catch (error) {
     return error.message;
@@ -154,7 +154,7 @@ export async function deleteComment(dispatch, id) {
   try {
     const user = await axios({
       method: "delete",
-      url: "http://localhost:3001/reviews/deleteReview",
+      url: "/reviews/deleteReview",
       data: id,
     });
     return getComments(dispatch)
@@ -166,7 +166,7 @@ export async function deleteComment(dispatch, id) {
 export async function postComments(dispatch, body) {
   try {
     let json = await axios.post(
-      `http://localhost:3001/reviews/createpost`,
+      `/reviews/createpost`,
       body
     );
     const hola = await getComments(dispatch);
@@ -178,7 +178,7 @@ export async function postComments(dispatch, body) {
 export async function payMercado(email) {
   console.log(email);
   const peticion = await axios.post(
-    "http://localhost:3001/market/subscription"
+    "/market/subscription"
   );
   console.log(peticion);
 }
