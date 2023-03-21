@@ -13,11 +13,9 @@ export default function Perfil() {
     <>
       <NavBar />
       <div className="container-Perfiluser">
-        <div className="optionsUser">
-          <div className="commentsUser">
-            <label onClick={(e) => SetEdit(true)}>Mis Datos</label>
-            <label onClick={(e) => SetEdit(false)}>Mis Comentarios</label>
-          </div>
+        <div className="useroptionclick">
+            <button onClick={(e) => SetEdit(true)}>Mis Datos</button>
+            <button onClick={(e) => SetEdit(false)}>Mis Comentarios</button>
         </div>
         {Edit === true ? (
           <Datos/>

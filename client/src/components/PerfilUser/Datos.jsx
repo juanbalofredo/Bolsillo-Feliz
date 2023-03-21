@@ -31,19 +31,21 @@ export default function PerfilDatos() {
       .then((response) => {
         uploadedImage = response.data.secure_url;
         console.log(uploadedImage);
-        SetFoto(uploadedImage)}).then((e) =>
+        SetFoto(uploadedImage);
+      })
+      .then((e) =>
         axios({
-            method: "put",
-            url: "http://localhost:3001/user/update",
-            data: { id: id, avatar: uploadedImage }
-          })
-        )
-      .then((e)=> dispatch(oneUsers(e.data))) 
+          method: "put",
+          url: "http://localhost:3001/user/update",
+          data: { id: id, avatar: uploadedImage },
+        })
+      )
+      .then((e) => dispatch(oneUsers(e.data)))
       .then((e) => swal("Perfil actualizado con exito!", "OK", "success"))
       .catch((e) => swal("Algo salio mal!", "Intentar otra vez", "error"));
-    };
+  };
   async function HandleData() {
-    const password = await swal("Escribe tu contraseña actual",{
+    const password = await swal("Escribe tu contraseña actual", {
       content: {
         element: "input",
         attributes: {
@@ -53,7 +55,7 @@ export default function PerfilDatos() {
     });
     const res = await getUserByEmail(email, password);
     if (res.status === 200) {
-      const newpassword = await swal("Escribe tu contraseña actual",{
+      const newpassword = await swal("Escribe tu contraseña actual", {
         content: {
           element: "input",
           attributes: {
@@ -66,7 +68,7 @@ export default function PerfilDatos() {
         url: "http://localhost:3001/user/update",
         data: { id, newpassword },
       });
-      return swal("Contraseña actualizada con exito!", "OK", "success")
+      return swal("Contraseña actualizada con exito!", "OK", "success");
     }
     swal("Algo salio mal!", "Intentar otra vez", "error");
     return;
@@ -75,56 +77,57 @@ export default function PerfilDatos() {
   return (
     <>
       <div className="container_datos">
-        {Foto.length > 5? (
-          <img src={Foto} alt="perdo" />
+        <div className="reg-avata2">
+          {Foto.length > 5 ? (
+            <img src={Foto} alt="perdo" />
           ) : (
-          <img src={avatar} alt={name} />
-        )}
-        <input
-          type="file"
-          name="avatar"
-          id="my_file"
-          placeholder="Imagen"
-          autoComplete="off"
-          value={uploadedImage}
-          onChange={(e) => uploadImage(e)}
-        />
+            <img src={avatar} alt={name} />
+          )}
+          <input
+            type="file"
+            name="avatar"
+            id="my_file"
+            placeholder="Imagen"
+            autoComplete="off"
+            value={uploadedImage}
+            onChange={(e) => uploadImage(e)}
+          />
+        </div>
         <div className="renderUser">
-          <label>Nombre</label>
-          <input type="text" name="inputname" value={name} disabled></input>
-          <label>Apellido</label>
-          <input
-            type="text"
-            name="inputname"
-            value={last_name}
-            disabled
-          ></input>
-          <label>Email</label>
-          <input type="text" name="inputname" value={email} disabled></input>
-          <label>Tipo De Cuenta</label>
-          <input
-            type="text"
-            name="inputname"
-            value={tipodecuenta}
-            disabled
-          ></input>
-          <label>Contraseña</label>
-          <input
-            type="password"
-            name="inputname"
-            value="**********"
-            disabled
-          ></input>
-          <div className="buttonContraseña">
-            <form>
-              <label className="labelC" onClick={(e) => HandleData(e)}>
-                Cambiar Contraseña
-              </label>
-            </form>
+          <div>
+            <label>Nombre :</label>
+            <input type="text" name="inputname" value={name} disabled></input>
           </div>
+          <div>
+            <label>Apellido :</label>
+            <input
+              type="text"
+              name="inputname"
+              value={last_name}
+              disabled
+            ></input>
+          </div>
+          <div>
+            <label>Email :</label>
+            <input type="text" name="inputname" value={email} disabled></input>
+          </div>
+          <div>
+            <label>Tipo De Cuenta :</label>
+            <input
+              type="text"
+              name="inputname"
+              value={tipodecuenta}
+              disabled
+            ></input>
+          </div>
+
+          <form className="buttonContraseña">
+            <label className="labelC" onClick={(e) => HandleData(e)}>
+              Cambiar Contraseña
+            </label>
+          </form>
         </div>
       </div>
     </>
   );
 }
-
