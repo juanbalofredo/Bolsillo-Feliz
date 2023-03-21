@@ -187,7 +187,11 @@ input:checked + .slide:before {
 .footer-tenes-c h4 {
   margin: 0;
 }
-
+.div-docnt-cont-g{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
