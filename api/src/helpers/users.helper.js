@@ -20,6 +20,7 @@ export async function getUserByEmail(comparing) {
   });
   console.log("esto es userByEmail =>", userByEmail);
   let passwordMatch = await bcrypt.compare(password, userByEmail.password);
+  console.log(password,userByEmail.password)
   if (passwordMatch) {
     return userByEmail;
   } else {

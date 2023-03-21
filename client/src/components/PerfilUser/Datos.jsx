@@ -1,14 +1,16 @@
 import "./Perfil.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserByEmail } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
 import axios from "axios";
+import { useState } from "react";
+import { oneUsers } from "../../redux/slice/persistSlice";
 
 export default function PerfilDatos() {
   const { name, avatar, email, last_name, type_account, id } = useSelector(
     (state) => state.bolsilloPersist
   );
-  console.log(id);
+  const [Foto, SetFoto] = useState("");
   var tipodecuenta = type_account;
   if (type_account === "1") {
     tipodecuenta = "Usuario";
@@ -17,33 +19,76 @@ export default function PerfilDatos() {
   } else if (type_account === "3") {
     tipodecuenta = "Admin";
   }
+  var uploadedImage = "";
+  const dispatch = useDispatch();
+  const uploadImage = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    formData.append("upload_preset", "proyectof");
+    axios
+      .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
+      .then((response) => {
+        uploadedImage = response.data.secure_url;
+        console.log(uploadedImage);
+        SetFoto(uploadedImage)}).then((e) =>
+        axios({
+            method: "put",
+            url: "http://localhost:3001/user/update",
+            data: { id: id, avatar: uploadedImage }
+          })
+        )
+      .then((e)=> dispatch(oneUsers(e.data))) 
+      .then((e) => swal("Perfil actualizado con exito!", "OK", "success"))
+      .catch((e) => swal("Algo salio mal!", "Intentar otra vez", "error"));
+    };
   async function HandleData() {
-    const password = await swal("Escribe tu contraseña actual", {
-      content: "input",
+    const password = await swal("Escribe tu contraseña actual",{
+      content: {
+        element: "input",
+        attributes: {
+          type: "password",
+        },
+      },
     });
     const res = await getUserByEmail(email, password);
-    console.log(res.status);
-    try {
-      if (res.status === 200) {
-        const newpassword = await swal("Escribe tu nueva contraseña", {
-          content: "input",
-        });
-        const response = await axios({
-          method: "put",
-          url: "http://localhost:3001/user/update",
-          data: { id, newpassword },
-        });
-          return swal("Contraseña actualizada con exito!", "OK", "success");
-      }
-    } catch (error) {
+    if (res.status === 200) {
+      const newpassword = await swal("Escribe tu contraseña actual",{
+        content: {
+          element: "input",
+          attributes: {
+            type: "password",
+          },
+        },
+      });
+      const response = await axios({
+        method: "put",
+        url: "http://localhost:3001/user/update",
+        data: { id, newpassword },
+      });
+      return swal("Contraseña actualizada con exito!", "OK", "success")
     }
     swal("Algo salio mal!", "Intentar otra vez", "error");
     return;
   }
+
   return (
     <>
       <div className="container_datos">
-        <img src={avatar} alt={name} />
+        {Foto.length > 5? (
+          <img src={Foto} alt="perdo" />
+          ) : (
+          <img src={avatar} alt={name} />
+        )}
+        <input
+          type="file"
+          name="avatar"
+          id="my_file"
+          placeholder="Imagen"
+          autoComplete="off"
+          value={uploadedImage}
+          onChange={(e) => uploadImage(e)}
+        />
         <div className="renderUser">
           <label>Nombre</label>
           <input type="text" name="inputname" value={name} disabled></input>
@@ -82,15 +127,4 @@ export default function PerfilDatos() {
     </>
   );
 }
-// swal("Escribe tu contraseña actual", { content: "input" })
-// .then((value) => getUserByEmail(email, value))
-// .then((value) =>
-//   swal("Escribe tu nueva contraseña", { content: "input" })
-// )
-// .then((value) =>
-//   axios({
-//     method: "post",
-//     url: "http://localhost:3001/user/email",
-//     data: {id, value},
-//   })
-// ).then((value)=>swal("Contraseña Cambiada", "OK", "success")).catch((value)=>swal("Algo salio mal!", "Intentar otra vez", "error"))
+

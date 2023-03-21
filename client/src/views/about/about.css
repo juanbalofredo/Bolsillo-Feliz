@@ -8,17 +8,37 @@
     text-decoration: underline;
 }
 .text_about{
-    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 0.5rem;
     height: 20%;
-    width: 90%;
+    width: 250px;
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-content: center;
-    text-align: center;
+    text-align: justify;
+    margin-top: 10rem;
     margin-left: 5%;
     margin-right: 5%;
+}
+.text_about a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+.bodyDark .text_about{
+    color: white;
+}
+.bodyDark .containerTechs h3{
+    color: white;
+}
+.bodyDark .titulo-about-asd{
+    color: white;
+}
+.bodyDark .text_about a{
+color: white;
+}    
+.cont-dis-fl-ab{
+    display: flex;
 }
 .container{
     display: flex;
@@ -88,7 +108,6 @@
     background-color: white;
     padding: 1rem;
     flex-wrap: wrap;
-    border-radius: 20px;
     border: 2px solid white;
 }
 

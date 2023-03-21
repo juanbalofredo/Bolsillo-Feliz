@@ -10,27 +10,23 @@ import axios from "axios";
 import Navbar from "../../components/Navbar/NavBar";
 import emailjs from "@emailjs/browser";
 
-
 const AutorizacionMercader = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloPersist);
-  const email = state.email
+  const email = state.email;
   const navigate = useNavigate();
 
   const [input, setInput] = useState({
     name: "",
     especialidad: "",
-    ubicacion: ""
+    ubicacion: "",
   });
 
   const [error, setError] = useState({
     name: "",
     especialidad: "",
-    ubicacion: ""
-
+    ubicacion: "",
   });
-
- 
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,13 +35,20 @@ const AutorizacionMercader = () => {
       input.especialidad.length >= 2 &&
       input.ubicacion.length >= 2
     ) {
-      emailjs.send("service_hah0x8k","template_buti7zt",{user_email:"alexaniasco@outlook.com", to_name: input.name, user_name:state.name , mercado: input.name},"te3Yvey_o03JLT1zu",{
-        from_name: "Bolsillo Feliz",
-       
-       
-        user_email:"alexaniasco@outlook.com",
-      
-        });
+      emailjs.send(
+        "service_hah0x8k",
+        "template_buti7zt",
+        {
+          user_email: state.email,
+          to_name: input.name,
+          user_name: state.name,
+          mercado: input.name,
+        },
+        "te3Yvey_o03JLT1zu",
+        {
+          from_name: "Bolsillo Feliz",
+        }
+      );
       alert("Success");
       setInput({
         name: "",

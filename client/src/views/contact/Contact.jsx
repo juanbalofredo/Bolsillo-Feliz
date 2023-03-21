@@ -7,13 +7,13 @@ const nosotros = [
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/nicolasgalarce",
     imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/bn0s6mjsznayb61mpby1.jpg ",
-    email: "bautista.godoy@outlook.com",
-    github: "https://github.com/baugod"
+    email: "nicolasgalarce18@gmail.com",
+    github: "https://github.com/nicogalarce7"
   },
   {
     name: "Juan Lofredo",
     carrera: "Full Stack Developer",
-    linkedin: "https://www.linkedin.com/in/juanbalofredo",
+    linkedin: "https://www.linkedin.com/in/juan-lofredo",
     imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/y9zklwm80w1wvd7ukkaf.jpg ",
     email: "juanlofredocs6sj@gmail.com",
     github: "https://github.com/juanbalofredo"
@@ -35,15 +35,15 @@ const nosotros = [
   },
   { name: "Daniel Martel Chavez", 
     carrera: "Full Stack Developer",
-    linkedin: "https://www.linkedin.com/in/nicolasgalarce",
-    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/bn0s6mjsznayb61mpby1.jpg",
-    email: "bautista.godoy@outlook.com",
-    github: "https://github.com/baugod"
+    linkedin: "https://www.linkedin.com/in/daniel-martel-chavez-866481238",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679370953/exmtbe89df2aqqcllluw.png",
+    email: "danyel.martel@gmail.com",
+    github: "https://github.com/cTerryc"
   },
   { name: "Francisco Di Nucci",
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/francisco-di-nucci-931454247 ",
-    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/bn0s6mjsznayb61mpby1.jpg",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679370898/koiee2qbukrswkiodt3w.jpg",
     email: "franciscoldinucci@gmail.com",
     github: "https://github.com/pacodinucci"
   },
@@ -64,7 +64,7 @@ const TeamMemberCard = () => {
             <div className="card-container">
               <div className="card-top-part" key={k}>
                 <div className="user-photo-contact">
-                  <img src={e.imagen} className="photo" alt="Image" />
+                  <img src={e.imagen} className="photo-asasff-" alt="Image" />
                 </div>
                 <div className="user-name-contac" key={k}>
                   <p className="text">{e.name}</p>
@@ -73,14 +73,14 @@ const TeamMemberCard = () => {
                     </div>
                   <div className="card-bottom-part">
                     <div className="bottom-part">
-                      <a href={e.linkedin} className="link">
+                      <a href={e.linkedin} className="link" target="_blank" >
                         <span className="icon">
                           <img src={linkedin} alt="linkedin" />
                         </span>
                       </a>
                     </div>
                     <div className="bottom-part">
-                      <a href={e.github} className="link">
+                      <a href={e.github} className="link"  target="_blank">
                         <span className="icon">
                         <svg fill="#000000" width="25px" height="25px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                             <path

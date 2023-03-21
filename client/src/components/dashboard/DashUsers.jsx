@@ -8,8 +8,8 @@ import {
   updateUser,
   updateUserActivity,
 } from "../../redux/apiPetitions/userPetitions";
-// import MyChart from "../Graphics/graphicsLine.js";
-//import DonutChart from "../Graphics/graphicsDonut.js";
+import MyChart from "../Graphics/graphicsLine.js";
+import DonutChart from "../Graphics/graphicsDonut.js";
 
 const DashUsers = () => {
   const dispatch = useDispatch();
@@ -27,14 +27,19 @@ const DashUsers = () => {
   const filtrus = allUsers.filter((a) => a.email.includes(input));
 
   async function cambiarTipo(id, type_account) {
-    updateUser(estate.type_account, id, type_account);
+    const usuario = filtrus.filter(e=> e.id == id)
+     console.log(usuario[0])
+    updateUser(estate.type_account, id, type_account , usuario);
   }
 
   async function kambiar(id, e) {
+     
     updateUserActivity(estate.type_account, id, e);
     getUsers(dispatch);
   }
 
+
+  
 
   return (
     <>
@@ -62,6 +67,7 @@ const DashUsers = () => {
             <div className="container-ed-users">
               {allUsers.length ? (
                 filtrus.map((element) => {
+                  if (element.email !== 'admin@gmail.com') {
                   return (
                     <table key={element.id}>
                       <td className="ed-img">
@@ -92,6 +98,7 @@ const DashUsers = () => {
                               ? "Admin"
                               : "Merc.Premium"}
                           </option>
+                          
                           {element.type_account === "1" ? (
                             ""
                           ) : (
@@ -107,17 +114,12 @@ const DashUsers = () => {
                           ) : (
                             <option value="3">Admin</option>
                           )}
-                          {element.type_account === "4" ? (
-                            ""
-                          ) : (
-                            <option value="4">Merc.Premium</option>
-                          )}
                         </select>
                       </td>
-
+                       
                       <td className="ag-but">
                         <label className="switchBtn">
-                          {element.activity ? (
+                          { element.activity ? (
                             <input
                               onChange={(e) =>
                                 kambiar(element.id, !element.activity)
@@ -137,7 +139,7 @@ const DashUsers = () => {
                         </label>
                       </td>
                     </table>
-                  );
+                  );}
                 })
               ) : (
                 <div className="container_vacio_2"></div>
@@ -147,13 +149,11 @@ const DashUsers = () => {
         ) : (
           <>
             <div className="container_datos">
-              {/* <div>
+               <div>
                 <h2>Usuarios</h2>
                 <MyChart />
-              </div> */}
-              {/* <div>
-          <DonutChart />
-        </div> */}
+                <DonutChart />
+              </div>
             </div>
           </>
         )}
