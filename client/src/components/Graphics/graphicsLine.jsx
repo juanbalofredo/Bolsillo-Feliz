@@ -30,8 +30,7 @@ const MyChart = () => {
     const usuar4 = users?.filter((a) => a.createdAt.substr(0,10) === fechar4);
     const usuar5 = users?.filter((a) => a.createdAt.substr(0,10) === fechar5);
 
-    console.log(fechar1)
-    console.log(usuar)
+
 
     let fechaDeUsers = usersLine();
     let myChart = null;

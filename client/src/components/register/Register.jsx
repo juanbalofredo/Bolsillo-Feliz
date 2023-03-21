@@ -95,8 +95,7 @@ const Register = () => {
 
   async function handleClickError() {
     const imail = await getUserSoloByEmail(input.user_email);
-    console.log(imail)
-    console.log(input.user_email)
+
     let valid = 0;
     let validado = true;
     if (imail !== "Request failed with status code 400") {

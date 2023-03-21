@@ -18,7 +18,6 @@ export default function Comentarios() {
         return err;
       });
   }, [id]);
-  console.log(Comentarios)
   return (
     <>
     <div className="container_comentarios">

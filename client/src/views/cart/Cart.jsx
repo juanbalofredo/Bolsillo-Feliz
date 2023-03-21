@@ -4,10 +4,14 @@ import "./cart.css";
 
 export default function MercadoP() {
 
+  const stateUser = useSelector(state => state.bolsilloPersist);
+  //console.log(stateUser)
+  let id = stateUser.id;
   const handlePayment = async () => {
-    const datos = await axios.post("http://localhost:3001/market/payment")
+    const datos = await axios.post("pf-grupo2-production.up.railway.app/market/payment", {id})
     // console.log(datos.data.response.body.sandbox_init_point)
     window.location.href = datos.data.response.body.sandbox_init_point;
+    console.log(id);
       };
       
       return (

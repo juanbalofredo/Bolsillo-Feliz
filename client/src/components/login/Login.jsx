@@ -35,7 +35,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log(input.password);
+
   function setear(e) {
     const { name, value } = e.target;
     setInput({

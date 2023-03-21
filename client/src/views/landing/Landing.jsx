@@ -13,7 +13,6 @@ const Landing = () => {
     window.addEventListener('scroll', function () {
         let cart1 = document.getElementsByClassName('landing-1');
         let posicionCart1 = cart1.getBoundingClientRect().top;
-        console.log(posicionCart1)
     })
     return (
         <div className='landing-container'>
