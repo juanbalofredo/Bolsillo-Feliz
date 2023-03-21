@@ -2,25 +2,28 @@ import React from "react";
 import "./about.css";
 // import faVite from '../../assets/faVite.png'
 // import faFireBase from '../../assets/'
-import Contact from "../contact/Contact"
+import Contact from "../contact/Contact";
+import Navbar from "../../components/Navbar/NavBar";
+import Footer from "../footer/Footer";
 export default function About() {
   return (
     <div className="container-About">
-      <h1>Acerca de Bolsillo Feliz</h1>
+      <Navbar/>
+      <h1 className="titulo-about-asd">Acerca de Bolsillo Feliz</h1>
+      <div className="cont-dis-fl-ab">
       <div className="text_about">
         <p>
           Somos siete estudiantes de{" "}
-          <a href='https://www.soyhenry.com'>Soy Henry</a>, que se
-          encuentran cursando actualmente la etapa final del Bootcamp en donde
-          tenemos que desarrollar una aplicación en grupo, cumpliendo diferentes
-          objetivos propuestos por el Bootcamp. Esta aplicación web tiene como
-          objetivo comparar precios de varios productos que se encuentra en
-          distintos super mercados para que el cliente tenga a disposición una
-          manera facil de comparar y ahorrar.
+          <a href="https://www.soyhenry.com">Soy Henry</a>, que se encuentran
+          cursando actualmente la etapa final del Bootcamp en donde tenemos que
+          desarrollar una aplicación en grupo, cumpliendo diferentes objetivos
+          propuestos por el Bootcamp.
         </p>
       </div>
-      <div className="contact-about">
-        <Contact/>
+
+      <Contact />
+
+      
       </div>
       <div className="containerTechs">
         <h3 className="title">Tecnologías utilizadas</h3>

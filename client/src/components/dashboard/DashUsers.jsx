@@ -39,6 +39,8 @@ const DashUsers = () => {
   }
 
 
+  
+
   return (
     <>
       <Navbar />
@@ -65,6 +67,7 @@ const DashUsers = () => {
             <div className="container-ed-users">
               {allUsers.length ? (
                 filtrus.map((element) => {
+                  if (element.email !== 'admin@gmail.com') {
                   return (
                     <table key={element.id}>
                       <td className="ed-img">
@@ -95,6 +98,7 @@ const DashUsers = () => {
                               ? "Admin"
                               : "Merc.Premium"}
                           </option>
+                          
                           {element.type_account === "1" ? (
                             ""
                           ) : (
@@ -110,17 +114,12 @@ const DashUsers = () => {
                           ) : (
                             <option value="3">Admin</option>
                           )}
-                          {element.type_account === "4" ? (
-                            ""
-                          ) : (
-                            <option value="4">Merc.Premium</option>
-                          )}
                         </select>
                       </td>
-
+                       
                       <td className="ag-but">
                         <label className="switchBtn">
-                          {element.activity ? (
+                          { element.activity ? (
                             <input
                               onChange={(e) =>
                                 kambiar(element.id, !element.activity)
@@ -140,7 +139,7 @@ const DashUsers = () => {
                         </label>
                       </td>
                     </table>
-                  );
+                  );}
                 })
               ) : (
                 <div className="container_vacio_2"></div>
