@@ -28,7 +28,7 @@ export async function crearUser(dispatch, input) {
   }
   try {
     const user = await axios.post(
-      "pf-grupo2-production.up.railway.app/user/postUsers",
+      "/user/postUsers",
       {
         name: input.user_name,
         avatar: input.avatar,

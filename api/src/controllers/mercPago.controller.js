@@ -20,11 +20,11 @@ export const payment = async (req, res) => {
     back_urls: {
       success: (function (){
         let updateUser = Users.update({ type_account: "2" }, { where: { id } });
-        let url = "http://localhost:3000/perfil"
+        let url = "https://bolsillofeliz.vercel.app/perfil"
         return url
       })(),
-      failure: "http://localhost:3000/home",
-      pending: "http://localhost:3000/home",
+      failure: "https://bolsillofeliz.vercel.app/home",
+      pending: "https://bolsillofeliz.vercel.app/home",
     },
     auto_return: "approved",
     binary_mode: true,
