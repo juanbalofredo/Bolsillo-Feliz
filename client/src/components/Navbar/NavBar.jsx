@@ -59,7 +59,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="searchbar-container">
-        {window.location.href === "http://localhost:3000/home" ? (
+        {window.location.href === "https://bolsillofeliz.vercel.app/home" ? (
           <SearchBar />
         ) : null}
       </div>
