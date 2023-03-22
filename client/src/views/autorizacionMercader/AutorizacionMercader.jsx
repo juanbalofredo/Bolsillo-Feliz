@@ -1,20 +1,15 @@
 import Footer from "../../views/footer/Footer";
 import React from "react";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { allProducts } from "../../redux/slice/globalSlice";
-import { postProduct } from "../../redux/apiPetitions/productsPetitions";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import "./autorizacionMercader.css";
-import axios from "axios";
+
 import Navbar from "../../components/Navbar/NavBar";
 import emailjs from "@emailjs/browser";
 
 const AutorizacionMercader = () => {
-  const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloPersist);
-  const email = state.email;
-  const navigate = useNavigate();
 
   const [input, setInput] = useState({
     name: "",

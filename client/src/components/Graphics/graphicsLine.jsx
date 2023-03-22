@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
-import { usersLine } from "./functionsGraphics";
+
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import axios from "axios";
 
 const MyChart = () => {
@@ -30,10 +29,9 @@ const MyChart = () => {
     const usuar4 = users?.filter((a) => a.createdAt.substr(0,10) === fechar4);
     const usuar5 = users?.filter((a) => a.createdAt.substr(0,10) === fechar5);
 
-    console.log(fechar1)
-    console.log(usuar)
 
-    let fechaDeUsers = usersLine();
+
+
     let myChart = null;
 
     const createChart = () => {

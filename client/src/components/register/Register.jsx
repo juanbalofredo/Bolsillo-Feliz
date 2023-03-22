@@ -8,7 +8,6 @@ import {
   getUserSoloByEmail
 } from "../../redux/apiPetitions/userPetitions";
 import Footer from "../../views/footer/Footer";
-import GoogleSign from "../../views/Firebase/GoogleSign";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -95,8 +94,7 @@ const Register = () => {
 
   async function handleClickError() {
     const imail = await getUserSoloByEmail(input.user_email);
-    console.log(imail)
-    console.log(input.user_email)
+
     let valid = 0;
     let validado = true;
     if (imail !== "Request failed with status code 400") {

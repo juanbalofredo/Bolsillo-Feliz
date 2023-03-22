@@ -28,9 +28,7 @@ const DashUsers = () => {
 
   async function cambiarTipo(id, type_account) {
     const usuario = filtrus.filter(e=> e.id == id)
-     console.log(usuario[0])
- await  updateUser(estate.type_account, id, type_account , usuario);
-   await getUsers(dispatch)
+    updateUser(estate.type_account, id, type_account , usuario);
   }
 
   async function kambiar(id, e) {

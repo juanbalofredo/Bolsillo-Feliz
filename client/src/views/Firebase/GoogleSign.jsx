@@ -1,14 +1,13 @@
-import { useDispatch, useSelector} from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import { StartGoogleAuth } from "../../redux/apiPetitions/userPetitions";
 
 const Register = () => {
-  const {user} = useSelector(state=> state.bolsilloFeliz)
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleSubmitGoogle = () => {
     // if(user === false)
-    dispatch(StartGoogleAuth)
+    dispatch(StartGoogleAuth);
     // .then(res=>navigate("/home"))
   };
 

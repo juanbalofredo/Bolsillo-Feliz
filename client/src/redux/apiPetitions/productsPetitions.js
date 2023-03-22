@@ -13,7 +13,7 @@ import {
 
 export async function getProductos(dispatch) {
   try {
-    const peticion = await axios.get("http://localhost:3001/products");
+    const peticion = await axios.get("/products");
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
@@ -38,7 +38,7 @@ export async function getBrandId(id) {
     let json = await axios.get(
       `/market/id/${id}`,
       );
-      console.log(json)
+
     return json;
   } catch (error) {
     console.log(error);
@@ -103,7 +103,7 @@ export const rsetFilters = async (dispatch) => {
 
 export const postProduct = (payload) => {
   return async () => {
-    console.log(payload)
+
     try {
       const response = await axios.post(
         "/products",
@@ -118,7 +118,7 @@ export const postProduct = (payload) => {
 
 export const postProductNoSpecials = (payload) => {
   return async () => {
-    console.log(payload)
+
     try {
       const response = await axios.post(
         "/price/nonespecial",

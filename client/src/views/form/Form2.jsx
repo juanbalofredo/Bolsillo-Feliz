@@ -8,9 +8,7 @@ export const Form2 = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloFeliz);
   const statePersist = useSelector((state) => state.bolsilloPersist);
-  const allCategories = [
-    ...new Set(state.productsBackup.map((a) => a.category)),
-  ].sort();
+
 
   const allProducts = [
     ...new Set(
