@@ -1,25 +1,18 @@
 import React, { useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
+import { useSelector } from "react-redux";
 
-import { useState } from "react";
-
-import axios from "../../redux/axios.js";
 
 const MyChartDonut = () => {
+  const state = useSelector((state) => state.bolsilloFeliz);
+  const users = state.allUsers;
   const chartRef = useRef(null);
-  const [users, setUser] = useState([]);
+
 
   useEffect(() => {
-    axios
-      .get(`/user/`)
-      .then((e) => setUser(e.data))
-      .catch((err) => {
-        return err;
-      });
     const usu = users?.filter((a) => a.type_account === "1");
     const merca = users?.filter((a) => a.type_account === "2");
     const adm = users?.filter((a) => a.type_account === "3");
-
     let myChart = null;
     const createChart = () => {
       const ctx = chartRef.current.getContext("2d");
@@ -35,7 +28,7 @@ const MyChartDonut = () => {
           ],
         },
         options: {
-          responsive: false,
+          responsive: true,
           maintainAspectRatio: false,
           height: 100,
           width: 200,

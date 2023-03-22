@@ -132,3 +132,19 @@ export const postProductNoSpecials = (payload) => {
     }
   };
 };
+
+export async function updatePrecioMp(presio) {
+  console.log(presio)
+  try {
+    const user = await axios({
+      method: "put",
+      url: "/market/paymentprice",
+      data: {
+        newPrice:presio
+      },
+    });
+    return user;
+  } catch (error) {
+    return error.message;
+  }
+}

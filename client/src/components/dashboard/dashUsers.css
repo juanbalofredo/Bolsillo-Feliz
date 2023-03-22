@@ -4,6 +4,78 @@
   align-items: center;
   justify-content: center;
 }
+.div-docnt-cont-g {
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.div-docnt-cont-g canvas {
+  width: 500px !important;
+  height: 300px !important;
+}
+.verdes-assasdd- h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+}
+.verdes-assasdd- h3 h3:hover {
+  transition: 1s;
+  transform: scale(1.1);
+}
+.dis-div-pre-mp {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+.dis-div-pre-mp div {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.dis-div-pre-mp .verde-asc-sad {
+  color: green;
+}
+.div-as-ss-ee-as- {
+  display: flex;
+  flex-direction: column;
+}
+.div-as-ss-ee-as- input {
+  width: 60%;
+  height: 30px;
+  border: none;
+}
+.div-as-ss-ee-as- input:focus-visible {
+  outline: none;
+}
+.div-as-ss-ee-as- button {
+  height: 30px;
+  width: 30%;
+  border: none;
+  color: white;
+  background-color: #367900;
+  margin-left: 10px;
+}
+.div-as-ss-ee-as- button:hover {
+  background-color: #2d6400;
+  cursor: pointer;
+}
+.bodyDark {
+  transition: 1s;
+}
+.bodyDark .div-cont-graf {
+  color: white;
+}
+.div-cont-graf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+}
+.div-cont-graf h2 {
+  margin-bottom: 40px;
+}
 .but-pag-a,
 .but-pag-s {
   margin-top: 1rem;
@@ -11,7 +83,6 @@
 .cont-de-cont {
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
 }
 .tras {
   margin-bottom: 20px;
@@ -187,11 +258,3 @@ input:checked + .slide:before {
 .footer-tenes-c h4 {
   margin: 0;
 }
-.div-docnt-cont-g{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
