@@ -120,6 +120,7 @@ const AutorizacionMercader = () => {
                     <img src={input.image} alt="logo" />
                   )}
                   <input
+                    accept=".png"
                     type="file"
                     name="image"
                     onChange={uploadImage}
