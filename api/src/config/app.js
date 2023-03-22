@@ -16,10 +16,10 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(morgan('dev'));
 server.use(cors());
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin:',"https://bolsillofeliz-9zvnjaizw-juanbalofredo.vercel.app"); // ! se puede cambiar "http://localhost:3000" por "*" para habilitar todos los puertos y evitar problemas de CORS
+  res.header('Access-Control-Allow-Origin','*'); // ! se puede cambiar "http://localhost:3000" por "*" para habilitar todos los puertos y evitar problemas de CORS
   res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Methods','Content-Type','Authorization');
+  res.header('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
   next();
 });
 
