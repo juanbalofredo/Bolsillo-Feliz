@@ -25,7 +25,7 @@ const Market = () => {
 
   useEffect(() => {
     axios
-      .get(`http://pf-grupo2-production.up.railway.app/market/id/${id}`)
+      .get(`/market/id/${id}`)
       .then((e) => setMarket(e.data))
       .catch((err) => {
         return err;
