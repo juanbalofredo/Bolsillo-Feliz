@@ -16,10 +16,10 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(morgan('dev'));
 server.use(cors());
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // ! se puede cambiar "http://localhost:3000" por "*" para habilitar todos los puertos y evitar problemas de CORS
+  res.header('Access-Control-Allow-Origin: *'); // ! se puede cambiar "http://localhost:3000" por "*" para habilitar todos los puertos y evitar problemas de CORS
   res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
   next();
 });
 
