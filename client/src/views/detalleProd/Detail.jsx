@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
-import axios from "axios";
+import axios from "../../redux/axios";
 import Footer from "../footer/Footer";
 import CardM from "../../components/Card/CardM";
 // import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
@@ -23,7 +23,7 @@ const DetalleProd = () => {
   }, [id]);
 
   if (product) {
-    const emilia = product?.prices.sort((a, b) => a.price - b.price);
+    const emilia = product?.prices?.sort((a, b) => a.price - b.price);
     return (
       <>
         <NavBar />

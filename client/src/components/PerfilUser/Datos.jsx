@@ -2,7 +2,7 @@ import "./Perfil.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserByEmail } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import { useState } from "react";
 import { oneUsers } from "../../redux/slice/persistSlice";
 
@@ -35,7 +35,7 @@ export default function PerfilDatos() {
       .then((e) =>
         axios({
           method: "put",
-          url: "http://localhost:3001/user/update",
+          url: "/user/update",
           data: { id: id, avatar: uploadedImage },
         })
       )
