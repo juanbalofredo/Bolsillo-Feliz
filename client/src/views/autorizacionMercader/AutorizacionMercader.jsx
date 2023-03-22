@@ -112,10 +112,10 @@ const AutorizacionMercader = () => {
                     autoComplete="off"
                     name="ubicacion"
                     type="text"
-                    maxLength="30"
+                    maxLength="100"
                     value={input.ubicacion}
                     onChange={handleChange}
-                    placeholder="Ubicacion de tu negocio"
+                    placeholder="Ej calle, numero, ciudad y pais"
                   />
                   {error.ubicacion.length ? (
                     <span id="error_name">{error.ubicacion}</span>
