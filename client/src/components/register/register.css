@@ -147,7 +147,10 @@ body {
   color: transparent;
   border: none;
 }
-
+.register-text a{
+  margin-top: 20px;
+   color: black;
+}
 .reg-avata input::file-selector-button {
   display: none;
 }
