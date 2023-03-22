@@ -13,7 +13,7 @@ import {
 
 export async function getProductos(dispatch) {
   try {
-    const peticion = await axios.get("products");
+    const peticion = await axios.get("http://pf-grupo2-production.up.railway.app/products");
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
@@ -23,7 +23,7 @@ export async function getProductos(dispatch) {
 export async function getProductId(dispatch, id) {
   try {
     let json = await axios.get(
-      `/products/id/${id}`,
+      `http://pf-grupo2-production.up.railway.app/products/id/${id}`,
       dispatch
     );
     dispatch(oneComment(json?.data));
@@ -36,7 +36,7 @@ export async function getProductId(dispatch, id) {
 export async function getBrandId(id) {
   try {
     let json = await axios.get(
-      `/market/id/${id}`,
+      `http://pf-grupo2-production.up.railway.app/market/id/${id}`,
       );
     return json;
   } catch (error) {
@@ -47,7 +47,7 @@ export async function getBrandId(id) {
 export const getNameQuery = async (dispatch, name, order) => {
   try {
     const petition = await axios.get(
-      `/products/name?name=${name}&order=${order}`
+      `http://pf-grupo2-production.up.railway.app/products/name?name=${name}&order=${order}`
     );
     dispatch(
       getName(petition?.data)
@@ -66,7 +66,7 @@ export const getCategoryParams = async (
 ) => {
   try {
     const petition = await axios.get(
-      `/products/category/${category}/${brand}/${order}/${pname}`
+      `http://pf-grupo2-production.up.railway.app/products/category/${category}/${brand}/${order}/${pname}`
     );
     if (category !== "all") {
       dispatch(Category(category));
@@ -89,7 +89,7 @@ export const getCategoryParams = async (
 
 export const rsetFilters = async (dispatch) => {
   try {
-    const petition = await axios.get("/products");
+    const petition = await axios.get("http://pf-grupo2-production.up.railway.app/products");
     dispatch(
       resetFilter(petition?.data))
     dispatch(Brand("all"));
@@ -105,7 +105,7 @@ export const postProduct = (payload) => {
 
     try {
       const response = await axios.post(
-        "/products",
+        "http://pf-grupo2-production.up.railway.app/products",
         payload
       );
       return response;
@@ -120,7 +120,7 @@ export const postProductNoSpecials = (payload) => {
 
     try {
       const response = await axios.post(
-        "/price/nonespecial",
+        "http://pf-grupo2-production.up.railway.app/price/nonespecial",
         payload
       );
       return response;

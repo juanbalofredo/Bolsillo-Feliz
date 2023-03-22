@@ -15,7 +15,7 @@ const DetalleProd = () => {
   const [product, setProduct] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/products/id/${id}`)
+      .get(`http://pf-grupo2-production.up.railway.app/products/id/${id}`)
       .then((e) => setProduct(e.data))
       .catch((err) => {
         return err;
