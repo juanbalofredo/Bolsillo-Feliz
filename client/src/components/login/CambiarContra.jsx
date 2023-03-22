@@ -35,7 +35,7 @@ const Contraseña= () => {
   return (
     <>
       <div className="reg-todo">
-        <NavBar />
+   
         <div className="login-container">
           <div className="register-logo">
             <img

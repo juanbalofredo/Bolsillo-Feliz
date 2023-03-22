@@ -16,11 +16,14 @@ import { useSelector } from "react-redux";
 import Error from "./views/Error/Error"
 import Perfil from "./components/PerfilUser/PerfilUser";
 import Contraseña from "./components/login/CambiarContra";
-
+import Navbar from "./components/Navbar/NavBar";
+import { useLocation } from "react-router-dom";
 const App =()=>{
+    const { pathname } = useLocation();
   const {user, type_account} = useSelector((state) => state.bolsilloPersist);
   return (
     <div>
+      {pathname !== "/" && <Navbar></Navbar>}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/Home" element={<Home />} />

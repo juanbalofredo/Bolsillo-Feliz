@@ -69,7 +69,7 @@ const Login = () => {
   return (
     <>
       <div className="reg-todo">
-        <NavBar />
+
         <div className="login-container">
           <div className="register-logo">
             <img
