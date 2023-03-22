@@ -25,7 +25,7 @@ const Market = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/market/id/${id}`)
+      .get(`/market/id/${id}`)
       .then((e) => setMarket(e.data))
       .catch((err) => {
         return err;
