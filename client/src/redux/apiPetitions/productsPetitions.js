@@ -58,18 +58,18 @@ export const getNameQuery = async (dispatch, name, order) => {
   }
 };
 
-export const getPrecioMp = async (dispatch) => {
-  try {
-    const petition = await axios.get(
-      `/market/name?name=${name}&order=${order}`
-    );
-    dispatch(
-      getName(petition?.data)
-    );
-  } catch (error) {
-    return error.response;
-  }
-};
+// export const getPrecioMp = async (dispatch) => {
+//   try {
+//     const petition = await axios.get(
+//       `/market/name?name=${name}&order=${order}`
+//     );
+//     dispatch(
+//       getName(petition?.data)
+//     );
+//   } catch (error) {
+//     return error.response;
+//   }
+// };
 
 
 export const getCategoryParams = async (
