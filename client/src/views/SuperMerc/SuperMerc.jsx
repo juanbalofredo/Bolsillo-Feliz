@@ -11,7 +11,7 @@ const SuperMerc = ()=>{
     const [markets, setMarkets] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/market/`)
+      .get(`/market/`)
       .then((e) => setMarkets(e.data))
       .catch((err) => {
         return err;
