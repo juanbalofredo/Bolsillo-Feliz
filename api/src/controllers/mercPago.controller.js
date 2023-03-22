@@ -52,3 +52,14 @@ export const updatePaymentPrice = async (req, res) => {
     res.status(400).send({ err: error.message })
   }
 }
+
+export const getPaymentPrice = async (req, res) => {
+  try{
+    let memberPrice = await Membership.findAll();
+    res.status(200).json(memberPrice);
+  } catch(error){
+    res.status(400).send({error: error.message})
+  }
+  
+
+}
