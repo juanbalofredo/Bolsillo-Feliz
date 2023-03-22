@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../../views/detalleProd/detalleProd.css";
 
 const CardM = (props) => {
-  console.log("esto es prosp", props)
   const navigate = useNavigate();
 
   const click = async () => {

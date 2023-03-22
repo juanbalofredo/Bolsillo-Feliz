@@ -17,16 +17,16 @@ const AutorizacionMercader = () => {
     name: "",
     link: "",
     ubicacion: "",
-    image: ""
+    image: "",
   });
-  console.log(state)
+  console.log(state);
 
   const [error, setError] = useState({
     id: state.id,
     name: "",
     link: "",
     ubicacion: "",
-    image: ""
+    image: "",
   });
 
   const uploadImage = (e) => {
@@ -50,6 +50,7 @@ const AutorizacionMercader = () => {
     if (
       input.name.length >= 2 &&
       input.link.length >= 2 &&
+      input.image.length >= 3 &&
       input.ubicacion.length >= 2
     ) {
       emailjs.send(
@@ -66,13 +67,16 @@ const AutorizacionMercader = () => {
           from_name: "Bolsillo Feliz",
         }
       );
-      const petition = axios.post("http://pf-grupo2-production.up.railway.app/market/create", input)
+      const petition = axios.post(
+        "http://pf-grupo2-production.up.railway.app/market/create",
+        input
+      );
       alert("Tienda creada con exito, a la espera de autorización");
       setInput({
         name: "",
         link: "",
         ubicacion: "",
-        image: ""
+        image: "",
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
@@ -103,25 +107,25 @@ const AutorizacionMercader = () => {
             <form onSubmit={handleSubmit} autoComplete="off">
               <h1>Solicitanos tu mercado</h1>
               <div className="autorizar-text">
-              <div className="reg-image-formz">
-                    <label htmlFor="img">
-                      Selecciona una imagen de tu producto:
-                    </label>
-                    {input.image.length < 3 ? (
-                      <img
-                        src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679087243/uyrsuh0ojvnzedaxuvlj.webp"
-                        alt="logo"
-                      />
-                    ) : (
-                      <img src={input.image} alt="logo" />
-                    )}
-                    <input
-                      type="file"
-                      name="image"
-                      onChange={uploadImage}
-                      className="input-img-tas"
-                    />{" "}
-                  </div>
+                <div className="reg-image-formz">
+                  <label htmlFor="img">
+                    Ingresa la imagen de tu tienda png:
+                  </label>
+                  {input.image.length < 3 ? (
+                    <img
+                      src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679087243/uyrsuh0ojvnzedaxuvlj.webp"
+                      alt="logo"
+                    />
+                  ) : (
+                    <img src={input.image} alt="logo" />
+                  )}
+                  <input
+                    type="file"
+                    name="image"
+                    onChange={uploadImage}
+                    className="input-img-tas"
+                  />{" "}
+                </div>
                 <div className="name-error-form">
                   <input
                     autoComplete="off"
