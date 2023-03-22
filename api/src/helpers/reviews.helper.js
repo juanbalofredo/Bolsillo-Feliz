@@ -1,6 +1,7 @@
 import Reviews from "../models/review.js";
 import Users from "../models/users.js";
 import SuperM from "../models/superM.js";
+import { Op } from "sequelize";
 
 export function getReviewsById(id) {
   const reviewById = Reviews.findOne({
@@ -22,6 +23,17 @@ export function getReviewsByUserId(id) {
 }
 
 export function getTotalReviews() {
+  // const totalReviews = Reviews.findAll({
+  //   attributes: ["id", "message", "score", "userId", "activity"],
+  //   include: [
+  //     { model: SuperM, attributes: ["name", "id"] },
+  //     {
+  //       model: Users,
+  //       as: "user",
+  //       attributes: ["avatar", "name", "last_name"],
+  //     },
+  //   ],
+  // });
   const totalReviews = Reviews.findAll({
     attributes: ["id", "message", "score", "userId", "activity"],
     include: [
@@ -29,6 +41,11 @@ export function getTotalReviews() {
       {
         model: Users,
         as: "user",
+        where: {
+          activity: {
+            [Op.not]: false
+          }
+        },
         attributes: ["avatar", "name", "last_name"],
       },
     ],
@@ -37,11 +54,6 @@ export function getTotalReviews() {
 }
 
 export async function createReviews({ message, userId, superMId, score }) {
-  // console.log(message, "esto es message");
-  // console.log(userId, "esto es userId");
-  // console.log(superMId, "esto es SuperMid");
-  // console.log(score, "esto es score");
-
   let creatingReview = await Reviews.create({
     userId,
     score,
@@ -57,12 +69,10 @@ export async function createReviews({ message, userId, superMId, score }) {
       attributes: ["avatar", "name", "last_name"],
     },
   });
-  // console.log("esto es findReview ==>", findReview.dataValues);
   return findReview;
 }
 
 export function deleteReviewById(id) {
-  // console.log(id)
   const reviewDelete = Reviews.destroy({
     where: { id },
     include: [
@@ -82,9 +92,7 @@ export async function showReview({
   reviewId,
 }) {
   let usersId = await Users.findOne({ where: { id } });
-  // console.log("esto es userId", usersId);
   if (!usersId) {
-    // console.log("entro a la condicion !userId");
     throw Error("User id don't found");
   }
 
