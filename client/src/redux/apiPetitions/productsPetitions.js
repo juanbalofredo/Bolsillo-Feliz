@@ -13,7 +13,8 @@ import {
 
 export async function getProductos(dispatch) {
   try {
-    const peticion = await axios.get("/products");
+    const peticion = await axios.get("/products")
+    console.log(peticion);;
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;

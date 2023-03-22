@@ -41,7 +41,7 @@ export const User = () => {
     }).then((result) => {
       if (result === true) {
         dispatch(loggedOut());
-        window.location.href = "/home";
+        window.location.href = "https://bolsillofeliz.vercel.app/home";
       }
     });
   };
@@ -77,7 +77,7 @@ export const User = () => {
                 {name}
               </h4>
               <img
-                src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679253517/t9ld95noqy1pqpi7onmp.png"
+                src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679452660/fm9uo0l7cyjotghaa3xz.png"
                 alt="arrow"
                 className="felcha-drop-wh"
               />
