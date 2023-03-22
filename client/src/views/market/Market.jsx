@@ -132,7 +132,7 @@ const Market = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {market.ubications.map((a) => (
+            {market?.ubications.map((a) => (
               <Marker
                 position={a}
                 icon={L.icon({

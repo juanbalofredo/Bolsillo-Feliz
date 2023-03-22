@@ -10,7 +10,12 @@
   .dash-container .name{
     width: 4vw;
   }
-
+.bodyDark .renderUser{
+  color: white;
+}
+.bodyDark .renderUser input{
+  color: white;
+}
   .dash-container{
     display: flex;
     align-items: center;
