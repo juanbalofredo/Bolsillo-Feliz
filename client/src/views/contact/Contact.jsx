@@ -23,7 +23,7 @@ const nosotros = [
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-piantini",
     imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/ikq7bvdtfgjutzrkngtq.jpg ",
-    email: "bautista.godoy@outlook.com",
+    email: "nicolaspiantini@gmail.com",
     github: "https://github.com/pianti10"
   },
   { name: "Bautista Godoy",

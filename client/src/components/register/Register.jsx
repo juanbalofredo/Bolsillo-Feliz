@@ -151,7 +151,7 @@ const Register = () => {
     <>
       {" "}
       <div className="reg-todo">
-        <NavBar />
+      
         <div className="register-container">
           <div className="register-logo">
             <img

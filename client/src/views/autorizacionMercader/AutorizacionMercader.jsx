@@ -19,7 +19,7 @@ const AutorizacionMercader = () => {
     ubicacion: "",
     image: "",
   });
-  console.log(state);
+
 
   const [error, setError] = useState({
     id: state.id,
@@ -95,7 +95,7 @@ const AutorizacionMercader = () => {
     <>
       {" "}
       <div className="todo">
-        <Navbar />
+
         <div className="autorizar-container">
           <div className="register-logo">
             <img

@@ -108,7 +108,7 @@ const Market = () => {
 
     return (
       <>
-        <Navbar />
+
         <div className="container-market-c">
           <div className="banner-sup">
             <h1>{market.name}</h1>

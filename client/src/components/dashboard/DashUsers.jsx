@@ -80,7 +80,7 @@ const DashUsers = () => {
   if (mp) {
     return (
       <>
-        <Navbar />
+   
         <div className="container-Perfiluser">
           <div className="optionsUser">
             <div className="useroptionclick">
