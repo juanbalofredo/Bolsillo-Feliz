@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../footer/Footer";
 import CardJ from "../../components/Card/CardJ"
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import "./superMerc.css"
 
 const SuperMerc = ()=>{

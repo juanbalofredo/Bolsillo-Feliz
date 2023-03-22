@@ -14,7 +14,6 @@ import {
 export async function getProductos(dispatch) {
   try {
     const peticion = await axios.get("/products")
-    console.log(peticion);;
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
@@ -58,6 +57,8 @@ export const getNameQuery = async (dispatch, name, order) => {
     return error.response;
   }
 };
+
+
 
 export const getCategoryParams = async (
   dispatch,
