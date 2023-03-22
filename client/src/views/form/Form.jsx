@@ -46,12 +46,14 @@ const Form = () => {
 
   const [input, setInput] = useState({
     name: "",
+    unit: "",
     price: 1,
     category: "",
     image: "",
     superMId: statePersist.superMId,
     brand: statePersist.user,
   });
+  console.log(input)
 
   useEffect(() => {
     getBrandId(statePersist.superMId).then((info) =>
@@ -68,6 +70,7 @@ const Form = () => {
 
       setInput({
         name: "",
+        unit: "",
         price: "",
         image: "",
         category: "",
@@ -129,6 +132,18 @@ const Form = () => {
                       name="name"
                       onChange={handleChange}
                       placeholder="Nombre"
+                      className="inputs"
+                    />
+                  </div>
+
+                  <div>
+                    Unidades:
+                    <input
+                      type="text"
+                      value={input.unit}
+                      name="unit"
+                      onChange={handleChange}
+                      placeholder="Ej: 200 gr"
                       className="inputs"
                     />
                   </div>

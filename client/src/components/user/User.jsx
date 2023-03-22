@@ -76,11 +76,6 @@ export const User = () => {
               <h4 className="name-nav0us" onClick={(e) => myFunction()}>
                 {name}
               </h4>
-              <img
-                src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679452660/fm9uo0l7cyjotghaa3xz.png"
-                alt="arrow"
-                className="felcha-drop-wh"
-              />
             </div>
             <div id="myDropdown" className="dropdown-content">
               <Link to="/perfil">Perfil</Link>
