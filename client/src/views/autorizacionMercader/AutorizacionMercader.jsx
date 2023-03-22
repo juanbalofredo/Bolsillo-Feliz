@@ -2,6 +2,7 @@ import Footer from "../../views/footer/Footer";
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 import "./autorizacionMercader.css";
 
@@ -12,22 +13,43 @@ const AutorizacionMercader = () => {
   const state = useSelector((state) => state.bolsilloPersist);
 
   const [input, setInput] = useState({
+    id: state.id,
     name: "",
-    especialidad: "",
+    link: "",
     ubicacion: "",
+    image: ""
   });
+  console.log(state)
 
   const [error, setError] = useState({
+    id: state.id,
     name: "",
-    especialidad: "",
+    link: "",
     ubicacion: "",
+    image: ""
   });
+
+  const uploadImage = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    formData.append("upload_preset", "proyectof");
+    axios
+      .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
+      .then((response) => {
+        const uploadedImage = response.data.secure_url;
+        setInput({
+          ...input,
+          image: uploadedImage,
+        });
+      });
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
     if (
       input.name.length >= 2 &&
-      input.especialidad.length >= 2 &&
+      input.link.length >= 2 &&
       input.ubicacion.length >= 2
     ) {
       emailjs.send(
@@ -44,11 +66,13 @@ const AutorizacionMercader = () => {
           from_name: "Bolsillo Feliz",
         }
       );
-      alert("Success");
+      const petition = axios.post("http://pf-grupo2-production.up.railway.app/market/create", input)
+      alert("Tienda creada con exito, a la espera de autorización");
       setInput({
         name: "",
-        especialidad: "",
+        link: "",
         ubicacion: "",
+        image: ""
       });
     } else {
       alert("Complete correctamente el formulario antes de enviarlo");
@@ -79,6 +103,25 @@ const AutorizacionMercader = () => {
             <form onSubmit={handleSubmit} autoComplete="off">
               <h1>Solicitanos tu mercado</h1>
               <div className="autorizar-text">
+              <div className="reg-image-formz">
+                    <label htmlFor="img">
+                      Selecciona una imagen de tu producto:
+                    </label>
+                    {input.image.length < 3 ? (
+                      <img
+                        src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679087243/uyrsuh0ojvnzedaxuvlj.webp"
+                        alt="logo"
+                      />
+                    ) : (
+                      <img src={input.image} alt="logo" />
+                    )}
+                    <input
+                      type="file"
+                      name="image"
+                      onChange={uploadImage}
+                      className="input-img-tas"
+                    />{" "}
+                  </div>
                 <div className="name-error-form">
                   <input
                     autoComplete="off"
@@ -97,14 +140,14 @@ const AutorizacionMercader = () => {
                   <input
                     autoComplete="off"
                     placeholder="Link de tu pagina"
-                    name="especialidad"
+                    name="link"
                     type="text"
                     maxLength="20"
-                    value={input.especialidad}
+                    value={input.link}
                     onChange={handleChange}
                   />
-                  {error.especialidad.length ? (
-                    <span id="error_name">{error.especialidad}</span>
+                  {error.link.length ? (
+                    <span id="error_name">{error.link}</span>
                   ) : null}
                 </div>
                 <div className="register-contra2">
