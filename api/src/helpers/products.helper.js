@@ -262,7 +262,7 @@ export async function createProducts(productsFromBody) {
         let createProducts = await Products.bulkCreate(productos)
         return createProducts;
     }
-    let { name, brand, image, category, superMId, price } = productsFromBody;
+    let { name, brand, image, category, superMId, price, unit } = productsFromBody;
 
     // verifico si superMId existe de no existir tira error
     let verifySupermId = await SuperM.findOne({
@@ -271,7 +271,7 @@ export async function createProducts(productsFromBody) {
     if (verifySupermId) {
 
         //comprobado la existencia creo el producto
-        let createProduct = await Products.create({ name, brand, image, category })
+        let createProduct = await Products.create({ name, brand, image, category, unit })
         // console.log("esto es createProduct =>", createProduct)
 
         // ahora creo la relacion producto precio con la propiedad id del producto y el superMId
