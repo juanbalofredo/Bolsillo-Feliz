@@ -2,7 +2,6 @@ import React from "react";
 import "./Orden.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoryParams } from "../../redux/apiPetitions/productsPetitions";
-import SearchBar from "../Navbar/SearchBar";
 import { resPage } from "../../redux/slice/globalSlice";
 
 const Orden = () => {

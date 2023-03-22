@@ -5,7 +5,7 @@ import Card from "../../components/Card/Card";
 import Footer from "../footer/Footer";
 import { useEffect } from "react";
 import { getProductos } from "../../redux/apiPetitions/productsPetitions";
-import { sigPage, antPage, resPage } from "../../redux/slice/globalSlice";
+import { sigPage, antPage } from "../../redux/slice/globalSlice";
 import Filtro from "../../components/filtro/Filtro";
 import Orden from "../../components/order/Orden";
 import { obtenerLocation } from "../../redux/slice/persistSlice";
