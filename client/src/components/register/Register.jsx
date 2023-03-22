@@ -8,7 +8,6 @@ import {
   getUserSoloByEmail
 } from "../../redux/apiPetitions/userPetitions";
 import Footer from "../../views/footer/Footer";
-import GoogleSign from "../../views/Firebase/GoogleSign";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
