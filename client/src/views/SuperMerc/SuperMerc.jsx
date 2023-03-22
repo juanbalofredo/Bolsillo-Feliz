@@ -21,7 +21,7 @@ const SuperMerc = ()=>{
 if (markets) {
 return(
     <>
-    <Navbar/>  
+  
     <div className="patexto-sup">    <h1>SuperMercados</h1>
     <div className="cont-sup-lis-a">
 

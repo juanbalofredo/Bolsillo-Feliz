@@ -91,7 +91,7 @@ const AutorizacionMercader = () => {
     <>
       {" "}
       <div className="todo">
-        <Navbar />
+
         <div className="autorizar-container">
           <div className="register-logo">
             <img
