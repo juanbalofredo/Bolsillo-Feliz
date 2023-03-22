@@ -94,7 +94,7 @@ export const User = () => {
             </div>
           </>
         ) : (
-          <h4 className="name"></h4>
+          null
         )}
       </div>
     </div>
