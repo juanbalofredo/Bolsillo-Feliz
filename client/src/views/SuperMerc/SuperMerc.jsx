@@ -18,7 +18,6 @@ const SuperMerc = ()=>{
       });
   }, []);
 
-const state = useSelector((state) => state.bolsilloFeliz);
 if (markets) {
 return(
     <>

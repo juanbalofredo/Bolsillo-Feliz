@@ -1,21 +1,20 @@
 import React, { useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
-import { usersLine } from "./functionsGraphics";
+
 import { useState } from "react";
-import { useSelector } from "react-redux";
+
 import axios from "axios";
 
 const MyChartDonut = () => {
   const chartRef = useRef(null);
   const [users, setUser] = useState([]);
 
-
   useEffect(() => {
     axios
       .get(`http://localhost:3001/user/`)
       .then((e) => setUser(e.data))
       .catch((err) => {
-        return err
+        return err;
       });
     const usu = users?.filter((a) => a.type_account === "1");
     const merca = users?.filter((a) => a.type_account === "2");
@@ -38,8 +37,9 @@ const MyChartDonut = () => {
         options: {
           responsive: false,
           maintainAspectRatio: false,
-          height:100,
-          width:200}
+          height: 100,
+          width: 200,
+        },
       });
     };
 
@@ -48,7 +48,7 @@ const MyChartDonut = () => {
         myChart.destroy(); // Destruye el gráfico anterior si existe
       }
 
-      createChart();// Crea un nuevo gráfico
+      createChart(); // Crea un nuevo gráfico
     }
 
     return () => {

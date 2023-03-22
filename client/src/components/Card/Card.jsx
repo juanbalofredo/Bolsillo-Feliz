@@ -1,11 +1,8 @@
-import { useDispatch } from "react-redux";
-
 import { useNavigate } from "react-router-dom";
 import "./card.css";
 
 export default function Card({ product }) {
-  const { fullName, name, brand, image, id } = product;
-  const dispatch = useDispatch();
+  const { fullName, name, brand, image } = product;
 
   const navigate = useNavigate();
   const click = async () => {
