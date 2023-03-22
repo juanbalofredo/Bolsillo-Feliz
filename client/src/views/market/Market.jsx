@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";

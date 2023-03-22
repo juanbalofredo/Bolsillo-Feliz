@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -11,7 +11,7 @@ export default function Comentarios() {
   const {id} = useSelector((state)=> state.bolsilloPersist);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/reviews/id/${id}`)
+      .get(`/reviews/id/${id}`)
       .then((e) => setComentarios(e.data))
       .catch((err) => {
         return err;

@@ -3,7 +3,7 @@ import { Chart } from "chart.js/auto";
 
 import { useState } from "react";
 
-import axios from "axios";
+import axios from "../../redux/axios.js";
 
 const MyChartDonut = () => {
   const chartRef = useRef(null);
@@ -11,7 +11,7 @@ const MyChartDonut = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/user/`)
+      .get(`/user/`)
       .then((e) => setUser(e.data))
       .catch((err) => {
         return err;
