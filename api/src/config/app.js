@@ -23,6 +23,8 @@ server.use((req, res, next) => {
   next();
 });
 
+
+
 server.use('/user', users);
 server.use('/reviews', review)
 server.use('/perfiles', perfiles)
