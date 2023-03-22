@@ -75,7 +75,7 @@ export default function PerfilDatos() {
 
   return (
     <>
-      <div className="container_datos">
+      <div className="container_datos-2">
         <div className="reg-avata2">
           {Foto.length > 5 ? (
             <img src={Foto} alt="perdo" />
