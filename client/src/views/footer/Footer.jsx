@@ -47,12 +47,11 @@ export const Footer = () => {
         {logeado ? (
   <div className="footer-tenes-c">
     <h3>¿ Te gustaria agregar los productos de tu comercio ?</h3>
-    <a>
-      {" "}
+
       <Link to="/autorizacion">
       <p>Hace click aca</p>
       </Link>
-    </a>
+
   </div>
 ) : null}
         <div className="copyright">

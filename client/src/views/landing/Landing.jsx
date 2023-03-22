@@ -1,8 +1,8 @@
 import './landing.css'
-import { Link } from 'react-router-dom'
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Navbar from '../../components/Navbar/NavBar';
+
 
 const Landing = () => {
 
@@ -10,10 +10,7 @@ const Landing = () => {
         duration: 1000,
     });
 
-    window.addEventListener('scroll', function () {
-        let cart1 = document.getElementsByClassName('landing-1');
-        let posicionCart1 = cart1.getBoundingClientRect().top;
-    })
+
     return (
         <div className='landing-container'>
             <div className='landing-0'><img
