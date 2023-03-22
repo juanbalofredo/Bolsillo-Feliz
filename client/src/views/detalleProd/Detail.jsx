@@ -23,7 +23,7 @@ const DetalleProd = () => {
   }, [id]);
 
   if (product) {
-    const emilia = product.prices.sort((a, b) => a.price - b.price);
+    const emilia = product?.prices.sort((a, b) => a.price - b.price);
     return (
       <>
         <NavBar />
