@@ -64,7 +64,7 @@ export default function PerfilDatos() {
       });
       const response = await axios({
         method: "put",
-        url: "http://localhost:3001/user/update",
+        url: "/user/update",
         data: { id, newpassword },
       });
       return swal("Contraseña actualizada con exito!", "OK", "success");
@@ -75,7 +75,7 @@ export default function PerfilDatos() {
 
   return (
     <>
-      <div className="container_datos">
+      <div className="container_datos-2">
         <div className="reg-avata2">
           {Foto.length > 5 ? (
             <img src={Foto} alt="perdo" />

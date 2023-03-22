@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const MyChart = () => {
   const state = useSelector((state) => state.bolsilloFeliz);
   const users = state.allUsers;
-  const chartRef = useRef(null);
+  const chartRef = useRef(null);  
   const fecha = new Date();
 
   useEffect(() => {

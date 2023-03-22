@@ -123,7 +123,7 @@ const Market = () => {
               position={estate.location}
               icon={L.icon({
                 iconUrl:
-                  "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png",
+                  "https://res.cloudinary.com/dzuasgy3l/image/upload/c_scale,w_25/v1679513247/p8jzahr1wjzf30kqyf3c.png",
               })}
             >
               <Popup>Vos</Popup>
