@@ -1,24 +1,22 @@
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { bolsilloPersist } from "../../redux/slice/persistSlice";
+
 import "./Perfil.css";
 
 
 export default function Comentarios() {
-  const estate = useSelector((state) => state.bolsilloPersist);
-  const state = useSelector((state) => state.bolsilloFeliz);
+
   const [Comentarios, setComentarios] = useState("");
   const {id} = useSelector((state)=> state.bolsilloPersist);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/reviews/id/${id}`)
+      .get(`/reviews/id/${id}`)
       .then((e) => setComentarios(e.data))
       .catch((err) => {
         return err;
       });
   }, [id]);
-  console.log(Comentarios)
   return (
     <>
     <div className="container_comentarios">

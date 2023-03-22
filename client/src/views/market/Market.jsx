@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
-import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
-import axios from "axios";
+import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+import axios from "../../redux/axios.js";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -25,7 +25,7 @@ const Market = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/market/id/${id}`)
+      .get(`/market/id/${id}`)
       .then((e) => setMarket(e.data))
       .catch((err) => {
         return err;
@@ -108,7 +108,7 @@ const Market = () => {
 
     return (
       <>
-        <Navbar />
+
         <div className="container-market-c">
           <div className="banner-sup">
             <h1>{market.name}</h1>
@@ -123,7 +123,7 @@ const Market = () => {
               position={estate.location}
               icon={L.icon({
                 iconUrl:
-                  "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679010160/kkina6b7i6ifj2u8ofwz.png",
+                  "https://res.cloudinary.com/dzuasgy3l/image/upload/c_scale,w_25/v1679513247/p8jzahr1wjzf30kqyf3c.png",
               })}
             >
               <Popup>Vos</Popup>
@@ -132,7 +132,7 @@ const Market = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {market.ubications.map((a) => (
+            {market?.ubications.map((a) => (
               <Marker
                 position={a}
                 icon={L.icon({

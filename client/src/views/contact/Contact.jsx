@@ -23,7 +23,7 @@ const nosotros = [
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-piantini",
     imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1678802496/ikq7bvdtfgjutzrkngtq.jpg ",
-    email: "bautista.godoy@outlook.com",
+    email: "nicolaspiantini@gmail.com",
     github: "https://github.com/pianti10"
   },
   { name: "Bautista Godoy",
@@ -73,14 +73,14 @@ const TeamMemberCard = () => {
                     </div>
                   <div className="card-bottom-part">
                     <div className="bottom-part">
-                      <a href={e.linkedin} className="link" target="_blank" >
+                      <a href={e.linkedin} className="link"  rel="noreferrer" target="_blank" >
                         <span className="icon">
                           <img src={linkedin} alt="linkedin" />
                         </span>
                       </a>
                     </div>
                     <div className="bottom-part">
-                      <a href={e.github} className="link"  target="_blank">
+                      <a href={e.github} className="link"   rel="noreferrer" target="_blank">
                         <span className="icon">
                         <svg fill="#000000" width="25px" height="25px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                             <path

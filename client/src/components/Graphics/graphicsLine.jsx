@@ -1,22 +1,15 @@
 import React, { useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
-import { usersLine } from "./functionsGraphics";
-import { useState } from "react";
 import { useSelector } from "react-redux";
-import axios from "axios";
 
 const MyChart = () => {
-
-  const chartRef = useRef(null);
+  const state = useSelector((state) => state.bolsilloFeliz);
+  const users = state.allUsers;
+  const chartRef = useRef(null);  
   const fecha = new Date();
-  const [users, setUser] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/user/`)
-      .then((e) => setUser(e.data))
-      .catch((err) => {
-        return err;
-      });
+
     const fechar =  fecha.getFullYear() +"-0"+  (fecha.getMonth() +1)+ "-" + fecha.getDate();
     const fechar1 = fecha.getFullYear() +"-0"+  (fecha.getMonth() +1)+ "-" + (fecha.getDate()-1);
     const fechar2 = fecha.getFullYear() +"-0"+  (fecha.getMonth() +1)+ "-" + (fecha.getDate()-2);
@@ -28,12 +21,11 @@ const MyChart = () => {
     const usuar2 = users?.filter((a) => a.createdAt.substr(0,10) === fechar2);
     const usuar3 = users?.filter((a) => a.createdAt.substr(0,10) === fechar3);
     const usuar4 = users?.filter((a) => a.createdAt.substr(0,10) === fechar4);
-    const usuar5 = users?.filter((a) => a.createdAt.substr(0,10) === fechar5);
+    const usuar5 = users?.filter((a) => a.createdAt.substr(0,10) === fechar5)
 
-    console.log(fechar1)
-    console.log(usuar)
 
-    let fechaDeUsers = usersLine();
+
+
     let myChart = null;
 
     const createChart = () => {
@@ -54,10 +46,8 @@ const MyChart = () => {
           ],
         },
         options: {
-          responsive: false,
-          maintainAspectRatio: false,
-          height:100,
-          width:700
+          responsive: true,
+          maintainAspectRatio: true,
       }
       });
     };

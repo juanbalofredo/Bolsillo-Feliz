@@ -13,7 +13,7 @@ import {
 
 export async function getProductos(dispatch) {
   try {
-    const peticion = await axios.get("http://localhost:3001/products");
+    const peticion = await axios.get("/products")
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
@@ -38,7 +38,7 @@ export async function getBrandId(id) {
     let json = await axios.get(
       `/market/id/${id}`,
       );
-      console.log(json)
+
     return json;
   } catch (error) {
     console.log(error);
@@ -57,6 +57,8 @@ export const getNameQuery = async (dispatch, name, order) => {
     return error.response;
   }
 };
+
+
 
 export const getCategoryParams = async (
   dispatch,
@@ -103,7 +105,7 @@ export const rsetFilters = async (dispatch) => {
 
 export const postProduct = (payload) => {
   return async () => {
-    console.log(payload)
+
     try {
       const response = await axios.post(
         "/products",
@@ -118,7 +120,7 @@ export const postProduct = (payload) => {
 
 export const postProductNoSpecials = (payload) => {
   return async () => {
-    console.log(payload)
+
     try {
       const response = await axios.post(
         "/price/nonespecial",
@@ -130,3 +132,19 @@ export const postProductNoSpecials = (payload) => {
     }
   };
 };
+
+export async function updatePrecioMp(presio) {
+  console.log(presio)
+  try {
+    const user = await axios({
+      method: "put",
+      url: "/market/paymentprice",
+      data: {
+        newPrice:presio
+      },
+    });
+    return user;
+  } catch (error) {
+    return error.message;
+  }
+}

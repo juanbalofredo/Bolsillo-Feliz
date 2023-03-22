@@ -4,11 +4,10 @@ import "./about.css";
 // import faFireBase from '../../assets/'
 import Contact from "../contact/Contact";
 import Navbar from "../../components/Navbar/NavBar";
-import Footer from "../footer/Footer";
 export default function About() {
   return (
     <div className="container-About">
-      <Navbar/>
+  
       <h1 className="titulo-about-asd">Acerca de Bolsillo Feliz</h1>
       <div className="cont-dis-fl-ab">
       <div className="text_about">

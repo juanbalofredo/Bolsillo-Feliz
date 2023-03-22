@@ -2,7 +2,7 @@ import "./Perfil.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserByEmail } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import { useState } from "react";
 import { oneUsers } from "../../redux/slice/persistSlice";
 
@@ -30,13 +30,12 @@ export default function PerfilDatos() {
       .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
       .then((response) => {
         uploadedImage = response.data.secure_url;
-        console.log(uploadedImage);
         SetFoto(uploadedImage);
       })
       .then((e) =>
         axios({
           method: "put",
-          url: "http://localhost:3001/user/update",
+          url: "/user/update",
           data: { id: id, avatar: uploadedImage },
         })
       )
@@ -65,7 +64,7 @@ export default function PerfilDatos() {
       });
       const response = await axios({
         method: "put",
-        url: "http://localhost:3001/user/update",
+        url: "/user/update",
         data: { id, newpassword },
       });
       return swal("Contraseña actualizada con exito!", "OK", "success");
@@ -76,7 +75,7 @@ export default function PerfilDatos() {
 
   return (
     <>
-      <div className="container_datos">
+      <div className="container_datos-2">
         <div className="reg-avata2">
           {Foto.length > 5 ? (
             <img src={Foto} alt="perdo" />

@@ -35,7 +35,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log(input.password);
+
   function setear(e) {
     const { name, value } = e.target;
     setInput({
@@ -69,7 +69,7 @@ const Login = () => {
   return (
     <>
       <div className="reg-todo">
-        <NavBar />
+
         <div className="login-container">
           <div className="register-logo">
             <img

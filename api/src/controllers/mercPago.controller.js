@@ -20,17 +20,23 @@ export const payment = async (req, res) => {
     back_urls: {
       success: (function (){
         let updateUser = Users.update({ type_account: "2" }, { where: { id } });
+<<<<<<< HEAD
         let url = "http://localhost:3000/perfil"
         return url
       })(),
       failure: "http://localhost:3000/home",
       pending: "http://localhost:3000/home",
+=======
+        let url = "https://bolsillofeliz.vercel.app/perfil"
+        return url
+      })(),
+      failure: "https://bolsillofeliz.vercel.app/home",
+      pending: "https://bolsillofeliz.vercel.app/home",
+>>>>>>> a2b2a8b46c0c571577e1632c10b32292f9bca8c4
     },
     auto_return: "approved",
     binary_mode: true,
   };
-
-
   mercadopago.preferences
     .create(preference)
     .then((response) => res.status(200).send({ response }))
@@ -53,4 +59,15 @@ export const updatePaymentPrice = async (req, res) => {
   } catch (error) {
     res.status(400).send({ err: error.message })
   }
+}
+
+export const getPaymentPrice = async (req, res) => {
+  try{
+    let memberPrice = await Membership.findAll();
+    res.status(200).json(memberPrice);
+  } catch(error){
+    res.status(400).send({error: error.message})
+  }
+  
+
 }

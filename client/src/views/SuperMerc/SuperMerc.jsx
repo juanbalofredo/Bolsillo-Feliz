@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../footer/Footer";
 import CardJ from "../../components/Card/CardJ"
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import "./superMerc.css"
 
 const SuperMerc = ()=>{
@@ -11,18 +11,17 @@ const SuperMerc = ()=>{
     const [markets, setMarkets] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/market/`)
+      .get(`/market/`)
       .then((e) => setMarkets(e.data))
       .catch((err) => {
         return err;
       });
   }, []);
 
-const state = useSelector((state) => state.bolsilloFeliz);
 if (markets) {
 return(
     <>
-    <Navbar/>  
+  
     <div className="patexto-sup">    <h1>SuperMercados</h1>
     <div className="cont-sup-lis-a">
 

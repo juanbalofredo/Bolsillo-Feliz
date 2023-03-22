@@ -1,9 +1,9 @@
 import "./detalleProd.css";
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/Navbar/NavBar";
-import axios from "axios";
+import axios from "../../redux/axios";
 import Footer from "../footer/Footer";
 import CardM from "../../components/Card/CardM";
 // import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
@@ -11,12 +11,11 @@ import CardM from "../../components/Card/CardM";
 // import { useSelector } from "react-redux";
 
 const DetalleProd = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/products/id/${id}`)
+      .get(`/products/id/${id}`)
       .then((e) => setProduct(e.data))
       .catch((err) => {
         return err;
@@ -24,10 +23,10 @@ const DetalleProd = () => {
   }, [id]);
 
   if (product) {
-    const emilia = product.prices.sort((a, b) => a.price - b.price);
+    const emilia = product?.prices?.sort((a, b) => a.price - b.price);
     return (
       <>
-        <NavBar />
+      
         <div className="Detail-container">
           <Link to="/home">
             <button className="detail-back">Volver</button>

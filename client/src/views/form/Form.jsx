@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getBrandId,
@@ -46,15 +46,17 @@ const Form = () => {
 
   const [input, setInput] = useState({
     name: "",
+    unit: "",
     price: 1,
     category: "",
     image: "",
     superMId: statePersist.superMId,
     brand: statePersist.user,
   });
+  console.log(input)
 
   useEffect(() => {
-    let brandName = getBrandId(statePersist.superMId).then((info) =>
+    getBrandId(statePersist.superMId).then((info) =>
       setInput({ ...input, brand: info.data.name })
     );
   }, []);
@@ -68,6 +70,7 @@ const Form = () => {
 
       setInput({
         name: "",
+        unit: "",
         price: "",
         image: "",
         category: "",
@@ -129,6 +132,18 @@ const Form = () => {
                       name="name"
                       onChange={handleChange}
                       placeholder="Nombre"
+                      className="inputs"
+                    />
+                  </div>
+
+                  <div>
+                    Unidades:
+                    <input
+                      type="text"
+                      value={input.unit}
+                      name="unit"
+                      onChange={handleChange}
+                      placeholder="Ej: 200 gr"
                       className="inputs"
                     />
                   </div>

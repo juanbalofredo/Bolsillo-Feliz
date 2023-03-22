@@ -41,7 +41,7 @@ export const User = () => {
     }).then((result) => {
       if (result === true) {
         dispatch(loggedOut());
-        window.location.href = "/home";
+        window.location.href = "https://bolsillofeliz.vercel.app/home";
       }
     });
   };
@@ -76,11 +76,6 @@ export const User = () => {
               <h4 className="name-nav0us" onClick={(e) => myFunction()}>
                 {name}
               </h4>
-              <img
-                src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679253517/t9ld95noqy1pqpi7onmp.png"
-                alt="arrow"
-                className="felcha-drop-wh"
-              />
             </div>
             <div id="myDropdown" className="dropdown-content">
               <Link to="/perfil">Perfil</Link>
@@ -94,7 +89,7 @@ export const User = () => {
             </div>
           </>
         ) : (
-          <h4 className="name"></h4>
+          null
         )}
       </div>
     </div>
