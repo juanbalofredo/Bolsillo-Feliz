@@ -8,7 +8,7 @@ export default function MercadoP() {
   //console.log(stateUser)
   let id = stateUser.id;
   const handlePayment = async () => {
-    const datos = await axios.post("/market/payment", { id });
+    const datos = await axios.post("http://pf-grupo2-production.up.railway.app/market/payment", { id });
     // console.log(datos.data.response.body.sandbox_init_point)
     window.location.href = datos.data.response.body.sandbox_init_point;
     console.log(id);
