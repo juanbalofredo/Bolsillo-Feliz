@@ -74,6 +74,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
@@ -99,6 +100,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
@@ -127,6 +129,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
@@ -157,6 +160,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
@@ -183,6 +187,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
@@ -207,6 +212,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
@@ -233,6 +239,7 @@ export async function getProductsByCategory({ category, order, brand, name }) {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
