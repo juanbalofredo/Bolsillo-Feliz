@@ -13,6 +13,7 @@ export async function getAllProducts() {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
@@ -21,9 +22,6 @@ export async function getAllProducts() {
                     ]
                 }
             ],
-            where: {
-                '$Prices.id$': {[Op.ne]: null }
-            },
             order: [["name", "ASC"]]
         }
     )
