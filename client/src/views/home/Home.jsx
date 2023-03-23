@@ -9,6 +9,8 @@ import { sigPage, antPage } from "../../redux/slice/globalSlice";
 import Filtro from "../../components/filtro/Filtro";
 import Orden from "../../components/order/Orden";
 import { obtenerLocation } from "../../redux/slice/persistSlice";
+import Loader from "../../components/Loader/loader.jsx" 
+
 
 const Home = () => {
   const state = useSelector((state) => state.bolsilloFeliz);
@@ -42,6 +44,7 @@ const Home = () => {
       <div className="img-home-cart">
         <div className="slider-home"></div>
       </div>
+      {myProduct ? (
       <div className="container-de-cintainer">
         <Filtro />
         <div className="Home-container">
@@ -80,7 +83,7 @@ const Home = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> ): <Loader />}
       <Footer />
     </>
   );
