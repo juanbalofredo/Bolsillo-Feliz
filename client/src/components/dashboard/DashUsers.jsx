@@ -74,7 +74,6 @@ const DashUsers = () => {
 
   async function kambiar(id, e) {
     updateUserActivity(estate.type_account, id, e);
-    getUsers(dispatch);
   }
 
   if (mp) {
@@ -209,7 +208,7 @@ const DashUsers = () => {
                           onChange={setear}
                           name="presio"
                           value={out}
-                          type="text"
+                          type="number"
                           placeholder="Cambiar precio"
                         />
                         <button onClick={onckil}>Aceptar</button>
