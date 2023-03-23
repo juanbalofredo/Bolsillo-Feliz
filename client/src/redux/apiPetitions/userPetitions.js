@@ -27,17 +27,14 @@ export async function crearUser(dispatch, input) {
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
   }
   try {
-    const user = await axios.post(
-      "/user/postUsers",
-      {
-        name: input.user_name,
-        avatar: input.avatar,
-        email: input.user_email,
-        last_name: input.last_name,
-        password: input.password,
-        type_account: "1",
-      }
-    );
+    const user = await axios.post("/user/postUsers", {
+      name: input.user_name,
+      avatar: input.avatar,
+      email: input.user_email,
+      last_name: input.last_name,
+      password: input.password,
+      type_account: "1",
+    });
     dispatch(oneUsers(user.data));
     return user;
   } catch (error) {
@@ -53,12 +50,7 @@ export async function getUsers(dispatch) {
   }
 }
 
-export async function updateUser(
-  type_account_logged,
-  id,
-  type_account,
-  usuario
-) {
+export async function updateUser(type_account_logged, id, type_account) {
   try {
     const user = await axios({
       method: "put",
@@ -69,7 +61,6 @@ export async function updateUser(
         type_account: type_account,
       },
     });
-
     return user;
   } catch (error) {
     return error.message;
@@ -147,9 +138,7 @@ export async function StartGoogleAuth(dispatch) {
 
 export async function getComments(dispatch) {
   try {
-    let response = await axios.get(
-      `/reviews/`
-    );
+    let response = await axios.get(`/reviews/`);
     dispatch(agCom(response.data));
   } catch (error) {
     return error.message;
@@ -171,10 +160,7 @@ export async function deleteComment(dispatch, id) {
 
 export async function postComments(dispatch, body) {
   try {
-    let json = await axios.post(
-      `/reviews/createpost`,
-      body
-    );
+    let json = await axios.post(`/reviews/createpost`, body);
     const hola = await getComments(dispatch);
     return hola;
   } catch (error) {
@@ -183,18 +169,13 @@ export async function postComments(dispatch, body) {
 }
 export async function payMercado(email) {
   console.log(email);
-  const peticion = await axios.post(
-    "/market/subscription"
-  );
+  const peticion = await axios.post("/market/subscription");
   console.log(peticion);
 }
 
 export async function autorizarMercado(payload) {
   try {
-    let json = await axios.post(
-      `/`,
-      payload
-    );
+    let json = await axios.post(`/`, payload);
     return json;
   } catch (error) {
     console.log(error);
