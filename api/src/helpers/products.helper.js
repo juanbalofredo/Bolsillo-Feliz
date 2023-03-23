@@ -13,6 +13,7 @@ export async function getAllProducts() {
                 {
                     model: Prices,
                     attributes: ['price'],
+                    where: { price: {[Op.ne]: null} },
                     include: [
                         {
                             model: SuperM,
