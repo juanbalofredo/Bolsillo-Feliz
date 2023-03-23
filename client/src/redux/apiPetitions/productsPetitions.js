@@ -164,3 +164,4 @@ export async function updatePrecioProdM(presio,pid,mid) {
     return error.message;
   }
 }
+

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { updatePrecioProdM } from "../../redux/apiPetitions/productsPetitions";
 import "../../views/detalleProd/detalleProd.css";
+import swal from "sweetalert";
 
 const CardO = (props) => {
   const estate = useSelector((state) => state.bolsilloPersist);
@@ -15,7 +16,13 @@ const CardO = (props) => {
   const [input,setInput] = useState()
 
   function dale (){
-    updatePrecioProdM(input,props.id,estate.superMId)
+    updatePrecioProdM(input,props.id,estate.superMId);
+    swal({
+      title: "Precio cambiado",
+      text: "Producto actualizado correctamente",
+      icon: "success",
+      button: "OK",
+    });
   }
 
   return (
