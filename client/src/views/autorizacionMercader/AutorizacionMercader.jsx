@@ -5,8 +5,6 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import swal from "sweetalert";
 import "./autorizacionMercader.css";
-
-import Navbar from "../../components/Navbar/NavBar";
 import emailjs from "@emailjs/browser";
 
 const AutorizacionMercader = () => {
@@ -16,7 +14,7 @@ const AutorizacionMercader = () => {
     id: state.id,
     name: "",
     link: "",
-    ubicacion: "",
+    address: "",
     image: "",
   });
 
@@ -25,7 +23,7 @@ const AutorizacionMercader = () => {
     id: state.id,
     name: "",
     link: "",
-    ubicacion: "",
+    address: "",
     image: "",
   });
 
@@ -51,14 +49,14 @@ const AutorizacionMercader = () => {
       input.name.length >= 2 &&
       input.link.length >= 2 &&
       input.image.length >= 3 &&
-      input.ubicacion.length >= 2
+      input.address.length >= 2
     ) {
       emailjs.send(
         "service_cfwpdj7",
         "template_smc5b1i",
         {
           user_email: state.email,
-          ubicacion: input.ubicacion,
+          address: input.address,
           link:input.link,
           mercader: state.name,
           mercado: input.name,
@@ -81,7 +79,7 @@ const AutorizacionMercader = () => {
       setInput({
         name: "",
         link: "",
-        ubicacion: "",
+        address: "",
         image: "",
       });
     } else {
@@ -169,15 +167,15 @@ const AutorizacionMercader = () => {
                 <div className="register-contra2">
                   <input
                     autoComplete="off"
-                    name="ubicacion"
+                    name="address"
                     type="text"
                     maxLength="100"
-                    value={input.ubicacion}
+                    value={input.address}
                     onChange={handleChange}
                     placeholder="Ej calle, numero, ciudad y pais"
                   />
-                  {error.ubicacion.length ? (
-                    <span id="error_name">{error.ubicacion}</span>
+                  {error.address.length ? (
+                    <span id="error_name">{error.address}</span>
                   ) : null}
                 </div>
                 <button>Solicitar por mail</button>

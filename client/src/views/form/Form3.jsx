@@ -30,15 +30,15 @@ export const Form3 = () => {
   };
  console.log(market)
 
-// if(market){
-//   return (
-//     <div className="cont-form-3">
-//       <h2>Tus productos</h2>
-//       <div className="cont-mi-por-a-se">
-//       {market.map((p) => (
-//                 <CardO key={p.id} product={p} />
-//               ))}
-//       </div>
-//     </div>
-//   );}
+if(market){
+  return (
+    <div className="cont-form-3">
+      <h2>Tus productos</h2>
+      <div className="cont-mi-por-a-se">
+      {market.map((p) => (
+                <CardO key={p.id} product={p} />
+              ))}
+      </div>
+    </div>
+  );}
 };
