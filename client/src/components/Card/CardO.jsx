@@ -6,8 +6,7 @@ import swal from "sweetalert";
 
 const CardO = (props) => {
   const estate = useSelector((state) => state.bolsilloPersist);
- console.log(props)
-  
+
   const [input,setInput] = useState(3)
   function setear(e) {
     const { value } = e.target;
