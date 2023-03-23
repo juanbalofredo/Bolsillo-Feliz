@@ -69,14 +69,7 @@ export async function updateUser(
         type_account: type_account,
       },
     });
-    if (type_account == "2") {
-      emailjs.send(
-        "service_cfwpdj7",
-        "template_qaebelh",
-        { mail: usuario[0].email, name: usuario[0].name },
-        "bfkCyEaZzPcQ0u1_N"
-      );
-    }
+
     return user;
   } catch (error) {
     return error.message;
