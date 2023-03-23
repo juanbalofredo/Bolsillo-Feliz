@@ -21,14 +21,13 @@ export async function getAllProducts() {
                     ]
                 }
             ],
-            where: {
-                '$Prices.id$': {[Op.ne]: null }
-            },
             order: [["name", "ASC"]]
         }
     )
     return allProducts;
 }
+
+
 
 export function getProductsById(id) {
     const productsById = Products.findOne({
