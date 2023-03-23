@@ -1,4 +1,4 @@
-import { getProductByName, getProductsByCategory, getProductsById, getProductsByBrand, getAllProducts, createProducts } from "../helpers/products.helper.js";
+import { getProductByName, getProductsByCategory, getProductsById, getProductsByBrand, getAllProducts, createProducts, getMarketProducts } from "../helpers/products.helper.js";
 import { createSmarket } from "../helpers/market.helper.js";
 import { createPrices } from "../helpers/helpers.price.js";
 import { precios } from "../prueba(4).js"
@@ -82,3 +82,14 @@ export async function postProduct(req, res) {
         res.status(400).send({ err: error.message })
     }
 };
+
+export async function getProductsMarket(req, res) {
+    const market = req.params;
+    console.log("entro a getpppp", market)
+    try {
+        let marketProducts = await getMarketProducts(market);
+        res.status(200).json(marketProducts);
+    } catch(error){
+        res.status(400).send({ error: error.message });
+    }
+}
