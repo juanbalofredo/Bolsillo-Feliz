@@ -32,6 +32,9 @@
   height: 100%;
   margin-top: 3rem;
 }
+.cont-as-di-fle {
+  height: 90vh;
+}
 .queso-asdad-aa {
   display: flex;
   align-items: center;

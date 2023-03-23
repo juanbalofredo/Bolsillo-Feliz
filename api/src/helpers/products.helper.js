@@ -300,7 +300,7 @@ export async function createProducts(productsFromBody) {
 
 export async function getMarketProducts(dataParams){
     const { market } = dataParams;
-    console.log("entro a get Market products", market);
+    console.log("este es el texto cambiado", market);
     const productsOfMarket = await Prices.findAll({
         where: {superMId: market},
         include: { model: Products, attributes: ["name","unit", "brand"]}

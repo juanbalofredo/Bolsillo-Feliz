@@ -6,7 +6,7 @@ import Reviews from "../models/review.js";
 export async function getAllMarket(req, res) {
     console.log("entro a getAllMarkets")
     const allMarkets = await SuperM.findAll({
-        where: { activity: true },
+        where: { activity: true, show: true },
         attributes: [
             'name',
             'image',

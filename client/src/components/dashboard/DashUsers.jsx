@@ -74,7 +74,6 @@ const DashUsers = () => {
 
   async function kambiar(id, e) {
     updateUserActivity(estate.type_account, id, e);
-    getUsers(dispatch);
   }
 
   if (mp) {
@@ -203,13 +202,13 @@ const DashUsers = () => {
                       </h3>
                     </div>
                     <div className="div-as-ss-ee-as-">
-                      <h3>El precio actual mensual es de: ${mp[0].price}</h3>
+                      <h3>El precio actual anual es de: ${mp[0].price}</h3>
                       <div>
                         <input
                           onChange={setear}
                           name="presio"
                           value={out}
-                          type="text"
+                          type="number"
                           placeholder="Cambiar precio"
                         />
                         <button onClick={onckil}>Aceptar</button>
