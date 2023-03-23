@@ -297,3 +297,13 @@ export async function createProducts(productsFromBody) {
     }
     throw Error(`Error: market ${superMId} does not exist`)
 }
+
+export async function getMarketProducts(dataParams){
+    const { market } = dataParams;
+    console.log("entro a get Market products", market);
+    const productsOfMarket = await Prices.findAll({
+        where: {superMId: market},
+        include: { model: Products, attributes: ["name","unit", "brand"]}
+    })
+    return productsOfMarket;
+}
