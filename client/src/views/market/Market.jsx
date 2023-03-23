@@ -105,6 +105,7 @@ const Market = () => {
     const commentar = state.comentaries?.filter(
       (a) => a.superM.id === market.id
     );
+    console.log(market)
 
     return (
       <>
@@ -146,7 +147,7 @@ const Market = () => {
             ))}
           </MapContainer>
           <div className="txt-sup-of">
-            <h3>Visitar pagina oficial click aqui</h3>
+            <h3>Visitar pagina oficial {<a  rel="noreferrer" target="_blank" href={market.link}>click aqui</a>}</h3>
           </div>
           <div className="cont-coment-super">
             {estate.user ? (
