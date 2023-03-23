@@ -108,7 +108,7 @@ const Market = () => {
 
     return (
       <>
-        <Navbar />
+
         <div className="container-market-c">
           <div className="banner-sup">
             <h1>{market.name}</h1>
@@ -123,7 +123,7 @@ const Market = () => {
               position={estate.location}
               icon={L.icon({
                 iconUrl:
-                  "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679512483/p8jzahr1wjzf30kqyf3c.png",
+                  "https://res.cloudinary.com/dzuasgy3l/image/upload/c_scale,w_25/v1679513247/p8jzahr1wjzf30kqyf3c.png",
               })}
             >
               <Popup>Vos</Popup>

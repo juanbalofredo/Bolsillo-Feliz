@@ -11,7 +11,7 @@ const SuperMerc = ()=>{
     const [markets, setMarkets] = useState(null);
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/market/`)
+      .get(`/market/`)
       .then((e) => setMarkets(e.data))
       .catch((err) => {
         return err;
@@ -21,7 +21,7 @@ const SuperMerc = ()=>{
 if (markets) {
 return(
     <>
-    <Navbar/>  
+  
     <div className="patexto-sup">    <h1>SuperMercados</h1>
     <div className="cont-sup-lis-a">
 

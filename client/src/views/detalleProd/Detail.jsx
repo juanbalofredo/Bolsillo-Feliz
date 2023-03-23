@@ -26,7 +26,7 @@ const DetalleProd = () => {
     const emilia = product?.prices?.sort((a, b) => a.price - b.price);
     return (
       <>
-        <NavBar />
+      
         <div className="Detail-container">
           <Link to="/home">
             <button className="detail-back">Volver</button>

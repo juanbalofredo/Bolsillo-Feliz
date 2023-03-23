@@ -14,6 +14,7 @@ export function getMarketById(id) {
             'ubications',
             'id',
             'superM.name',
+            'activity',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
         ],
         include: [
@@ -47,7 +48,7 @@ export const createSmarket = async (smarketsFromBody) => {
     }
     let findUser;
     if (smarketsFromBody) {
-        let { name, image, id, address } = smarketsFromBody;
+        let { name, image, id, address, link } = smarketsFromBody;
         const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json`;
         let ubications = [];
         await axios.get(url).then(response => {
@@ -58,15 +59,15 @@ export const createSmarket = async (smarketsFromBody) => {
             console.log(ubications);
             return ubications;
         })
-        .catch(error => {
-             console.error(error);
-         });
+            .catch(error => {
+                console.error(error);
+            });
 
         //primero busca si el usuario existe para luego recien poder crear la tienda
         findUser = await Users.findOne({ where: { id } });
         if (findUser && !findUser.superMId) {
             // Crear una nueva tienda
-            const createSmarket = await SuperM.create({ name, image, ubications });
+            const createSmarket = await SuperM.create({ name, image, ubications, link });
 
             // Asignar el ID de la tienda al usuario
             await findUser.update({ superMId: createSmarket.id });

@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-      <NavBar />
+    
       <div className="img-home-cart">
         <div className="slider-home"></div>
       </div>

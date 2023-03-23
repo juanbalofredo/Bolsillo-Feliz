@@ -10,7 +10,7 @@ const SuperM = dataBase.define(
   {
     name: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       unique: true,
     },
     image: {
@@ -21,9 +21,13 @@ const SuperM = dataBase.define(
       type: DataTypes.JSON,
       allowNull: false
     },
-    link : {
+    link: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    activity: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   },
 

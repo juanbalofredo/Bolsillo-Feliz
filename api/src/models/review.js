@@ -37,9 +37,9 @@ Users.hasMany(Reviews);
 SuperM.hasMany(Reviews);
 Reviews.belongsTo(SuperM);
 
-Reviews.belongsTo(SuperM, {
-    foreignKey: 'superMId',
-    timestamps: false
-});
+// Reviews.belongsTo(SuperM, {
+//     foreignKey: 'superMId',
+//     timestamps: false
+// });
 
 export default Reviews;

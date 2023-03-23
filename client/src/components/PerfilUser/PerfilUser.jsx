@@ -27,7 +27,7 @@ export default function Perfil() {
 
   return (
     <>
-      <NavBar />
+      
       <div className="container-Perfiluser">
         <div className="useroptionclick">
           <button onClick={(e) => SetEdit(true)}>Mis Datos</button>

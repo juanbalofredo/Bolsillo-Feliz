@@ -7,7 +7,7 @@ import Navbar from "../../components/Navbar/NavBar";
 export default function About() {
   return (
     <div className="container-About">
-      <Navbar/>
+  
       <h1 className="titulo-about-asd">Acerca de Bolsillo Feliz</h1>
       <div className="cont-dis-fl-ab">
       <div className="text_about">

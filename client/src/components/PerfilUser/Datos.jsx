@@ -64,7 +64,7 @@ export default function PerfilDatos() {
       });
       const response = await axios({
         method: "put",
-        url: "http://localhost:3001/user/update",
+        url: "/user/update",
         data: { id, newpassword },
       });
       return swal("Contraseña actualizada con exito!", "OK", "success");
