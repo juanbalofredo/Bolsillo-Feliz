@@ -9,7 +9,7 @@ const port = process.env.PORT || 3001
 // dotenv.config();
 //s
 const index = async () => {
-  await dataBase.sync({ force: false })
+  await dataBase.sync({ force: true })
   //   await apiInfo()
   serverHttp.listen(port, () => {
     console.log(`Listening on port ${port}`)
