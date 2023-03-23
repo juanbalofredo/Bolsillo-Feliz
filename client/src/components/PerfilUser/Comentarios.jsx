@@ -16,11 +16,11 @@ export default function Comentarios() {
       .catch((err) => {
         return err;
       });
-  }, [id]);
+  }, []);
   return (
     <>
     <div className="container_comentarios">
-      {Comentarios ?( 
+      {Comentarios.length > 1 ?( 
         Comentarios.map((a) => (
           <div className="comentario-superm">
           <img src={a.user.avatar} alt="img" />

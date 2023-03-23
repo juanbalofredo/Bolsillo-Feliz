@@ -21,6 +21,10 @@ const CardO = (props) => {
       text: "Producto actualizado correctamente",
       icon: "success",
       button: "OK",
+    }).then((result) => {
+      if (result === true) {
+        window.location.reload(true);
+      }
     });
   }
 

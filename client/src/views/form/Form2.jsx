@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { postProductNoSpecials } from "../../redux/apiPetitions/productsPetitions";
 import { getProductos } from "../../redux/apiPetitions/productsPetitions";
+import swal from "sweetalert";
 
 export const Form2 = () => {
   const dispatch = useDispatch();
@@ -55,12 +56,7 @@ export const Form2 = () => {
     e.preventDefault();
     if (input.price >= 1 && input.price <= 1000000) {
       dispatch(postProductNoSpecials(input));
-      swal({
-        title: "Agregado",
-        text: "Producto agregado correctamente",
-        icon: "success",
-        button: "ok",
-      });
+      alert("Producto agregado exitosamente");
 
       setInput({
         price: 1,
@@ -70,12 +66,7 @@ export const Form2 = () => {
 
       window.location.reload(true);
     } else {
-      swal({
-        title: "Incompleto",
-        text: "Complete el formulario",
-        icon: "error",
-        button: "Reintentar",
-      });
+      alert("Complete correctamente el formulario antes de enviarlo");
     }
   };
 
