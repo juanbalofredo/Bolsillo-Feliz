@@ -8,7 +8,6 @@ mercadopago.configure({ access_token: process.env.MP_TOKEN });
 export const payment = async (req, res) => {
   let actualPrice = await Membership.findOne({ where: { id: 1 } });
   let id = req.body.id;
-  console.log(id);
   const preference = {
     items: [
       {
@@ -18,9 +17,9 @@ export const payment = async (req, res) => {
       },
     ],
     back_urls: {
-      success: "https://bolsillofeliz.vercel.app/seguraseguirisima",
-      failure: "https://bolsillofeliz.vercel.app/home",
-      pending: "https://bolsillofeliz.vercel.app/home",
+      success: "https://localhost:3000/seguraseguirisima",
+      failure: "https://localhost:3000/home",
+      pending: "https://localhost:3000/home",
     },
     auto_return: "approved",
     binary_mode: true,

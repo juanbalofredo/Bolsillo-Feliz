@@ -150,11 +150,11 @@ export async function updatePrecioMp(presio) {
 }
 
 export async function updatePrecioProdM(presio,pid,mid) {
-  console.log(presio)
+  console.log(presio,pid,mid)
   try {
     const user = await axios({
       method: "put",
-      url: "/price/",
+      url: "/price",
       data: {
         price:presio, productId:pid, superMId:mid
       },

@@ -219,3 +219,10 @@
 .bodyDark .label-1-su {
   color: white;
 }
+.container_comentarios {
+  color: #000000;
+  height: 90vh;
+}
+.bodyDark .container_comentarios {
+  color: white;
+}

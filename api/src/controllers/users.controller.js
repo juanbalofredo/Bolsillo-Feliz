@@ -21,7 +21,7 @@ export async function getById(req, res) {
 export async function getByEmail(req, res) {
     const comparing = req.body;
     try {
-        console.log("entro al TRY")
+
         const response = await getUserByEmail(comparing);
         if (!response) return res.status(400).send("this email is not registered");
         return res.status(200).json(response);
@@ -44,10 +44,10 @@ export async function SoloEmailDev(req, res) {
 
 export async function googleAcces(req, res) {
     const comparing = req.body;
-    console.log("esto es google", comparing);
+
     try {
         const response = await getUserSoloByEmailGoogle(comparing);
-        console.log("esto es comparing ==>", response);
+
         if (!response) return res.status(400).send("Error: password wrong");
         return res.status(200).json(response);
     } catch (error) {
@@ -71,7 +71,7 @@ export async function deleteUser(req, res) {
 
 export async function updateUser(req, res) {
     const dataToUpdate = req.body;
-    console.log(dataToUpdate)
+
     try {
         let userUpdate = await updateUserByTypeAccount(dataToUpdate)
         res.status(200).json(userUpdate);

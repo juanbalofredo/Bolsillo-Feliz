@@ -2,7 +2,7 @@ import Footer from "../../views/footer/Footer";
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import axios from "axios";
+import axios from "../../redux/axios.js";
 import swal from "sweetalert";
 import "./autorizacionMercader.css";
 import emailjs from "@emailjs/browser";
@@ -17,7 +17,6 @@ const AutorizacionMercader = () => {
     address: "",
     image: "",
   });
-
 
   const [error, setError] = useState({
     id: state.id,
@@ -57,7 +56,7 @@ const AutorizacionMercader = () => {
         {
           user_email: state.email,
           address: input.address,
-          link:input.link,
+          link: input.link,
           mercader: state.name,
           mercado: input.name,
         },
@@ -66,10 +65,7 @@ const AutorizacionMercader = () => {
           from_name: "Bolsillo Feliz",
         }
       );
-      const petition = axios.post(
-        "http://pf-grupo2-production.up.railway.app/market/create",
-        input
-      );
+      const petition = axios.post("/market/create", input);
       swal({
         title: "Datos enviados exitosamente",
         text: "Espere la confirmacion via mail",
@@ -104,7 +100,6 @@ const AutorizacionMercader = () => {
     <>
       {" "}
       <div className="todo">
-
         <div className="autorizar-container">
           <div className="register-logo">
             <img

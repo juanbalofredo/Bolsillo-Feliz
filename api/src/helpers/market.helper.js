@@ -42,7 +42,6 @@ export function deleteMarketById(id) {
 
 export const createSmarket = async (smarketsFromBody) => {
     const marketTable = await SuperM.findAll();
-    // console.log(marketTable)
     if (marketTable.length === 0) {
         await SuperM.bulkCreate(tiendas)
     }
@@ -56,7 +55,6 @@ export const createSmarket = async (smarketsFromBody) => {
             const longitud = response.data[0].lon;
             let latLng = [parseFloat(latitud), parseFloat(longitud)];
             ubications.push(latLng);
-            console.log(ubications);
             return ubications;
         })
             .catch(error => {
