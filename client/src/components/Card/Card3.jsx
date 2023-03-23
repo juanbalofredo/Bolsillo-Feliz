@@ -26,6 +26,9 @@ export default function Card({ product, market }) {
               <p className="text-brand">{brand}</p>
               <h2 className="price-brand-mark">${precioM.price}</h2>
             </div>
+            <div>
+              <input type="text" />
+            </div>
           </div>
 
         </div>

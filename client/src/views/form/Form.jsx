@@ -11,6 +11,7 @@ import axios from "axios";
 import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../footer/Footer";
 import { Form2 } from "./Form2";
+import { Form3 } from "./Form3";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -53,7 +54,6 @@ const Form = () => {
     superMId: statePersist.superMId,
     brand: statePersist.user,
   });
-  console.log(input)
 
   useEffect(() => {
     getBrandId(statePersist.superMId).then((info) =>
@@ -81,33 +81,35 @@ const Form = () => {
       alert("Complete correctamente el formulario antes de enviarlo");
     }
   };
-  const [papel, setPapel] = useState(true);
+  const [papel, setPapel] = useState(1);
 
   return (
     <>
-      <Navbar />
       <div className="container-form-gr">
         <div className="arriba-form">
-          <button onClick={(e) => setPapel(true)}>
-            Agregar precio a productos existentes
-          </button>
-          <button onClick={(e) => setPapel(false)}>
+          <button onClick={(e) => setPapel(3)}>Mis productos</button>
+          <button onClick={(e) => setPapel(2)}>
             Añade un producto exclusivo
+          </button>
+          <button onClick={(e) => setPapel(1)}>
+            Agregar precio a productos existentes
           </button>
         </div>
         <Link to="/home">
           <button className="volver-form">Volver</button>
         </Link>
-        {papel ? (
+        {papel === 1 ? (
           <Form2 />
-        ) : (
+        ) : papel === 2 ? (
           <div className="contGral">
             <div className="flex-asd-f">
               <form onSubmit={handleSubmit}>
                 <div className="x23-a">
                   <div className="reg-image-formz">
-                    <label htmlFor="img">
-                      Selecciona una imagen de tu producto:
+                    <label htmlFor="img" className="mer-prod-mi-la-img">
+                      Selecciona una imagen de tu producto<p>
+                        1000px1000px fondo blanco</p>
+                      
                     </label>
                     {input.image.length < 3 ? (
                       <img
@@ -201,6 +203,8 @@ const Form = () => {
               </p>
             </div>
           </div>
+        ) : (
+          <Form3 />
         )}
       </div>
       <Footer />

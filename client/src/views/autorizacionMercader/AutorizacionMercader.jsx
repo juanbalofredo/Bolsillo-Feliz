@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-
+import swal from "sweetalert";
 import "./autorizacionMercader.css";
 
 import Navbar from "../../components/Navbar/NavBar";
@@ -71,7 +71,12 @@ const AutorizacionMercader = () => {
         "http://pf-grupo2-production.up.railway.app/market/create",
         input
       );
-      alert("Tienda creada con exito, a la espera de autorización");
+      swal({
+        title: "Datos enviados exitosamente",
+        text: "Espere la confirmacion via mail",
+        icon: "success",
+        button: "OK",
+      });
       setInput({
         name: "",
         link: "",
@@ -79,7 +84,12 @@ const AutorizacionMercader = () => {
         image: "",
       });
     } else {
-      alert("Complete correctamente el formulario antes de enviarlo");
+      swal({
+        title: "Datos incorrectos",
+        text: "Ingrese bien los datos",
+        icon: "error",
+        button: "Reintentar",
+      });
     }
   }
 
