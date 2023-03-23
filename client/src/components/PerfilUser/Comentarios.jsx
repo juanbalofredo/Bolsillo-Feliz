@@ -20,7 +20,7 @@ export default function Comentarios() {
   return (
     <>
     <div className="container_comentarios">
-      {Comentarios ?( 
+      {Comentarios.length > 1 ?( 
         Comentarios.map((a) => (
           <div className="comentario-superm">
           <img src={a.user.avatar} alt="img" />
