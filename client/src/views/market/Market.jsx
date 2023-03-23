@@ -15,6 +15,7 @@ import {
   deleteComment
 } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
+import Loader from "../../components/Loader/loader.jsx";
 
 const Market = () => {
   const dispatch = useDispatch();
@@ -108,7 +109,7 @@ const Market = () => {
 
     return (
       <>
-
+      {market ? (
         <div className="container-market-c">
           <div className="banner-sup">
             <h1>{market.name}</h1>
@@ -237,7 +238,7 @@ const Market = () => {
               )}
             </div>
           </div>
-        </div>
+        </div> ) : <Loader /> }
         <Footer />
       </>
     );
