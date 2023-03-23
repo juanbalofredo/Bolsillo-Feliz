@@ -55,7 +55,12 @@ export const Form2 = () => {
     e.preventDefault();
     if (input.price >= 1 && input.price <= 1000000) {
       dispatch(postProductNoSpecials(input));
-      alert("Producto agregado exitosamente");
+      swal({
+        title: "Agregado",
+        text: "Producto agregado correctamente",
+        icon: "success",
+        button: "ok",
+      });
 
       setInput({
         price: 1,
@@ -65,7 +70,12 @@ export const Form2 = () => {
 
       window.location.reload(true);
     } else {
-      alert("Complete correctamente el formulario antes de enviarlo");
+      swal({
+        title: "Incompleto",
+        text: "Complete el formulario",
+        icon: "error",
+        button: "Reintentar",
+      });
     }
   };
 

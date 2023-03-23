@@ -12,6 +12,7 @@ import Navbar from "../../components/Navbar/NavBar";
 import Footer from "../footer/Footer";
 import { Form2 } from "./Form2";
 import { Form3 } from "./Form3";
+import swal from "sweetalert";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ const Form = () => {
 
   useEffect(() => {
     getBrandId(statePersist.superMId).then((info) =>
-      setInput({ ...input, brand: info.data.name })
+      setInput({ ...input, brand: info?.data?.name })
     );
   }, []);
 
@@ -66,7 +67,12 @@ const Form = () => {
     if (input.name.length >= 1 && input.price >= 1 && input.price <= 1000000) {
       dispatch(postProduct(input));
 
-      alert("Producto agregado exitosamente");
+      swal({
+        title: "Agregado",
+        text: "Producto agregado correctamente",
+        icon: "success",
+        button: "ok",
+      });
 
       setInput({
         name: "",
@@ -78,7 +84,12 @@ const Form = () => {
         brand: statePersist.user,
       });
     } else {
-      alert("Complete correctamente el formulario antes de enviarlo");
+      swal({
+        title: "Incompleto",
+        text: "Complete el formulario",
+        icon: "error",
+        button: "Reintentar",
+      });
     }
   };
   const [papel, setPapel] = useState(1);
