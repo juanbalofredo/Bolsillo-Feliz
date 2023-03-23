@@ -303,7 +303,7 @@ export async function getMarketProducts(dataParams){
     console.log("este es el texto cambiado", market);
     const productsOfMarket = await Prices.findAll({
         where: {superMId: market},
-        include: { model: Products, attributes: ["name","unit", "brand"]}
+        include: { model: Products, attributes: ["name","unit", "brand","image"]}
     })
     return productsOfMarket;
 }
