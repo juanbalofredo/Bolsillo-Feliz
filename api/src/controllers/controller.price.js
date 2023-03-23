@@ -1,4 +1,4 @@
-import { allPrices, createPrices, updatePrices } from "../helpers/helpers.price.js";
+import { allPrices, createPrices, updatePrices, deletePriceById } from "../helpers/helpers.price.js";
 
 export const postNonEspecialtPrice = async (req, res) => {
     const infoBody = req.body
@@ -39,3 +39,14 @@ export const putPrice = async (req, res) => {
     }
 }
 
+export const deletePrice = async (req, res) => {
+    let { id } = req.body;
+    try{
+        let deletedPrice = await deletePriceById({id});
+        res.status(200).send("Price succesfully deleted");
+    }
+    catch(error){
+        res.status(400).send({ error: error.message })
+    }
+}
+ 
