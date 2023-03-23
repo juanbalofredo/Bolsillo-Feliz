@@ -38,11 +38,15 @@
   background-color: #163057;
 }
 .cont-form-2 {
-  color: white;
+  color: rgb(5, 5, 5);
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 90vh;
+}
+.bodyDark .cont-form-2 {
+  color: rgb(255, 255, 255);
+
 }
 .cont-form-2 form {
   display: flex;
@@ -103,8 +107,12 @@
   width: 100px;
 }
 .cont-form-2 h2 {
-  color: white;
+  color: rgb(0, 0, 0);
   margin-bottom: 6rem;
+}
+.bodyDark .cont-form-2 h2 {
+  color: rgb(255, 255, 255);
+
 }
 .text-info-form {
   width: 10rem;
