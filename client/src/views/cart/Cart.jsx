@@ -2,7 +2,7 @@ import axios from "../../redux/axios.js";
 import { useSelector } from "react-redux";
 import Footer from "../footer/Footer";
 import "./cart.css";
-import { useSelector } from "react-redux";
+
 
 export default function MercadoP() {
   const stateUser = useSelector((state) => state.bolsilloPersist);

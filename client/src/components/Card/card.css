@@ -20,7 +20,18 @@
 .card:hover {
   box-shadow: 2px 2px 10px 6px rgb(100, 100, 100);
 }
-
+.detail-compara-cont-2 {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detail-compara-cont-2:hover{
+  cursor:pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+}
 .card-details {
   color: black;
   height: 100%;

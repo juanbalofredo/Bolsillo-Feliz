@@ -61,9 +61,7 @@
   background-color: #2d6400;
   cursor: pointer;
 }
-.bodyDark {
-  transition: 1s;
-}
+
 .bodyDark .div-cont-graf {
   color: white;
 }
