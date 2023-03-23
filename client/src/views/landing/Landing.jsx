@@ -12,7 +12,10 @@ const Landing = () => {
     <div className="landing-container">
       <div className="landing-0">
         <img
-          src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678579215/vt0vtn2hi1tsz208yvgu.jpg"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-offset="100"
+          src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1679540537/bc7dcql96smfzh8hq6z5.webp"
           alt=""
         />
         <div className="text-land-0">
@@ -35,7 +38,7 @@ const Landing = () => {
           </div>{" "}
           <img
             data-aos="fade-left"
-            data-aos-duration="10"
+            data-aos-duration="10" 
             data-aos-offset="500"
             src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678571078/ykjrxtniiuds0hxja6kp.png"
             alt=""
