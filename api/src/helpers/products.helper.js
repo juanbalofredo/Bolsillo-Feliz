@@ -28,6 +28,8 @@ export async function getAllProducts() {
     return allProducts;
 }
 
+
+
 export function getProductsById(id) {
     const productsById = Products.findOne({
         where: { id },

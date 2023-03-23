@@ -8,13 +8,14 @@ import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import { sigPage, antPage } from "../../redux/slice/globalSlice";
 import Filtro from "../../components/filtro/Filtro";
 import Orden from "../../components/order/Orden";
-import { obtenerLocation } from "../../redux/slice/persistSlice";
+import { loggedOut, obtenerLocation } from "../../redux/slice/persistSlice";
 import Loader from "../../components/Loader/loader.jsx" 
+import swal from "sweetalert";
 
 
 const Home = () => {
   const state = useSelector((state) => state.bolsilloFeliz);
-
+  const estate = useSelector((state) => state.bolsilloPersist);
   const page = state.page;
   const myProduct = state.productsBackup;
   const startIndex = page === 1 ? 0 : page * 10 - 10;
@@ -29,6 +30,22 @@ const Home = () => {
       getProductos(dispatch);
     }
   }, [dispatch]);
+
+  let didInit1 = false;
+  useEffect(() => {
+    if (!didInit1) {
+     if (estate.activity === false) {
+      swal({
+        title: "Cuenta baneada",
+        text: "Tu cuenta a sido desactivada",
+        icon: "error",
+        button: "Reintentar",
+      });
+      dispatch(loggedOut());
+     }
+    }
+  }, []);
+
 
   
 

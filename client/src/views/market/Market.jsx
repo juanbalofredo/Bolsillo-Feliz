@@ -104,7 +104,7 @@ const Market = () => {
   }
   if (market) {
     const commentar = state.comentaries?.filter(
-      (a) => a.superM.id === market.id
+      (a) => a?.superM?.id === market.id
     );
     console.log(market)
 
