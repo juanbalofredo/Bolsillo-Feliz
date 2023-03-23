@@ -12,9 +12,6 @@ const Landing = () => {
     <div className="landing-container">
       <div className="landing-0">
         <img
-          data-aos="fade-right"
-          data-aos-duration="1000"
-          data-aos-offset="100"
           src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678579215/vt0vtn2hi1tsz208yvgu.jpg"
           alt=""
         />
@@ -38,7 +35,7 @@ const Landing = () => {
           </div>{" "}
           <img
             data-aos="fade-left"
-            data-aos-duration="10" 
+            data-aos-duration="10"
             data-aos-offset="500"
             src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678571078/ykjrxtniiuds0hxja6kp.png"
             alt=""

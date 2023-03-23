@@ -138,7 +138,11 @@ todo {
 
 .reg-image-formz {
   display: flex;
+  align-items: center;
   flex-direction: column;
+}
+.reg-image-formz img{
+ width: 100px;
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1000000px) {
