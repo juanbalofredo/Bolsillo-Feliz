@@ -41,6 +41,7 @@ export const putPrice = async (req, res) => {
 
 export const deletePrice = async (req, res) => {
     let { id } = req.body;
+    console.log(id)
     try{
         let deletedPrice = await deletePriceById({id});
         res.status(200).send("Price succesfully deleted");
