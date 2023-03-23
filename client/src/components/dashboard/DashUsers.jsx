@@ -202,7 +202,7 @@ const DashUsers = () => {
                       </h3>
                     </div>
                     <div className="div-as-ss-ee-as-">
-                      <h3>El precio actual mensual es de: ${mp[0].price}</h3>
+                      <h3>El precio actual anual es de: ${mp[0].price}</h3>
                       <div>
                         <input
                           onChange={setear}
