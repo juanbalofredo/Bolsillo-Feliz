@@ -6,7 +6,7 @@ import NavBar from "../../components/Navbar/NavBar";
 import axios from "../../redux/axios";
 import Footer from "../footer/Footer";
 import CardM from "../../components/Card/CardM";
-import Loader from "../../components/Loader/loader"
+import Loader from "../../components/Loader/loader";
 // import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
 // import { useDispatch } from "react-redux";
 // import { useSelector } from "react-redux";
@@ -27,8 +27,6 @@ const DetalleProd = () => {
     const emilia = product?.prices?.sort((a, b) => a.price - b.price);
     return (
       <>
-      
-          {product? (
         <div className="Detail-container">
           <Link to="/home">
             <button className="detail-back">Volver</button>
@@ -47,8 +45,14 @@ const DetalleProd = () => {
               <CardM props={e} />
             ))}
           </div>
-        </div> ) : <Loader /> }
+        </div>
         <Footer />
+      </>
+    );
+  } else {
+    return (
+      <>
+          <Loader />
       </>
     );
   }

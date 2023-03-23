@@ -18,24 +18,29 @@ const SuperMerc = () => {
       });
   }, []);
 
-    return (
-      <>
-        <div className="patexto-sup">
-          {" "}
-          <h1>SuperMercados</h1>
-          { markets ? (
-            <div className="cont-as-di-fle">     
-                   <div className="cont-sup-lis-a">
+  return (
+    <>
+      <div className="patexto-sup">
+        {" "}
+        <h1>SuperMercados</h1>
+        {markets ? (
+          <div className="cont-as-di-fle">
+            <div className="cont-sup-lis-a">
               {markets?.map((e) => (
                 <CardJ props={e} />
               ))}
             </div>
-          </div> ) : <Loader /> }
-        </div> 
-        <Footer />
-      </>
-    );
-    
+          </div>
+        ) : (
+          <div className="cont-as-di-fle">
+            {" "}
+            <Loader />{" "}
+          </div>
+        )}
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default SuperMerc;
