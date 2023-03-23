@@ -8,12 +8,12 @@ import {
   oneComment,
   Brand,
   filterPName,
-  Pname
+  Pname,
 } from "../slice/globalSlice";
 
 export async function getProductos(dispatch) {
   try {
-    const peticion = await axios.get("/products")
+    const peticion = await axios.get("/products");
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
@@ -22,10 +22,7 @@ export async function getProductos(dispatch) {
 
 export async function getProductId(dispatch, id) {
   try {
-    let json = await axios.get(
-      `/products/id/${id}`,
-      dispatch
-    );
+    let json = await axios.get(`/products/id/${id}`, dispatch);
     dispatch(oneComment(json?.data));
     return json;
   } catch (error) {
@@ -35,9 +32,7 @@ export async function getProductId(dispatch, id) {
 
 export async function getBrandId(id) {
   try {
-    let json = await axios.get(
-      `/market/id/${id}`,
-      );
+    let json = await axios.get(`/market/id/${id}`);
 
     return json;
   } catch (error) {
@@ -50,15 +45,11 @@ export const getNameQuery = async (dispatch, name, order) => {
     const petition = await axios.get(
       `/products/name?name=${name}&order=${order}`
     );
-    dispatch(
-      getName(petition?.data)
-    );
+    dispatch(getName(petition?.data));
   } catch (error) {
     return error.response;
   }
 };
-
-
 
 export const getCategoryParams = async (
   dispatch,
@@ -93,8 +84,7 @@ export const getCategoryParams = async (
 export const rsetFilters = async (dispatch) => {
   try {
     const petition = await axios.get("/products");
-    dispatch(
-      resetFilter(petition?.data))
+    dispatch(resetFilter(petition?.data));
     dispatch(Brand("all"));
     dispatch(Category("all"));
     dispatch(Pname("all"));
@@ -105,12 +95,8 @@ export const rsetFilters = async (dispatch) => {
 
 export const postProduct = (payload) => {
   return async () => {
-
     try {
-      const response = await axios.post(
-        "/products",
-        payload
-      );
+      const response = await axios.post("/products", payload);
       return response;
     } catch (error) {
       console.log(error);
@@ -120,12 +106,8 @@ export const postProduct = (payload) => {
 
 export const postProductNoSpecials = (payload) => {
   return async () => {
-
     try {
-      const response = await axios.post(
-        "/price/nonespecial",
-        payload
-      );
+      const response = await axios.post("/price/nonespecial", payload);
       return response;
     } catch (error) {
       console.log(error);
@@ -134,13 +116,13 @@ export const postProductNoSpecials = (payload) => {
 };
 
 export async function updatePrecioMp(presio) {
-  console.log(presio)
+  console.log(presio);
   try {
     const user = await axios({
       method: "put",
       url: "/market/paymentprice",
       data: {
-        newPrice:presio
+        newPrice: presio,
       },
     });
     return user;
@@ -149,14 +131,16 @@ export async function updatePrecioMp(presio) {
   }
 }
 
-export async function updatePrecioProdM(presio,pid,mid) {
-  console.log(presio,pid,mid)
+export async function updatePrecioProdM(presio, pid, mid) {
+  console.log(presio, pid, mid);
   try {
     const user = await axios({
       method: "put",
       url: "/price",
       data: {
-        price:presio, productId:pid, superMId:mid
+        price: presio,
+        productId: pid,
+        superMId: mid,
       },
     });
     return user;
@@ -165,3 +149,16 @@ export async function updatePrecioProdM(presio,pid,mid) {
   }
 }
 
+export async function deleteProdPr(id) {
+  console.log(id)
+  try {
+    const user = await axios({
+      method: "delete",
+      url: "price/delete",
+      data: { id: id },
+    });
+    return user;
+  } catch (error) {
+    return error.message;
+  }
+}

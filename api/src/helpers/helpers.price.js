@@ -40,3 +40,12 @@ export async function updatePrices({ price, productId, superMId }) {
     );
   }
 }
+
+export async function deletePriceById(data){
+  const { id } = data;
+  console.log(id)
+  const deletedById = await Prices.destroy({
+    where: { id }
+  })
+  return deletedById;
+}

@@ -6,6 +6,7 @@ import axios from "../../redux/axios.js";
 import swal from "sweetalert";
 import "./autorizacionMercader.css";
 import emailjs from "@emailjs/browser";
+import Loader from "../../components/Loader/loader";
 
 const AutorizacionMercader = () => {
   const state = useSelector((state) => state.bolsilloPersist);
@@ -99,6 +100,7 @@ const AutorizacionMercader = () => {
   return (
     <>
       {" "}
+      {input ? (
       <div className="todo">
         <div className="autorizar-container">
           <div className="register-logo">
@@ -178,7 +180,7 @@ const AutorizacionMercader = () => {
             </form>
           </div>
         </div>
-      </div>
+      </div> ) : <Loader /> }
       <Footer />
     </>
   );
