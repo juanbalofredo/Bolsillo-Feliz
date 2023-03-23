@@ -1,18 +1,21 @@
 
 svg {
-    width: 5.55em;
+    width: 150px;
     transform-origin: center;
-    animation: rotate4 2s linear infinite;
+    animation: rotate4 1s linear infinite;
    }
    
    circle {
     fill: none;
-    stroke: hsl(214, 97%, 59%);
-    stroke-width: 2;
+    stroke: hsl(0, 0%, 0%);
+    stroke-width: 3;
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     stroke-linecap: round;
     animation: dash4 1.5s ease-in-out infinite;
+   }
+   .bodyDark circle{
+    stroke: hsl(0, 0%, 100%);
    }
    
    @keyframes rotate4 {
@@ -39,9 +42,8 @@ svg {
 
    .loaderCenter{
     display: flex;
-    height: 250px;
+    height: 70vh;
     justify-content: center;
     align-items: center;
-
    }
 
