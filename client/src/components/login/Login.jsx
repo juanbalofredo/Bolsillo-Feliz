@@ -102,7 +102,6 @@ const Login = () => {
                     placeholder="Contraseña"
                   />
                 </div>
-                <a href="/password">Olvide mi contraseña</a>
                 <button type="submit" onClick={login}>
                   Iniciar sesion
                 </button>

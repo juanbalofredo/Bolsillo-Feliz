@@ -8,6 +8,7 @@ const initialState = {
   last_name: "",
   email: "",
   avatar: "",
+  activity:true,
   darkMode: false,
   superMId: "",
   location:[]
@@ -27,6 +28,7 @@ export const bolsilloPersist = createSlice({
       state.avatar = action.payload.avatar;
       state.id = action.payload.id;
       state.email = action.payload.email;
+      state.activity = action.payload.activity;
       state.superMId = action.payload.superMId
     },
     createUser(state, action) {
@@ -40,6 +42,7 @@ export const bolsilloPersist = createSlice({
       state.last_name = "";
       state.avatar = "";
       state.id = "";
+      state.activity = true;
       state.email = "";
       state.superMId = "";
     },
