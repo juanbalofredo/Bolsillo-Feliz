@@ -27,10 +27,8 @@ export const Form2 = () => {
   ]
     .filter((p) => p !== null)
     .sort();
+  
 
-  useEffect(() => {
-    getProductos(dispatch);
-  }, [dispatch]);
 
   const [input, setInput] = useState({
     price: 1,
