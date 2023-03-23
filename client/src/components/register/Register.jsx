@@ -21,11 +21,12 @@ const Register = () => {
 
     emailjs
       .sendForm(
-        "service_9kns3ne",
-        "template_nhht7db",
+        "service_xhpcmjf",
+        "template_pvw8prr",
         form.current,
-        "te3Yvey_o03JLT1zu",{
-          to_name:input.user_name
+        "JXq401rDktiXLNHxM",{
+          to_name:input.user_name,
+          user_email:input.user_email
         }
       )
       .then(

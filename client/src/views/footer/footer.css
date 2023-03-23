@@ -3,7 +3,7 @@
   width: 100%;
   height: 7rem;
   position: absolute;
-  bottom: -7rem;
+  bottom: 0;
 }
 
 .site_footer {
@@ -20,11 +20,13 @@
   
 }
 .site_footer .copyright{
+  display: flex;
   justify-content: center;
 
 }
 .footer-tenes-c{
   color: white;
+  flex-direction: row !important;
 }
 
 .copyright p{
@@ -34,6 +36,13 @@
   justify-items: center;
   align-items: center;
   padding-left: 12px;
+  
+}
+.copyright a{
+
+  color: white;
+
+
   
 }
 
@@ -47,7 +56,10 @@
   font-size: 10px;
 }
 .copy{
+  display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .redes_sociales img{
   transition: all 500ms;

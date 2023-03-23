@@ -57,6 +57,8 @@ export const Footer = () => {
         <div className="copyright">
           <div className="copy">
             <p>@{new Date().getFullYear()} BolsilloFeliz. All right reserved</p>
+           
+          <a href="mailto:bolsillofelizapp@gmail.com">Contactar con soporte</a>
           </div>
         </div>
       </div>
