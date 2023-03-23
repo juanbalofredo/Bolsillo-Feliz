@@ -4,7 +4,9 @@ import { Sequelize } from "sequelize";
 import Reviews from "../models/review.js";
 //listo
 export async function getAllMarket(req, res) {
+    console.log("entro a getAllMarkets")
     const allMarkets = await SuperM.findAll({
+        where: { activity: true },
         attributes: [
             'name',
             'image',
@@ -12,6 +14,7 @@ export async function getAllMarket(req, res) {
             'link',
             'superM.id',
             'superM.name',
+            'activity',
             [Sequelize.fn('AVG', Sequelize.col('reviews.score')), 'puntaje_promedio']
         ],
         include: [
@@ -57,7 +60,7 @@ export async function deleteMarket(req, res) {
 };
 
 export async function postMarket(req, res) {
-    const dataMarketFromBody = req.body; 
+    const dataMarketFromBody = req.body;
     try {
         let createNewMarket = await createSmarket(dataMarketFromBody);
         res.status(200).json(createNewMarket)

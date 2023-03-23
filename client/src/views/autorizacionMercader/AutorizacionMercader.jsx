@@ -19,7 +19,7 @@ const AutorizacionMercader = () => {
     ubicacion: "",
     image: "",
   });
-  console.log(state);
+
 
   const [error, setError] = useState({
     id: state.id,
