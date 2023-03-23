@@ -30,7 +30,7 @@ const Market = () => {
       .catch((err) => {
         return err;
       });
-  }, [id]);
+  }, []);
 
   useEffect(() => {
     getComments(dispatch);

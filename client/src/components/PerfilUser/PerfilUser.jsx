@@ -23,7 +23,7 @@ export default function Perfil() {
    
 
     //  dispatch(oneUsers({...statepersist,[type_acount]:"2"}))
-  }, [statepersist.id]);
+  }, []);
 
   return (
     <>

@@ -16,7 +16,7 @@ export default function Comentarios() {
       .catch((err) => {
         return err;
       });
-  }, [id]);
+  }, []);
   return (
     <>
     <div className="container_comentarios">
