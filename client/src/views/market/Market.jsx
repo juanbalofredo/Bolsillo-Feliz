@@ -110,7 +110,6 @@ const Market = () => {
 
     return (
       <>
-      {market ? (
         <div className="container-market-c">
           <div className="banner-sup">
             <h1>{market.name}</h1>
@@ -239,10 +238,13 @@ const Market = () => {
               )}
             </div>
           </div>
-        </div> ) : <Loader /> }
+        </div> 
         <Footer />
       </>
     );
+  }else{
+    return( <Loader />)
+   
   }
 };
 
