@@ -78,31 +78,39 @@ export async function updateUserByTypeAccount({
   type_account_logged,
 }) {
   if (type_account_logged === "3") {
-    if (activity === false || activity === true) {
-      console.log("esto es activity", activity, id)
-      let userSupermId = await Users.findOne({ where: { id: id } });
-      let activityChange = await SuperM.update({ activity: activity }, { where: { id: userSupermId.superMId } })
+    if (id !== 1) {
+      if (activity === false || activity === true) {
+        console.log("esto es activity", activity, id)
+        let userSupermId = await Users.findOne({ where: { id: id } });
+        let activityChange = await SuperM.update({ activity: activity }, { where: { id: userSupermId.superMId } })
 
-    }
-    let datas = {
-      activity,
-      email,
-      name,
-      last_name,
-      password,
-      avatar,
-      type_account,
-      notifications,
-    };
-    const dataForChange = {};
-
-    for (let key in datas) {
-      if (datas[key] !== undefined) {
-        dataForChange[key] = datas[key];
       }
+      let datas = {
+        activity,
+        email,
+        name,
+        last_name,
+        password,
+        avatar,
+        type_account,
+        notifications,
+      };
+      const dataForChange = {};
+
+      for (let key in datas) {
+        if (datas[key] !== undefined) {
+          dataForChange[key] = datas[key];
+        }
+      }
+      if (type_account == "2") {
+        let findUser = await Users.findOne({ where: { id } })
+        let updateMarket = await SuperM.update({ show: true }, { where: { id: findUser.superMId } })
+        let updatedAdmin = await Users.update(dataForChange, { where: { id } });
+        return updatedAdmin;
+      }
+      let updatedAdmin = await Users.update(dataForChange, { where: { id } });
+      return updatedAdmin;
     }
-    let updatedAdmin = await Users.update(dataForChange, { where: { id } });
-    return updatedAdmin;
   } else {
     let datas = { email, name, last_name, password, avatar, notifications };
     let dataForChange = {};

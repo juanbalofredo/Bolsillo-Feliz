@@ -28,6 +28,10 @@ const SuperM = dataBase.define(
     activity: {
       type: DataTypes.BOOLEAN,
       defaultValue: true
+    },
+    show: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   },
 
