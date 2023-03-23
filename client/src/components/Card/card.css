@@ -36,11 +36,12 @@
   width: 60%;
 }
 .detail-compara-cont-2 button{
+  color: white;
   margin-top: 10px;
   margin-left: 80%;
   background-color: red;
   border: none;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 .detail-compara-cont-2 button:hover{
   cursor: pointer;
