@@ -36,14 +36,14 @@ const nosotros = [
   { name: "Daniel Martel Chavez", 
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/daniel-martel-chavez-866481238",
-    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679370953/exmtbe89df2aqqcllluw.png",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679550770/lppnasm2vcyjryk75263.png",
     email: "danyel.martel@gmail.com",
     github: "https://github.com/cTerryc"
   },
   { name: "Francisco Di Nucci",
     carrera: "Full Stack Developer",
     linkedin: "https://www.linkedin.com/in/francisco-di-nucci-931454247 ",
-    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679370898/koiee2qbukrswkiodt3w.jpg",
+    imagen: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1679550706/bohfeepsfltngqroh7sc.jpg",
     email: "franciscoldinucci@gmail.com",
     github: "https://github.com/pacodinucci"
   },

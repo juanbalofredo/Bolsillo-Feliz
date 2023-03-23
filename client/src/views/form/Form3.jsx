@@ -28,5 +28,10 @@ export const Form3 = () => {
         </div>
       </div>
     );
+  }else{
+    return (
+      <div className="cont-form-3">
+
+      </div>)
   }
 };

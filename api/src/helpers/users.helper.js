@@ -19,9 +19,9 @@ export async function getUserByEmail(comparing) {
       email,
     },
   });
-  console.log("esto es userByEmail =>", userByEmail);
+
   let passwordMatch = await bcrypt.compare(password, userByEmail.password);
-  console.log(password, userByEmail.password)
+
   if (passwordMatch) {
     return userByEmail;
   } else {
@@ -80,7 +80,6 @@ export async function updateUserByTypeAccount({
   if (type_account_logged === "3") {
     if (id !== 1) {
       if (activity === false || activity === true) {
-        console.log("esto es activity", activity, id)
         let userSupermId = await Users.findOne({ where: { id: id } });
         let activityChange = await SuperM.update({ activity: activity }, { where: { id: userSupermId.superMId } })
 

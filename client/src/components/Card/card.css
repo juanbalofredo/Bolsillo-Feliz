@@ -27,11 +27,46 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 200px;
 }
-.detail-compara-cont-2:hover{
-  cursor:pointer;
-  background-color: rgba(255, 255, 255, 0.7);
+.detail-compara-cont-2 input{
+  text-align: center;
+   height: 30px;
+   margin-bottom: 10px;
 }
+.detail-compara-cont-2 button{
+  height: 25px;
+  width: 100px;
+  background-color: rgb(0, 65, 0);
+  color: white;
+  border: none;
+  margin-bottom: 10px;
+}
+.detail-compara-cont-2 button:hover{
+  cursor: pointer;
+  background-color: rgb(0, 41, 0);
+
+}
+.cont-form-3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+}
+
+.detail-compara-cont-2 img{
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+.cont-mi-por-a-se{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 200px 200px 200px 200px;
+  column-gap: 30px;
+}
+
 .card-details {
   color: black;
   height: 100%;

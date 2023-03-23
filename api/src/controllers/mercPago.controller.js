@@ -8,7 +8,7 @@ mercadopago.configure({ access_token: process.env.MP_TOKEN });
 export const payment = async (req, res) => {
   let actualPrice = await Membership.findOne({ where: { id: 1 } });
   let id = req.body.id;
-  console.log(id);
+
   const preference = {
     items: [
       {

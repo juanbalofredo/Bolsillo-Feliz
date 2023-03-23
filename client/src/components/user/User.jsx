@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import invitado from "../../assets/invitado.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./user.css";
 import { loggedOut } from "../../redux/slice/persistSlice";
 import { useDispatch } from "react-redux";
@@ -13,6 +13,7 @@ export const User = () => {
   const rol = user ? state.type_account : null;
   const name = user ? state.name : null;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function myFunction() {
     //Añade una clase al elemento que tenga el id myDropdown
@@ -41,7 +42,7 @@ export const User = () => {
     }).then((result) => {
       if (result === true) {
         dispatch(loggedOut());
-        window.location.href = "https://bolsillofeliz.vercel.app/home";
+        navigate("/home");
       }
     });
   };

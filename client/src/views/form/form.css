@@ -42,6 +42,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 90vh;
 }
 .cont-form-2 form {
   display: flex;
@@ -98,6 +99,9 @@
   display: flex;
   flex-direction: column;
 }
+.container-form-gr a{
+  width: 100px;
+}
 .cont-form-2 h2 {
   color: white;
   margin-bottom: 6rem;
@@ -113,9 +117,9 @@
 }
 .contGral {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-top: 5rem;
+  height: 90vh;
 }
 .contGral form {
   background-color: white;
@@ -154,7 +158,6 @@
   width: 15rem;
 }
 .x23-a img {
-  margin-left: 3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 10rem;
@@ -164,6 +167,9 @@
   margin-left: 1rem;
   border: none;
   border-bottom: 1px solid gray;
+}
+.bodyDark .cont-form-3 h2{
+  color: white;
 }
 .x23-a select {
   width: 8.8rem;
@@ -182,9 +188,13 @@
   display: flex;
 }
 .flex-asd-f p {
-  color: white;
+  color: rgb(0, 0, 0);
   width: 20rem;
   margin-left: 3rem;
+}
+.bodyDark .flex-asd-f p {
+  color: rgb(255, 255, 255);
+
 }
 .mer-prod-mi-la-img p {
   color: black;
