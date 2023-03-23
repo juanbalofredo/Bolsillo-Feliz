@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { updatePrecioProdM } from "../../redux/apiPetitions/productsPetitions";
+import { deleteProdPr, updatePrecioProdM } from "../../redux/apiPetitions/productsPetitions";
 import "../../views/detalleProd/detalleProd.css";
 import swal from "sweetalert";
 
@@ -34,7 +34,7 @@ const CardO = (props) => {
       button: "eliminar",
     }).then((result) => {
       if (result === true) {
-
+        deleteProdPr(props.product.id)
         window.location.reload(true);
       }
     });
