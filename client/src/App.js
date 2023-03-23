@@ -15,7 +15,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { useSelector } from "react-redux";
 import Error from "./views/Error/Error"
 import Perfil from "./components/PerfilUser/PerfilUser";
-import Contraseña from "./components/login/CambiarContra";
+
 import Navbar from "./components/Navbar/NavBar";
 import SeguraSeguirisima from "./views/segurasegurisima";
 import { useLocation } from "react-router-dom";
@@ -35,7 +35,6 @@ const App =()=>{
         <Route exact path="/market/id/:id" element={<Market/>} />
         <Route exact path="/seguraseguirisima" element={<SeguraSeguirisima/>} />
         <Route exact path="/about" element={<About/>} />
-        <Route exact path="/password" element={<Contraseña/>} />
         <Route path="*" element={<Error />} />
         <Route exact path="/form" element={ 
             <ProtectedRoute user={!!user}>
