@@ -4,7 +4,6 @@ import { Sequelize } from "sequelize";
 import Reviews from "../models/review.js";
 //listo
 export async function getAllMarket(req, res) {
-    console.log("entro a getAllMarkets")
     const allMarkets = await SuperM.findAll({
         where: { activity: true, show: true },
         attributes: [

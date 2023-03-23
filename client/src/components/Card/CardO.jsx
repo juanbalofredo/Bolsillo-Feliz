@@ -6,17 +6,17 @@ import swal from "sweetalert";
 
 const CardO = (props) => {
   const estate = useSelector((state) => state.bolsilloPersist);
-
-  console.log(props);
+ console.log(props)
+  
+  const [input,setInput] = useState(3)
   function setear(e) {
     const { value } = e.target;
     setInput(value);
   };
 
-  const [input,setInput] = useState()
 
   function dale (){
-    updatePrecioProdM(input,props.id,estate.superMId);
+    updatePrecioProdM(input,props.product.productId,estate.superMId);
     swal({
       title: "Precio cambiado",
       text: "Producto actualizado correctamente",
@@ -27,7 +27,8 @@ const CardO = (props) => {
 
   return (
     <>
-      <div className="detail-compara-cont-2" key={props.id}>
+      <div className="detail-compara-cont-2" key={props.product.id}>
+        <img src={props.product.product.image}alt="img" />
         <div>
           <h3 className="super-det-pre-2">
             {props.product.product.name} {props.product.product.unit}
@@ -35,8 +36,9 @@ const CardO = (props) => {
           <h3>Marca:{props.product.product.brand}</h3>
           <h3 className="super-det-pre-2">${props.product.price}</h3>
         </div>
-        <input type="number" onChange={setear} />
-        <button onClick={dale} >Cambiar</button>
+        <input type="number" placeholder="Cambiar precio" onChange={setear} />{
+          input.length ?
+        <button onClick={dale} >Cambiar</button>:null}
       </div>
     </>
   );

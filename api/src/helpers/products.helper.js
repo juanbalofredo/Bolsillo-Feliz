@@ -255,10 +255,8 @@ export function getProductsByBrand(brand, order) {
 };
 
 export async function createProducts(productsFromBody) {
-    console.log("entro a createProducts")
     let verifyProducts = await Products.findAll()
     if (verifyProducts.length === 0) {
-        console.log("entro a products = 0")
         let createProducts = await Products.bulkCreate(productos)
         return createProducts;
     }
@@ -272,7 +270,7 @@ export async function createProducts(productsFromBody) {
 
         //comprobado la existencia creo el producto
         let createProduct = await Products.create({ name, brand, image, category, unit })
-        // console.log("esto es createProduct =>", createProduct)
+
 
         // ahora creo la relacion producto precio con la propiedad id del producto y el superMId
         await createPrices({ price, superMId, productId: createProduct.id })
@@ -300,7 +298,6 @@ export async function createProducts(productsFromBody) {
 
 export async function getMarketProducts(dataParams){
     const { market } = dataParams;
-    console.log("este es el texto cambiado", market);
     const productsOfMarket = await Prices.findAll({
         where: {superMId: market},
         include: { model: Products, attributes: ["name","unit", "brand","image"]}

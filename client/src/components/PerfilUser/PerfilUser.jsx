@@ -5,7 +5,7 @@ import Footer from "../../views/footer/Footer";
 import Datos from "./Datos";
 import Comentarios from "./Comentarios";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import axios from "../../redux/axios";
 import { oneUsers } from "../../redux/slice/persistSlice";
 // import { oneUsers } from "../../redux/slice/persistSlice";
 
@@ -17,7 +17,7 @@ export default function Perfil() {
 
   useEffect(() => {
     axios.get(
-      `https://pf-grupo2-production.up.railway.app/user/id/${statepersist.id}`
+      `/user/id/${statepersist.id}`
     ).then(r=> dispatch(oneUsers(r.data)))
     
    
