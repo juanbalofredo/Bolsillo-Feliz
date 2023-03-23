@@ -33,7 +33,7 @@ const App =()=>{
         <Route exact path="/listasupers" element={<SuperMerc/>} />
         <Route exact path="/products/id/:id" element={<DetalleProd/>} />
         <Route exact path="/market/id/:id" element={<Market/>} />
-        <Route exact path="seguraseguirisima" element={<SeguraSeguirisima/>} />
+        <Route exact path="/seguraseguirisima" element={<SeguraSeguirisima/>} />
         <Route exact path="/about" element={<About/>} />
         <Route exact path="/password" element={<Contraseña/>} />
         <Route path="*" element={<Error />} />
