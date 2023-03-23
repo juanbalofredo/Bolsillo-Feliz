@@ -21,6 +21,9 @@ export async function getAllProducts() {
                     ]
                 }
             ],
+            where: {
+                '$Prices.id$': {[Op.ne]: null }
+            },
             order: [["name", "ASC"]]
         }
     )
