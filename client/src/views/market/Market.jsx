@@ -146,7 +146,7 @@ const Market = () => {
             ))}
           </MapContainer>
           <div className="txt-sup-of">
-            <h3>Visitar pagina oficial click aqui</h3>
+            <h3>Visitar pagina oficial {<a href={market.link}>click aqui</a>}</h3>
           </div>
           <div className="cont-coment-super">
             {estate.user ? (

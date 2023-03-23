@@ -18,9 +18,9 @@ export const payment = async (req, res) => {
       },
     ],
     back_urls: {
-      success: "https://bolsillofeliz.vercel.app/seguraseguirisima",
-      failure: "https://bolsillofeliz.vercel.app/home",
-      pending: "https://bolsillofeliz.vercel.app/home",
+      success: "https://bolsillo-feliz.vercel.app/seguraseguirisima",
+      failure: "https://bolsillo-feliz.vercel.app/home",
+      pending: "https://bolsillo-feliz.vercel.app/home",
     },
     auto_return: "approved",
     binary_mode: true,
