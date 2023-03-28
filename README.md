@@ -26,13 +26,14 @@ El objetivo de la aplicacion era:
 <li>Crear una Base de datos llamada 'products'</li>
 <li>Dentro de "./api" cree una rchive .env y coloque los siguientes datos:</li>
 
-DB_NAME=products
-DB_USER={su usuario de postgres}
-DB_PASSWORD={su password de postgres}
-DB_PORT=5432
-DB_DIALICT=postgres
-DB_HOST=localhost
-
+<ul>
+<li>DB_NAME=products</li>
+<li>DB_USER={su usuario de postgres}</li>
+<li>DB_PASSWORD={su password de postgres}</li>
+<li>DB_PORT=5432</li>
+<li>DB_DIALICT=postgres</li>
+<li>DB_HOST=localhost</li>
+</ul>
 <li>Parado en la carpeta "./api" y "./client" Debera ejecutar el comando npm install</li>
 <li>Luego en las mismas dos carpetas ejecutar "npm start"</li>
 </ol>
